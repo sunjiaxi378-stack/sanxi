@@ -95,7 +95,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\nquarto preview --render all\n发布命令：\nquarto publish gh-pages\n\n\n\nGitHub：@sunjiaxi378-stack"
+    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
   },
   {
     "objectID": "about.html#关于这个博客",
@@ -123,14 +123,7 @@
     "href": "about.html#技术说明",
     "title": "About",
     "section": "",
-    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\nquarto preview --render all\n发布命令：\nquarto publish gh-pages"
-  },
-  {
-    "objectID": "about.html#联系方式",
-    "href": "about.html#联系方式",
-    "title": "About",
-    "section": "",
-    "text": "GitHub：@sunjiaxi378-stack"
+    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
   },
   {
     "objectID": "index.html",

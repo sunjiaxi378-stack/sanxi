@@ -214,11 +214,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="sx-about-page">
-<section class="sx-about-hero">
+<div class="sx-about-hero">
 <p><img src="profile.jpg" class="sx-about-avatar" alt="sanxi avatar"></p>
-<h1>
-sanxi
-</h1>
+<section id="sanxi" class="level1">
+<h1>sanxi</h1>
 <div class="sx-about-quote">
 <p>
 “为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”
@@ -239,8 +238,9 @@ sanxi
 <p><a href="https://github.com/sunjiaxi378-stack" target="_blank">GitHub</a> <a href="journal.html">Mood Journal</a> <a href="notes.html">Notes</a></p>
 </div>
 </section>
+</div>
 <hr class="sx-about-divider">
-<section class="sx-about-info">
+<div class="sx-about-info">
 <section id="关于这个博客" class="level2">
 <h2 class="anchored" data-anchor-id="关于这个博客">关于这个博客</h2>
 <p>你好，这里是 <strong>sanxi</strong> 的个人博客。</p>
@@ -311,21 +311,14 @@ sanxi
 <h2 class="anchored" data-anchor-id="技术说明">技术说明</h2>
 <p>本博客使用 <strong>Quarto + GitHub Pages</strong> 搭建。</p>
 <p>本地预览命令：</p>
-<pre class="text"><code>quarto preview --render all</code></pre>
-<p>发布命令：</p>
-<pre class="text"><code>quarto publish gh-pages</code></pre>
+<p>```text quarto preview –render all</p>
+
+
 </section>
-<section id="联系方式" class="level2">
-<h2 class="anchored" data-anchor-id="联系方式">联系方式</h2>
-<p>GitHub：<a href="https://github.com/sunjiaxi378-stack"><span class="citation" data-cites="sunjiaxi378-stack">@sunjiaxi378-stack</span></a></p>
-</section>
-</section></div>
+</div>
+</div>
 
-
-
-</main></div>
-
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -726,7 +719,7 @@ sanxi
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
