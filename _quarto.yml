@@ -44,7 +44,7 @@ website:
       - text: "文章"
         menu:
           - text: "全部文章"
-            href: index.qmd#文章列表
+            href: index.qmd#post-list
           - text: "欢迎文章"
             href: posts/welcome/index.qmd
 
