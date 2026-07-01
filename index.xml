@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>sanxi</title>
+<link>https://sunjiaxi378-stack.github.io/sanxi/</link>
+<atom:link href="https://sunjiaxi378-stack.github.io/sanxi/index.xml" rel="self" type="application/rss+xml"/>
+<description>sanxi 的个人博客</description>
+<generator>quarto-1.9.38</generator>
+<lastBuildDate>Tue, 30 Jun 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>欢迎来到 sanxi</title>
+  <link>https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>这是 <strong>sanxi</strong> 博客的第一篇文章。</p>
+<p>这里可以用来记录学习笔记、课程作业、编程代码、数学建模、数据分析和日常想法。</p>
+<section id="我的博客计划" class="level2">
+<h2 class="anchored" data-anchor-id="我的博客计划">我的博客计划</h2>
+<p>这个博客主要包括以下几个部分：</p>
+<ol type="1">
+<li>统计学与数据分析</li>
+<li>Python 和 R 语言学习</li>
+<li>数学建模</li>
+<li>Quarto 博客搭建记录</li>
+<li>日常日志和个人思考</li>
+</ol>
+</section>
+<section id="示例公式" class="level2">
+<h2 class="anchored" data-anchor-id="示例公式">示例公式</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ay%20=%20%5Cbeta_0%20+%20%5Cbeta_1x%20+%20%5Cvarepsilon%0A"></p>
+
+
+</section>
+
+ ]]></description>
+  <category>博客</category>
+  <category>日志</category>
+  <guid>https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/</guid>
+  <pubDate>Tue, 30 Jun 2026 16:00:00 GMT</pubDate>
+  <media:content url="https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

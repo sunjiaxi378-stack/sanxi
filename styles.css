@@ -1,0 +1,140 @@
+/* =========================
+   sanxi blog custom style
+   ========================= */
+
+body {
+  font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.75;
+}
+
+/* 顶部导航栏 */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navbar a {
+  color: #222222;
+}
+
+.navbar a:hover {
+  color: #2563eb;
+}
+
+/* 页面标题区域 */
+.quarto-title-banner {
+  background: linear-gradient(135deg, #f8fafc, #eef4ff);
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.quarto-title h1.title {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.quarto-title .subtitle {
+  color: #4b5563;
+  font-size: 1.1rem;
+}
+
+/* 正文宽度 */
+.page-layout-full .content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* 文章列表卡片 */
+.quarto-listing .quarto-post {
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 22px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.045);
+  transition: all 0.2s ease;
+}
+
+.quarto-listing .quarto-post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.075);
+}
+
+.quarto-listing .quarto-post .listing-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.quarto-listing .quarto-post .listing-title a {
+  color: #111827;
+  text-decoration: none;
+}
+
+.quarto-listing .quarto-post .listing-title a:hover {
+  color: #2563eb;
+}
+
+/* 分类标签 */
+.quarto-category {
+  border-radius: 999px;
+  padding: 3px 10px;
+  background-color: #eef4ff;
+  color: #2563eb;
+  border: none;
+  font-size: 0.85rem;
+}
+
+/* 链接 */
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 代码块 */
+pre {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+code {
+  font-family: "Consolas", "JetBrains Mono", monospace;
+}
+
+/* 表格 */
+table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #f3f4f6;
+}
+
+/* 页脚 */
+.footer {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .quarto-title h1.title {
+    font-size: 1.8rem;
+  }
+
+  .quarto-listing .quarto-post {
+    padding: 16px;
+  }
+}

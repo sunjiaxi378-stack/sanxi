@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "欢迎来到 sanxi",
+    "section": "",
+    "text": "这是 sanxi 博客的第一篇文章。\n这里可以用来记录学习笔记、课程作业、编程代码、数学建模、数据分析和日常想法。"
+  },
+  {
+    "objectID": "posts/welcome/index.html#我的博客计划",
+    "href": "posts/welcome/index.html#我的博客计划",
+    "title": "欢迎来到 sanxi",
+    "section": "我的博客计划",
+    "text": "我的博客计划\n这个博客主要包括以下几个部分：\n\n统计学与数据分析\nPython 和 R 语言学习\n数学建模\nQuarto 博客搭建记录\n日常日志和个人思考"
+  },
+  {
+    "objectID": "posts/welcome/index.html#示例公式",
+    "href": "posts/welcome/index.html#示例公式",
+    "title": "欢迎来到 sanxi",
+    "section": "示例公式",
+    "text": "示例公式\n\\[\ny = \\beta_0 + \\beta_1x + \\varepsilon\n\\]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "sanxi",
+    "section": "",
+    "text": "欢迎来到 sanxi 的个人博客。\n这里主要记录学习笔记、数据分析、编程实践、数学建模以及日常思考。"
+  },
+  {
+    "objectID": "index.html#最新文章",
+    "href": "index.html#最新文章",
+    "title": "sanxi",
+    "section": "最新文章",
+    "text": "最新文章"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录个人学习、课程作业、数据分析、编程实践和一些生活思考。"
+  },
+  {
+    "objectID": "about.html#关于-sanxi",
+    "href": "about.html#关于-sanxi",
+    "title": "About",
+    "section": "",
+    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录个人学习、课程作业、数据分析、编程实践和一些生活思考。"
+  },
+  {
+    "objectID": "about.html#主要内容",
+    "href": "about.html#主要内容",
+    "title": "About",
+    "section": "主要内容",
+    "text": "主要内容\n\n统计学与数据分析\nR 语言与 Python\n数学建模\nQuarto 博客搭建\n学习笔记与日常记录"
+  },
+  {
+    "objectID": "about.html#联系方式",
+    "href": "about.html#联系方式",
+    "title": "About",
+    "section": "联系方式",
+    "text": "联系方式\nGitHub：@eros-prc"
+  },
+  {
+    "objectID": "journal.html",
+    "href": "journal.html",
+    "title": "Mood Journal",
+    "section": "",
+    "text": "这里是我的心情日志页面。\n以后这个页面会用来记录每天的心情、学习状态和生活碎片。"
+  },
+  {
+    "objectID": "journal.html#mood-journal",
+    "href": "journal.html#mood-journal",
+    "title": "Mood Journal",
+    "section": "",
+    "text": "这里是我的心情日志页面。\n以后这个页面会用来记录每天的心情、学习状态和生活碎片。"
+  },
+  {
+    "objectID": "journal.html#最近记录",
+    "href": "journal.html#最近记录",
+    "title": "Mood Journal",
+    "section": "最近记录",
+    "text": "最近记录\n\n2026-07-01\n今天搭建了自己的 Quarto 博客，并开始添加 journal 页面。"
+  }
+]
