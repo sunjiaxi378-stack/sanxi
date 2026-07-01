@@ -6,21 +6,58 @@ website:
   title: "sanxi"
   description: "sanxi 的个人博客"
   site-url: https://sunjiaxi378-stack.github.io/sanxi/
+  search: true
 
   navbar:
     title: "sanxi"
+
     left:
       - text: "首页"
         href: index.qmd
+
+      - text: "笔记"
+        menu:
+          - text: "学习笔记总览"
+            href: notes.qmd
+          - text: "统计学笔记"
+            href: notes.qmd#统计学笔记
+          - text: "编程笔记"
+            href: notes.qmd#编程笔记
+          - text: "数学建模"
+            href: notes.qmd#数学建模
+          - text: "生活复盘"
+            href: notes.qmd#生活复盘
+
       - text: "日志"
-        href: journal.qmd
-      - text: "About"
-        href: about.qmd
+        menu:
+          - text: "Mood Journal"
+            href: journal.qmd
+          - text: "心情热力图"
+            href: journal.qmd#心情热力图
+          - text: "最近状态"
+            href: journal.qmd#最近状态
+          - text: "最近记录"
+            href: journal.qmd#最近记录
+          - text: "互动小部件"
+            href: journal.qmd#互动小部件
+
+      - text: "文章"
+        menu:
+          - text: "全部文章"
+            href: index.qmd#文章列表
+          - text: "欢迎文章"
+            href: posts/welcome/index.qmd
 
     right:
+      - text: "About"
+        href: about.qmd
       - icon: github
         href: https://github.com/sunjiaxi378-stack/sanxi
         aria-label: GitHub
+
+  page-footer:
+    center: "© 2026 sanxi · Built with Quarto"
+    border: true
 
 format:
   html:
@@ -28,5 +65,11 @@ format:
       - cosmo
     css: styles.css
     toc: true
+    toc-title: "目录"
+    toc-location: right
+    toc-depth: 2
     page-layout: full
     smooth-scroll: true
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true

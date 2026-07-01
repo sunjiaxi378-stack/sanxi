@@ -1,23 +1,109 @@
 ---
 title: "About"
 page-layout: full
-title-block-banner: true
+title-block-banner: false
+toc: true
+toc-location: right
 ---
 
-## 关于 sanxi
+<div class="sx-about-page">
+
+<section class="sx-about-hero">
+
+<img src="profile.jpg" class="sx-about-avatar" alt="sanxi avatar">
+
+<h1>sanxi</h1>
+
+<div class="sx-about-quote">
+
+<p>“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”</p>
+
+<p>
+生活，尽管有悲剧，但毕竟还可以是美好的。  
+我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——  
+我感觉自己从未这样年轻，即便一切都快结束了。
+</p>
+
+<p>是的，毕竟来日方长。</p>
+
+<p class="sx-quote-author">—— 阿尔都塞《来日方长》</p>
+
+</div>
+
+<div class="sx-about-links">
+<a href="https://github.com/sunjiaxi378-stack" target="_blank">GitHub</a>
+<a href="journal.html">Mood Journal</a>
+<a href="notes.html">Notes</a>
+</div>
+
+</section>
+
+<hr class="sx-about-divider">
+
+<section class="sx-about-info">
+
+## 关于这个博客
 
 你好，这里是 **sanxi** 的个人博客。
 
-这个网站主要用于记录个人学习、课程作业、数据分析、编程实践和一些生活思考。
+这个网站主要用于记录：
 
-## 主要内容
-
-- 统计学与数据分析
-- R 语言与 Python
+- 学习笔记
+- 数据分析
+- 编程实践
 - 数学建模
 - Quarto 博客搭建
-- 学习笔记与日常记录
+- Mood Journal 心情日志
+- 日常生活和个人思考
+
+## 博客结构
+
+| 页面 | 内容 |
+|---|---|
+| 首页 | 内容导航、互动小部件、最新文章 |
+| 日志 | 心情热力图、最近状态、每日记录 |
+| 笔记 | 学习笔记分类框架 |
+| 文章 | 后续博客文章列表 |
+| About | 博客介绍和个人说明 |
+
+## 内容规划
+
+### 统计学笔记
+
+这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。
+
+### 编程笔记
+
+这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。
+
+### 数学建模
+
+这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。
+
+### Mood Journal
+
+这里用于记录每天的心情、精力、生活碎片和阶段性复盘。
+
+## 技术说明
+
+本博客使用 **Quarto + GitHub Pages** 搭建。
+
+本地预览命令：
+
+```text
+quarto preview --render all
+```
+
+发布命令：
+
+```text
+quarto publish gh-pages
+```
 
 ## 联系方式
 
-GitHub：[@eros-prc](https://github.com/eros-prc)
+GitHub：[@sunjiaxi378-stack](https://github.com/sunjiaxi378-stack)
+
+</section>
+
+</div>

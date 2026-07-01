@@ -1,0 +1,90 @@
+---
+title: "学习笔记"
+subtitle: "统计学 · 编程 · 数学建模 · Quarto · 生活复盘"
+page-layout: full
+title-block-banner: true
+toc: true
+---
+
+## 笔记总览
+
+这里先搭建学习笔记框架，后面可以逐步填充具体内容。
+
+<div class="note-grid">
+
+<div class="note-card">
+<h3>统计学笔记</h3>
+<p>概率论、数理统计、回归分析、非参数统计、多元统计等。</p>
+<ul>
+<li>描述统计</li>
+<li>参数估计</li>
+<li>假设检验</li>
+<li>回归模型</li>
+</ul>
+</div>
+
+<div class="note-card">
+<h3>编程笔记</h3>
+<p>Python、R、Java、Mathematica、Quarto 等学习记录。</p>
+<ul>
+<li>Python 数据分析</li>
+<li>R 语言统计建模</li>
+<li>Java 数据结构</li>
+<li>Quarto 博客搭建</li>
+</ul>
+</div>
+
+<div class="note-card">
+<h3>数学建模</h3>
+<p>模型建立、算法求解、论文写作和可视化表达。</p>
+<ul>
+<li>优化模型</li>
+<li>评价模型</li>
+<li>预测模型</li>
+<li>图论模型</li>
+</ul>
+</div>
+
+<div class="note-card">
+<h3>生活复盘</h3>
+<p>阶段总结、日常计划、学习状态和个人成长记录。</p>
+<ul>
+<li>每日复盘</li>
+<li>阶段总结</li>
+<li>学习计划</li>
+<li>情绪记录</li>
+</ul>
+</div>
+
+</div>
+
+## 文章分类入口
+
+<div class="nav-grid">
+
+<a class="nav-card" href="index.html">
+<h3>全部文章</h3>
+<p>返回首页查看所有文章列表。</p>
+</a>
+
+<a class="nav-card" href="journal.html">
+<h3>Mood Journal</h3>
+<p>查看心情记录、热力图和最近状态。</p>
+</a>
+
+<a class="nav-card" href="posts/welcome/">
+<h3>博客说明</h3>
+<p>查看第一篇博客说明文章。</p>
+</a>
+
+</div>
+
+## 后续计划
+
+| 模块 | 内容 | 状态 |
+|---|---|---|
+| 统计学 | 课程公式、知识点、例题 | 待更新 |
+| Python | 数据处理、绘图、建模 | 待更新 |
+| R 语言 | 统计分析、可视化 | 待更新 |
+| 数学建模 | 建模模板、算法代码 | 待更新 |
+| Quarto | 博客搭建与发布 | 正在完善 |
