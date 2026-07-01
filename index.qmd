@@ -1,0 +1,20 @@
+---
+title: "sanxi"
+subtitle: "个人学习笔记 · 数据分析 · 编程 · 生活记录"
+listing:
+  contents: "posts/*/index.qmd"
+  feed: true
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+欢迎来到 **sanxi** 的个人博客。
+
+这里主要记录学习笔记、数据分析、编程实践、数学建模以及日常思考。
+
+## 最新文章

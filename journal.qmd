@@ -1,0 +1,19 @@
+---
+title: "Mood Journal"
+subtitle: "我的心情日志"
+page-layout: full
+title-block-banner: true
+toc: true
+---
+
+## Mood Journal
+
+这里是我的心情日志页面。
+
+以后这个页面会用来记录每天的心情、学习状态和生活碎片。
+
+## 最近记录
+
+### 2026-07-01
+
+今天搭建了自己的 Quarto 博客，并开始添加 journal 页面。
