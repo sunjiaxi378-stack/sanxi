@@ -6,15 +6,15 @@ toc: true
 toc-location: right
 ---
 
-<div class="sx-about-page">
+::: {.sx-about-page}
 
-<section class="sx-about-hero">
+::: {.sx-about-hero}
 
 <img src="profile.jpg" class="sx-about-avatar" alt="sanxi avatar">
 
-<h1>sanxi</h1>
+# sanxi
 
-<div class="sx-about-quote">
+::: {.sx-about-quote}
 
 <p>“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”</p>
 
@@ -28,19 +28,19 @@ toc-location: right
 
 <p class="sx-quote-author">—— 阿尔都塞《来日方长》</p>
 
-</div>
+:::
 
-<div class="sx-about-links">
-<a href="https://github.com/sunjiaxi378-stack" target="_blank">GitHub</a>
-<a href="journal.html">Mood Journal</a>
-<a href="notes.html">Notes</a>
-</div>
+::: {.sx-about-links}
+[GitHub](https://github.com/sunjiaxi378-stack){target="_blank"}
+[Mood Journal](journal.html)
+[Notes](notes.html)
+:::
 
-</section>
+:::
 
 <hr class="sx-about-divider">
 
-<section class="sx-about-info">
+::: {.sx-about-info}
 
 ## 关于这个博客
 
@@ -92,18 +92,3 @@ toc-location: right
 
 ```text
 quarto preview --render all
-```
-
-发布命令：
-
-```text
-quarto publish gh-pages
-```
-
-## 联系方式
-
-GitHub：[@sunjiaxi378-stack](https://github.com/sunjiaxi378-stack)
-
-</section>
-
-</div>
