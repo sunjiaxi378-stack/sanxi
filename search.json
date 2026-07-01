@@ -4,83 +4,195 @@
     "href": "posts/welcome/index.html",
     "title": "欢迎来到 sanxi",
     "section": "",
-    "text": "这是 sanxi 博客的第一篇文章。\n这里可以用来记录学习笔记、课程作业、编程代码、数学建模、数据分析和日常想法。"
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
     "objectID": "posts/welcome/index.html#我的博客计划",
     "href": "posts/welcome/index.html#我的博客计划",
     "title": "欢迎来到 sanxi",
-    "section": "我的博客计划",
-    "text": "我的博客计划\n这个博客主要包括以下几个部分：\n\n统计学与数据分析\nPython 和 R 语言学习\n数学建模\nQuarto 博客搭建记录\n日常日志和个人思考"
+    "section": "",
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
-    "objectID": "posts/welcome/index.html#示例公式",
-    "href": "posts/welcome/index.html#示例公式",
+    "objectID": "posts/welcome/index.html#这个博客会写什么",
+    "href": "posts/welcome/index.html#这个博客会写什么",
     "title": "欢迎来到 sanxi",
-    "section": "示例公式",
-    "text": "示例公式\n\\[\ny = \\beta_0 + \\beta_1x + \\varepsilon\n\\]"
+    "section": "这个博客会写什么",
+    "text": "这个博客会写什么\n以后这里主要记录：\n\n统计学学习笔记\nPython 和 R 语言学习\n数学建模作业与比赛经验\nQuarto 博客搭建过程\nMood Journal 心情日志\n日常生活和个人思考"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "sanxi",
-    "section": "",
-    "text": "欢迎来到 sanxi 的个人博客。\n这里主要记录学习笔记、数据分析、编程实践、数学建模以及日常思考。"
-  },
-  {
-    "objectID": "index.html#最新文章",
-    "href": "index.html#最新文章",
-    "title": "sanxi",
-    "section": "最新文章",
-    "text": "最新文章"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录个人学习、课程作业、数据分析、编程实践和一些生活思考。"
-  },
-  {
-    "objectID": "about.html#关于-sanxi",
-    "href": "about.html#关于-sanxi",
-    "title": "About",
-    "section": "",
-    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录个人学习、课程作业、数据分析、编程实践和一些生活思考。"
-  },
-  {
-    "objectID": "about.html#主要内容",
-    "href": "about.html#主要内容",
-    "title": "About",
-    "section": "主要内容",
-    "text": "主要内容\n\n统计学与数据分析\nR 语言与 Python\n数学建模\nQuarto 博客搭建\n学习笔记与日常记录"
-  },
-  {
-    "objectID": "about.html#联系方式",
-    "href": "about.html#联系方式",
-    "title": "About",
-    "section": "联系方式",
-    "text": "联系方式\nGitHub：@eros-prc"
+    "objectID": "posts/welcome/index.html#后续文章模板",
+    "href": "posts/welcome/index.html#后续文章模板",
+    "title": "欢迎来到 sanxi",
+    "section": "后续文章模板",
+    "text": "后续文章模板\n以后新建文章时，可以按照这个结构：\n```text posts/文章文件夹名/index.qmd"
   },
   {
     "objectID": "journal.html",
     "href": "journal.html",
     "title": "Mood Journal",
     "section": "",
-    "text": "这里是我的心情日志页面。\n以后这个页面会用来记录每天的心情、学习状态和生活碎片。"
+    "text": "这里是 sanxi 的 Mood Journal 页面。\n这个页面主要包括：\n\n心情热力图\n最近状态统计\n最近记录列表\n每日一句互动小部件\n待办事项小部件\n日志正文区域\n\n\n注意：静态网页上的密码解锁只是前端隐藏，不适合存放真正隐私内容。"
   },
   {
-    "objectID": "journal.html#mood-journal",
-    "href": "journal.html#mood-journal",
+    "objectID": "journal.html#页面说明",
+    "href": "journal.html#页面说明",
     "title": "Mood Journal",
     "section": "",
-    "text": "这里是我的心情日志页面。\n以后这个页面会用来记录每天的心情、学习状态和生活碎片。"
+    "text": "这里是 sanxi 的 Mood Journal 页面。\n这个页面主要包括：\n\n心情热力图\n最近状态统计\n最近记录列表\n每日一句互动小部件\n待办事项小部件\n日志正文区域\n\n\n注意：静态网页上的密码解锁只是前端隐藏，不适合存放真正隐私内容。"
+  },
+  {
+    "objectID": "journal.html#快速导航",
+    "href": "journal.html#快速导航",
+    "title": "Mood Journal",
+    "section": "快速导航",
+    "text": "快速导航\n\n心情热力图 最近状态 最近记录 互动小部件 日志正文 如何更新"
+  },
+  {
+    "objectID": "journal.html#心情热力图",
+    "href": "journal.html#心情热力图",
+    "title": "Mood Journal",
+    "section": "心情热力图",
+    "text": "心情热力图\n\n\n&lt;span&gt;低&lt;/span&gt;\n&lt;span class=\"legend-box level-1\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-2\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-3\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-4\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-5\"&gt;&lt;/span&gt;\n&lt;span&gt;高&lt;/span&gt;\n\n\n正在加载心情数据……"
+  },
+  {
+    "objectID": "journal.html#最近状态",
+    "href": "journal.html#最近状态",
+    "title": "Mood Journal",
+    "section": "最近状态",
+    "text": "最近状态\n\n正在加载最近状态……"
   },
   {
     "objectID": "journal.html#最近记录",
     "href": "journal.html#最近记录",
     "title": "Mood Journal",
     "section": "最近记录",
-    "text": "最近记录\n\n2026-07-01\n今天搭建了自己的 Quarto 博客，并开始添加 journal 页面。"
+    "text": "最近记录\n\n正在加载最近记录……"
+  },
+  {
+    "objectID": "journal.html#互动小部件",
+    "href": "journal.html#互动小部件",
+    "title": "Mood Journal",
+    "section": "互动小部件",
+    "text": "互动小部件\n\n\n\n今日一句\n\n\n正在生成……\n\n\n换一句\n\n\n\n\n今天的小目标\n\n 添加\n\n\n\n\n\n打卡提醒\n\n\n每天只需要写一句话，也算记录。\n\n\n建议格式：日期、心情、精力、标题、标签、备注。"
+  },
+  {
+    "objectID": "journal.html#日志正文",
+    "href": "journal.html#日志正文",
+    "title": "Mood Journal",
+    "section": "日志正文",
+    "text": "日志正文\n\n\n轻度密码解锁\n\n\n这个区域适合放普通生活碎片，不适合放真正隐私内容。\n\n\n&lt;input id=\"journal-password\" type=\"password\" placeholder=\"输入密码\"&gt;\n&lt;button id=\"unlock-button\"&gt;解锁&lt;/button&gt;\n\n\n\n\n\n\n\n2026-07-01｜新博客搭建完成\n\n\n今天把 sanxi 博客的基本框架搭起来了，包括首页、日志页、文章列表和心情数据。\n\n\n\n\n2026-06-30｜继续调整页面\n\n\n页面还不完美，但已经可以慢慢往里面填内容。先有框架，再逐步丰富。"
+  },
+  {
+    "objectID": "journal.html#如何更新",
+    "href": "journal.html#如何更新",
+    "title": "Mood Journal",
+    "section": "如何更新",
+    "text": "如何更新\n以后每天更新心情数据，只需要修改这个文件：\n```text assets/data/mood.csv"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\nquarto preview --render all\n发布命令：\nquarto publish gh-pages\n\n\n\nGitHub：@sunjiaxi378-stack"
+  },
+  {
+    "objectID": "about.html#关于这个博客",
+    "href": "about.html#关于这个博客",
+    "title": "About",
+    "section": "",
+    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考"
+  },
+  {
+    "objectID": "about.html#博客结构",
+    "href": "about.html#博客结构",
+    "title": "About",
+    "section": "",
+    "text": "页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明"
+  },
+  {
+    "objectID": "about.html#内容规划",
+    "href": "about.html#内容规划",
+    "title": "About",
+    "section": "",
+    "text": "这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。"
+  },
+  {
+    "objectID": "about.html#技术说明",
+    "href": "about.html#技术说明",
+    "title": "About",
+    "section": "",
+    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\nquarto preview --render all\n发布命令：\nquarto publish gh-pages"
+  },
+  {
+    "objectID": "about.html#联系方式",
+    "href": "about.html#联系方式",
+    "title": "About",
+    "section": "",
+    "text": "GitHub：@sunjiaxi378-stack"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "把学习、代码、建模、阅读和普通日子都留下来。\n\n\n\nSANXI BLOG · STUDY / CODE / JOURNAL\n\n\n\n这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。\n\n\n进入日志 关于我 🎲 随便看看\n\n\n\n\n\n\n📍 身份\n\n\n信息与计算科学 · 大二\n\n\n\n\n📚 最近学习\n\n\nQuarto / 算法图解 / 数值分析\n\n\n\n\n🧭 长期方向\n\n\n数据分析与算法优化\n\n\n\n\n📅 今天\n\n\n加载中…\n\n\n\n\n\n\n\n\n\n今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;\n\n\n\n\n\n\n\n\n这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。\n\n\n\n\n\n\n\n\n\n\n心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我\n\n\n\n\n\n\n统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "index.html#interactive-widgets",
+    "href": "index.html#interactive-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;"
+  },
+  {
+    "objectID": "index.html#debug-widgets",
+    "href": "index.html#debug-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。"
+  },
+  {
+    "objectID": "index.html#content-navigation",
+    "href": "index.html#content-navigation",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我"
+  },
+  {
+    "objectID": "index.html#tag-cloud",
+    "href": "index.html#tag-cloud",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#笔记总览",
+    "href": "notes.html#笔记总览",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#文章分类入口",
+    "href": "notes.html#文章分类入口",
+    "title": "学习笔记",
+    "section": "文章分类入口",
+    "text": "文章分类入口\n\n\n\n全部文章\n\n\n返回首页查看所有文章列表。\n\n\n\n\nMood Journal\n\n\n查看心情记录、热力图和最近状态。\n\n\n\n\n博客说明\n\n\n查看第一篇博客说明文章。"
+  },
+  {
+    "objectID": "notes.html#后续计划",
+    "href": "notes.html#后续计划",
+    "title": "学习笔记",
+    "section": "后续计划",
+    "text": "后续计划\n\n\n\n模块\n内容\n状态\n\n\n\n\n统计学\n课程公式、知识点、例题\n待更新\n\n\nPython\n数据处理、绘图、建模\n待更新\n\n\nR 语言\n统计分析、可视化\n待更新\n\n\n数学建模\n建模模板、算法代码\n待更新\n\n\nQuarto\n博客搭建与发布\n正在完善"
   }
 ]

@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2fbc441a486df88665f5593ec0ec4a4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -139,7 +139,7 @@ window.Quarto = {
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -157,16 +157,81 @@ window.Quarto = {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">首页</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./journal.html"> 
-<span class="menu-text">日志</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">笔记</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="./notes.html">
+ <span class="dropdown-text">学习笔记总览</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./notes.html#统计学笔记">
+ <span class="dropdown-text">统计学笔记</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./notes.html#编程笔记">
+ <span class="dropdown-text">编程笔记</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./notes.html#数学建模">
+ <span class="dropdown-text">数学建模</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./notes.html#生活复盘">
+ <span class="dropdown-text">生活复盘</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">日志</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
+        <li>
+    <a class="dropdown-item" href="./journal.html">
+ <span class="dropdown-text">Mood Journal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./journal.html#心情热力图">
+ <span class="dropdown-text">心情热力图</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./journal.html#最近状态">
+ <span class="dropdown-text">最近状态</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./journal.html#最近记录">
+ <span class="dropdown-text">最近记录</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./journal.html#互动小部件">
+ <span class="dropdown-text">互动小部件</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">文章</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
+        <li>
+    <a class="dropdown-item" href="./index.html#文章列表">
+ <span class="dropdown-text">全部文章</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./posts/welcome/index.html">
+ <span class="dropdown-text">欢迎文章</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/sunjiaxi378-stack/sanxi"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
@@ -180,54 +245,1530 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">sanxi</h1>
-            <p class="subtitle lead">个人学习笔记 · 数据分析 · 编程 · 生活记录</p>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">目录</h2>
    
-  <ul>
-  <li><a href="#最新文章" id="toc-最新文章" class="nav-link active" data-scroll-target="#最新文章">最新文章</a></li>
+  <ul class="collapse">
+  <li><a href="#top" id="toc-top" class="nav-link active" data-scroll-target="#top">sanxi 的学习与生活笔记</a>
+  <ul class="collapse">
+  <li><a href="#interactive-widgets" id="toc-interactive-widgets" class="nav-link" data-scroll-target="#interactive-widgets">互动小部件</a></li>
+  <li><a href="#debug-widgets" id="toc-debug-widgets" class="nav-link" data-scroll-target="#debug-widgets">可调试小部件</a></li>
+  <li><a href="#content-navigation" id="toc-content-navigation" class="nav-link" data-scroll-target="#content-navigation">内容导航</a></li>
+  <li><a href="#tag-cloud" id="toc-tag-cloud" class="nav-link" data-scroll-target="#tag-cloud">标签云</a></li>
+  <li><a href="#post-list" id="toc-post-list" class="nav-link" data-scroll-target="#post-list">文章列表</a></li>
+  </ul></li>
   </ul>
 </nav>
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU1JThEJTlBJUU1JUFFJUEy">博客 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk3JUE1JUU1JUJGJTk3">日志 <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
+<style>
+/* =========================================================
+   sanxi 首页专用样式
+   说明：这部分放在 index.qmd 内部，保证首页可以独立生效。
+   如果 styles.css 里也有同名样式，以这里为准。
+   ========================================================= */
 
-<p>欢迎来到 <strong>sanxi</strong> 的个人博客。</p>
-<p>这里主要记录学习笔记、数据分析、编程实践、数学建模以及日常思考。</p>
-<section id="最新文章" class="level2">
-<h2 class="anchored" data-anchor-id="最新文章">最新文章</h2>
+.sx-home {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 3.2rem 1.2rem 5rem 1.2rem;
+}
+
+.sx-home > h1 {
+  font-size: 2.65rem;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  margin-bottom: 0.45rem;
+  color: #222222;
+}
+
+.sx-home > p {
+  color: #6b7280;
+  font-size: 1.06rem;
+  margin-bottom: 2.3rem;
+}
+
+/* 顶部左右布局 */
+.sx-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(330px, 0.95fr);
+  gap: 18px;
+  align-items: stretch;
+  margin: 2rem 0 1.6rem 0;
+}
+
+/* 通用卡片 */
+.sx-intro-card,
+.sx-status-card,
+.sx-mini-card,
+.sx-widget-card,
+.sx-nav-card,
+.sx-tag-cloud,
+.sx-note-box {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045);
+  box-sizing: border-box;
+}
+
+/* 左侧简介大卡片 */
+.sx-intro-card {
+  padding: 2.35rem;
+  min-height: 500px;
+}
+
+.sx-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  color: #4b5563;
+  margin-bottom: 1.35rem;
+}
+
+.sx-intro-card h2 {
+  font-size: clamp(2.2rem, 4.8vw, 3.6rem);
+  line-height: 1.07;
+  font-weight: 950;
+  letter-spacing: -0.065em;
+  margin: 0 0 1.35rem 0;
+  color: #202020;
+}
+
+.sx-intro-card p {
+  color: #555555;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.sx-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.sx-btn {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.sx-btn-dark {
+  background: #111111;
+  color: #ffffff !important;
+}
+
+.sx-btn-dark:hover {
+  background: #000000;
+  color: #ffffff !important;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.sx-btn-light {
+  background: #ffffff;
+  color: #222222 !important;
+}
+
+.sx-btn-light:hover {
+  background: #f7f7f7;
+  color: #111111 !important;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* 右侧当前状态卡片 */
+.sx-status-card {
+  padding: 2rem 1.6rem;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sx-status-card h3 {
+  margin-top: 0;
+  margin-bottom: 1.45rem;
+  font-size: 1.08rem;
+  font-weight: 850;
+  color: #222222;
+}
+
+.sx-status-item {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  column-gap: 18px;
+  align-items: start;
+  padding: 1.08rem 0;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.sx-status-item:last-child {
+  border-bottom: none;
+}
+
+.sx-status-label {
+  color: #8a8a8a;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.sx-status-value {
+  color: #202020;
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 三个主小卡片 */
+.sx-three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 1rem 0 2rem 0;
+}
+
+.sx-mini-card {
+  padding: 1.45rem;
+  min-height: 220px;
+}
+
+.sx-card-label {
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  color: #555555;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.sx-daily-line {
+  font-size: 1.14rem;
+  font-weight: 850;
+  color: #222222;
+  line-height: 1.65;
+}
+
+.sx-small-btn {
+  margin-top: 0.8rem;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: #ffffff;
+  color: #222222;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.18s ease;
+}
+
+.sx-small-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.sx-mood-word {
+  font-size: 2.35rem;
+  font-weight: 950;
+  color: #222222;
+  line-height: 1.2;
+  margin: 0.35rem 0 0.7rem 0;
+}
+
+.sx-mood-date {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.35rem;
+}
+
+.sx-mood-title {
+  color: #333333;
+  font-size: 1.05rem;
+  font-weight: 750;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.sx-mood-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.sx-text-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-weight: 750;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.sx-text-link:hover {
+  text-decoration: underline;
+}
+
+.sx-muted {
+  color: #6b7280;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+/* 学习进度条 */
+.sx-progress-item {
+  margin-bottom: 1rem;
+}
+
+.sx-progress-item span {
+  display: block;
+  color: #555555;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+}
+
+.sx-progress-track {
+  height: 7px;
+  background: #eeeeee;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.sx-progress-bar {
+  height: 100%;
+  background: #111111;
+  border-radius: 999px;
+}
+
+/* 可调试小部件 */
+.sx-widget-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 1rem 0 2rem 0;
+}
+
+.sx-widget-card {
+  padding: 1.5rem;
+}
+
+.sx-widget-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 850;
+}
+
+.sx-todo-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sx-input {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  min-width: 0;
+}
+
+.sx-todo-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.sx-todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.sx-todo-list button {
+  border: none;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: #e5e7eb;
+  color: #374151;
+  cursor: pointer;
+}
+
+.sx-timer {
+  font-size: 2.4rem;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  margin: 0.4rem 0 1rem 0;
+}
+
+.sx-task-text {
+  font-size: 1.08rem;
+  font-weight: 750;
+  line-height: 1.7;
+  color: #222222;
+}
+
+.sx-note-area {
+  width: 100%;
+  min-height: 110px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.sx-counter-number {
+  font-size: 2rem;
+  font-weight: 950;
+  margin: 0.3rem 0 0.7rem 0;
+}
+
+.sx-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sx-input-row input {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  min-width: 0;
+}
+
+/* 内容导航 */
+.sx-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 1rem 0 2rem 0;
+}
+
+.sx-nav-card {
+  padding: 1.5rem;
+}
+
+.sx-nav-card h3 {
+  margin-top: 0;
+  color: #222222;
+  font-size: 1.25rem;
+  font-weight: 850;
+}
+
+.sx-nav-card p {
+  color: #666666;
+}
+
+/* 标签云 */
+.sx-tag-cloud {
+  padding: 1.3rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.sx-tag-cloud a {
+  display: inline-block;
+  margin: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: #f6f6f6;
+  color: #333333;
+  font-weight: 650;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid rgba(17, 24, 39, 0.07);
+}
+
+.sx-tag-cloud a:hover {
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* 说明卡片 */
+.sx-note-box {
+  padding: 1.4rem;
+  margin: 1rem 0 2rem 0;
+  color: #555555;
+  line-height: 1.9;
+}
+
+/* 文章列表卡片 */
+.quarto-listing .quarto-post {
+  border: 1px solid rgba(17, 24, 39, 0.08) !important;
+  border-radius: 18px !important;
+  padding: 1.5rem !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045) !important;
+  transition: all 0.18s ease;
+}
+
+.quarto-listing .quarto-post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07) !important;
+}
+
+/* 保留右侧目录和 Categories */
+#TOC {
+  display: block !important;
+}
+
+.quarto-listing-category {
+  display: block !important;
+}
+
+/* 响应式 */
+@media (max-width: 1100px) {
+  .sx-home {
+    max-width: 100%;
+  }
+
+  .sx-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-status-item {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  .sx-three-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-widget-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-nav-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sx-home {
+    padding: 2.2rem 1rem 4rem 1rem;
+  }
+
+  .sx-home > h1 {
+    font-size: 2rem;
+  }
+
+  .sx-intro-card {
+    padding: 1.8rem;
+  }
+
+  .sx-intro-card h2 {
+    font-size: 2.1rem;
+  }
+
+  .sx-todo-row,
+  .sx-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .sx-status-item {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+  .sx-status-label {
+    white-space: normal;
+  }
+}
 
 
+/* =========================================================
+   右侧目录增强 + 首页导航修正
+   1. 右侧目录可以点击跳转，并且滚动时固定保留。
+   2. 去掉顶部导航栏第一个“首页”的下拉箭头和展开菜单。
+   ========================================================= */
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+/* 首页导航项：只保留文字“首页”，不显示下拉箭头和下拉菜单 */
+.navbar-nav > li.nav-item.dropdown:first-child > a.nav-link.dropdown-toggle::after {
+  display: none !important;
+}
+
+.navbar-nav > li.nav-item.dropdown:first-child > .dropdown-menu {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  #quarto-margin-sidebar,
+  .quarto-margin-sidebar,
+  .sidebar.margin-sidebar,
+  .page-columns .column-margin {
+    position: sticky !important;
+    top: 5.5rem !important;
+    align-self: start !important;
+    max-height: calc(100vh - 6.2rem) !important;
+    overflow-y: auto !important;
+  }
+
+  #TOC {
+    position: sticky !important;
+    top: 5.5rem !important;
+    max-height: calc(100vh - 7rem) !important;
+    overflow-y: auto !important;
+    padding-right: 0.4rem;
+  }
+}
+
+#TOC a,
+#toc-title + ul a,
+.sidebar nav[role="doc-toc"] a {
+  display: block;
+  border-left: 2px solid transparent;
+  padding: 0.2rem 0 0.2rem 0.65rem;
+  color: #374151;
+  text-decoration: none;
+  line-height: 1.65;
+}
+
+#TOC a:hover,
+#toc-title + ul a:hover,
+.sidebar nav[role="doc-toc"] a:hover {
+  color: #2563eb;
+  border-left-color: #93c5fd;
+  text-decoration: none;
+}
+
+#TOC a.active,
+#TOC .active > a,
+.sidebar nav[role="doc-toc"] a.active,
+.sidebar nav[role="doc-toc"] .active > a {
+  color: #2563eb !important;
+  border-left-color: #2563eb !important;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FINAL FIX：右侧目录固定显示，不随正文滚动消失
+   说明：
+   1. 使用 fixed 而不是 sticky，避免被 Quarto 父容器高度影响。
+   2. 保留右侧 “目录 + Categories”。
+   3. 小屏幕自动隐藏右侧栏，避免遮挡正文。
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.8rem;
+}
+
+@media (min-width: 992px) {
+  #quarto-margin-sidebar,
+  .quarto-margin-sidebar,
+  .sidebar.margin-sidebar {
+    position: fixed !important;
+    top: 5.6rem !important;
+    right: max(1.25rem, calc((100vw - 1320px) / 2 + 0.75rem)) !important;
+    width: min(260px, 18vw) !important;
+    max-height: calc(100vh - 6.4rem) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    z-index: 50 !important;
+    padding: 0.25rem 0.6rem 1rem 0.6rem !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(4px);
+  }
+
+  /* fixed 右侧栏后，正文区域保持宽度，避免被右侧目录覆盖 */
+  main.content,
+  .page-columns main.content {
+    max-width: 980px !important;
+  }
+
+  /* 目录本身不再单独 sticky，交给外层 fixed 控制 */
+  #TOC,
+  nav#TOC,
+  .sidebar nav[role="doc-toc"] {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 0 1.35rem 0 !important;
+    padding: 0 0 1.15rem 0 !important;
+    border-bottom: 1px solid #eeeeee !important;
+    background: transparent !important;
+  }
+}
+
+/* 右侧目录标题 */
+#TOC #toc-title,
+nav#TOC #toc-title,
+.sidebar nav[role="doc-toc"] #toc-title {
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  color: #111111 !important;
+  margin: 0 0 0.55rem 0 !important;
+}
+
+/* 目录列表 */
+#TOC ul,
+nav#TOC ul,
+.sidebar nav[role="doc-toc"] ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+#TOC li,
+nav#TOC li,
+.sidebar nav[role="doc-toc"] li {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 目录链接 */
+#TOC a,
+nav#TOC a,
+.sidebar nav[role="doc-toc"] a {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 0.22rem 0 0.22rem 0.7rem !important;
+  border-left: 2px solid transparent !important;
+  color: #374151 !important;
+  text-decoration: none !important;
+  font-size: 0.94rem !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+#TOC a:hover,
+nav#TOC a:hover,
+.sidebar nav[role="doc-toc"] a:hover {
+  color: #2563eb !important;
+  border-left-color: #93c5fd !important;
+  text-decoration: none !important;
+}
+
+#TOC a.active,
+#TOC .active > a,
+nav#TOC a.active,
+nav#TOC .active > a,
+.sidebar nav[role="doc-toc"] a.active,
+.sidebar nav[role="doc-toc"] .active > a {
+  color: #2563eb !important;
+  border-left-color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+/* Categories 保留在目录下面 */
+.quarto-listing-category,
+.sidebar .quarto-listing-category,
+#quarto-margin-sidebar .quarto-listing-category {
+  display: block !important;
+  position: static !important;
+  clear: both !important;
+  float: none !important;
+  width: 100% !important;
+  margin: 1.15rem 0 0 0 !important;
+  padding: 0 !important;
+  font-size: 0.94rem !important;
+  line-height: 1.6 !important;
+  color: #222222 !important;
+}
+
+.quarto-listing-category-title,
+.sidebar .quarto-listing-category-title,
+#quarto-margin-sidebar .quarto-listing-category-title {
+  display: block !important;
+  margin: 0 0 0.5rem 0 !important;
+  font-size: 1rem !important;
+  font-weight: 800 !important;
+  color: #222222 !important;
+}
+
+.quarto-listing-category .category,
+.quarto-listing-category a,
+.sidebar .quarto-listing-category .category,
+.sidebar .quarto-listing-category a,
+#quarto-margin-sidebar .quarto-listing-category .category,
+#quarto-margin-sidebar .quarto-listing-category a {
+  display: block !important;
+  margin: 0.18rem 0 !important;
+  padding: 0.12rem 0 !important;
+  font-size: 0.94rem !important;
+  line-height: 1.6 !important;
+  color: #333333 !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+}
+
+.quarto-listing-category .category:hover,
+.quarto-listing-category a:hover {
+  color: #2563eb !important;
+  text-decoration: none !important;
+}
+
+/* 移动端隐藏右侧栏，避免盖住正文 */
+@media (max-width: 991px) {
+  #quarto-margin-sidebar,
+  .quarto-margin-sidebar,
+  .sidebar.margin-sidebar {
+    display: none !important;
+  }
+}
+
+</style>
+<section id="top" class="level1 sx-home">
+<h1>sanxi 的学习与生活笔记</h1>
+<p>把学习、代码、建模、阅读和普通日子都留下来。</p>
+<div class="sx-hero-grid">
+<div class="sx-intro-card">
+<div class="sx-eyebrow">
+SANXI BLOG · STUDY / CODE / JOURNAL
+</div>
+<h2 class="anchored" data-anchor-id="top">
+把学习、代码、建模、阅读和普通日子都留下来
+</h2>
+<p>
+这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。
+</p>
+<div class="sx-button-row">
+<p><a class="sx-btn sx-btn-dark" href="journal.html">进入日志</a> <a class="sx-btn sx-btn-light" href="about.html">关于我</a> <button class="sx-btn sx-btn-light" onclick="randomJump()">🎲 随便看看</button></p>
+</div>
+</div>
+<div class="sx-status-card">
+<h3 class="anchored">
+当前状态
+</h3>
+<div class="sx-status-item">
+<div class="sx-status-label">
+📍 身份
+</div>
+<div class="sx-status-value">
+信息与计算科学 · 大二
+</div>
+</div>
+<div class="sx-status-item">
+<div class="sx-status-label">
+📚 最近学习
+</div>
+<div class="sx-status-value">
+Quarto / 算法图解 / 数值分析
+</div>
+</div>
+<div class="sx-status-item">
+<div class="sx-status-label">
+🧭 长期方向
+</div>
+<div class="sx-status-value">
+数据分析与算法优化
+</div>
+</div>
+<div class="sx-status-item">
+<div class="sx-status-label">
+📅 今天
+</div>
+<div id="today-date" class="sx-status-value">
+加载中…
+</div>
+</div>
+</div>
+</div>
+<section id="interactive-widgets" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-widgets">互动小部件</h2>
+<div class="sx-three-grid">
+<div class="sx-mini-card">
+<div class="sx-card-label">
+今日一句
+</div>
+<p id="daily-line" class="sx-daily-line">
+正在生成今日句子……
+</p>
+<button class="sx-small-btn" onclick="changeDailyLine()">
+换一句
+</button>
+</div>
+<div class="sx-mini-card sx-mood-card">
+<div class="sx-card-label">
+MOOD JOURNAL
+</div>
+<div id="home-mood-word" class="sx-mood-word">
+读取中…
+</div>
+<div id="home-mood-date" class="sx-mood-date">
+正在读取 mood.csv
+</div>
+<div id="home-mood-title" class="sx-mood-title">
+请稍候…
+</div>
+<div class="sx-mood-meta">
+<p><span id="home-mood-average">平均心情：- / 5</span> <span id="home-mood-count">共 - 条记录</span></p>
+</div>
+<p><a href="journal.html" class="sx-text-link">进入心情日志 →</a></p>
+</div>
+<div class="sx-mini-card">
+<div class="sx-card-label">
+学习进度条
+</div>
+<div class="sx-progress-item">
+<span>Python</span>
+<div class="sx-progress-track">
+<pre><code>&lt;div class="sx-progress-bar" style="width: 62%;"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="sx-progress-item">
+<span>Quarto Blog</span>
+<div class="sx-progress-track">
+<pre><code>&lt;div class="sx-progress-bar" style="width: 78%;"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="sx-progress-item">
+<span>算法图解</span>
+<div class="sx-progress-track">
+<pre><code>&lt;div class="sx-progress-bar" style="width: 46%;"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="sx-progress-item">
+<span>MATLAB</span>
+<div class="sx-progress-track">
+<pre><code>&lt;div class="sx-progress-bar" style="width: 54%;"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
 </section>
+<section id="debug-widgets" class="level2">
+<h2 class="anchored" data-anchor-id="debug-widgets">可调试小部件</h2>
+<div class="sx-note-box">
+<p>这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。</p>
+</div>
+<div class="sx-widget-grid">
+<div class="sx-widget-card">
+<h3 class="anchored">
+今日待办
+</h3>
+<div class="sx-todo-row">
+<p><input id="todo-input" class="sx-input" placeholder="写下今天的一个小目标"> <button class="sx-small-btn" onclick="addTodo()">添加</button></p>
+</div>
+<ul id="todo-list" class="sx-todo-list">
+</ul>
+</div>
+<div class="sx-widget-card">
+<h3 class="anchored">
+专注计时器
+</h3>
+<p class="sx-timer" id="focus-timer">
+25:00
+</p>
+<div class="sx-button-row">
+<button class="sx-small-btn" onclick="startTimer()">
+开始
+</button>
+<button class="sx-small-btn" onclick="pauseTimer()">
+暂停
+</button>
+<button class="sx-small-btn" onclick="resetTimer()">
+重置
+</button>
+</div>
+<p class="sx-muted">
+适合用来做 25 分钟专注学习。
+</p>
+</div>
+<div class="sx-widget-card">
+<h3 class="anchored">
+随机学习任务
+</h3>
+<p id="study-task" class="sx-task-text">
+点击按钮抽一个学习任务。
+</p>
+<button class="sx-small-btn" onclick="drawTask()">
+抽一个
+</button>
+</div>
+<div class="sx-widget-card">
+<h3 class="anchored">
+快速备忘
+</h3>
+<textarea id="quick-note" class="sx-note-area" placeholder="这里可以临时写点想法，浏览器会自动保存。"></textarea>
+<p class="sx-muted">
+内容会保存在当前浏览器 localStorage 中。
+</p>
+</div>
+<div class="sx-widget-card">
+<h3 class="anchored">
+学习计数器
+</h3>
+<p class="sx-counter-number" id="study-counter">
+0
+</p>
+<div class="sx-button-row">
+<button class="sx-small-btn" onclick="increaseCounter()">
++1
+</button>
+<button class="sx-small-btn" onclick="resetCounter()">
+清零
+</button>
+</div>
+<p class="sx-muted">
+可以用来记录今天完成了几个小任务。
+</p>
+</div>
+<div class="sx-widget-card">
+<h3 class="anchored">
+小计算器
+</h3>
+<div class="sx-input-row">
+<p><input id="calc-input" placeholder="例如：12*3+8"> <button class="sx-small-btn" onclick="runCalc()">计算</button></p>
+</div>
+<p id="calc-result" class="sx-task-text">
+结果会显示在这里。
+</p>
+</div>
+</div>
+</section>
+<section id="content-navigation" class="level2">
+<h2 class="anchored" data-anchor-id="content-navigation">内容导航</h2>
+<div class="sx-nav-grid">
+<div class="sx-nav-card">
+<h3 class="anchored">
+📓 Mood Journal
+</h3>
+<p>
+心情热力图、最近状态、每日记录和生活碎片。
+</p>
+<p><a href="journal.html">进入日志</a></p>
+</div>
+<div class="sx-nav-card">
+<h3 class="anchored">
+📚 学习笔记
+</h3>
+<p>
+统计学、数学建模、Python、R、Quarto、算法学习等内容框架。
+</p>
+<p><a href="notes.html">查看笔记</a></p>
+</div>
+<div class="sx-nav-card">
+<h3 class="anchored">
+📝 博客文章
+</h3>
+<p>
+后续文章都会集中出现在首页文章列表中。
+</p>
+<p><a href="posts/welcome/">查看文章</a></p>
+</div>
+<div class="sx-nav-card">
+<h3 class="anchored">
+👤 About
+</h3>
+<p>
+关于这个博客、关于我、联系方式和博客说明。
+</p>
+<p><a href="about.html">关于我</a></p>
+</div>
+</div>
+</section>
+<section id="tag-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="tag-cloud">标签云</h2>
+<div class="sx-tag-cloud">
+<p><a href="notes.html">统计学</a> <a href="notes.html">Python</a> <a href="notes.html">R语言</a> <a href="notes.html">数学建模</a> <a href="notes.html">数值分析</a> <a href="notes.html">算法图解</a> <a href="journal.html">Mood Journal</a> <a href="notes.html">Quarto</a> <a href="posts/welcome/">博客搭建</a> <a href="about.html">生活记录</a></p>
+</div>
+</section>
+<section id="post-list" class="level2">
+<h2 class="anchored" data-anchor-id="post-list">文章列表</h2>
+</section>
+</section>
+<script>
+/* =========================================================
+   sanxi 首页交互脚本
+   ========================================================= */
+
+/* ---------- 今日一句 ---------- */
+
+const dailyLines = [
+  "学习不是突然开悟，而是每天往脑子里偷偷塞一点东西。",
+  "不需要一开始就完美，先把框架搭起来。",
+  "你现在写下的每一行，都是以后可以回头看的路标。",
+  "真正的进步不是一天完成很多，而是很多天都没有停下。",
+  "慢慢来，长期坚持比短暂热情更重要。",
+  "把普通日子认真记录下来，它就不再完全普通。",
+  "今天也要留下认真生活过的证据。",
+  "会变好的，不是因为某一天突然轻松，而是你没有停止修正自己。",
+  "努力不是为了立刻看到结果，而是为了让未来多一种可能。",
+  "把一件小事做好，也是在抵抗混乱。",
+  "先完成，再完美。",
+  "你可以慢，但不能一直停在原地。",
+  "学习的意义不是马上改变世界，而是先慢慢改变自己的眼睛。",
+  "今天比昨天多懂一点，就已经很不错。",
+  "长期主义不是口号，是每天愿意重复一点正确的事。"
+];
+
+function changeDailyLine() {
+  const line = dailyLines[Math.floor(Math.random() * dailyLines.length)];
+  const target = document.getElementById("daily-line");
+  if (target) {
+    target.textContent = "“" + line + "”";
+  }
+}
+
+/* ---------- 随便看看 ---------- */
+
+const randomPages = [
+  "journal.html",
+  "notes.html",
+  "about.html",
+  "posts/welcome/"
+];
+
+function randomJump() {
+  const page = randomPages[Math.floor(Math.random() * randomPages.length)];
+  window.location.href = page;
+}
+
+/* ---------- 当前日期 ---------- */
+
+function updateToday() {
+  const now = new Date();
+  const text = `${now.getFullYear()} / ${now.getMonth() + 1} / ${now.getDate()}`;
+  const target = document.getElementById("today-date");
+  if (target) {
+    target.textContent = text;
+  }
+}
+
+/* ---------- CSV 解析 ---------- */
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+
+    if (char === '"' && line[i + 1] === '"') {
+      current += '"';
+      i++;
+    } else if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      result.push(current.trim());
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+
+  result.push(current.trim());
+  return result;
+}
+
+/* ---------- Mood Journal 首页卡片 ---------- */
+
+function moodWord(score) {
+  const n = Number(score);
+
+  if (n <= 1) return "低落";
+  if (n === 2) return "偏低";
+  if (n === 3) return "普通";
+  if (n === 4) return "不错";
+  if (n >= 5) return "很好";
+
+  return "未知";
+}
+
+function formatMoodDate(dateText) {
+  const date = new Date(dateText);
+
+  if (Number.isNaN(date.getTime())) {
+    return dateText;
+  }
+
+  return `${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDate()}`;
+}
+
+function averageMood(records) {
+  if (!records.length) {
+    return "-";
+  }
+
+  const total = records.reduce((sum, item) => {
+    return sum + Number(item.mood || 0);
+  }, 0);
+
+  return (total / records.length).toFixed(1);
+}
+
+async function loadMoodJournalCard() {
+  const moodWordBox = document.getElementById("home-mood-word");
+  const moodDateBox = document.getElementById("home-mood-date");
+  const moodTitleBox = document.getElementById("home-mood-title");
+  const moodAverageBox = document.getElementById("home-mood-average");
+  const moodCountBox = document.getElementById("home-mood-count");
+
+  if (!moodWordBox || !moodDateBox || !moodTitleBox || !moodAverageBox || !moodCountBox) {
+    return;
+  }
+
+  try {
+    const response = await fetch("assets/data/mood.csv");
+
+    if (!response.ok) {
+      throw new Error("mood.csv 加载失败");
+    }
+
+    const text = await response.text();
+    const lines = text.trim().split(/\r?\n/).filter(Boolean);
+
+    if (lines.length <= 1) {
+      moodWordBox.textContent = "暂无";
+      moodDateBox.textContent = "mood.csv 暂无记录";
+      moodTitleBox.textContent = "今天还没有写心情。";
+      moodAverageBox.textContent = "平均心情：- / 5";
+      moodCountBox.textContent = "共 0 条记录";
+      return;
+    }
+
+    const headers = parseCSVLine(lines[0]);
+
+    const records = lines.slice(1).map(line => {
+      const values = parseCSVLine(line);
+      const item = {};
+
+      headers.forEach((header, index) => {
+        item[header] = values[index] || "";
+      });
+
+      item.mood = Number(item.mood);
+      item.energy = Number(item.energy);
+
+      return item;
+    }).filter(item => item.date);
+
+    records.sort((a, b) => b.date.localeCompare(a.date));
+
+    const latest = records[0];
+
+    moodWordBox.textContent = moodWord(latest.mood);
+    moodDateBox.textContent = `${formatMoodDate(latest.date)}｜心情 ${latest.mood}/5｜精力 ${latest.energy}/5`;
+    moodTitleBox.textContent = latest.title || "今天还没有写标题。";
+    moodAverageBox.textContent = `平均心情：${averageMood(records)} / 5`;
+    moodCountBox.textContent = `共 ${records.length} 条记录`;
+
+  } catch (error) {
+    moodWordBox.textContent = "暂无";
+    moodDateBox.textContent = "读取失败";
+    moodTitleBox.textContent = "请检查 assets/data/mood.csv 是否存在。";
+    moodAverageBox.textContent = "平均心情：- / 5";
+    moodCountBox.textContent = "共 - 条记录";
+  }
+}
+
+/* ---------- 今日待办 ---------- */
+
+function loadTodos() {
+  const list = document.getElementById("todo-list");
+
+  if (!list) {
+    return;
+  }
+
+  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
+
+  list.innerHTML = todos.map((item, index) => `
+    <li>
+      <span>${item}</span>
+      <button onclick="removeTodo(${index})">删除</button>
+    </li>
+  `).join("");
+}
+
+function addTodo() {
+  const input = document.getElementById("todo-input");
+
+  if (!input) {
+    return;
+  }
+
+  const value = input.value.trim();
+
+  if (!value) {
+    return;
+  }
+
+  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
+  todos.push(value);
+  localStorage.setItem("sanxiHomeTodos", JSON.stringify(todos));
+
+  input.value = "";
+  loadTodos();
+}
+
+function removeTodo(index) {
+  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
+  todos.splice(index, 1);
+  localStorage.setItem("sanxiHomeTodos", JSON.stringify(todos));
+  loadTodos();
+}
+
+/* ---------- 专注计时器 ---------- */
+
+let timerSeconds = 25 * 60;
+let timerId = null;
+
+function renderTimer() {
+  const timer = document.getElementById("focus-timer");
+
+  if (!timer) {
+    return;
+  }
+
+  const minutes = String(Math.floor(timerSeconds / 60)).padStart(2, "0");
+  const seconds = String(timerSeconds % 60).padStart(2, "0");
+
+  timer.textContent = `${minutes}:${seconds}`;
+}
+
+function startTimer() {
+  if (timerId) {
+    return;
+  }
+
+  timerId = setInterval(() => {
+    if (timerSeconds > 0) {
+      timerSeconds--;
+      renderTimer();
+    } else {
+      clearInterval(timerId);
+      timerId = null;
+      alert("专注时间结束啦！");
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  clearInterval(timerId);
+  timerId = null;
+}
+
+function resetTimer() {
+  pauseTimer();
+  timerSeconds = 25 * 60;
+  renderTimer();
+}
+
+/* ---------- 随机学习任务 ---------- */
+
+const studyTasks = [
+  "整理一页数值分析公式。",
+  "读 20 分钟《算法图解》。",
+  "写一段 Python 数据处理代码。",
+  "复习一个 Quarto 配置项。",
+  "把今天学到的内容写成 5 行笔记。",
+  "调试一个之前没解决的代码问题。",
+  "整理一篇博客文章的大纲。",
+  "复习一次最短路径算法。",
+  "用 R 或 Python 画一张简单图。",
+  "把今天的 Mood Journal 更新一行。",
+  "整理一个数学建模模板。",
+  "复盘一次最近遇到的报错。"
+];
+
+function drawTask() {
+  const task = studyTasks[Math.floor(Math.random() * studyTasks.length)];
+  const target = document.getElementById("study-task");
+
+  if (target) {
+    target.textContent = task;
+  }
+}
+
+/* ---------- 快速备忘 ---------- */
+
+function setupQuickNote() {
+  const note = document.getElementById("quick-note");
+
+  if (!note) {
+    return;
+  }
+
+  note.value = localStorage.getItem("sanxiQuickNote") || "";
+
+  note.addEventListener("input", () => {
+    localStorage.setItem("sanxiQuickNote", note.value);
+  });
+}
+
+/* ---------- 学习计数器 ---------- */
+
+function loadCounter() {
+  const target = document.getElementById("study-counter");
+
+  if (!target) {
+    return;
+  }
+
+  target.textContent = localStorage.getItem("sanxiStudyCounter") || "0";
+}
+
+function increaseCounter() {
+  const target = document.getElementById("study-counter");
+
+  if (!target) {
+    return;
+  }
+
+  let value = Number(localStorage.getItem("sanxiStudyCounter") || "0");
+  value += 1;
+
+  localStorage.setItem("sanxiStudyCounter", String(value));
+  target.textContent = String(value);
+}
+
+function resetCounter() {
+  const target = document.getElementById("study-counter");
+
+  if (!target) {
+    return;
+  }
+
+  localStorage.setItem("sanxiStudyCounter", "0");
+  target.textContent = "0";
+}
+
+/* ---------- 小计算器 ---------- */
+
+function runCalc() {
+  const input = document.getElementById("calc-input");
+  const result = document.getElementById("calc-result");
+
+  if (!input || !result) {
+    return;
+  }
+
+  const expression = input.value.trim();
+
+  if (!expression) {
+    result.textContent = "请输入一个表达式。";
+    return;
+  }
+
+  if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
+    result.textContent = "只支持数字和 + - * / ( ) 小数点。";
+    return;
+  }
+
+  try {
+    const value = Function(`"use strict"; return (${expression})`)();
+    result.textContent = `结果：${value}`;
+  } catch (error) {
+    result.textContent = "表达式有误，请重新输入。";
+  }
+}
+
+
+/* ---------- 顶部导航：删除“首页”的下拉展开 ---------- */
+
+function fixHomeNavbarDropdown() {
+  const dropdownItems = document.querySelectorAll(".navbar-nav .nav-item.dropdown");
+
+  dropdownItems.forEach(item => {
+    const toggle = item.querySelector(":scope > a.nav-link.dropdown-toggle");
+
+    if (!toggle) {
+      return;
+    }
+
+    const text = toggle.textContent.replace(/\s+/g, "").trim();
+
+    if (text === "首页") {
+      toggle.classList.remove("dropdown-toggle");
+      toggle.removeAttribute("data-bs-toggle");
+      toggle.removeAttribute("role");
+      toggle.removeAttribute("aria-expanded");
+      toggle.setAttribute("href", "index.html");
+
+      const menu = item.querySelector(":scope > .dropdown-menu");
+      if (menu) {
+        menu.remove();
+      }
+
+      item.classList.remove("dropdown");
+    }
+  });
+}
+
+/* ---------- 右侧目录：保证目录链接平滑跳转 ---------- */
+
+function setupRightTocLinks() {
+  document.querySelectorAll('#TOC a[href^="#"], .sidebar nav[role="doc-toc"] a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const target = document.querySelector(link.getAttribute("href"));
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.pushState(null, "", link.getAttribute("href"));
+    });
+  });
+}
+
+/* ---------- 页面初始化 ---------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  fixHomeNavbarDropdown();
+  setupRightTocLinks();
+  changeDailyLine();
+  updateToday();
+  loadMoodJournalCard();
+  loadTodos();
+  renderTimer();
+  setupQuickNote();
+  loadCounter();
+});
+</script>
+
+
+
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="JUU1JThEJTlBJUU1JUFFJUEyJTJDJUU2JTk3JUE1JUU1JUJGJTk3" data-listing-date-sort="1782835200000" data-listing-file-modified-sort="1782916500436" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
+<div class="quarto-post image-right" data-index="0" data-categories="JUU1JThEJTlBJUU1JUFFJUEyJTJDJUU2JTk3JUE1JUU1JUJGJTk3" data-listing-date-sort="1782835200000" data-listing-file-modified-sort="1782917664587" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
 <div class="thumbnail"><a href="./posts/welcome/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/welcome/thumbnail.jpg" class="thumbnail-image">
@@ -660,6 +2201,19 @@ Jul 1, 2026
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 sanxi · Built with Quarto</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
