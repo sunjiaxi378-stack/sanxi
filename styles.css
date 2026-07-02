@@ -3676,3 +3676,811 @@ body:has(.algo-writing-page) .column-body {
     padding: 1.5rem 0 4rem 0 !important;
   }
 }
+/* =========================
+   Sanxi Blog Optimization
+   日志页面与文章样式优化
+   ========================= */
+
+:root {
+  --sx-bg: #f7f7f5;
+  --sx-card: #ffffff;
+  --sx-text: #222222;
+  --sx-muted: #666666;
+  --sx-border: #e4e0d8;
+  --sx-accent: #1f2937;
+  --sx-soft: #f1f5f9;
+  --sx-radius: 18px;
+  --sx-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--sx-bg);
+  color: var(--sx-text);
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+  line-height: 1.85;
+}
+
+/* 顶部导航栏 */
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.navbar-brand {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 650;
+}
+
+
+/* 正文宽度 */
+main.content {
+  max-width: 980px;
+}
+
+/* 标题区域 */
+#title-block-header {
+  margin-bottom: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+h1.title {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+}
+
+h2 {
+  margin-top: 2.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--sx-border);
+}
+
+p {
+  font-size: 1.02rem;
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 4px solid var(--sx-accent);
+  background: #ffffff;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  color: #444444;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+/* 日志列表卡片 */
+.quarto-listing .listing-item {
+  background: var(--sx-card);
+  border: 1px solid var(--sx-border);
+  border-radius: var(--sx-radius);
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--sx-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.quarto-listing .listing-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09);
+}
+
+.quarto-listing .listing-title {
+  font-weight: 850;
+  font-size: 1.15rem;
+}
+
+.quarto-listing .listing-description {
+  color: var(--sx-muted);
+}
+
+/* 分类标签 */
+.quarto-category {
+  border-radius: 999px;
+  padding: 0.18rem 0.58rem;
+  border: 1px solid var(--sx-border);
+  background: #ffffff;
+}
+
+/* 代码块 */
+pre,
+code {
+  font-family: "Consolas", "Cascadia Code", monospace;
+}
+
+pre.sourceCode {
+  border-radius: 16px;
+  border: 1px solid var(--sx-border);
+}
+
+/* 右侧目录 */
+.sidebar nav[role="doc-toc"] {
+  border-left: 1px solid var(--sx-border);
+  padding-left: 1rem;
+}
+
+/* 页脚 */
+.nav-footer {
+  border-top: 1px solid var(--sx-border);
+  margin-top: 3rem;
+}
+
+/* 手机端 */
+@media (max-width: 900px) {
+  main.content {
+    max-width: 100%;
+  }
+
+  h1.title {
+    font-size: 2rem;
+  }
+}
+/* =========================================================
+   Sanxi Journal System Stable Version
+   追加到 styles.css 最后
+   ========================================================= */
+
+.sx-journal-app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2.2rem 1.2rem 5rem;
+}
+
+.sx-journal-hero {
+  margin-bottom: 1.4rem;
+  padding: 2.4rem 2.6rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff, #fbfbfb);
+  box-shadow: 0 22px 52px rgba(15, 23, 42, 0.06);
+}
+
+.sx-journal-hero h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+}
+
+.sx-journal-hero p {
+  max-width: 900px;
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.sx-top-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.75fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.sx-panel {
+  margin-bottom: 1.2rem;
+  padding: 1.45rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.055);
+}
+
+.sx-task-panel {
+  min-height: 440px;
+}
+
+.sx-countdown-panel {
+  min-height: 360px;
+}
+
+.sx-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.sx-eyebrow {
+  margin: 0 0 0.35rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sx-panel h2 {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.sx-panel h3 {
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.sx-subtitle {
+  margin: 0.35rem 0 0;
+  color: #777;
+  line-height: 1.7;
+}
+
+.sx-panel-link {
+  flex: 0 0 auto;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.sx-panel-link:hover {
+  background: #111827;
+  color: #ffffff;
+}
+
+.sx-task-input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.sx-task-input-row input,
+.sx-record-form input,
+.sx-record-form select,
+.sx-record-form textarea,
+.sx-countdown-panel input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 0.78rem 0.9rem;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+  outline: none;
+}
+
+.sx-task-input-row input:focus,
+.sx-record-form input:focus,
+.sx-record-form select:focus,
+.sx-record-form textarea:focus,
+.sx-countdown-panel input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+
+.sx-task-input-row button,
+.sx-save-record,
+.sx-timer-actions button,
+.sx-task-actions button,
+.sx-data-actions button,
+.sx-month-actions button,
+.sx-delete-record {
+  border: none;
+  border-radius: 14px;
+  padding: 0.78rem 1rem;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sx-task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sx-task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.7rem;
+  padding: 0.82rem 0.9rem;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  background: #fbfbfb;
+}
+
+.sx-task-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sx-task-item input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.sx-task-item.is-done span {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.sx-delete-task {
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sx-delete-task:hover {
+  color: #ef4444;
+}
+
+.sx-empty-task,
+.sx-empty-record,
+.sx-empty-chart {
+  padding: 1rem;
+  border: 1px dashed #dddddd;
+  border-radius: 16px;
+  color: #777777;
+  background: #fafafa;
+}
+
+.sx-task-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  color: #777777;
+  font-size: 0.92rem;
+}
+
+.sx-task-actions button {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.sx-label {
+  display: block;
+  margin: 0.85rem 0 0.35rem;
+  color: #555555;
+  font-size: 0.92rem;
+  font-weight: 750;
+}
+
+.sx-timer-display {
+  margin: 1.25rem 0;
+  padding: 1.2rem;
+  border-radius: 22px;
+  background: #111827;
+  color: #ffffff;
+  text-align: center;
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+}
+
+.sx-timer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.sx-timer-actions button:nth-child(2),
+.sx-timer-actions button:nth-child(3) {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.sx-timer-tip {
+  color: #777777;
+  font-size: 0.92rem;
+}
+
+.sx-record-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.sx-record-form {
+  padding: 1rem;
+  border: 1px solid #eeeeee;
+  border-radius: 20px;
+  background: #fafafa;
+}
+
+.sx-two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.sx-save-record {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.sx-record-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sx-record-card {
+  position: relative;
+  padding: 1.1rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  background: #ffffff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sx-record-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+}
+
+.sx-record-card time {
+  color: #888888;
+  font-size: 0.94rem;
+}
+
+.sx-record-card h3 {
+  margin: 0.4rem 0;
+  font-size: 1.18rem;
+  font-weight: 900;
+}
+
+.sx-record-card p {
+  margin: 0.2rem 0 0.7rem;
+  color: #555555;
+}
+
+.sx-record-content {
+  margin: 0.7rem 0;
+  color: #666666;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.sx-record-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.sx-record-tags span {
+  padding: 0.22rem 0.58rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #f9fafb;
+  color: #555555;
+  font-size: 0.86rem;
+}
+
+.sx-delete-record {
+  margin-top: 0.9rem;
+  padding: 0.45rem 0.75rem;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 0.86rem;
+}
+
+.sx-data-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sx-data-actions button {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.sx-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sx-status-card {
+  padding: 1.1rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.sx-status-card span {
+  display: block;
+  color: #888888;
+}
+
+.sx-status-card strong {
+  display: block;
+  margin: 0.35rem 0;
+  font-size: 1.7rem;
+  font-weight: 950;
+}
+
+.sx-status-card small {
+  color: #888888;
+}
+
+.sx-mood-heatmap {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.8rem 0.2rem 1rem;
+}
+
+.sx-heat-month {
+  flex: 0 0 auto;
+}
+
+.sx-heat-title {
+  margin-bottom: 0.45rem;
+  color: #777777;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.sx-heat-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 14px);
+  gap: 4px;
+}
+
+.sx-heat-cell {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #f3f4f6;
+}
+
+.sx-heat-cell.is-empty {
+  border-color: transparent;
+  background: transparent;
+}
+
+.mood-0 {
+  background: #f3f4f6;
+}
+
+.mood-1 {
+  background: #dc2626;
+}
+
+.mood-2 {
+  background: #ea580c;
+}
+
+.mood-3 {
+  background: #facc15;
+}
+
+.mood-4 {
+  background: #22c55e;
+}
+
+.mood-5 {
+  background: #15803d;
+}
+
+.sx-mood-legend {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+  color: #777777;
+  font-size: 0.9rem;
+}
+
+.sx-mood-legend i {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  border: 1px solid #e5e7eb;
+}
+
+.sx-mood-line {
+  overflow-x: auto;
+  padding: 0.4rem 0;
+}
+
+.sx-mood-line svg {
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+}
+
+.sx-chart-grid {
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+
+.sx-chart-x,
+.sx-chart-y {
+  fill: #888888;
+  font-size: 12px;
+}
+
+.sx-line-path {
+  fill: none;
+  stroke: #111827;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sx-line-dot {
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.sx-month-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.sx-month-actions button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 1.3rem;
+}
+
+.sx-week-head,
+.sx-month-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.sx-week-head {
+  margin-bottom: 0.5rem;
+  color: #777777;
+  text-align: center;
+  font-weight: 800;
+}
+
+.sx-month-calendar {
+  gap: 0.6rem;
+}
+
+.sx-month-day {
+  min-height: 130px;
+  padding: 0.75rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.sx-month-day.is-blank {
+  border-color: transparent;
+  background: transparent;
+}
+
+.sx-month-day.is-today {
+  border-color: #111827;
+  box-shadow: inset 0 0 0 2px #111827;
+}
+
+.sx-day-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+
+.sx-day-mood {
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+}
+
+.sx-month-day ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sx-month-day li {
+  margin-bottom: 0.25rem;
+  color: #555555;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.sx-month-day li.is-done {
+  color: #aaaaaa;
+  text-decoration: line-through;
+}
+
+.sx-month-day li.is-muted {
+  color: #bbbbbb;
+}
+
+@media (max-width: 980px) {
+  .sx-top-grid,
+  .sx-record-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-status-grid,
+  .sx-record-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sx-month-panel {
+    overflow-x: auto;
+  }
+
+  .sx-week-head,
+  .sx-month-calendar {
+    min-width: 840px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sx-journal-app {
+    padding: 1.2rem 0.8rem 4rem;
+  }
+
+  .sx-journal-hero {
+    padding: 1.6rem;
+  }
+
+  .sx-panel {
+    padding: 1.1rem;
+  }
+
+  .sx-panel-head,
+  .sx-task-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sx-task-input-row,
+  .sx-two-cols,
+  .sx-status-grid,
+  .sx-record-list {
+    grid-template-columns: 1fr;
+  }
+}

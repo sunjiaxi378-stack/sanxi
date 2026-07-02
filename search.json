@@ -224,69 +224,6 @@
     "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
   },
   {
-    "objectID": "journal.html",
-    "href": "journal.html",
-    "title": "Mood Journal",
-    "section": "",
-    "text": "这里是 sanxi 的 Mood Journal 页面。\n这个页面主要包括：\n\n心情热力图\n最近状态统计\n最近记录列表\n每日一句互动小部件\n待办事项小部件\n日志正文区域\n\n\n注意：静态网页上的密码解锁只是前端隐藏，不适合存放真正隐私内容。"
-  },
-  {
-    "objectID": "journal.html#页面说明",
-    "href": "journal.html#页面说明",
-    "title": "Mood Journal",
-    "section": "",
-    "text": "这里是 sanxi 的 Mood Journal 页面。\n这个页面主要包括：\n\n心情热力图\n最近状态统计\n最近记录列表\n每日一句互动小部件\n待办事项小部件\n日志正文区域\n\n\n注意：静态网页上的密码解锁只是前端隐藏，不适合存放真正隐私内容。"
-  },
-  {
-    "objectID": "journal.html#快速导航",
-    "href": "journal.html#快速导航",
-    "title": "Mood Journal",
-    "section": "快速导航",
-    "text": "快速导航\n\n心情热力图 最近状态 最近记录 互动小部件 日志正文 如何更新"
-  },
-  {
-    "objectID": "journal.html#心情热力图",
-    "href": "journal.html#心情热力图",
-    "title": "Mood Journal",
-    "section": "心情热力图",
-    "text": "心情热力图\n\n\n&lt;span&gt;低&lt;/span&gt;\n&lt;span class=\"legend-box level-1\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-2\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-3\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-4\"&gt;&lt;/span&gt;\n&lt;span class=\"legend-box level-5\"&gt;&lt;/span&gt;\n&lt;span&gt;高&lt;/span&gt;\n\n\n正在加载心情数据……"
-  },
-  {
-    "objectID": "journal.html#最近状态",
-    "href": "journal.html#最近状态",
-    "title": "Mood Journal",
-    "section": "最近状态",
-    "text": "最近状态\n\n正在加载最近状态……"
-  },
-  {
-    "objectID": "journal.html#最近记录",
-    "href": "journal.html#最近记录",
-    "title": "Mood Journal",
-    "section": "最近记录",
-    "text": "最近记录\n\n正在加载最近记录……"
-  },
-  {
-    "objectID": "journal.html#互动小部件",
-    "href": "journal.html#互动小部件",
-    "title": "Mood Journal",
-    "section": "互动小部件",
-    "text": "互动小部件\n\n\n\n今日一句\n\n\n正在生成……\n\n\n换一句\n\n\n\n\n今天的小目标\n\n 添加\n\n\n\n\n\n打卡提醒\n\n\n每天只需要写一句话，也算记录。\n\n\n建议格式：日期、心情、精力、标题、标签、备注。"
-  },
-  {
-    "objectID": "journal.html#日志正文",
-    "href": "journal.html#日志正文",
-    "title": "Mood Journal",
-    "section": "日志正文",
-    "text": "日志正文\n\n\n轻度密码解锁\n\n\n这个区域适合放普通生活碎片，不适合放真正隐私内容。\n\n\n&lt;input id=\"journal-password\" type=\"password\" placeholder=\"输入密码\"&gt;\n&lt;button id=\"unlock-button\"&gt;解锁&lt;/button&gt;\n\n\n\n\n\n\n\n2026-07-01｜新博客搭建完成\n\n\n今天把 sanxi 博客的基本框架搭起来了，包括首页、日志页、文章列表和心情数据。\n\n\n\n\n2026-06-30｜继续调整页面\n\n\n页面还不完美，但已经可以慢慢往里面填内容。先有框架，再逐步丰富。"
-  },
-  {
-    "objectID": "journal.html#如何更新",
-    "href": "journal.html#如何更新",
-    "title": "Mood Journal",
-    "section": "如何更新",
-    "text": "如何更新\n以后每天更新心情数据，只需要修改这个文件：\n```text assets/data/mood.csv"
-  },
-  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "欢迎来到 sanxi",
