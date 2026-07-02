@@ -1,15 +1,21 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "topics/**/*.qmd"
+    - "posts/**/*.qmd"
 
 website:
   title: "sanxi"
-  description: "sanxi 的个人博客"
-  site-url: https://sunjiaxi378-stack.github.io/sanxi/
-  search: true
+  site-url: "https://sunjiaxi378-stack.github.io/sanxi/"
+  description: "记录学习、生活、情绪、复盘与成长。"
 
   navbar:
     title: "sanxi"
+    background: light
+    foreground: dark
+    search: true
 
     left:
       - text: "首页"
@@ -28,32 +34,16 @@ website:
         menu:
           - text: "学习笔记总览"
             href: notes.qmd
-          - text: "统计学笔记"
-            href: notes.qmd#统计学笔记
-          - text: "编程笔记"
-            href: notes.qmd#编程笔记
-          - text: "数学建模"
-            href: notes.qmd#数学建模
-          - text: "生活复盘"
-            href: notes.qmd#生活复盘
+          - text: "算法笔记"
+            href: topics/algorithm/index.qmd
+          - text: "MATLAB 笔记"
+            href: topics/matlab/index.qmd
 
       - text: "日志"
-        menu:
-          - text: "Mood Journal"
-            href: journal.qmd
-          - text: "心情热力图"
-            href: journal.qmd#心情热力图
-          - text: "最近状态"
-            href: journal.qmd#最近状态
-          - text: "最近记录"
-            href: journal.qmd#最近记录
-          - text: "互动小部件"
-            href: journal.qmd#互动小部件
+        href: journal.qmd
 
       - text: "文章"
         menu:
-          - text: "全部文章"
-            href: index.qmd#文章列表
           - text: "欢迎文章"
             href: posts/welcome/index.qmd
 
@@ -65,20 +55,20 @@ website:
         aria-label: GitHub
 
   page-footer:
-    center: "© 2026 sanxi · Built with Quarto"
-    border: true
+    center: "© 2026 sanxi · 记录学习，也记录自己。"
 
 format:
   html:
-    theme:
-      - cosmo
+    theme: cosmo
     css: styles.css
     toc: true
-    toc-title: "目录"
     toc-location: right
-    toc-depth: 2
-    page-layout: full
+    number-sections: false
     smooth-scroll: true
     code-copy: true
     code-overflow: wrap
-    anchor-sections: true
+    mainfont: "Microsoft YaHei"
+    monofont: "Consolas"
+
+execute:
+  freeze: auto
