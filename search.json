@@ -1,31 +1,227 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "欢迎来到 sanxi",
+    "objectID": "topics/matlab/index.html",
+    "href": "topics/matlab/index.html",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
+    "text": "这里用于整理 MATLAB 学习内容，包括基础语法、矩阵运算、绘图、数值计算、建模代码和实验报告常用模板。\n\n\nMATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。\n\n\n\nMATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。\n\n\n\n后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。\n\n\n\n后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
   },
   {
-    "objectID": "posts/welcome/index.html#我的博客计划",
-    "href": "posts/welcome/index.html#我的博客计划",
-    "title": "欢迎来到 sanxi",
+    "objectID": "topics/matlab/index.html#基础语法",
+    "href": "topics/matlab/index.html#基础语法",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
+    "text": "MATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。"
   },
   {
-    "objectID": "posts/welcome/index.html#这个博客会写什么",
-    "href": "posts/welcome/index.html#这个博客会写什么",
-    "title": "欢迎来到 sanxi",
-    "section": "这个博客会写什么",
-    "text": "这个博客会写什么\n以后这里主要记录：\n\n统计学学习笔记\nPython 和 R 语言学习\n数学建模作业与比赛经验\nQuarto 博客搭建过程\nMood Journal 心情日志\n日常生活和个人思考"
+    "objectID": "topics/matlab/index.html#绘图",
+    "href": "topics/matlab/index.html#绘图",
+    "title": "MATLAB 学习",
+    "section": "",
+    "text": "MATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。"
   },
   {
-    "objectID": "posts/welcome/index.html#后续文章模板",
-    "href": "posts/welcome/index.html#后续文章模板",
-    "title": "欢迎来到 sanxi",
-    "section": "后续文章模板",
-    "text": "后续文章模板\n以后新建文章时，可以按照这个结构：\n```text posts/文章文件夹名/index.qmd"
+    "objectID": "topics/matlab/index.html#数值计算",
+    "href": "topics/matlab/index.html#数值计算",
+    "title": "MATLAB 学习",
+    "section": "",
+    "text": "后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。"
+  },
+  {
+    "objectID": "topics/matlab/index.html#数学建模",
+    "href": "topics/matlab/index.html#数学建模",
+    "title": "MATLAB 学习",
+    "section": "",
+    "text": "后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html",
+    "href": "topics/algorithm/index.html",
+    "title": "算法图解",
+    "section": "",
+    "text": "算\n\n\n算法图解\nAlgorithm Notes\n\n\n\n\n\n第 1 章 初识算法\n\n\n1.1 算法无处不在 1.2 算法是什么 1.3 二分查找 1.4 选择排序 1.5 递归思想 1.6 栈与队列 1.7 哈希表 1.8 图与广度优先搜索 1.9 Dijkstra 算法 1.10 动态规划 1.11 贪心算法 1.12 后续计划\n\n\n\n\n第 2 章 复杂度分析\n\n\n2.1 时间复杂度 2.2 空间复杂度 2.3 大 O 表示法\n\n\n\n\n第 3 章 数据结构\n\n\n3.1 数组 3.2 链表 3.3 栈与队列\n\n\n\n\n第 4 章 搜索与排序\n\n\n4.1 线性搜索 4.2 二分搜索 4.3 基础排序\n\n\n\n\n第 5 章 图算法\n\n\n5.1 图的表示 5.2 广度优先搜索 5.3 最短路径\n\n\n\n\n第 6 章 动态规划\n\n\n6.1 动态规划思想 6.2 背包问题 6.3 状态转移方程\n\n\n\n\n\n\n\n\n当我们听到“算法”这个词时，很容易想到复杂的数学公式、计算机代码、人工智能模型或者竞赛题。可是，如果把算法理解得更朴素一点，它其实并不神秘。算法本质上就是解决问题的一组明确步骤。\n只要一个问题可以被拆成“先做什么、再做什么、最后得到什么结果”，它就可以被看作一个算法过程。比如查字典、整理扑克牌、排队买饭、规划路线、安排复习计划，这些看似普通的日常行为背后，都有算法思想。\n\n\n假设我们想在一本按拼音排序的字典里查找“明”字。最笨的方法是从第一页开始一页一页翻，直到找到为止。\n更聪明的方法是先翻到中间，看当前位置的拼音是在目标之前还是之后。如果目标在前面，就继续查前半部分；如果目标在后面，就继续查后半部分。\n这样每次都能排除一半的查找范围。这其实就是一种“二分查找”的思想：每次都把问题规模缩小一半。\n\n查字典过程可以整理成下面几步：\n\n先确定目标字的拼音。\n打开字典中间位置。\n比较当前位置和目标位置。\n如果目标在前半部分，就继续查前半部分。\n如果目标在后半部分，就继续查后半部分。\n重复这个过程，直到找到目标。\n\n生活中还有很多类似的算法思想。例如，整理扑克牌时会用到排序思想；规划最短路线时会用到图算法；安排学习任务时会用到优先级策略；做选择题排除错误选项时，也是在不断缩小搜索范围。\n算法不是凭空出现的，它来自对现实问题的抽象。一个会使用算法思维的人，往往不是因为记住了多少代码，而是因为他能把混乱的问题拆成清楚的步骤。\n\n\n\n\n算法可以理解为解决问题的方法说明书。它不一定非要用代码写出来，也可以用自然语言、流程图、伪代码或者数学表达式来描述。\n\n核心理解：\n算法关注的不是“我会不会写代码”，而是“我能不能把问题拆解成清楚、稳定、可以重复执行的步骤”。\n\n一个好的算法通常有几个特点：\n\n明确性：每一步都清楚，不含糊。\n有限性：算法不能无限执行，必须在某个时刻结束。\n输入明确：需要什么数据，要提前说清楚。\n输出明确：最终要得到什么结果，要能判断。\n可重复性：同样的输入，在同样条件下应该得到同样的输出。\n\n比如“做一道数学题”这个说法太模糊，不是严格算法；但“先读题，列变量，建立方程，求解方程，代回检验”就更接近算法。\n再比如“整理房间”听起来也很模糊，但如果写成：\n\n先把桌面物品分类。\n把书放回书架。\n把垃圾放进垃圾袋。\n把常用物品放到手边。\n最后检查一遍是否遗漏。\n\n这就已经具有算法的雏形。\n所以，算法并不只是程序员才需要学习的内容。它是一种结构化思维方式，可以帮助我们更清楚地理解问题，也可以帮助我们更高效地解决问题。\n\n\n\n\n二分查找适用于已经排好序的数据。它每次都查看中间元素，并根据比较结果决定继续查找左半部分还是右半部分。\n二分查找的优势在于：每比较一次，问题规模就缩小一半。数据越大，这种优势越明显。\n\n\n假设有人心里想了一个 1 到 100 之间的数字。你可以从 1 开始一个一个猜，但最多可能猜 100 次。\n如果你每次都猜中间值，比如先猜 50，对方告诉你“大了”还是“小了”，你就可以马上排除一半数字。这样最多只需要很少几次就能猜中。\n\n二分查找的基本步骤是：\n\n设置左边界 left 和右边界 right。\n取中间位置 mid。\n如果中间值等于目标值，就返回结果。\n如果中间值小于目标值，就去右半部分继续查找。\n如果中间值大于目标值，就去左半部分继续查找。\n如果查找范围为空，说明目标不存在。\n\nPython 示例：\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n\n    while left &lt;= right:\n        mid = (left + right) // 2\n\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] &lt; target:\n            left = mid + 1\n        else:\n            right = mid - 1\n\n    return -1\n\n\nnumbers = [1, 3, 5, 7, 9, 11, 13]\nprint(binary_search(numbers, 9))\n二分查找的关键不在于代码有多复杂，而在于它背后的思想：每一步都尽量减少无用搜索。\n在普通查找中，如果列表有 100 个元素，最坏情况下可能要查 100 次；而二分查找每次砍掉一半，查找次数会大大减少。\n\n\n\n\n选择排序的思想很直观：每次从未排序部分中找到最小值，把它放到当前应该放的位置。\n\n\n如果你手里有一堆乱序扑克牌，可以每次从剩余牌中找出最小的一张，放到左边已经排好序的区域。不断重复后，整副牌就会变成有序状态。\n\n选择排序的步骤可以理解为：\n\n从全部元素中找到最小值。\n把这个最小值放到第一个位置。\n从剩下的元素中继续找最小值。\n把它放到第二个位置。\n重复这个过程，直到所有元素有序。\n\nPython 示例：\ndef selection_sort(arr):\n    arr = arr[:]\n\n    for i in range(len(arr)):\n        min_index = i\n\n        for j in range(i + 1, len(arr)):\n            if arr[j] &lt; arr[min_index]:\n                min_index = j\n\n        arr[i], arr[min_index] = arr[min_index], arr[i]\n\n    return arr\n\n\ndata = [5, 3, 6, 2, 10]\nprint(selection_sort(data))\n选择排序容易理解，但效率并不高。它适合用来入门排序思想，不适合处理大规模数据。\n选择排序的主要问题在于：无论数据原本是否接近有序，它都需要不断扫描剩余元素寻找最小值。因此，它的时间复杂度通常是 \\(O(n^2)\\)。\n\n\n\n\n递归就是函数调用自己。它适合处理可以被拆成相同小问题的问题。\n\n递归通常包含两个部分：递归出口 和 递归关系。\n没有递归出口，程序就会无限调用下去。\n\n例如，计算阶乘：\ndef factorial(n):\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n\n\nprint(factorial(5))\n这里的递归出口是：\nif n == 1:\n    return 1\n递归关系是：\nreturn n * factorial(n - 1)\n递归的难点在于不要试图把每一层都在脑子里完全展开，而是要相信函数本身已经能够解决更小的问题。\n递归常见于树结构、分治算法、回溯算法等内容中。比如遍历文件夹、遍历树、求解迷宫路径，都可以使用递归思想。\n\n\n\n\n栈和队列是两种常见的数据结构。\n\n栈：后进先出。\n队列：先进先出。\n\n栈类似一摞盘子，最后放上去的盘子最先被拿走。队列类似排队买票，先来的人先被处理。\n栈常见应用包括：\n\n函数调用。\n撤销操作。\n浏览器返回。\n括号匹配。\n深度优先搜索。\n\n队列常见应用包括：\n\n任务排队。\n消息处理。\n打印队列。\n广度优先搜索。\n操作系统进程调度。\n\n栈和队列本身并不复杂，但它们是理解很多算法的基础。\n\n\n\n\n哈希表通过键值映射来快速查找数据。Python 里的字典就是一种典型的哈希表结构。\nstudent = {\n    \"name\": \"sanxi\",\n    \"major\": \"信息与计算科学\",\n    \"grade\": \"大二\"\n}\n\nprint(student[\"major\"])\n哈希表的优势是查询速度快。只要知道 key，就可以很快找到对应的 value。\n不过，哈希表也需要考虑冲突问题。不同的 key 可能通过哈希函数得到相同的位置，这时候就需要额外的冲突处理方法。\n哈希表在实际开发中非常常见，例如：\n\n根据用户名查找用户信息。\n根据商品编号查找商品价格。\n统计词频。\n去重。\n缓存查询结果。\n\n\n\n\n\n图可以用来描述对象之间的关系，比如城市之间的路线、网页之间的链接、社交网络中的好友关系等。\n图由两个部分组成：\n\n顶点：表示对象。\n边：表示对象之间的关系。\n\n广度优先搜索从一个起点出发，先访问离它最近的一层节点，再访问更远的节点。\n它常用于：\n\n查找最短路径。\n判断两个节点是否连通。\n社交网络关系扩散。\n地图路径层级搜索。\n推荐系统中的关系扩展。\n\n广度优先搜索通常需要队列来辅助实现。先进入队列的节点会先被处理，这正好符合“按层扩展”的搜索方式。\n\n\n\n\nDijkstra 算法用于求解带非负权重图中的最短路径问题。\n它的基本思想是：\n\n从起点出发。\n记录起点到每个节点的当前最短距离。\n每次选择当前距离最短且未处理过的节点。\n用这个节点去更新它相邻节点的距离。\n重复直到所有节点处理完成。\n\n\nDijkstra 算法不适合存在负权边的情况。如果图中有负权边，需要考虑 Bellman-Ford 等其他算法。\n\nDijkstra 算法常见于地图导航、网络路由、路径规划等场景。\n\n\n\n\n动态规划适合解决具有重叠子问题和最优子结构的问题。\n它的核心是：保存已经计算过的结果，避免重复计算。\n常见例子包括：\n\n斐波那契数列。\n背包问题。\n最长公共子序列。\n最短路径问题。\n编辑距离问题。\n\n递归可能会重复计算大量子问题，而动态规划会把这些子问题结果保存起来，后面直接使用。\n动态规划的难点通常不在代码，而在于找到合适的状态表示和状态转移关系。\n\n\n\n\n贪心算法每一步都选择当前看起来最优的方案。它实现简单，但不一定总能得到全局最优解。\n\n\n如果币值系统合理，每次选择不超过剩余金额的最大面额硬币，通常可以快速得到找零方案。\n\n贪心算法适合那些局部最优能够推出全局最优的问题。如果局部选择会影响后续整体结构，那么贪心算法可能失败。\n判断一个问题能不能使用贪心算法，关键要看局部最优选择是否能够保证整体最优。\n\n\n\n\n后续这个专题可以继续扩展成完整的算法学习笔记，包括复杂度分析、链表、树、堆、图算法、排序算法、搜索算法、动态规划和回溯等内容。\n\n\n\n章节\n内容\n状态\n\n\n\n\n第 1 章\n初识算法\n正在整理\n\n\n第 2 章\n复杂度分析\n待更新\n\n\n第 3 章\n数据结构\n待更新\n\n\n第 4 章\n搜索与排序\n待更新\n\n\n第 5 章\n图算法\n待更新\n\n\n第 6 章\n动态规划\n待更新\n\n\n第 7 章\n贪心与回溯\n待更新"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-1",
+    "href": "topics/algorithm/index.html#section-1",
+    "title": "算法图解",
+    "section": "",
+    "text": "当我们听到“算法”这个词时，很容易想到复杂的数学公式、计算机代码、人工智能模型或者竞赛题。可是，如果把算法理解得更朴素一点，它其实并不神秘。算法本质上就是解决问题的一组明确步骤。\n只要一个问题可以被拆成“先做什么、再做什么、最后得到什么结果”，它就可以被看作一个算法过程。比如查字典、整理扑克牌、排队买饭、规划路线、安排复习计划，这些看似普通的日常行为背后，都有算法思想。\n\n\n假设我们想在一本按拼音排序的字典里查找“明”字。最笨的方法是从第一页开始一页一页翻，直到找到为止。\n更聪明的方法是先翻到中间，看当前位置的拼音是在目标之前还是之后。如果目标在前面，就继续查前半部分；如果目标在后面，就继续查后半部分。\n这样每次都能排除一半的查找范围。这其实就是一种“二分查找”的思想：每次都把问题规模缩小一半。\n\n查字典过程可以整理成下面几步：\n\n先确定目标字的拼音。\n打开字典中间位置。\n比较当前位置和目标位置。\n如果目标在前半部分，就继续查前半部分。\n如果目标在后半部分，就继续查后半部分。\n重复这个过程，直到找到目标。\n\n生活中还有很多类似的算法思想。例如，整理扑克牌时会用到排序思想；规划最短路线时会用到图算法；安排学习任务时会用到优先级策略；做选择题排除错误选项时，也是在不断缩小搜索范围。\n算法不是凭空出现的，它来自对现实问题的抽象。一个会使用算法思维的人，往往不是因为记住了多少代码，而是因为他能把混乱的问题拆成清楚的步骤。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-2",
+    "href": "topics/algorithm/index.html#section-2",
+    "title": "算法图解",
+    "section": "",
+    "text": "算法可以理解为解决问题的方法说明书。它不一定非要用代码写出来，也可以用自然语言、流程图、伪代码或者数学表达式来描述。\n\n核心理解：\n算法关注的不是“我会不会写代码”，而是“我能不能把问题拆解成清楚、稳定、可以重复执行的步骤”。\n\n一个好的算法通常有几个特点：\n\n明确性：每一步都清楚，不含糊。\n有限性：算法不能无限执行，必须在某个时刻结束。\n输入明确：需要什么数据，要提前说清楚。\n输出明确：最终要得到什么结果，要能判断。\n可重复性：同样的输入，在同样条件下应该得到同样的输出。\n\n比如“做一道数学题”这个说法太模糊，不是严格算法；但“先读题，列变量，建立方程，求解方程，代回检验”就更接近算法。\n再比如“整理房间”听起来也很模糊，但如果写成：\n\n先把桌面物品分类。\n把书放回书架。\n把垃圾放进垃圾袋。\n把常用物品放到手边。\n最后检查一遍是否遗漏。\n\n这就已经具有算法的雏形。\n所以，算法并不只是程序员才需要学习的内容。它是一种结构化思维方式，可以帮助我们更清楚地理解问题，也可以帮助我们更高效地解决问题。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-3",
+    "href": "topics/algorithm/index.html#section-3",
+    "title": "算法图解",
+    "section": "",
+    "text": "二分查找适用于已经排好序的数据。它每次都查看中间元素，并根据比较结果决定继续查找左半部分还是右半部分。\n二分查找的优势在于：每比较一次，问题规模就缩小一半。数据越大，这种优势越明显。\n\n\n假设有人心里想了一个 1 到 100 之间的数字。你可以从 1 开始一个一个猜，但最多可能猜 100 次。\n如果你每次都猜中间值，比如先猜 50，对方告诉你“大了”还是“小了”，你就可以马上排除一半数字。这样最多只需要很少几次就能猜中。\n\n二分查找的基本步骤是：\n\n设置左边界 left 和右边界 right。\n取中间位置 mid。\n如果中间值等于目标值，就返回结果。\n如果中间值小于目标值，就去右半部分继续查找。\n如果中间值大于目标值，就去左半部分继续查找。\n如果查找范围为空，说明目标不存在。\n\nPython 示例：\ndef binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n\n    while left &lt;= right:\n        mid = (left + right) // 2\n\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] &lt; target:\n            left = mid + 1\n        else:\n            right = mid - 1\n\n    return -1\n\n\nnumbers = [1, 3, 5, 7, 9, 11, 13]\nprint(binary_search(numbers, 9))\n二分查找的关键不在于代码有多复杂，而在于它背后的思想：每一步都尽量减少无用搜索。\n在普通查找中，如果列表有 100 个元素，最坏情况下可能要查 100 次；而二分查找每次砍掉一半，查找次数会大大减少。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-4",
+    "href": "topics/algorithm/index.html#section-4",
+    "title": "算法图解",
+    "section": "",
+    "text": "选择排序的思想很直观：每次从未排序部分中找到最小值，把它放到当前应该放的位置。\n\n\n如果你手里有一堆乱序扑克牌，可以每次从剩余牌中找出最小的一张，放到左边已经排好序的区域。不断重复后，整副牌就会变成有序状态。\n\n选择排序的步骤可以理解为：\n\n从全部元素中找到最小值。\n把这个最小值放到第一个位置。\n从剩下的元素中继续找最小值。\n把它放到第二个位置。\n重复这个过程，直到所有元素有序。\n\nPython 示例：\ndef selection_sort(arr):\n    arr = arr[:]\n\n    for i in range(len(arr)):\n        min_index = i\n\n        for j in range(i + 1, len(arr)):\n            if arr[j] &lt; arr[min_index]:\n                min_index = j\n\n        arr[i], arr[min_index] = arr[min_index], arr[i]\n\n    return arr\n\n\ndata = [5, 3, 6, 2, 10]\nprint(selection_sort(data))\n选择排序容易理解，但效率并不高。它适合用来入门排序思想，不适合处理大规模数据。\n选择排序的主要问题在于：无论数据原本是否接近有序，它都需要不断扫描剩余元素寻找最小值。因此，它的时间复杂度通常是 \\(O(n^2)\\)。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-5",
+    "href": "topics/algorithm/index.html#section-5",
+    "title": "算法图解",
+    "section": "",
+    "text": "递归就是函数调用自己。它适合处理可以被拆成相同小问题的问题。\n\n递归通常包含两个部分：递归出口 和 递归关系。\n没有递归出口，程序就会无限调用下去。\n\n例如，计算阶乘：\ndef factorial(n):\n    if n == 1:\n        return 1\n    return n * factorial(n - 1)\n\n\nprint(factorial(5))\n这里的递归出口是：\nif n == 1:\n    return 1\n递归关系是：\nreturn n * factorial(n - 1)\n递归的难点在于不要试图把每一层都在脑子里完全展开，而是要相信函数本身已经能够解决更小的问题。\n递归常见于树结构、分治算法、回溯算法等内容中。比如遍历文件夹、遍历树、求解迷宫路径，都可以使用递归思想。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-6",
+    "href": "topics/algorithm/index.html#section-6",
+    "title": "算法图解",
+    "section": "",
+    "text": "栈和队列是两种常见的数据结构。\n\n栈：后进先出。\n队列：先进先出。\n\n栈类似一摞盘子，最后放上去的盘子最先被拿走。队列类似排队买票，先来的人先被处理。\n栈常见应用包括：\n\n函数调用。\n撤销操作。\n浏览器返回。\n括号匹配。\n深度优先搜索。\n\n队列常见应用包括：\n\n任务排队。\n消息处理。\n打印队列。\n广度优先搜索。\n操作系统进程调度。\n\n栈和队列本身并不复杂，但它们是理解很多算法的基础。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-7",
+    "href": "topics/algorithm/index.html#section-7",
+    "title": "算法图解",
+    "section": "",
+    "text": "哈希表通过键值映射来快速查找数据。Python 里的字典就是一种典型的哈希表结构。\nstudent = {\n    \"name\": \"sanxi\",\n    \"major\": \"信息与计算科学\",\n    \"grade\": \"大二\"\n}\n\nprint(student[\"major\"])\n哈希表的优势是查询速度快。只要知道 key，就可以很快找到对应的 value。\n不过，哈希表也需要考虑冲突问题。不同的 key 可能通过哈希函数得到相同的位置，这时候就需要额外的冲突处理方法。\n哈希表在实际开发中非常常见，例如：\n\n根据用户名查找用户信息。\n根据商品编号查找商品价格。\n统计词频。\n去重。\n缓存查询结果。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-8",
+    "href": "topics/algorithm/index.html#section-8",
+    "title": "算法图解",
+    "section": "",
+    "text": "图可以用来描述对象之间的关系，比如城市之间的路线、网页之间的链接、社交网络中的好友关系等。\n图由两个部分组成：\n\n顶点：表示对象。\n边：表示对象之间的关系。\n\n广度优先搜索从一个起点出发，先访问离它最近的一层节点，再访问更远的节点。\n它常用于：\n\n查找最短路径。\n判断两个节点是否连通。\n社交网络关系扩散。\n地图路径层级搜索。\n推荐系统中的关系扩展。\n\n广度优先搜索通常需要队列来辅助实现。先进入队列的节点会先被处理，这正好符合“按层扩展”的搜索方式。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-9",
+    "href": "topics/algorithm/index.html#section-9",
+    "title": "算法图解",
+    "section": "",
+    "text": "Dijkstra 算法用于求解带非负权重图中的最短路径问题。\n它的基本思想是：\n\n从起点出发。\n记录起点到每个节点的当前最短距离。\n每次选择当前距离最短且未处理过的节点。\n用这个节点去更新它相邻节点的距离。\n重复直到所有节点处理完成。\n\n\nDijkstra 算法不适合存在负权边的情况。如果图中有负权边，需要考虑 Bellman-Ford 等其他算法。\n\nDijkstra 算法常见于地图导航、网络路由、路径规划等场景。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-10",
+    "href": "topics/algorithm/index.html#section-10",
+    "title": "算法图解",
+    "section": "",
+    "text": "动态规划适合解决具有重叠子问题和最优子结构的问题。\n它的核心是：保存已经计算过的结果，避免重复计算。\n常见例子包括：\n\n斐波那契数列。\n背包问题。\n最长公共子序列。\n最短路径问题。\n编辑距离问题。\n\n递归可能会重复计算大量子问题，而动态规划会把这些子问题结果保存起来，后面直接使用。\n动态规划的难点通常不在代码，而在于找到合适的状态表示和状态转移关系。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-11",
+    "href": "topics/algorithm/index.html#section-11",
+    "title": "算法图解",
+    "section": "",
+    "text": "贪心算法每一步都选择当前看起来最优的方案。它实现简单，但不一定总能得到全局最优解。\n\n\n如果币值系统合理，每次选择不超过剩余金额的最大面额硬币，通常可以快速得到找零方案。\n\n贪心算法适合那些局部最优能够推出全局最优的问题。如果局部选择会影响后续整体结构，那么贪心算法可能失败。\n判断一个问题能不能使用贪心算法，关键要看局部最优选择是否能够保证整体最优。"
+  },
+  {
+    "objectID": "topics/algorithm/index.html#section-12",
+    "href": "topics/algorithm/index.html#section-12",
+    "title": "算法图解",
+    "section": "",
+    "text": "后续这个专题可以继续扩展成完整的算法学习笔记，包括复杂度分析、链表、树、堆、图算法、排序算法、搜索算法、动态规划和回溯等内容。\n\n\n\n章节\n内容\n状态\n\n\n\n\n第 1 章\n初识算法\n正在整理\n\n\n第 2 章\n复杂度分析\n待更新\n\n\n第 3 章\n数据结构\n待更新\n\n\n第 4 章\n搜索与排序\n待更新\n\n\n第 5 章\n图算法\n待更新\n\n\n第 6 章\n动态规划\n待更新\n\n\n第 7 章\n贪心与回溯\n待更新"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#笔记总览",
+    "href": "notes.html#笔记总览",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#文章分类入口",
+    "href": "notes.html#文章分类入口",
+    "title": "学习笔记",
+    "section": "文章分类入口",
+    "text": "文章分类入口\n\n\n\n全部文章\n\n\n返回首页查看所有文章列表。\n\n\n\n\nMood Journal\n\n\n查看心情记录、热力图和最近状态。\n\n\n\n\n博客说明\n\n\n查看第一篇博客说明文章。"
+  },
+  {
+    "objectID": "notes.html#后续计划",
+    "href": "notes.html#后续计划",
+    "title": "学习笔记",
+    "section": "后续计划",
+    "text": "后续计划\n\n\n\n模块\n内容\n状态\n\n\n\n\n统计学\n课程公式、知识点、例题\n待更新\n\n\nPython\n数据处理、绘图、建模\n待更新\n\n\nR 语言\n统计分析、可视化\n待更新\n\n\n数学建模\n建模模板、算法代码\n待更新\n\n\nQuarto\n博客搭建与发布\n正在完善"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "把学习、代码、建模、阅读和普通日子都留下来。\n\n\n\nSANXI BLOG · STUDY / CODE / JOURNAL\n\n\n\n这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。\n\n\n进入日志 关于我 🎲 随便看看\n\n\n\n\n\n\n📍 身份\n\n\n信息与计算科学 · 大二\n\n\n\n\n📚 最近学习\n\n\nQuarto / 算法图解 / 数值分析\n\n\n\n\n🧭 长期方向\n\n\n数据分析与算法优化\n\n\n\n\n📅 今天\n\n\n加载中…\n\n\n\n\n\n\n\n\n\n今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;\n\n\n\n\n\n\n\n\n这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。\n\n\n\n\n\n\n\n\n\n\n心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我\n\n\n\n\n\n\n统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "index.html#interactive-widgets",
+    "href": "index.html#interactive-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;"
+  },
+  {
+    "objectID": "index.html#debug-widgets",
+    "href": "index.html#debug-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。"
+  },
+  {
+    "objectID": "index.html#content-navigation",
+    "href": "index.html#content-navigation",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我"
+  },
+  {
+    "objectID": "index.html#tag-cloud",
+    "href": "index.html#tag-cloud",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
+  },
+  {
+    "objectID": "about.html#关于这个博客",
+    "href": "about.html#关于这个博客",
+    "title": "About",
+    "section": "",
+    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考"
+  },
+  {
+    "objectID": "about.html#博客结构",
+    "href": "about.html#博客结构",
+    "title": "About",
+    "section": "",
+    "text": "页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明"
+  },
+  {
+    "objectID": "about.html#内容规划",
+    "href": "about.html#内容规划",
+    "title": "About",
+    "section": "",
+    "text": "这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。"
+  },
+  {
+    "objectID": "about.html#技术说明",
+    "href": "about.html#技术说明",
+    "title": "About",
+    "section": "",
+    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
   },
   {
     "objectID": "journal.html",
@@ -91,101 +287,38 @@
     "text": "如何更新\n以后每天更新心情数据，只需要修改这个文件：\n```text assets/data/mood.csv"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "欢迎来到 sanxi",
     "section": "",
-    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
-    "objectID": "about.html#关于这个博客",
-    "href": "about.html#关于这个博客",
-    "title": "About",
+    "objectID": "posts/welcome/index.html#我的博客计划",
+    "href": "posts/welcome/index.html#我的博客计划",
+    "title": "欢迎来到 sanxi",
     "section": "",
-    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考"
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
-    "objectID": "about.html#博客结构",
-    "href": "about.html#博客结构",
-    "title": "About",
+    "objectID": "posts/welcome/index.html#这个博客会写什么",
+    "href": "posts/welcome/index.html#这个博客会写什么",
+    "title": "欢迎来到 sanxi",
+    "section": "这个博客会写什么",
+    "text": "这个博客会写什么\n以后这里主要记录：\n\n统计学学习笔记\nPython 和 R 语言学习\n数学建模作业与比赛经验\nQuarto 博客搭建过程\nMood Journal 心情日志\n日常生活和个人思考"
+  },
+  {
+    "objectID": "posts/welcome/index.html#后续文章模板",
+    "href": "posts/welcome/index.html#后续文章模板",
+    "title": "欢迎来到 sanxi",
+    "section": "后续文章模板",
+    "text": "后续文章模板\n以后新建文章时，可以按照这个结构：\n```text posts/文章文件夹名/index.qmd"
+  },
+  {
+    "objectID": "topics/index.html",
+    "href": "topics/index.html",
+    "title": "专题",
     "section": "",
-    "text": "页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明"
-  },
-  {
-    "objectID": "about.html#内容规划",
-    "href": "about.html#内容规划",
-    "title": "About",
-    "section": "",
-    "text": "这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。"
-  },
-  {
-    "objectID": "about.html#技术说明",
-    "href": "about.html#技术说明",
-    "title": "About",
-    "section": "",
-    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "把学习、代码、建模、阅读和普通日子都留下来。\n\n\n\nSANXI BLOG · STUDY / CODE / JOURNAL\n\n\n\n这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。\n\n\n进入日志 关于我 🎲 随便看看\n\n\n\n\n\n\n📍 身份\n\n\n信息与计算科学 · 大二\n\n\n\n\n📚 最近学习\n\n\nQuarto / 算法图解 / 数值分析\n\n\n\n\n🧭 长期方向\n\n\n数据分析与算法优化\n\n\n\n\n📅 今天\n\n\n加载中…\n\n\n\n\n\n\n\n\n\n今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;\n\n\n\n\n\n\n\n\n这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。\n\n\n\n\n\n\n\n\n\n\n心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我\n\n\n\n\n\n\n统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
-  },
-  {
-    "objectID": "index.html#interactive-widgets",
-    "href": "index.html#interactive-widgets",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;"
-  },
-  {
-    "objectID": "index.html#debug-widgets",
-    "href": "index.html#debug-widgets",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。"
-  },
-  {
-    "objectID": "index.html#content-navigation",
-    "href": "index.html#content-navigation",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我"
-  },
-  {
-    "objectID": "index.html#tag-cloud",
-    "href": "index.html#tag-cloud",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "学习笔记",
-    "section": "",
-    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
-  },
-  {
-    "objectID": "notes.html#笔记总览",
-    "href": "notes.html#笔记总览",
-    "title": "学习笔记",
-    "section": "",
-    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
-  },
-  {
-    "objectID": "notes.html#文章分类入口",
-    "href": "notes.html#文章分类入口",
-    "title": "学习笔记",
-    "section": "文章分类入口",
-    "text": "文章分类入口\n\n\n\n全部文章\n\n\n返回首页查看所有文章列表。\n\n\n\n\nMood Journal\n\n\n查看心情记录、热力图和最近状态。\n\n\n\n\n博客说明\n\n\n查看第一篇博客说明文章。"
-  },
-  {
-    "objectID": "notes.html#后续计划",
-    "href": "notes.html#后续计划",
-    "title": "学习笔记",
-    "section": "后续计划",
-    "text": "后续计划\n\n\n\n模块\n内容\n状态\n\n\n\n\n统计学\n课程公式、知识点、例题\n待更新\n\n\nPython\n数据处理、绘图、建模\n待更新\n\n\nR 语言\n统计分析、可视化\n待更新\n\n\n数学建模\n建模模板、算法代码\n待更新\n\n\nQuarto\n博客搭建与发布\n正在完善"
+    "text": "专题\n\n\n这里用于整理长期学习专题，比如算法图解、MATLAB 学习、数值分析、数学建模等。\n\n\n\n\nALGORITHM\n\n\n算法图解\n\n\n用图解、例子和代码笔记的方式，系统整理常见算法思想。\n\n进入专题 → \n\n\nMATLAB\n\n\nMATLAB 学习\n\n\n整理 MATLAB 基础语法、绘图、数值计算、建模代码和实验报告常用模板。\n\n进入专题 →"
   }
 ]

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>算法图解 – sanxi</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-2fbc441a486df88665f5593ec0ec4a4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">sanxi</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">首页</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">专题</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../../topics/index.html">
+ <span class="dropdown-text">专题首页</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../topics/algorithm/index.html">
+ <span class="dropdown-text">算法图解</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../topics/matlab/index.html">
+ <span class="dropdown-text">MATLAB 学习</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">笔记</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
+        <li>
+    <a class="dropdown-item" href="../../notes.html">
+ <span class="dropdown-text">学习笔记总览</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../notes.html#统计学笔记">
+ <span class="dropdown-text">统计学笔记</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../notes.html#编程笔记">
+ <span class="dropdown-text">编程笔记</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../notes.html#数学建模">
+ <span class="dropdown-text">数学建模</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../notes.html#生活复盘">
+ <span class="dropdown-text">生活复盘</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">日志</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
+        <li>
+    <a class="dropdown-item" href="../../journal.html">
+ <span class="dropdown-text">Mood Journal</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../journal.html#心情热力图">
+ <span class="dropdown-text">心情热力图</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../journal.html#最近状态">
+ <span class="dropdown-text">最近状态</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../journal.html#最近记录">
+ <span class="dropdown-text">最近记录</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../journal.html#互动小部件">
+ <span class="dropdown-text">互动小部件</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--3" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">文章</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--3">    
+        <li>
+    <a class="dropdown-item" href="../../index.html#文章列表">
+ <span class="dropdown-text">全部文章</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/welcome/index.html">
+ <span class="dropdown-text">欢迎文章</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/sunjiaxi378-stack/sanxi"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">算法图解</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="algo-writing-page">
+<div class="algo-left-sidebar">
+<div class="algo-brand">
+<div class="algo-logo">
+<p>算</p>
+</div>
+<div class="algo-brand-text">
+<p><strong>算法图解</strong><br>
+Algorithm Notes</p>
+</div>
+</div>
+<nav class="algo-chapter-nav">
+<details class="algo-nav-group" open="">
+<summary>
+第 1 章 初识算法
+</summary>
+<div class="algo-subnav">
+<p><a class="active" href="#section-1">1.1 算法无处不在</a> <a href="#section-2">1.2 算法是什么</a> <a href="#section-3">1.3 二分查找</a> <a href="#section-4">1.4 选择排序</a> <a href="#section-5">1.5 递归思想</a> <a href="#section-6">1.6 栈与队列</a> <a href="#section-7">1.7 哈希表</a> <a href="#section-8">1.8 图与广度优先搜索</a> <a href="#section-9">1.9 Dijkstra 算法</a> <a href="#section-10">1.10 动态规划</a> <a href="#section-11">1.11 贪心算法</a> <a href="#section-12">1.12 后续计划</a></p>
+</div>
+</details>
+<details class="algo-nav-group">
+<summary>
+第 2 章 复杂度分析
+</summary>
+<div class="algo-subnav">
+<p><a href="#future-1">2.1 时间复杂度</a> <a href="#future-2">2.2 空间复杂度</a> <a href="#future-3">2.3 大 O 表示法</a></p>
+</div>
+</details>
+<details class="algo-nav-group">
+<summary>
+第 3 章 数据结构
+</summary>
+<div class="algo-subnav">
+<p><a href="#future-4">3.1 数组</a> <a href="#future-5">3.2 链表</a> <a href="#future-6">3.3 栈与队列</a></p>
+</div>
+</details>
+<details class="algo-nav-group">
+<summary>
+第 4 章 搜索与排序
+</summary>
+<div class="algo-subnav">
+<p><a href="#future-7">4.1 线性搜索</a> <a href="#future-8">4.2 二分搜索</a> <a href="#future-9">4.3 基础排序</a></p>
+</div>
+</details>
+<details class="algo-nav-group">
+<summary>
+第 5 章 图算法
+</summary>
+<div class="algo-subnav">
+<p><a href="#future-10">5.1 图的表示</a> <a href="#future-11">5.2 广度优先搜索</a> <a href="#future-12">5.3 最短路径</a></p>
+</div>
+</details>
+<details class="algo-nav-group">
+<summary>
+第 6 章 动态规划
+</summary>
+<div class="algo-subnav">
+<p><a href="#future-13">6.1 动态规划思想</a> <a href="#future-14">6.2 背包问题</a> <a href="#future-15">6.3 状态转移方程</a></p>
+</div>
+</details>
+</nav>
+</div>
+<section id="算法图解" class="level1 algo-main-content">
+<h1>算法图解</h1>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">1.1 算法无处不在</h2>
+<p>当我们听到“算法”这个词时，很容易想到复杂的数学公式、计算机代码、人工智能模型或者竞赛题。可是，如果把算法理解得更朴素一点，它其实并不神秘。算法本质上就是<strong>解决问题的一组明确步骤</strong>。</p>
+<p>只要一个问题可以被拆成“先做什么、再做什么、最后得到什么结果”，它就可以被看作一个算法过程。比如查字典、整理扑克牌、排队买饭、规划路线、安排复习计划，这些看似普通的日常行为背后，都有算法思想。</p>
+<section id="例子查字典" class="level3 algo-example-box">
+<h3 class="anchored" data-anchor-id="例子查字典">例子：查字典</h3>
+<p>假设我们想在一本按拼音排序的字典里查找“明”字。最笨的方法是从第一页开始一页一页翻，直到找到为止。</p>
+<p>更聪明的方法是先翻到中间，看当前位置的拼音是在目标之前还是之后。如果目标在前面，就继续查前半部分；如果目标在后面，就继续查后半部分。</p>
+<p>这样每次都能排除一半的查找范围。这其实就是一种“二分查找”的思想：<strong>每次都把问题规模缩小一半</strong>。</p>
+</section>
+<p>查字典过程可以整理成下面几步：</p>
+<ol type="1">
+<li>先确定目标字的拼音。</li>
+<li>打开字典中间位置。</li>
+<li>比较当前位置和目标位置。</li>
+<li>如果目标在前半部分，就继续查前半部分。</li>
+<li>如果目标在后半部分，就继续查后半部分。</li>
+<li>重复这个过程，直到找到目标。</li>
+</ol>
+<p>生活中还有很多类似的算法思想。例如，整理扑克牌时会用到排序思想；规划最短路线时会用到图算法；安排学习任务时会用到优先级策略；做选择题排除错误选项时，也是在不断缩小搜索范围。</p>
+<p>算法不是凭空出现的，它来自对现实问题的抽象。一个会使用算法思维的人，往往不是因为记住了多少代码，而是因为他能把混乱的问题拆成清楚的步骤。</p>
+<hr>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">1.2 算法是什么</h2>
+<p>算法可以理解为解决问题的方法说明书。它不一定非要用代码写出来，也可以用自然语言、流程图、伪代码或者数学表达式来描述。</p>
+<div class="algo-note">
+<p><strong>核心理解：</strong><br>
+算法关注的不是“我会不会写代码”，而是“我能不能把问题拆解成清楚、稳定、可以重复执行的步骤”。</p>
+</div>
+<p>一个好的算法通常有几个特点：</p>
+<ul>
+<li><strong>明确性</strong>：每一步都清楚，不含糊。</li>
+<li><strong>有限性</strong>：算法不能无限执行，必须在某个时刻结束。</li>
+<li><strong>输入明确</strong>：需要什么数据，要提前说清楚。</li>
+<li><strong>输出明确</strong>：最终要得到什么结果，要能判断。</li>
+<li><strong>可重复性</strong>：同样的输入，在同样条件下应该得到同样的输出。</li>
+</ul>
+<p>比如“做一道数学题”这个说法太模糊，不是严格算法；但“先读题，列变量，建立方程，求解方程，代回检验”就更接近算法。</p>
+<p>再比如“整理房间”听起来也很模糊，但如果写成：</p>
+<ol type="1">
+<li>先把桌面物品分类。</li>
+<li>把书放回书架。</li>
+<li>把垃圾放进垃圾袋。</li>
+<li>把常用物品放到手边。</li>
+<li>最后检查一遍是否遗漏。</li>
+</ol>
+<p>这就已经具有算法的雏形。</p>
+<p>所以，算法并不只是程序员才需要学习的内容。它是一种结构化思维方式，可以帮助我们更清楚地理解问题，也可以帮助我们更高效地解决问题。</p>
+<hr>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">1.3 二分查找</h2>
+<p>二分查找适用于<strong>已经排好序的数据</strong>。它每次都查看中间元素，并根据比较结果决定继续查找左半部分还是右半部分。</p>
+<p>二分查找的优势在于：每比较一次，问题规模就缩小一半。数据越大，这种优势越明显。</p>
+<section id="例子猜数字" class="level3 algo-example-box">
+<h3 class="anchored" data-anchor-id="例子猜数字">例子：猜数字</h3>
+<p>假设有人心里想了一个 1 到 100 之间的数字。你可以从 1 开始一个一个猜，但最多可能猜 100 次。</p>
+<p>如果你每次都猜中间值，比如先猜 50，对方告诉你“大了”还是“小了”，你就可以马上排除一半数字。这样最多只需要很少几次就能猜中。</p>
+</section>
+<p>二分查找的基本步骤是：</p>
+<ol type="1">
+<li>设置左边界 <code>left</code> 和右边界 <code>right</code>。</li>
+<li>取中间位置 <code>mid</code>。</li>
+<li>如果中间值等于目标值，就返回结果。</li>
+<li>如果中间值小于目标值，就去右半部分继续查找。</li>
+<li>如果中间值大于目标值，就去左半部分继续查找。</li>
+<li>如果查找范围为空，说明目标不存在。</li>
+</ol>
+<p>Python 示例：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binary_search(arr, target):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    left <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    right <span class="op">=</span> <span class="bu">len</span>(arr) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> left <span class="op">&lt;=</span> right:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        mid <span class="op">=</span> (left <span class="op">+</span> right) <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> arr[mid] <span class="op">==</span> target:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> mid</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> arr[mid] <span class="op">&lt;</span> target:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            left <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            right <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">13</span>]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(binary_search(numbers, <span class="dv">9</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>二分查找的关键不在于代码有多复杂，而在于它背后的思想：<strong>每一步都尽量减少无用搜索</strong>。</p>
+<p>在普通查找中，如果列表有 100 个元素，最坏情况下可能要查 100 次；而二分查找每次砍掉一半，查找次数会大大减少。</p>
+<hr>
+</section>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">1.4 选择排序</h2>
+<p>选择排序的思想很直观：每次从未排序部分中找到最小值，把它放到当前应该放的位置。</p>
+<section id="例子整理扑克牌" class="level3 algo-example-box">
+<h3 class="anchored" data-anchor-id="例子整理扑克牌">例子：整理扑克牌</h3>
+<p>如果你手里有一堆乱序扑克牌，可以每次从剩余牌中找出最小的一张，放到左边已经排好序的区域。不断重复后，整副牌就会变成有序状态。</p>
+</section>
+<p>选择排序的步骤可以理解为：</p>
+<ol type="1">
+<li>从全部元素中找到最小值。</li>
+<li>把这个最小值放到第一个位置。</li>
+<li>从剩下的元素中继续找最小值。</li>
+<li>把它放到第二个位置。</li>
+<li>重复这个过程，直到所有元素有序。</li>
+</ol>
+<p>Python 示例：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> selection_sort(arr):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> arr[:]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(arr)):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        min_index <span class="op">=</span> i</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i <span class="op">+</span> <span class="dv">1</span>, <span class="bu">len</span>(arr)):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> arr[j] <span class="op">&lt;</span> arr[min_index]:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                min_index <span class="op">=</span> j</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        arr[i], arr[min_index] <span class="op">=</span> arr[min_index], arr[i]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">10</span>]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(selection_sort(data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>选择排序容易理解，但效率并不高。它适合用来入门排序思想，不适合处理大规模数据。</p>
+<p>选择排序的主要问题在于：无论数据原本是否接近有序，它都需要不断扫描剩余元素寻找最小值。因此，它的时间复杂度通常是 <span class="math inline">\(O(n^2)\)</span>。</p>
+<hr>
+</section>
+<section id="section-5" class="level2">
+<h2 class="anchored" data-anchor-id="section-5">1.5 递归思想</h2>
+<p>递归就是函数调用自己。它适合处理可以被拆成相同小问题的问题。</p>
+<div class="algo-note">
+<p>递归通常包含两个部分：<strong>递归出口</strong> 和 <strong>递归关系</strong>。<br>
+没有递归出口，程序就会无限调用下去。</p>
+</div>
+<p>例如，计算阶乘：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorial(n):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(factorial(<span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>这里的递归出口是：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>递归关系是：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> n <span class="op">*</span> factorial(n <span class="op">-</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>递归的难点在于不要试图把每一层都在脑子里完全展开，而是要相信函数本身已经能够解决更小的问题。</p>
+<p>递归常见于树结构、分治算法、回溯算法等内容中。比如遍历文件夹、遍历树、求解迷宫路径，都可以使用递归思想。</p>
+<hr>
+</section>
+<section id="section-6" class="level2">
+<h2 class="anchored" data-anchor-id="section-6">1.6 栈与队列</h2>
+<p>栈和队列是两种常见的数据结构。</p>
+<ul>
+<li>栈：后进先出。</li>
+<li>队列：先进先出。</li>
+</ul>
+<p>栈类似一摞盘子，最后放上去的盘子最先被拿走。队列类似排队买票，先来的人先被处理。</p>
+<p>栈常见应用包括：</p>
+<ul>
+<li>函数调用。</li>
+<li>撤销操作。</li>
+<li>浏览器返回。</li>
+<li>括号匹配。</li>
+<li>深度优先搜索。</li>
+</ul>
+<p>队列常见应用包括：</p>
+<ul>
+<li>任务排队。</li>
+<li>消息处理。</li>
+<li>打印队列。</li>
+<li>广度优先搜索。</li>
+<li>操作系统进程调度。</li>
+</ul>
+<p>栈和队列本身并不复杂，但它们是理解很多算法的基础。</p>
+<hr>
+</section>
+<section id="section-7" class="level2">
+<h2 class="anchored" data-anchor-id="section-7">1.7 哈希表</h2>
+<p>哈希表通过键值映射来快速查找数据。Python 里的字典就是一种典型的哈希表结构。</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>student <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"sanxi"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"major"</span>: <span class="st">"信息与计算科学"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"grade"</span>: <span class="st">"大二"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(student[<span class="st">"major"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>哈希表的优势是查询速度快。只要知道 key，就可以很快找到对应的 value。</p>
+<p>不过，哈希表也需要考虑冲突问题。不同的 key 可能通过哈希函数得到相同的位置，这时候就需要额外的冲突处理方法。</p>
+<p>哈希表在实际开发中非常常见，例如：</p>
+<ul>
+<li>根据用户名查找用户信息。</li>
+<li>根据商品编号查找商品价格。</li>
+<li>统计词频。</li>
+<li>去重。</li>
+<li>缓存查询结果。</li>
+</ul>
+<hr>
+</section>
+<section id="section-8" class="level2">
+<h2 class="anchored" data-anchor-id="section-8">1.8 图与广度优先搜索</h2>
+<p>图可以用来描述对象之间的关系，比如城市之间的路线、网页之间的链接、社交网络中的好友关系等。</p>
+<p>图由两个部分组成：</p>
+<ul>
+<li>顶点：表示对象。</li>
+<li>边：表示对象之间的关系。</li>
+</ul>
+<p>广度优先搜索从一个起点出发，先访问离它最近的一层节点，再访问更远的节点。</p>
+<p>它常用于：</p>
+<ul>
+<li>查找最短路径。</li>
+<li>判断两个节点是否连通。</li>
+<li>社交网络关系扩散。</li>
+<li>地图路径层级搜索。</li>
+<li>推荐系统中的关系扩展。</li>
+</ul>
+<p>广度优先搜索通常需要队列来辅助实现。先进入队列的节点会先被处理，这正好符合“按层扩展”的搜索方式。</p>
+<hr>
+</section>
+<section id="section-9" class="level2">
+<h2 class="anchored" data-anchor-id="section-9">1.9 Dijkstra 算法</h2>
+<p>Dijkstra 算法用于求解带非负权重图中的最短路径问题。</p>
+<p>它的基本思想是：</p>
+<ol type="1">
+<li>从起点出发。</li>
+<li>记录起点到每个节点的当前最短距离。</li>
+<li>每次选择当前距离最短且未处理过的节点。</li>
+<li>用这个节点去更新它相邻节点的距离。</li>
+<li>重复直到所有节点处理完成。</li>
+</ol>
+<div class="algo-note">
+<p>Dijkstra 算法不适合存在负权边的情况。如果图中有负权边，需要考虑 Bellman-Ford 等其他算法。</p>
+</div>
+<p>Dijkstra 算法常见于地图导航、网络路由、路径规划等场景。</p>
+<hr>
+</section>
+<section id="section-10" class="level2">
+<h2 class="anchored" data-anchor-id="section-10">1.10 动态规划</h2>
+<p>动态规划适合解决具有<strong>重叠子问题</strong>和<strong>最优子结构</strong>的问题。</p>
+<p>它的核心是：保存已经计算过的结果，避免重复计算。</p>
+<p>常见例子包括：</p>
+<ul>
+<li>斐波那契数列。</li>
+<li>背包问题。</li>
+<li>最长公共子序列。</li>
+<li>最短路径问题。</li>
+<li>编辑距离问题。</li>
+</ul>
+<p>递归可能会重复计算大量子问题，而动态规划会把这些子问题结果保存起来，后面直接使用。</p>
+<p>动态规划的难点通常不在代码，而在于找到合适的状态表示和状态转移关系。</p>
+<hr>
+</section>
+<section id="section-11" class="level2">
+<h2 class="anchored" data-anchor-id="section-11">1.11 贪心算法</h2>
+<p>贪心算法每一步都选择当前看起来最优的方案。它实现简单，但不一定总能得到全局最优解。</p>
+<section id="例子零钱找零" class="level3 algo-example-box">
+<h3 class="anchored" data-anchor-id="例子零钱找零">例子：零钱找零</h3>
+<p>如果币值系统合理，每次选择不超过剩余金额的最大面额硬币，通常可以快速得到找零方案。</p>
+</section>
+<p>贪心算法适合那些局部最优能够推出全局最优的问题。如果局部选择会影响后续整体结构，那么贪心算法可能失败。</p>
+<p>判断一个问题能不能使用贪心算法，关键要看局部最优选择是否能够保证整体最优。</p>
+<hr>
+</section>
+<section id="section-12" class="level2">
+<h2 class="anchored" data-anchor-id="section-12">1.12 后续计划</h2>
+<p>后续这个专题可以继续扩展成完整的算法学习笔记，包括复杂度分析、链表、树、堆、图算法、排序算法、搜索算法、动态规划和回溯等内容。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>章节</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>第 1 章</td>
+<td>初识算法</td>
+<td>正在整理</td>
+</tr>
+<tr class="even">
+<td>第 2 章</td>
+<td>复杂度分析</td>
+<td>待更新</td>
+</tr>
+<tr class="odd">
+<td>第 3 章</td>
+<td>数据结构</td>
+<td>待更新</td>
+</tr>
+<tr class="even">
+<td>第 4 章</td>
+<td>搜索与排序</td>
+<td>待更新</td>
+</tr>
+<tr class="odd">
+<td>第 5 章</td>
+<td>图算法</td>
+<td>待更新</td>
+</tr>
+<tr class="even">
+<td>第 6 章</td>
+<td>动态规划</td>
+<td>待更新</td>
+</tr>
+<tr class="odd">
+<td>第 7 章</td>
+<td>贪心与回溯</td>
+<td>待更新</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sunjiaxi378-stack\.github\.io\/sanxi\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 sanxi · Built with Quarto</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
