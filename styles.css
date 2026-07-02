@@ -2046,3 +2046,1633 @@ nav#TOC .active > a,
     display: none !important;
   }
 }
+/* =========================
+   Topic home page
+   ========================= */
+
+.topic-home {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.4rem 5rem 1.4rem;
+}
+
+.topic-home h1 {
+  font-size: 2.7rem;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.topic-subtitle {
+  color: #6b7280;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.topic-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.topic-card {
+  display: block;
+  padding: 2rem;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045);
+  text-decoration: none;
+  color: #222222;
+  transition: all 0.2s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+}
+
+.topic-card-tag {
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: #6b7280;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+.topic-card h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+.topic-card p {
+  color: #555555;
+  line-height: 1.8;
+}
+
+.topic-card span {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+/* =========================
+   Algorithm reading page
+   类似 Hello Algo 的三栏阅读模式
+   ========================= */
+
+body {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  background: #ffffff !important;
+}
+
+.algo-reading-page {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 220px;
+  gap: 28px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2.5rem 1.2rem 5rem 1.2rem;
+}
+
+/* 左侧专题目录 */
+.algo-left-sidebar {
+  position: sticky;
+  top: 5rem;
+  height: calc(100vh - 5.8rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.5rem 0.8rem 1.5rem 0;
+  border-right: 1px solid #eeeeee;
+}
+
+.algo-left-sidebar::-webkit-scrollbar,
+.algo-right-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.algo-left-sidebar::-webkit-scrollbar-thumb,
+.algo-right-sidebar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+.algo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.4rem;
+  padding: 0.5rem 0.3rem;
+}
+
+.algo-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #e8f5f0;
+  color: #2c9c7c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.algo-brand strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.algo-brand span {
+  display: block;
+  color: #8a8a8a;
+  font-size: 0.78rem;
+}
+
+.algo-chapter-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.algo-chapter-nav a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  color: #4b5563;
+  font-size: 0.94rem;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.algo-chapter-nav a:hover {
+  background: #f3f4f6;
+  color: #111827;
+  text-decoration: none;
+}
+
+.algo-chapter-nav a.active {
+  background: #e8f5f0;
+  color: #2c9c7c;
+  font-weight: 800;
+}
+
+/* 中间正文 */
+.algo-main-content {
+  min-width: 0;
+  max-width: 760px;
+  padding: 0 0.5rem;
+}
+
+.algo-section {
+  padding-bottom: 2.6rem;
+  margin-bottom: 2.2rem;
+  border-bottom: 1px solid #eeeeee;
+  scroll-margin-top: 6rem;
+}
+
+.algo-section:last-child {
+  border-bottom: none;
+}
+
+.algo-section h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 1.4rem;
+}
+
+.algo-section h2 {
+  font-size: 1.65rem;
+  font-weight: 850;
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.algo-section p,
+.algo-section li {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #333333;
+}
+
+.algo-example-box,
+.algo-note {
+  margin: 1.3rem 0;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.algo-example-box h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.algo-note {
+  border-left: 4px solid #2c9c7c;
+}
+
+.algo-code-title {
+  font-weight: 800;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+/* 右侧本页目录 */
+.algo-right-sidebar {
+  position: sticky;
+  top: 5rem;
+  height: calc(100vh - 5.8rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-left: 0.8rem;
+  border-left: 1px solid #eeeeee;
+}
+
+.algo-right-box h3 {
+  font-size: 0.95rem;
+  font-weight: 850;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.algo-right-box a {
+  display: block;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 0.35rem 0;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.algo-right-box a:hover {
+  color: #2c9c7c;
+  text-decoration: none;
+}
+
+/* 该专题页不用 Quarto 默认右侧 TOC，避免和自定义右栏重复 */
+.algo-reading-page + #TOC,
+body:has(.algo-reading-page) #TOC {
+  display: none !important;
+}
+
+/* 移动端 */
+@media (max-width: 1100px) {
+  .algo-reading-page {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+
+  .algo-right-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .algo-reading-page {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem 4rem 1rem;
+  }
+
+  .algo-left-sidebar {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: 300px;
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 1rem;
+  }
+
+  .algo-main-content {
+    max-width: 100%;
+  }
+
+  .topic-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   全站顶部导航固定
+   ========================================================= */
+
+#quarto-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05) !important;
+}
+
+.navbar {
+  background: #ffffff !important;
+}
+
+/* 给固定导航栏留出空间，避免正文被压住 */
+body {
+  padding-top: 64px !important;
+}
+
+/* =========================================================
+   Topic home page
+   ========================================================= */
+
+.topic-home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.4rem 5rem 1.4rem;
+}
+
+.topic-home h1 {
+  font-size: 2.7rem;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.topic-subtitle {
+  color: #6b7280;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.topic-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.topic-card {
+  display: block;
+  padding: 2rem;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045);
+  text-decoration: none;
+  color: #222222;
+  transition: all 0.2s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  text-decoration: none;
+}
+
+.topic-card-tag {
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: #6b7280;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+.topic-card h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+.topic-card p {
+  color: #555555;
+  line-height: 1.8;
+}
+
+.topic-card span {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+/* =========================================================
+   Algorithm reading page
+   三栏独立滚动阅读模式
+   ========================================================= */
+
+body:has(.algo-reading-page) {
+  overflow: hidden !important;
+}
+
+/* 隐藏 Quarto 默认右侧 TOC，防止和自定义目录重复 */
+body:has(.algo-reading-page) #TOC,
+body:has(.algo-reading-page) .sidebar.toc-left,
+body:has(.algo-reading-page) .margin-sidebar {
+  display: none !important;
+}
+
+.algo-reading-page {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 920px) 250px;
+  gap: 28px;
+  max-width: 1510px;
+  height: calc(100vh - 64px);
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  overflow: hidden;
+}
+
+/* 左侧目录独立滚动 */
+.algo-left-sidebar {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 0.9rem 3rem 0;
+  border-right: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+/* 中间正文独立滚动 */
+.algo-main-content {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 0;
+  max-width: 920px;
+  padding: 2rem 0.6rem 5rem 0.6rem;
+  scroll-behavior: smooth;
+}
+
+/* 右侧目录独立滚动 */
+.algo-right-sidebar {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem 0 3rem 0.9rem;
+  border-left: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+/* 滚动条美化 */
+.algo-left-sidebar::-webkit-scrollbar,
+.algo-main-content::-webkit-scrollbar,
+.algo-right-sidebar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.algo-left-sidebar::-webkit-scrollbar-thumb,
+.algo-main-content::-webkit-scrollbar-thumb,
+.algo-right-sidebar::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+.algo-left-sidebar::-webkit-scrollbar-track,
+.algo-main-content::-webkit-scrollbar-track,
+.algo-right-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 左侧品牌 */
+.algo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.4rem;
+  padding: 0.5rem 0.3rem;
+}
+
+.algo-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #e8f5f0;
+  color: #2c9c7c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.algo-brand-text {
+  line-height: 1.35;
+}
+
+.algo-brand-text strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.algo-brand-text {
+  color: #8a8a8a;
+  font-size: 0.8rem;
+}
+
+/* 左侧目录 */
+.algo-chapter-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.algo-chapter-nav a {
+  display: block;
+  padding: 0.62rem 0.85rem;
+  border-radius: 10px;
+  color: #4b5563;
+  font-size: 0.94rem;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.algo-chapter-nav a:hover {
+  background: #f3f4f6;
+  color: #111827;
+  text-decoration: none;
+}
+
+.algo-chapter-nav a.active {
+  background: #e8f5f0;
+  color: #2c9c7c;
+  font-weight: 800;
+}
+
+/* 正文排版 */
+.algo-main-content h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eeeeee;
+  scroll-margin-top: 84px;
+}
+
+.algo-main-content p,
+.algo-main-content li {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #333333;
+}
+
+.algo-main-content ol,
+.algo-main-content ul {
+  padding-left: 1.4rem;
+}
+
+.algo-main-content table {
+  width: 100%;
+  margin: 1.4rem 0;
+  border-collapse: collapse;
+}
+
+.algo-main-content th,
+.algo-main-content td {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e5e7eb;
+}
+
+.algo-main-content th {
+  background: #f8fafc;
+}
+
+/* 例子和提示框 */
+.algo-example-box,
+.algo-note {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.3rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.algo-example-box h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.algo-note {
+  border-left: 4px solid #2c9c7c;
+}
+
+/* 代码块修复与美化 */
+.algo-main-content pre {
+  background: #f8fafc !important;
+  border: 1px solid #dfe3ea !important;
+  border-radius: 14px !important;
+  padding: 1rem 1.1rem !important;
+  overflow-x: auto !important;
+  font-size: 0.96rem !important;
+  line-height: 1.7 !important;
+}
+
+.algo-main-content code {
+  font-family: Consolas, "JetBrains Mono", "Courier New", monospace !important;
+}
+
+.algo-main-content pre code {
+  background: transparent !important;
+  color: #111827 !important;
+}
+
+/* 右侧本页目录 */
+.algo-right-box h3 {
+  font-size: 0.95rem;
+  font-weight: 850;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.algo-right-box a {
+  display: block;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 0.36rem 0;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.algo-right-box a:hover {
+  color: #2c9c7c;
+  text-decoration: none;
+}
+
+/* 移动端 */
+@media (max-width: 1200px) {
+  .algo-reading-page {
+    grid-template-columns: 250px minmax(0, 1fr);
+    max-width: 1180px;
+  }
+
+  .algo-right-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  body:has(.algo-reading-page) {
+    overflow: auto !important;
+  }
+
+  .algo-reading-page {
+    display: block;
+    height: auto;
+    overflow: visible;
+    padding: 0 1rem 4rem 1rem;
+  }
+
+  .algo-left-sidebar {
+    height: auto;
+    max-height: 320px;
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+    padding: 1rem 0;
+  }
+
+  .algo-main-content {
+    height: auto;
+    overflow: visible;
+    max-width: 100%;
+    padding: 1.5rem 0 4rem 0;
+  }
+
+  .algo-right-sidebar {
+    display: none;
+  }
+
+  .topic-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================================
+   Algorithm topic writing layout v2
+   去掉右侧目录，扩大正文宽度，左侧目录更靠左
+   ========================================================= */
+
+/* 顶部导航栏固定：全站生效 */
+#quarto-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #eeeeee !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05) !important;
+}
+
+.navbar {
+  background: #ffffff !important;
+}
+
+body {
+  padding-top: 64px !important;
+}
+
+/* 算法专题页面整体固定高度，内部独立滚动 */
+body:has(.algo-writing-page) {
+  overflow: hidden !important;
+}
+
+/* 算法专题页不使用 Quarto 默认目录 */
+body:has(.algo-writing-page) #TOC,
+body:has(.algo-writing-page) .margin-sidebar,
+body:has(.algo-writing-page) .sidebar {
+  display: none !important;
+}
+
+/* 页面整体布局：左侧目录 + 正文 */
+.algo-writing-page {
+  --algo-page-x: 48px;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  column-gap: 42px;
+  width: 100%;
+  max-width: none;
+  height: calc(100vh - 64px);
+  margin: 0;
+  padding-left: var(--algo-page-x);
+  padding-right: var(--algo-page-x);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 左侧目录：独立滚动 */
+.algo-writing-page .algo-left-sidebar {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.8rem 0 3rem 0;
+  border-right: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+/* 正文：独立滚动，右侧页边距和左侧目录页边距保持一致 */
+.algo-writing-page .algo-main-content {
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.8rem 0 5rem 0;
+  padding-right: 0;
+  min-width: 0;
+  max-width: none;
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* 去掉之前可能残留的右侧目录 */
+.algo-writing-page .algo-right-sidebar {
+  display: none !important;
+}
+
+/* 滚动条 */
+.algo-writing-page .algo-left-sidebar::-webkit-scrollbar,
+.algo-writing-page .algo-main-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+.algo-writing-page .algo-left-sidebar::-webkit-scrollbar-thumb,
+.algo-writing-page .algo-main-content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+}
+
+.algo-writing-page .algo-left-sidebar::-webkit-scrollbar-track,
+.algo-writing-page .algo-main-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 左侧品牌 */
+.algo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.4rem;
+  padding: 0.4rem 0.3rem;
+}
+
+.algo-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #e8f5f0;
+  color: #2c9c7c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.algo-brand-text {
+  line-height: 1.35;
+  color: #8a8a8a;
+  font-size: 0.8rem;
+}
+
+.algo-brand-text strong {
+  display: block;
+  color: #333333;
+  font-size: 1rem;
+}
+
+/* 左侧目录 */
+.algo-chapter-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 18px;
+}
+
+/* 章节分组 */
+.algo-nav-group {
+  margin-bottom: 0.35rem;
+}
+
+.algo-nav-group summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.58rem 0.85rem;
+  border-radius: 10px;
+  color: #333333;
+  font-size: 0.95rem;
+  font-weight: 850;
+  line-height: 1.35;
+  transition: all 0.18s ease;
+}
+
+.algo-nav-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.algo-nav-group summary::after {
+  content: "⌄";
+  float: right;
+  color: #8a8a8a;
+  font-weight: 700;
+}
+
+.algo-nav-group:not([open]) summary::after {
+  content: "›";
+}
+
+.algo-nav-group summary:hover {
+  background: #f3f4f6;
+}
+
+/* 小标题列表 */
+.algo-subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.45rem;
+}
+
+.algo-subnav a {
+  display: block;
+  padding: 0.46rem 0.85rem 0.46rem 1.15rem;
+  border-radius: 10px;
+  color: #4b5563;
+  font-size: 0.94rem;
+  text-decoration: none;
+  line-height: 1.35;
+  transition: all 0.18s ease;
+}
+
+.algo-subnav a:hover {
+  background: #f3f4f6;
+  color: #111827;
+  text-decoration: none;
+}
+
+.algo-subnav a.active {
+  background: #e8f5f0;
+  color: #2c9c7c;
+  font-weight: 800;
+}
+
+/* 正文标题 */
+.algo-writing-page .algo-main-content > h1 {
+  font-size: 2.45rem;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+}
+
+.algo-writing-page .algo-main-content h2 {
+  font-size: 1.95rem;
+  font-weight: 900;
+  margin-top: 2.4rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eeeeee;
+  scroll-margin-top: 84px;
+}
+
+/* 正文文字加宽后保持舒适阅读 */
+.algo-writing-page .algo-main-content p,
+.algo-writing-page .algo-main-content li {
+  font-size: 1.03rem;
+  line-height: 1.95;
+  color: #333333;
+}
+
+.algo-writing-page .algo-main-content ol,
+.algo-writing-page .algo-main-content ul {
+  padding-left: 1.4rem;
+}
+
+/* 例子和提示框 */
+.algo-writing-page .algo-example-box,
+.algo-writing-page .algo-note {
+  margin: 1.4rem 0;
+  padding: 1.1rem 1.3rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.algo-writing-page .algo-example-box h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  font-weight: 850;
+}
+
+.algo-writing-page .algo-note {
+  border-left: 4px solid #2c9c7c;
+}
+
+/* 代码块 */
+.algo-writing-page pre {
+  background: #f8fafc !important;
+  border: 1px solid #dfe3ea !important;
+  border-radius: 14px !important;
+  padding: 1rem 1.1rem !important;
+  overflow-x: auto !important;
+  font-size: 0.96rem !important;
+  line-height: 1.7 !important;
+}
+
+.algo-writing-page code {
+  font-family: Consolas, "JetBrains Mono", "Courier New", monospace !important;
+}
+
+.algo-writing-page pre code {
+  background: transparent !important;
+  color: #111827 !important;
+}
+
+/* 表格 */
+.algo-writing-page table {
+  width: 100%;
+  margin: 1.4rem 0;
+  border-collapse: collapse;
+}
+
+.algo-writing-page th,
+.algo-writing-page td {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e5e7eb;
+}
+
+.algo-writing-page th {
+  background: #f8fafc;
+}
+
+/* 窄屏适配 */
+@media (max-width: 1000px) {
+  body:has(.algo-writing-page) {
+    overflow: auto !important;
+  }
+
+  .algo-writing-page {
+    display: block;
+    height: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: visible;
+  }
+
+  .algo-writing-page .algo-left-sidebar {
+    height: auto;
+    max-height: 320px;
+    overflow-y: auto;
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+    padding: 1rem 0;
+  }
+
+  .algo-writing-page .algo-main-content {
+    height: auto;
+    overflow: visible;
+    padding: 1.5rem 0 4rem 0;
+  }
+}
+/* =========================================================
+   Algorithm topic width fix v3
+   继续加宽算法专题正文区域
+   ========================================================= */
+
+/* 只针对算法专题页面生效 */
+body:has(.algo-writing-page) {
+  overflow: hidden !important;
+  padding-top: 64px !important;
+}
+
+/* 解除 Quarto 默认内容宽度限制 */
+body:has(.algo-writing-page) main.content,
+body:has(.algo-writing-page) .content,
+body:has(.algo-writing-page) .page-columns,
+body:has(.algo-writing-page) .page-layout-full,
+body:has(.algo-writing-page) #quarto-content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* 隐藏 Quarto 默认右侧目录，避免占空间 */
+body:has(.algo-writing-page) #TOC,
+body:has(.algo-writing-page) .margin-sidebar,
+body:has(.algo-writing-page) .sidebar,
+body:has(.algo-writing-page) .toc-actions,
+body:has(.algo-writing-page) .quarto-sidebar-toggle {
+  display: none !important;
+}
+
+/* 页面整体：左侧目录 + 超宽正文 */
+.algo-writing-page {
+  --algo-page-x: 34px;
+
+  display: grid !important;
+  grid-template-columns: 300px minmax(0, 1fr) !important;
+  column-gap: 36px !important;
+
+  width: 100vw !important;
+  max-width: none !important;
+  height: calc(100vh - 64px) !important;
+
+  margin: 0 !important;
+  padding-left: var(--algo-page-x) !important;
+  padding-right: var(--algo-page-x) !important;
+
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 左侧目录宽度不变，独立滚动 */
+.algo-writing-page .algo-left-sidebar {
+  width: 300px !important;
+  max-width: 300px !important;
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 1.8rem 0 3rem 0 !important;
+  border-right: 1px solid #eeeeee !important;
+  background: #ffffff !important;
+}
+
+/* 正文区域尽量吃满剩余空间 */
+.algo-writing-page .algo-main-content {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1.8rem 2.2rem 5rem 0 !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文文字区域变宽，一行显示更多字 */
+.algo-writing-page .algo-main-content > * {
+  max-width: 1120px !important;
+}
+
+/* 代码块也跟随正文加宽 */
+.algo-writing-page .algo-main-content pre,
+.algo-writing-page .algo-main-content .sourceCode,
+.algo-writing-page .algo-main-content div.sourceCode {
+  max-width: 1120px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 标题和正文排版保持舒服 */
+.algo-writing-page .algo-main-content > h1 {
+  max-width: 1120px !important;
+  font-size: 2.45rem !important;
+  font-weight: 950 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.8rem !important;
+}
+
+.algo-writing-page .algo-main-content h2 {
+  max-width: 1120px !important;
+  font-size: 1.95rem !important;
+  font-weight: 900 !important;
+  margin-top: 2.4rem !important;
+  margin-bottom: 1.2rem !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 1px solid #eeeeee !important;
+}
+
+.algo-writing-page .algo-main-content p,
+.algo-writing-page .algo-main-content li {
+  font-size: 1.03rem !important;
+  line-height: 1.95 !important;
+}
+
+/* 例子框、提示框、表格也跟着加宽 */
+.algo-writing-page .algo-example-box,
+.algo-writing-page .algo-note,
+.algo-writing-page table {
+  max-width: 1120px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 如果屏幕更宽，正文还能再放大一点 */
+@media (min-width: 1500px) {
+  .algo-writing-page .algo-main-content > *,
+  .algo-writing-page .algo-main-content pre,
+  .algo-writing-page .algo-main-content .sourceCode,
+  .algo-writing-page .algo-main-content div.sourceCode,
+  .algo-writing-page .algo-example-box,
+  .algo-writing-page .algo-note,
+  .algo-writing-page table {
+    max-width: 1220px !important;
+  }
+}
+
+/* 窄屏恢复单栏 */
+@media (max-width: 1000px) {
+  body:has(.algo-writing-page) {
+    overflow: auto !important;
+  }
+
+  .algo-writing-page {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow: visible !important;
+  }
+
+  .algo-writing-page .algo-left-sidebar {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: 320px !important;
+    overflow-y: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 1rem 0 !important;
+  }
+
+  .algo-writing-page .algo-main-content {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 1.5rem 0 4rem 0 !important;
+  }
+
+  .algo-writing-page .algo-main-content > *,
+  .algo-writing-page .algo-main-content pre,
+  .algo-writing-page .algo-main-content .sourceCode,
+  .algo-writing-page .algo-main-content div.sourceCode,
+  .algo-writing-page .algo-example-box,
+  .algo-writing-page .algo-note,
+  .algo-writing-page table {
+    max-width: 100% !important;
+  }
+}
+/* =========================================================
+   Algorithm topic center alignment fix v4
+   保持当前宽度，只调整整体左右页边距一致
+   ========================================================= */
+
+/* 只针对算法图解专题页面生效 */
+body:has(.algo-writing-page) {
+  overflow: hidden !important;
+  padding-top: 64px !important;
+}
+
+/* 算法专题整体居中：目录左侧边距 = 正文右侧边距 */
+.algo-writing-page {
+  --algo-side-margin: 34px;
+  --algo-left-width: 300px;
+  --algo-gap: 36px;
+  --algo-main-width: 1120px;
+
+  display: grid !important;
+  grid-template-columns: var(--algo-left-width) minmax(0, var(--algo-main-width)) !important;
+  column-gap: var(--algo-gap) !important;
+
+  width: calc(100vw - var(--algo-side-margin) * 2) !important;
+  max-width: calc(var(--algo-left-width) + var(--algo-gap) + var(--algo-main-width)) !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 左侧目录保持原宽度 */
+.algo-writing-page .algo-left-sidebar {
+  width: var(--algo-left-width) !important;
+  max-width: var(--algo-left-width) !important;
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 1.8rem 0 3rem 0 !important;
+  border-right: 1px solid #eeeeee !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文保持当前宽度，但不再向右超出 */
+.algo-writing-page .algo-main-content {
+  width: 100% !important;
+  max-width: var(--algo-main-width) !important;
+  min-width: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1.8rem 0 5rem 0 !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文内部元素不要突破正文宽度 */
+.algo-writing-page .algo-main-content > *,
+.algo-writing-page .algo-main-content pre,
+.algo-writing-page .algo-main-content .sourceCode,
+.algo-writing-page .algo-main-content div.sourceCode,
+.algo-writing-page .algo-example-box,
+.algo-writing-page .algo-note,
+.algo-writing-page table {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 右侧目录彻底隐藏 */
+.algo-writing-page .algo-right-sidebar {
+  display: none !important;
+}
+
+/* 窄屏自动恢复单栏 */
+@media (max-width: 1000px) {
+  body:has(.algo-writing-page) {
+    overflow: auto !important;
+  }
+
+  .algo-writing-page {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow: visible !important;
+  }
+
+  .algo-writing-page .algo-left-sidebar {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: 320px !important;
+    overflow-y: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 1rem 0 !important;
+  }
+
+  .algo-writing-page .algo-main-content {
+    height: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+    padding: 1.5rem 0 4rem 0 !important;
+  }
+}
+/* =========================================================
+   Algorithm topic left shift fix v5
+   保持当前宽度，把目录 + 正文整体往左移动
+   ========================================================= */
+
+/* 彻底解除 Quarto 外层居中限制 */
+body:has(.algo-writing-page) #quarto-content,
+body:has(.algo-writing-page) main,
+body:has(.algo-writing-page) main.content,
+body:has(.algo-writing-page) .content,
+body:has(.algo-writing-page) .page-columns,
+body:has(.algo-writing-page) .page-layout-full,
+body:has(.algo-writing-page) .column-body {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 核心：整体往左靠 */
+.algo-writing-page {
+  --algo-left-margin: 28px;
+  --algo-right-margin: 28px;
+  --algo-left-width: 300px;
+  --algo-gap: 36px;
+
+  display: grid !important;
+  grid-template-columns: var(--algo-left-width) minmax(0, 1fr) !important;
+  column-gap: var(--algo-gap) !important;
+
+  width: calc(100vw - var(--algo-left-margin) - var(--algo-right-margin)) !important;
+  max-width: none !important;
+
+  margin-left: var(--algo-left-margin) !important;
+  margin-right: var(--algo-right-margin) !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 左侧目录保持现在的宽度 */
+.algo-writing-page .algo-left-sidebar {
+  width: var(--algo-left-width) !important;
+  max-width: var(--algo-left-width) !important;
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 1.8rem 0 3rem 0 !important;
+  border-right: 1px solid #eeeeee !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文吃满剩余区域，但不突破右侧 */
+.algo-writing-page .algo-main-content {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1.8rem 0 5rem 0 !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文内容保持舒适宽度，不再额外向右撑出 */
+.algo-writing-page .algo-main-content > *,
+.algo-writing-page .algo-main-content pre,
+.algo-writing-page .algo-main-content .sourceCode,
+.algo-writing-page .algo-main-content div.sourceCode,
+.algo-writing-page .algo-example-box,
+.algo-writing-page .algo-note,
+.algo-writing-page table {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 右侧目录保持隐藏 */
+.algo-writing-page .algo-right-sidebar {
+  display: none !important;
+}
+
+/* 窄屏恢复正常单栏 */
+@media (max-width: 1000px) {
+  body:has(.algo-writing-page) {
+    overflow: auto !important;
+  }
+
+  .algo-writing-page {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    overflow: visible !important;
+  }
+
+  .algo-writing-page .algo-left-sidebar {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: 320px !important;
+    overflow-y: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 1rem 0 !important;
+  }
+
+  .algo-writing-page .algo-main-content {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 1.5rem 0 4rem 0 !important;
+  }
+}
+/* =========================================================
+   Algorithm topic layout final fix v6
+   目标：整体往左铺开，但右侧不超出；目录左边距和正文右边距一致
+   ========================================================= */
+
+/* 只针对算法专题页生效 */
+body:has(.algo-writing-page) {
+  overflow: hidden !important;
+  padding-top: 64px !important;
+}
+
+/* 隐藏 Quarto 自动生成的页面标题，避免上方单独出现一个偏左标题 */
+body:has(.algo-writing-page) #title-block-header {
+  display: none !important;
+}
+
+/* 隐藏 Quarto 默认目录 */
+body:has(.algo-writing-page) #TOC,
+body:has(.algo-writing-page) .margin-sidebar,
+body:has(.algo-writing-page) .sidebar,
+body:has(.algo-writing-page) .toc-actions,
+body:has(.algo-writing-page) .quarto-sidebar-toggle {
+  display: none !important;
+}
+
+/* 解除 Quarto 外层正文容器限制 */
+body:has(.algo-writing-page) #quarto-content,
+body:has(.algo-writing-page) main,
+body:has(.algo-writing-page) main.content,
+body:has(.algo-writing-page) .content,
+body:has(.algo-writing-page) .page-columns,
+body:has(.algo-writing-page) .page-layout-full,
+body:has(.algo-writing-page) .column-body {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 关键：用 full-bleed 写法，让专题区相对于浏览器窗口铺开 */
+.algo-writing-page {
+  --algo-edge-left: 46px;
+  --algo-edge-right: 46px;
+  --algo-left-width: 300px;
+  --algo-gap: 36px;
+
+  display: grid !important;
+  grid-template-columns: var(--algo-left-width) minmax(0, 1fr) !important;
+  column-gap: var(--algo-gap) !important;
+
+  width: calc(100vw - var(--algo-edge-left) - var(--algo-edge-right)) !important;
+  max-width: none !important;
+
+  margin-left: calc(50% - 50vw + var(--algo-edge-left)) !important;
+  margin-right: var(--algo-edge-right) !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 左侧目录：宽度固定，独立滚动 */
+.algo-writing-page .algo-left-sidebar {
+  width: var(--algo-left-width) !important;
+  max-width: var(--algo-left-width) !important;
+  height: calc(100vh - 64px) !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1.8rem 0 3rem 0 !important;
+  border-right: 1px solid #eeeeee !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文：吃满剩余空间，但不允许右侧超出 */
+.algo-writing-page .algo-main-content {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  height: calc(100vh - 64px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 1.8rem 0 5rem 0 !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* 正文内部元素不能撑出正文区域 */
+.algo-writing-page .algo-main-content > *,
+.algo-writing-page .algo-main-content pre,
+.algo-writing-page .algo-main-content .sourceCode,
+.algo-writing-page .algo-main-content div.sourceCode,
+.algo-writing-page .algo-example-box,
+.algo-writing-page .algo-note,
+.algo-writing-page table {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 代码块防止横向撑破页面 */
+.algo-writing-page pre {
+  overflow-x: auto !important;
+  white-space: pre !important;
+}
+
+/* 保持右侧目录隐藏 */
+.algo-writing-page .algo-right-sidebar {
+  display: none !important;
+}
+
+/* 左侧目录行距稍微紧一点 */
+.algo-subnav {
+  gap: 1px !important;
+}
+
+.algo-subnav a {
+  padding-top: 0.42rem !important;
+  padding-bottom: 0.42rem !important;
+  line-height: 1.28 !important;
+}
+
+/* 章节标题行距也稍微紧一点 */
+.algo-nav-group summary {
+  padding-top: 0.52rem !important;
+  padding-bottom: 0.52rem !important;
+  line-height: 1.28 !important;
+}
+
+/* 窄屏恢复正常单栏 */
+@media (max-width: 1000px) {
+  body:has(.algo-writing-page) {
+    overflow: auto !important;
+  }
+
+  body:has(.algo-writing-page) #title-block-header {
+    display: block !important;
+  }
+
+  .algo-writing-page {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+
+    overflow: visible !important;
+  }
+
+  .algo-writing-page .algo-left-sidebar {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: 320px !important;
+
+    overflow-y: auto !important;
+
+    border-right: none !important;
+    border-bottom: 1px solid #eeeeee !important;
+    padding: 1rem 0 !important;
+  }
+
+  .algo-writing-page .algo-main-content {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 1.5rem 0 4rem 0 !important;
+  }
+}

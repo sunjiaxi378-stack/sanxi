@@ -15,6 +15,15 @@ website:
       - text: "首页"
         href: index.qmd
 
+      - text: "专题"
+        menu:
+          - text: "专题首页"
+            href: topics/index.qmd
+          - text: "算法图解"
+            href: topics/algorithm/index.qmd
+          - text: "MATLAB 学习"
+            href: topics/matlab/index.qmd
+
       - text: "笔记"
         menu:
           - text: "学习笔记总览"
@@ -44,7 +53,7 @@ website:
       - text: "文章"
         menu:
           - text: "全部文章"
-            href: index.qmd#post-list
+            href: index.qmd#文章列表
           - text: "欢迎文章"
             href: posts/welcome/index.qmd
 

@@ -1,0 +1,34 @@
+---
+title: "专题"
+page-layout: full
+title-block-banner: false
+toc: false
+---
+
+<div class="topic-home">
+
+<h1>专题</h1>
+
+<p class="topic-subtitle">
+这里用于整理长期学习专题，比如算法图解、MATLAB 学习、数值分析、数学建模等。
+</p>
+
+<div class="topic-card-grid">
+
+<a class="topic-card" href="algorithm/">
+  <div class="topic-card-tag">ALGORITHM</div>
+  <h2>算法图解</h2>
+  <p>用图解、例子和代码笔记的方式，系统整理常见算法思想。</p>
+  <span>进入专题 →</span>
+</a>
+
+<a class="topic-card" href="matlab/">
+  <div class="topic-card-tag">MATLAB</div>
+  <h2>MATLAB 学习</h2>
+  <p>整理 MATLAB 基础语法、绘图、数值计算、建模代码和实验报告常用模板。</p>
+  <span>进入专题 →</span>
+</a>
+
+</div>
+
+</div>
