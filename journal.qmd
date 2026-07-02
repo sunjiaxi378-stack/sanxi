@@ -7,4 +7,5 @@ toc: false
 
 <div id="sx-journal-root"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/journal-system.js"></script>

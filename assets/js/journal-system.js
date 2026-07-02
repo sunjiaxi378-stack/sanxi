@@ -1,7 +1,12 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "sanxi-journal-system-v3";
+  const SUPABASE_URL = "https://bsuxuknsfaojxljhilop.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJzdXh1a25zZmFvanhsamlobG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5OTA4MDAsImV4cCI6MjA5ODU2NjgwMH0.Sw5cpbRLxbYI4t6IZgOCfqqIQw_IwdabVuwXOXMkSCo";
+
+  const STORAGE_KEY = "sanxi-journal-system-v4";
+  const DB_TABLE = "journal_data";
+  const DB_ID = "main";
 
   const moodText = {
     1: "很糟",
@@ -23,8 +28,10 @@
     return document.getElementById(id);
   };
 
-  let state = loadState();
+  let state = defaultState();
   let currentMonth = new Date();
+  let supabaseClient = null;
+  let cloudReady = false;
 
   let timer = {
     interval: null,
@@ -38,12 +45,105 @@
     init();
   }
 
-  function init() {
+  async function init() {
     renderShell();
+    initSupabase();
+
+    state = loadLocalState();
+
     setTodayUI();
     bindEvents();
     resetTimer();
     renderAll();
+
+    await loadCloudState();
+  }
+
+  function initSupabase() {
+    if (!SUPABASE_URL || !SUPABASE_KEY) {
+      console.warn("Supabase 未配置，将只使用浏览器本地保存。");
+      cloudReady = false;
+      return;
+    }
+
+    if (!window.supabase || !window.supabase.createClient) {
+      console.warn("Supabase JS 没有加载成功，将只使用浏览器本地保存。");
+      cloudReady = false;
+      return;
+    }
+
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    cloudReady = true;
+  }
+
+  async function loadCloudState() {
+    if (!cloudReady || !supabaseClient) {
+      setSyncText("当前使用浏览器本地保存");
+      return;
+    }
+
+    setSyncText("正在从数据库读取...");
+
+    const { data, error } = await supabaseClient
+      .from(DB_TABLE)
+      .select("payload")
+      .eq("id", DB_ID)
+      .maybeSingle();
+
+    if (error) {
+      console.warn("从 Supabase 读取失败，继续使用本地数据。", error);
+      setSyncText("数据库读取失败，当前使用本地数据");
+      return;
+    }
+
+    if (data && data.payload) {
+      state = normalizeState(data.payload);
+      saveLocalState();
+      renderAll();
+      setSyncText("已从数据库同步");
+      return;
+    }
+
+    await syncToCloud();
+  }
+
+  async function syncToCloud() {
+    saveLocalState();
+
+    if (!cloudReady || !supabaseClient) {
+      setSyncText("已保存到当前浏览器");
+      return;
+    }
+
+    setSyncText("正在同步数据库...");
+
+    const { error } = await supabaseClient
+      .from(DB_TABLE)
+      .upsert(
+        {
+          id: DB_ID,
+          payload: state,
+          updated_at: new Date().toISOString()
+        },
+        {
+          onConflict: "id"
+        }
+      );
+
+    if (error) {
+      console.warn("同步 Supabase 失败。", error);
+      setSyncText("数据库同步失败，本地已保存");
+      return;
+    }
+
+    setSyncText("已同步到数据库");
+  }
+
+  function setSyncText(text) {
+    const el = $("sx-sync-status");
+    if (el) {
+      el.textContent = text;
+    }
   }
 
   function renderShell() {
@@ -62,8 +162,9 @@
         </p>
         <p>
           这个页面主要分成四个部分：每日任务、倒计时、最近记录、心情状态。
-          任务和记录会保存在当前浏览器中，刷新页面不会消失。
+          任务和记录会优先同步到 Supabase 数据库，同时也会保存在当前浏览器中。
         </p>
+        <p id="sx-sync-status" class="sx-sync-status">正在初始化...</p>
       </section>
 
       <section class="sx-top-grid">
@@ -262,24 +363,24 @@
     };
   }
 
-  function loadState() {
+  function normalizeState(data) {
+    return {
+      tasks: data && data.tasks && typeof data.tasks === "object" ? data.tasks : {},
+      records: data && Array.isArray(data.records) ? data.records : []
+    };
+  }
+
+  function loadLocalState() {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (!raw) return defaultState();
-
-      const data = JSON.parse(raw);
-
-      return {
-        tasks: data.tasks && typeof data.tasks === "object" ? data.tasks : {},
-        records: Array.isArray(data.records) ? data.records : []
-      };
+      return normalizeState(JSON.parse(raw));
     } catch (error) {
-      console.warn("日志系统数据读取失败，已重置为空数据。", error);
       return defaultState();
     }
   }
 
-  function saveState() {
+  function saveLocalState() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
@@ -309,9 +410,9 @@
     const today = todayString();
 
     const taskDate = $("sx-task-date");
-    if (taskDate) taskDate.textContent = getChineseDate(today);
-
     const recordDate = $("sx-record-date");
+
+    if (taskDate) taskDate.textContent = getChineseDate(today);
     if (recordDate) recordDate.value = today;
   }
 
@@ -364,6 +465,7 @@
     if (!state.tasks[dateString]) {
       state.tasks[dateString] = [];
     }
+
     return state.tasks[dateString];
   }
 
@@ -371,15 +473,16 @@
     return getTasksByDate(todayString());
   }
 
-  function addTask() {
+  async function addTask() {
     const input = $("sx-task-input");
     const text = input.value.trim();
 
     if (!text) return;
 
     const today = todayString();
+    const tasks = getTasksByDate(today);
 
-    state.tasks[today].push({
+    tasks.push({
       id: String(Date.now()),
       text: text,
       done: false,
@@ -388,9 +491,9 @@
 
     input.value = "";
 
-    saveState();
     renderTasks();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
   function renderTasks() {
@@ -423,17 +526,17 @@
     list.querySelectorAll(".sx-task-item").forEach(function (item) {
       const id = item.getAttribute("data-id");
 
-      item.querySelector("input").addEventListener("change", function () {
-        toggleTask(id);
+      item.querySelector("input").addEventListener("change", async function () {
+        await toggleTask(id);
       });
 
-      item.querySelector(".sx-delete-task").addEventListener("click", function () {
-        deleteTask(id);
+      item.querySelector(".sx-delete-task").addEventListener("click", async function () {
+        await deleteTask(id);
       });
     });
   }
 
-  function toggleTask(id) {
+  async function toggleTask(id) {
     const task = getTodayTasks().find(function (item) {
       return item.id === id;
     });
@@ -442,33 +545,33 @@
 
     task.done = !task.done;
 
-    saveState();
     renderTasks();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
-  function deleteTask(id) {
+  async function deleteTask(id) {
     const today = todayString();
 
     state.tasks[today] = getTodayTasks().filter(function (item) {
       return item.id !== id;
     });
 
-    saveState();
     renderTasks();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
-  function clearDoneTasks() {
+  async function clearDoneTasks() {
     const today = todayString();
 
     state.tasks[today] = getTodayTasks().filter(function (item) {
       return !item.done;
     });
 
-    saveState();
     renderTasks();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
   function getTimerMinutes() {
@@ -529,7 +632,7 @@
       `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
 
-  function saveRecord(event) {
+  async function saveRecord(event) {
     event.preventDefault();
 
     const date = $("sx-record-date").value || todayString();
@@ -561,6 +664,7 @@
       if (a.date === b.date) {
         return String(b.createdAt).localeCompare(String(a.createdAt));
       }
+
       return String(b.date).localeCompare(String(a.date));
     });
 
@@ -568,10 +672,10 @@
     $("sx-record-tags").value = "";
     $("sx-record-content").value = "";
 
-    saveState();
     renderRecords();
     renderMoodDashboard();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
   function renderRecords() {
@@ -609,21 +713,21 @@
       .join("");
 
     container.querySelectorAll(".sx-delete-record").forEach(function (button) {
-      button.addEventListener("click", function () {
-        deleteRecord(button.getAttribute("data-id"));
+      button.addEventListener("click", async function () {
+        await deleteRecord(button.getAttribute("data-id"));
       });
     });
   }
 
-  function deleteRecord(id) {
+  async function deleteRecord(id) {
     state.records = state.records.filter(function (record) {
       return record.id !== id;
     });
 
-    saveState();
     renderRecords();
     renderMoodDashboard();
     renderMonthCalendar();
+    await syncToCloud();
   }
 
   function getLatestRecordByDate() {
@@ -875,19 +979,15 @@
 
     const reader = new FileReader();
 
-    reader.onload = function () {
+    reader.onload = async function () {
       try {
         const imported = JSON.parse(String(reader.result));
+        state = normalizeState(imported);
 
-        state = {
-          tasks: imported.tasks && typeof imported.tasks === "object" ? imported.tasks : {},
-          records: Array.isArray(imported.records) ? imported.records : []
-        };
-
-        saveState();
         renderAll();
+        await syncToCloud();
 
-        window.alert("导入成功。");
+        window.alert("导入成功，并已尝试同步数据库。");
       } catch (error) {
         window.alert("导入失败，请确认文件是之前导出的 JSON 数据。");
       }
