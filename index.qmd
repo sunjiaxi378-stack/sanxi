@@ -29,7 +29,73 @@ document.body.classList.add("sx-home-page");
    2. 页面整体不盖厚白雾
    3. 卡片自己半透明，保证文字可读
    ========================================================= */
+/* =========================================================
+   首页顶部导航栏：修正版，只让最外层半透明
+========================================================= */
 
+/* Quarto 顶部外壳透明 */
+body.sx-home-page #quarto-header,
+body.sx-home-page header#quarto-header {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 只给真正的 navbar 加半透明毛玻璃 */
+body.sx-home-page .navbar {
+  background: rgba(255, 255, 255, 0.01) !important;
+  background-color: rgba(255, 255, 255, 0.01) !important;
+
+  backdrop-filter: blur(1px) saturate(1.18) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.18) !important;
+
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.10) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24) !important;
+}
+
+/* 关键：导航栏内部所有容器必须透明，不然会叠成白块 */
+body.sx-home-page .navbar-container,
+body.sx-home-page .navbar .container-fluid,
+body.sx-home-page .navbar-collapse,
+body.sx-home-page .navbar-brand-container,
+body.sx-home-page .navbar-nav,
+body.sx-home-page .navbar-nav-scroll {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 左侧 sanxi 和菜单文字 */
+body.sx-home-page .navbar .navbar-brand,
+body.sx-home-page .navbar .navbar-title,
+body.sx-home-page .navbar .nav-link,
+body.sx-home-page .navbar a {
+  color: rgba(20, 20, 20, 0.94) !important;
+  font-weight: 850 !important;
+}
+
+/* 鼠标悬停 */
+body.sx-home-page .navbar .nav-link:hover,
+body.sx-home-page .navbar a:hover {
+  color: #2563eb !important;
+}
+
+/* 搜索按钮区域透明 */
+body.sx-home-page .navbar .quarto-search-button,
+body.sx-home-page .navbar .aa-DetachedSearchButton,
+body.sx-home-page .navbar .quarto-navbar-tools,
+body.sx-home-page .navbar .quarto-navbar-tools a {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: rgba(20, 20, 20, 0.94) !important;
+}
+
+/* 右侧搜索框那个灰块去掉 */
+body.sx-home-page .aa-DetachedSearchButton {
+  border: none !important;
+}
 body.sx-home-page {
   background: transparent !important;
 }
@@ -88,13 +154,15 @@ body.sx-home-page .navbar {
   font-weight: 950;
   letter-spacing: -0.045em;
   margin-bottom: 0.45rem;
-  color: #222222;
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 .sx-home > p {
-  color: #4b5563;
+  color: rgb(251, 235, 235);
   font-size: 1.06rem;
   margin-bottom: 2.3rem;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38);
 }
 
 /* 顶部左右布局 */
@@ -775,6 +843,41 @@ nav#TOC .active > a,
   .sx-status-label {
     white-space: normal;
   }
+}
+/* =========================================================
+   首页顶部导航栏：上下高度调整
+========================================================= */
+
+/* 控制整个导航栏上下厚度 */
+body.sx-home-page .navbar {
+  min-height: 58px !important;        /* 导航栏整体高度 */
+  padding-top: 6px !important;        /* 上边距 */
+  padding-bottom: 6px !important;     /* 下边距 */
+}
+
+/* 控制导航栏内部容器高度 */
+body.sx-home-page .navbar .container-fluid,
+body.sx-home-page .navbar-container {
+  min-height: 46px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  align-items: center !important;
+}
+
+/* 控制 首页 / 专题 / 笔记 / 日志 / 文章 / 心流 / About 这些文字的上下间距 */
+body.sx-home-page .navbar .nav-link,
+body.sx-home-page .navbar .navbar-brand {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  line-height: 1.2 !important;
+}
+
+/* 控制右侧搜索按钮、GitHub 图标区域的高度 */
+body.sx-home-page .navbar .quarto-navbar-tools,
+body.sx-home-page .navbar .aa-DetachedSearchButton {
+  min-height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 </style>
 
