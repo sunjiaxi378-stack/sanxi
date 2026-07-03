@@ -1,0 +1,781 @@
+---
+title: "Python 学习行为数据分析"
+subtitle: "从数据构造、缺失处理、可视化探索到回归预测"
+author: "sanxi"
+date: 2026-07-03
+categories: [Python, 数据分析, 可视化, 机器学习]
+description: "本文使用 pandas、numpy、matplotlib 和 scikit-learn 完成一篇完整的数据分析文章，展示数据清洗、描述统计、可视化分析、相关性分析和回归预测。"
+
+page-layout: full
+toc: false
+number-sections: false
+anchor-sections: true
+
+format:
+  html:
+    code-fold: true
+    code-tools:
+      source: true
+      toggle: true
+      caption: "代码"
+    code-copy: true
+    code-overflow: wrap
+
+jupyter: python3
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+---
+
+<style>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body:has(.python-analysis-post) {
+  background: #ffffff;
+}
+
+body:has(.python-analysis-post) .navbar {
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
+}
+
+body:has(.python-analysis-post) .page-columns {
+  display: block !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body:has(.python-analysis-post) main.content,
+body:has(.python-analysis-post) header#title-block-header {
+  max-width: none !important;
+  width: calc(100vw - 440px) !important;
+  margin-left: 5.2vw !important;
+  margin-right: 360px !important;
+}
+
+body:has(.python-analysis-post) header#title-block-header {
+  padding-top: 1.4rem;
+  margin-bottom: 2.1rem;
+}
+
+body:has(.python-analysis-post) .quarto-title h1.title {
+  font-size: clamp(2.8rem, 5.2vw, 5.1rem);
+  line-height: 1.06;
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  color: #111827;
+  margin-bottom: 0.65rem;
+}
+
+body:has(.python-analysis-post) .quarto-title .subtitle {
+  color: #64748b;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+body:has(.python-analysis-post) .quarto-category {
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #3b82f6;
+  border-radius: 7px;
+  padding: 0.18rem 0.52rem;
+  font-size: 0.78rem;
+}
+
+.py-fixed-toc {
+  position: fixed !important;
+  top: 10rem !important;
+  right: 3.2rem !important;
+  width: 285px !important;
+  max-height: calc(100vh - 12rem) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  z-index: 60 !important;
+  padding: 1rem 0 1rem 1.1rem !important;
+  border-left: 1px solid #e5e7eb !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(8px);
+}
+
+.py-fixed-toc-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.py-fixed-toc a {
+  display: block;
+  padding: 0.28rem 0;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.py-fixed-toc a:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+body:has(.python-analysis-post) .quarto-code-tools {
+  position: fixed !important;
+  top: 5.45rem !important;
+  right: 4rem !important;
+  z-index: 100 !important;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.python-analysis-post {
+  font-size: 1.04rem;
+  line-height: 1.92;
+  color: #1f2937;
+  padding-bottom: 5rem;
+}
+
+.python-analysis-post p {
+  margin-bottom: 1rem;
+}
+
+.python-analysis-post h1,
+.python-analysis-post h2,
+.python-analysis-post h3 {
+  color: #111827;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.python-analysis-post h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin-top: 2.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.python-analysis-post h2 {
+  font-size: clamp(1.45rem, 2vw, 1.95rem);
+  margin-top: 2.1rem;
+  margin-bottom: 0.8rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid #eef2f7;
+}
+
+.python-analysis-post h3 {
+  font-size: 1.18rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.py-note {
+  margin: 1.2rem 0 1.5rem 0;
+  padding: 1.05rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.045);
+}
+
+.py-note strong {
+  color: #111827;
+}
+
+.py-final {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 18px;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.py-final p {
+  color: #f9fafb;
+  margin-bottom: 0;
+}
+
+body:has(.python-analysis-post) div.cell {
+  margin: 1.15rem 0 1.6rem 0;
+}
+
+body:has(.python-analysis-post) details.code-fold {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+body:has(.python-analysis-post) details.code-fold > summary {
+  padding: 0.72rem 1rem;
+  cursor: pointer;
+  font-weight: 850;
+  color: #374151;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body:has(.python-analysis-post) details.code-fold[open] > summary {
+  background: #f1f5f9;
+}
+
+body:has(.python-analysis-post) pre.sourceCode {
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.94rem;
+  line-height: 1.72;
+}
+
+body:has(.python-analysis-post) .cell-output,
+body:has(.python-analysis-post) .cell-output-stdout,
+body:has(.python-analysis-post) .cell-output-display {
+  margin-top: 0.75rem;
+}
+
+body:has(.python-analysis-post) .cell-output pre {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #1f2937;
+  font-size: 0.95rem;
+  line-height: 1.76;
+}
+
+.python-analysis-post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.15rem 0 1.5rem 0;
+  font-size: 0.96rem;
+}
+
+.python-analysis-post table th,
+.python-analysis-post table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.62rem 0.78rem;
+}
+
+.python-analysis-post table th {
+  background: #f8fafc;
+  color: #111827;
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  .py-fixed-toc {
+    display: none !important;
+  }
+
+  body:has(.python-analysis-post) main.content,
+  body:has(.python-analysis-post) header#title-block-header {
+    width: auto !important;
+    margin-left: 1.2rem !important;
+    margin-right: 1.2rem !important;
+  }
+
+  body:has(.python-analysis-post) .quarto-code-tools {
+    position: static !important;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: none;
+  }
+}
+</style>
+
+<nav class="py-fixed-toc">
+  <div class="py-fixed-toc-title">该页面内容</div>
+  <a href="#intro">0 文章说明</a>
+  <a href="#packages">1 导入分析包</a>
+  <a href="#data">2 构造数据集</a>
+  <a href="#preview">3 数据预览</a>
+  <a href="#missing">4 缺失值处理</a>
+  <a href="#describe">5 描述性统计</a>
+  <a href="#group">6 分组比较</a>
+  <a href="#visual">7 可视化分析</a>
+  <a href="#corr">8 相关性分析</a>
+  <a href="#regression">9 回归建模</a>
+  <a href="#prediction">10 预测结果</a>
+  <a href="#evaluation">11 模型评价</a>
+  <a href="#conclusion">12 结论</a>
+</nav>
+
+::: {.python-analysis-post}
+
+# 0 文章说明 {#intro}
+
+本文使用 Python 完成一个完整的小型数据分析案例。分析对象是一组“学习行为数据”，每一行代表一名同学的学习情况，变量包括学习时长、出勤率、复习次数、练习题数量、课堂参与度和最终成绩。
+
+这篇文章的写法不是简单堆代码，而是按照一篇数据分析报告的逻辑展开：先说明数据来源和变量含义，再进行数据查看与清洗，然后通过描述统计和图形观察数据特征，最后建立回归模型，分析学习行为对成绩的影响。
+
+::: {.py-note}
+**阅读方式：**  
+本文中的代码默认折叠。点击每段代码上方的“代码”按钮可以展开查看；代码下方会直接显示运行结果。右侧目录固定在页面右侧，不会随着正文滚动而消失，可以快速跳转到指定章节。
+:::
+
+本文使用的主要工具包括：
+
+| 工具 | 作用 |
+|---|---|
+| `pandas` | 数据表构造、缺失值处理、分组统计 |
+| `numpy` | 随机数生成、数值计算 |
+| `matplotlib` | 绘制柱状图、散点图、热力图 |
+| `scikit-learn` | 建立回归模型、计算预测误差 |
+
+# 1 导入分析包 {#packages}
+
+首先导入本次分析需要用到的 Python 包。`pandas` 负责处理表格数据，`numpy` 负责生成模拟数据和进行数值运算，`matplotlib` 用来绘图，`scikit-learn` 用来建立线性回归模型。
+
+为了让图表中的中文正常显示，需要设置 `matplotlib` 的中文字体。如果电脑中没有对应字体，图形仍然可以生成，只是中文可能显示为方框。
+
+```{python}
+#| label: import-packages
+#| code-summary: "代码"
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+
+plt.rcParams["font.sans-serif"] = ["Microsoft YaHei", "SimHei", "Arial Unicode MS"]
+plt.rcParams["axes.unicode_minus"] = False
+
+np.random.seed(20260703)
+
+print("pandas、numpy、matplotlib、scikit-learn 导入成功。")
+```
+
+# 2 构造学习行为数据集 {#data}
+
+为了让文章可以直接运行，这里不从外部文件读取数据，而是在代码中构造一个模拟数据集。这个数据集虽然是模拟的，但变量设计尽量贴近真实学习场景。
+
+数据集中包含以下变量：
+
+| 变量名 | 含义 |
+|---|---|
+| `student_id` | 学生编号 |
+| `group` | 学习小组 |
+| `study_hours` | 每日平均学习时长 |
+| `attendance` | 出勤率 |
+| `review_times` | 每周复习次数 |
+| `practice_count` | 每周练习题数量 |
+| `participation` | 课堂参与度 |
+| `score` | 期末成绩 |
+
+```{python}
+#| label: build-data
+#| code-summary: "代码"
+
+n = 80
+
+student_id = [f"S{i:03d}" for i in range(1, n + 1)]
+group = np.random.choice(["A组", "B组", "C组", "D组"], size=n, p=[0.25, 0.25, 0.25, 0.25])
+
+study_hours = np.random.normal(loc=4.2, scale=1.1, size=n)
+study_hours = np.clip(study_hours, 1.2, 7.5)
+
+attendance = np.random.normal(loc=0.88, scale=0.07, size=n)
+attendance = np.clip(attendance, 0.60, 1.00)
+
+review_times = np.random.poisson(lam=3.2, size=n)
+review_times = np.clip(review_times, 0, 8)
+
+practice_count = np.random.normal(loc=38, scale=12, size=n)
+practice_count = np.clip(practice_count, 8, 75).round()
+
+participation = np.random.normal(loc=75, scale=12, size=n)
+participation = np.clip(participation, 40, 100)
+
+noise = np.random.normal(loc=0, scale=4.5, size=n)
+
+score = (
+    35
+    + study_hours * 5.8
+    + attendance * 16
+    + review_times * 1.3
+    + practice_count * 0.22
+    + participation * 0.12
+    + noise
+)
+
+score = np.clip(score, 45, 100).round(1)
+
+df = pd.DataFrame({
+    "student_id": student_id,
+    "group": group,
+    "study_hours": study_hours.round(2),
+    "attendance": attendance.round(3),
+    "review_times": review_times,
+    "practice_count": practice_count.astype(int),
+    "participation": participation.round(1),
+    "score": score
+})
+
+df.loc[[8, 19, 37], "attendance"] = np.nan
+df.loc[[14, 46], "review_times"] = np.nan
+df.loc[[25, 62], "practice_count"] = np.nan
+
+print("数据集构造完成。")
+print(f"样本数量：{df.shape[0]}")
+print(f"变量数量：{df.shape[1]}")
+```
+
+# 3 数据预览 {#preview}
+
+完成数据构造后，需要先查看数据的前几行。这个步骤很重要，因为它可以帮助我们确认变量名称是否正确、数据格式是否正常、是否存在明显异常。
+
+```{python}
+#| label: data-preview
+#| code-summary: "代码"
+
+df.head(10)
+```
+
+从数据预览可以看到，每一行代表一名学生，每一列代表一个学习行为变量或结果变量。这里的 `score` 是最终成绩，也是后续回归模型要预测的目标变量。
+
+接着查看数据类型。数据类型检查可以帮助我们判断哪些变量是数值型，哪些变量是分类型。如果数值变量被错误识别为字符串，后续计算均值、相关系数或建模时就会出现问题。
+
+```{python}
+#| label: data-info
+#| code-summary: "代码"
+
+df.dtypes
+```
+
+# 4 缺失值处理 {#missing}
+
+真实数据中经常存在缺失值。比如有的同学没有填写出勤率，有的同学没有记录复习次数，还有的同学缺少练习题数量。如果直接忽略这些缺失值，可能会造成样本减少；如果处理不当，也可能影响模型结果。
+
+先统计每个变量的缺失情况。
+
+```{python}
+#| label: missing-summary
+#| code-summary: "代码"
+
+missing_table = pd.DataFrame({
+    "缺失个数": df.isna().sum(),
+    "缺失比例": (df.isna().mean() * 100).round(2)
+})
+
+missing_table
+```
+
+可以看到，缺失值主要集中在 `attendance`、`review_times` 和 `practice_count` 这几个变量上。由于缺失比例较低，本文采用中位数填补。中位数填补的优点是简单、稳定，不容易受到极端值影响。
+
+```{python}
+#| label: missing-fill
+#| code-summary: "代码"
+
+df_clean = df.copy()
+
+for col in ["attendance", "review_times", "practice_count"]:
+    median_value = df_clean[col].median()
+    df_clean[col] = df_clean[col].fillna(median_value)
+
+print("缺失值填补完成。")
+print("填补后各变量缺失值数量：")
+print(df_clean.isna().sum())
+```
+
+# 5 描述性统计 {#describe}
+
+描述性统计用于快速了解数据的整体特征。这里主要观察均值、标准差、最小值、最大值和四分位数。
+
+如果一个变量的标准差很大，说明不同学生之间差异明显；如果最大值和最小值差距很大，说明该变量的分布范围较宽。
+
+```{python}
+#| label: descriptive-statistics
+#| code-summary: "代码"
+
+num_cols = ["study_hours", "attendance", "review_times", "practice_count", "participation", "score"]
+
+desc = df_clean[num_cols].describe().T
+desc = desc.round(2)
+
+desc
+```
+
+从描述性统计可以初步看出，不同学生在学习时长、练习题数量和课堂参与度上存在一定差异。成绩的平均水平处在中上区间，但仍然有一定波动，这说明进一步分析学习行为与成绩之间的关系是有意义的。
+
+# 6 分组比较 {#group}
+
+除了整体描述统计，还可以按照学习小组进行分组比较。分组比较可以帮助我们观察不同小组之间是否存在明显差异。
+
+这里计算每个小组的平均学习时长、平均练习题数量、平均课堂参与度和平均成绩。
+
+```{python}
+#| label: group-comparison
+#| code-summary: "代码"
+
+group_summary = (
+    df_clean
+    .groupby("group")
+    .agg(
+        样本数=("student_id", "count"),
+        平均学习时长=("study_hours", "mean"),
+        平均练习题数量=("practice_count", "mean"),
+        平均参与度=("participation", "mean"),
+        平均成绩=("score", "mean")
+    )
+    .round(2)
+)
+
+group_summary
+```
+
+分组表可以看出，不同小组之间的学习投入和成绩水平可能存在差异。但是，仅凭分组均值还不能说明因果关系，它只能作为一种探索性分析结果。
+
+# 7 可视化分析 {#visual}
+
+## 7.1 成绩分布图
+
+下面绘制成绩分布直方图。直方图可以展示成绩主要集中在哪个区间，也能帮助判断是否存在明显偏态或异常值。
+
+```{python}
+#| label: score-histogram
+#| code-summary: "代码"
+
+plt.figure(figsize=(9, 5))
+plt.hist(df_clean["score"], bins=10, edgecolor="black")
+plt.title("学生成绩分布图")
+plt.xlabel("成绩")
+plt.ylabel("人数")
+plt.grid(axis="y", alpha=0.25)
+plt.show()
+```
+
+从图中可以观察成绩的集中区间。如果大部分学生集中在较高分段，说明整体学习表现较好；如果低分段人数较多，可能说明学习投入不足或者课程难度较高。
+
+## 7.2 小组平均成绩柱状图
+
+柱状图适合比较不同类别之间的差异。这里比较不同小组的平均成绩。
+
+```{python}
+#| label: group-bar
+#| code-summary: "代码"
+
+group_score = df_clean.groupby("group")["score"].mean().sort_values()
+
+plt.figure(figsize=(8, 5))
+plt.bar(group_score.index, group_score.values)
+plt.title("不同小组平均成绩比较")
+plt.xlabel("学习小组")
+plt.ylabel("平均成绩")
+plt.ylim(60, 100)
+plt.grid(axis="y", alpha=0.25)
+plt.show()
+```
+
+如果某个小组平均成绩明显更高，可以进一步分析该小组是否在学习时长、练习题数量或参与度方面表现更好。
+
+## 7.3 学习时长与成绩散点图
+
+散点图可以帮助观察两个连续变量之间的关系。这里观察 `study_hours` 和 `score` 的关系。
+
+```{python}
+#| label: scatter-hours-score
+#| code-summary: "代码"
+
+plt.figure(figsize=(8, 5))
+plt.scatter(df_clean["study_hours"], df_clean["score"], alpha=0.75)
+plt.title("学习时长与成绩的关系")
+plt.xlabel("每日平均学习时长")
+plt.ylabel("期末成绩")
+plt.grid(alpha=0.25)
+plt.show()
+```
+
+如果散点整体呈现从左下到右上的趋势，说明学习时长越长，成绩往往越高。当然，散点图只能说明相关关系，不能直接证明因果关系。
+
+# 8 相关性分析 {#corr}
+
+相关性分析用于衡量两个数值变量之间的线性关系。相关系数的取值范围在 -1 到 1 之间：
+
+| 相关系数 | 含义 |
+|---|---|
+| 接近 1 | 强正相关 |
+| 接近 -1 | 强负相关 |
+| 接近 0 | 线性关系较弱 |
+
+下面计算各学习行为变量与成绩之间的相关系数。
+
+```{python}
+#| label: correlation-table
+#| code-summary: "代码"
+
+corr = df_clean[num_cols].corr().round(3)
+
+score_corr = (
+    corr["score"]
+    .drop("score")
+    .sort_values(ascending=False)
+    .to_frame(name="与成绩的相关系数")
+)
+
+score_corr
+```
+
+为了更直观地观察变量之间的关系，可以绘制相关性热力图。颜色越深，说明相关程度越强。
+
+```{python}
+#| label: correlation-heatmap
+#| code-summary: "代码"
+
+plt.figure(figsize=(8, 6))
+plt.imshow(corr, aspect="auto")
+plt.colorbar(label="相关系数")
+plt.xticks(range(len(corr.columns)), corr.columns, rotation=45, ha="right")
+plt.yticks(range(len(corr.index)), corr.index)
+plt.title("学习行为变量相关性热力图")
+
+for i in range(len(corr.index)):
+    for j in range(len(corr.columns)):
+        plt.text(j, i, f"{corr.iloc[i, j]:.2f}", ha="center", va="center", fontsize=9)
+
+plt.tight_layout()
+plt.show()
+```
+
+从相关性分析中可以判断，哪些学习行为变量和成绩关系更紧密。一般来说，学习时长、练习题数量和课堂参与度都可能对成绩有较明显影响。
+
+# 9 回归建模 {#regression}
+
+相关性分析只能说明变量之间是否存在线性关系，而回归模型可以进一步用于预测。这里使用多元线性回归模型，将学习行为变量作为自变量，将成绩作为因变量。
+
+模型形式可以写成：
+
+\[
+score = \beta_0 + \beta_1 study\_hours + \beta_2 attendance + \beta_3 review\_times + \beta_4 practice\_count + \beta_5 participation + \varepsilon
+\]
+
+其中，\(\beta_0\) 是截距项，\(\beta_1,\beta_2,\ldots,\beta_5\) 是各变量对应的回归系数。
+
+```{python}
+#| label: regression-model
+#| code-summary: "代码"
+
+features = ["study_hours", "attendance", "review_times", "practice_count", "participation"]
+target = "score"
+
+X = df_clean[features]
+y = df_clean[target]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y,
+    test_size=0.25,
+    random_state=20260703
+)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+coef_table = pd.DataFrame({
+    "变量": features,
+    "回归系数": model.coef_.round(3)
+})
+
+intercept = round(model.intercept_, 3)
+
+print(f"模型截距：{intercept}")
+coef_table
+```
+
+回归系数可以帮助我们理解每个变量对成绩预测的贡献方向。系数为正，说明该变量增加时，预测成绩倾向于提高；系数为负，则说明该变量增加时，预测成绩倾向于下降。
+
+需要注意的是，回归系数并不一定等于因果效应。尤其是在模拟数据之外的真实数据中，还可能存在遗漏变量、样本偏差等问题。
+
+# 10 预测结果 {#prediction}
+
+模型训练完成后，可以使用测试集检验预测效果。测试集中的数据没有参与模型训练，因此更适合用来观察模型的泛化能力。
+
+```{python}
+#| label: prediction
+#| code-summary: "代码"
+
+y_pred = model.predict(X_test)
+
+pred_table = pd.DataFrame({
+    "实际成绩": y_test.values,
+    "预测成绩": y_pred.round(1),
+    "预测误差": (y_test.values - y_pred).round(1)
+})
+
+pred_table.head(12)
+```
+
+下面绘制“实际成绩 vs 预测成绩”的散点图。如果模型预测较好，点应该大致分布在对角线附近。
+
+```{python}
+#| label: prediction-plot
+#| code-summary: "代码"
+
+plt.figure(figsize=(7, 6))
+plt.scatter(y_test, y_pred, alpha=0.75)
+
+min_value = min(y_test.min(), y_pred.min())
+max_value = max(y_test.max(), y_pred.max())
+
+plt.plot([min_value, max_value], [min_value, max_value], linestyle="--")
+plt.title("实际成绩与预测成绩对比")
+plt.xlabel("实际成绩")
+plt.ylabel("预测成绩")
+plt.grid(alpha=0.25)
+plt.show()
+```
+
+图中虚线表示理想情况，也就是预测值等于真实值。散点越靠近虚线，说明模型预测越准确；散点偏离越大，说明预测误差越大。
+
+# 11 模型评价 {#evaluation}
+
+为了更准确地评价模型，需要计算几个常见指标：
+
+| 指标 | 含义 |
+|---|---|
+| MAE | 平均绝对误差，数值越小越好 |
+| RMSE | 均方根误差，对较大误差更敏感 |
+| R² | 拟合优度，越接近 1 表示解释能力越强 |
+
+```{python}
+#| label: model-evaluation
+#| code-summary: "代码"
+
+mae = mean_absolute_error(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+r2 = r2_score(y_test, y_pred)
+
+evaluation = pd.DataFrame({
+    "指标": ["MAE", "RMSE", "R²"],
+    "数值": [round(mae, 3), round(rmse, 3), round(r2, 3)]
+})
+
+evaluation
+```
+
+如果 MAE 和 RMSE 较低，说明模型预测误差较小；如果 R² 较高，说明模型能够解释较多的成绩差异。
+
+当然，这只是一个小型示例。真实研究中还需要考虑样本量、变量选择、模型假设、异常值、过拟合等问题。
+
+# 12 结论 {#conclusion}
+
+本文使用 `pandas`、`numpy`、`matplotlib` 和 `scikit-learn` 完成了一篇完整的 Python 数据分析文章。整个流程可以概括为：
+
+1. 先构造并查看数据，明确每个变量的含义；
+2. 再检查缺失值，并使用中位数进行填补；
+3. 接着通过描述统计了解数据整体情况；
+4. 然后使用柱状图、直方图、散点图和热力图观察变量关系；
+5. 最后建立多元线性回归模型，对学生成绩进行预测，并使用 MAE、RMSE 和 R² 评价模型效果。
+
+::: {.py-final}
+<p>这篇文章的重点不是展示复杂模型，而是展示一篇博客型数据分析文章应该如何组织：先讲清楚问题，再展示代码，然后解释输出结果。这样读者不仅能看到代码怎么写，也能理解每一步分析为什么要这样做。</p>
+:::
+
+:::

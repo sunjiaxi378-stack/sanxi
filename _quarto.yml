@@ -6,6 +6,8 @@ project:
     - "topics/**/*.qmd"
     - "posts/**/*.qmd"
 
+lang: zh
+
 website:
   title: "sanxi"
   site-url: "https://sunjiaxi378-stack.github.io/sanxi/"
@@ -46,6 +48,8 @@ website:
         menu:
           - text: "欢迎文章"
             href: posts/welcome/index.qmd
+          - text: "算法图解文章"
+            href: posts/algorithm-notes/index.qmd
 
     right:
       - href: xinliu.qmd
@@ -65,6 +69,7 @@ format:
     css: styles.css
     toc: true
     toc-location: right
+    toc-depth: 3
     number-sections: false
     smooth-scroll: true
     code-copy: true
@@ -74,8 +79,12 @@ format:
 
 execute:
   freeze: auto
+
 resources:
   - assets/data/journal_tasks.csv
   - assets/data/journal_records.csv
   - assets/data/mood.csv
   - assets/img/xinliu-bg.jpg
+  - assets/img/home-bg.jpg
+  - assets/js/journal-system.js
+  - assets/js/xinliu.js
