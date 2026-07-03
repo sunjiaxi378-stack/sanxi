@@ -1,12 +1,8 @@
 (function () {
   "use strict";
 
-  const SUPABASE_URL = "https://bsuxuknsfaojxljhilop.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJzdXh1a25zZmFvanhsamlobG9wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5OTA4MDAsImV4cCI6MjA5ODU2NjgwMH0.Sw5cpbRLxbYI4t6IZgOCfqqIQw_IwdabVuwXOXMkSCo";
-
-  const STORAGE_KEY = "sanxi-journal-system-v4";
-  const DB_TABLE = "journal_data";
-  const DB_ID = "main";
+  const TASKS_CSV = "assets/data/journal_tasks.csv";
+  const RECORDS_CSV = "assets/data/journal_records.csv";
 
   const moodText = {
     1: "很糟",
@@ -28,10 +24,13 @@
     return document.getElementById(id);
   };
 
-  let state = defaultState();
-  let currentMonth = new Date();
-  let supabaseClient = null;
-  let cloudReady = false;
+  let state = {
+    tasks: {},
+    records: []
+  };
+
+  let activeDate = "2026-07-02";
+  let currentMonth = new Date(2026, 6, 1);
 
   let timer = {
     interval: null,
@@ -47,103 +46,9 @@
 
   async function init() {
     renderShell();
-    initSupabase();
-
-    state = loadLocalState();
-
-    setTodayUI();
     bindEvents();
     resetTimer();
-    renderAll();
-
-    await loadCloudState();
-  }
-
-  function initSupabase() {
-    if (!SUPABASE_URL || !SUPABASE_KEY) {
-      console.warn("Supabase 未配置，将只使用浏览器本地保存。");
-      cloudReady = false;
-      return;
-    }
-
-    if (!window.supabase || !window.supabase.createClient) {
-      console.warn("Supabase JS 没有加载成功，将只使用浏览器本地保存。");
-      cloudReady = false;
-      return;
-    }
-
-    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    cloudReady = true;
-  }
-
-  async function loadCloudState() {
-    if (!cloudReady || !supabaseClient) {
-      setSyncText("当前使用浏览器本地保存");
-      return;
-    }
-
-    setSyncText("正在从数据库读取...");
-
-    const { data, error } = await supabaseClient
-      .from(DB_TABLE)
-      .select("payload")
-      .eq("id", DB_ID)
-      .maybeSingle();
-
-    if (error) {
-      console.warn("从 Supabase 读取失败，继续使用本地数据。", error);
-      setSyncText("数据库读取失败，当前使用本地数据");
-      return;
-    }
-
-    if (data && data.payload) {
-      state = normalizeState(data.payload);
-      saveLocalState();
-      renderAll();
-      setSyncText("已从数据库同步");
-      return;
-    }
-
-    await syncToCloud();
-  }
-
-  async function syncToCloud() {
-    saveLocalState();
-
-    if (!cloudReady || !supabaseClient) {
-      setSyncText("已保存到当前浏览器");
-      return;
-    }
-
-    setSyncText("正在同步数据库...");
-
-    const { error } = await supabaseClient
-      .from(DB_TABLE)
-      .upsert(
-        {
-          id: DB_ID,
-          payload: state,
-          updated_at: new Date().toISOString()
-        },
-        {
-          onConflict: "id"
-        }
-      );
-
-    if (error) {
-      console.warn("同步 Supabase 失败。", error);
-      setSyncText("数据库同步失败，本地已保存");
-      return;
-    }
-
-    setSyncText("已同步到数据库");
-  }
-
-  function setSyncText(text) {
-    const el = $("sx-sync-status");
-    if (el) {
-      el.textContent = text;
-    }
+    await loadCSVData();
   }
 
   function renderShell() {
@@ -161,10 +66,11 @@
           也可以把心情变化保存下来，形成属于自己的时间轨迹。
         </p>
         <p>
-          这个页面主要分成四个部分：每日任务、倒计时、最近记录、心情状态。
-          任务和记录会优先同步到 Supabase 数据库，同时也会保存在当前浏览器中。
+          当前版本使用 CSV 表格作为数据源。你只需要修改
+          <code>assets/data/journal_tasks.csv</code> 和
+          <code>assets/data/journal_records.csv</code>，然后重新预览、提交、发布即可。
         </p>
-        <p id="sx-sync-status" class="sx-sync-status">正在初始化...</p>
+        <p id="sx-sync-status" class="sx-sync-status">正在读取 CSV 表格...</p>
       </section>
 
       <section class="sx-top-grid">
@@ -179,15 +85,14 @@
           </div>
 
           <div class="sx-task-input-row">
-            <input id="sx-task-input" type="text" placeholder="写下今天要完成的事情，例如：下午写一点博客">
-            <button id="sx-add-task-btn" type="button">添加</button>
+            <input id="sx-selected-date" type="date">
+            <button id="sx-reload-data" type="button">重新读取</button>
           </div>
 
           <ul id="sx-task-list" class="sx-task-list"></ul>
 
           <div class="sx-task-actions">
-            <button id="sx-clear-done-btn" type="button">清除已完成</button>
-            <span>完成后可以打勾，任务会自动划去并保存。</span>
+            <span>任务是否完成由 <code>journal_tasks.csv</code> 中的 <code>done</code> 列控制。</span>
           </div>
         </div>
 
@@ -218,59 +123,13 @@
           <div>
             <p class="sx-eyebrow">RECENT RECORDS</p>
             <h2>最近记录</h2>
-            <p class="sx-subtitle">记录今天做了什么，也记录当时的心情和精力。</p>
-          </div>
-
-          <div class="sx-data-actions">
-            <button id="sx-export-data" type="button">导出数据</button>
-            <button id="sx-import-data-btn" type="button">导入数据</button>
-            <input id="sx-import-data" type="file" accept="application/json" hidden>
+            <p class="sx-subtitle">
+              这里会自动读取 <code>journal_records.csv</code>，展示最近的生活记录、心情和精力。
+            </p>
           </div>
         </div>
 
-        <div class="sx-record-layout">
-          <form id="sx-record-form" class="sx-record-form">
-            <label class="sx-label" for="sx-record-date">日期</label>
-            <input id="sx-record-date" type="date">
-
-            <label class="sx-label" for="sx-record-title">标题</label>
-            <input id="sx-record-title" type="text" placeholder="例如：暑假正式开始了">
-
-            <div class="sx-two-cols">
-              <div>
-                <label class="sx-label" for="sx-record-mood">心情</label>
-                <select id="sx-record-mood">
-                  <option value="1">1 很糟</option>
-                  <option value="2">2 低落</option>
-                  <option value="3" selected>3 普通</option>
-                  <option value="4">4 不错</option>
-                  <option value="5">5 很好</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="sx-label" for="sx-record-energy">精力</label>
-                <select id="sx-record-energy">
-                  <option value="1">1 很低</option>
-                  <option value="2">2 偏低</option>
-                  <option value="3" selected>3 一般</option>
-                  <option value="4">4 不错</option>
-                  <option value="5">5 很足</option>
-                </select>
-              </div>
-            </div>
-
-            <label class="sx-label" for="sx-record-tags">标签</label>
-            <input id="sx-record-tags" type="text" placeholder="例如：学习 疲惫 博客">
-
-            <label class="sx-label" for="sx-record-content">具体记录</label>
-            <textarea id="sx-record-content" rows="5" placeholder="今天发生了什么？做了什么？有什么感受？"></textarea>
-
-            <button class="sx-save-record" type="submit">保存今天记录</button>
-          </form>
-
-          <div id="sx-record-list" class="sx-record-list"></div>
-        </div>
+        <div id="sx-record-list" class="sx-record-list"></div>
       </section>
 
       <section class="sx-panel sx-mood-panel">
@@ -278,7 +137,7 @@
           <div>
             <p class="sx-eyebrow">MOOD DASHBOARD</p>
             <h2>当前心情与状态</h2>
-            <p class="sx-subtitle">根据最近记录自动生成心情热力图、波动曲线和状态概览。</p>
+            <p class="sx-subtitle">根据 CSV 记录自动生成心情热力图、波动曲线和状态概览。</p>
           </div>
         </div>
 
@@ -292,13 +151,13 @@
           <div class="sx-status-card">
             <span>平均心情</span>
             <strong id="sx-average-mood">0 / 5</strong>
-            <small>基于已保存记录</small>
+            <small>基于 CSV 记录</small>
           </div>
 
           <div class="sx-status-card">
             <span>连续记录</span>
             <strong id="sx-streak-days">0 天</strong>
-            <small>从今天往前连续</small>
+            <small>从最近记录往前连续</small>
           </div>
 
           <div class="sx-status-card">
@@ -331,7 +190,7 @@
           <div>
             <p class="sx-eyebrow">MONTH PLAN</p>
             <h2>月计划总览</h2>
-            <p class="sx-subtitle">这里会按月份显示你每天设置过的任务。</p>
+            <p class="sx-subtitle">这里会按月份显示 CSV 里每天设置过的任务。</p>
           </div>
 
           <div class="sx-month-actions">
@@ -356,84 +215,30 @@
     `;
   }
 
-  function defaultState() {
-    return {
-      tasks: {},
-      records: []
-    };
-  }
-
-  function normalizeState(data) {
-    return {
-      tasks: data && data.tasks && typeof data.tasks === "object" ? data.tasks : {},
-      records: data && Array.isArray(data.records) ? data.records : []
-    };
-  }
-
-  function loadLocalState() {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (!raw) return defaultState();
-      return normalizeState(JSON.parse(raw));
-    } catch (error) {
-      return defaultState();
-    }
-  }
-
-  function saveLocalState() {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }
-
-  function todayString() {
-    return formatDate(new Date());
-  }
-
-  function formatDate(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  }
-
-  function parseDate(dateString) {
-    const parts = String(dateString).split("-").map(Number);
-    return new Date(parts[0], parts[1] - 1, parts[2]);
-  }
-
-  function getChineseDate(dateString) {
-    const date = parseDate(dateString);
-    const week = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
-    return `${dateString} 周${week}`;
-  }
-
-  function setTodayUI() {
-    const today = todayString();
-
-    const taskDate = $("sx-task-date");
-    const recordDate = $("sx-record-date");
-
-    if (taskDate) taskDate.textContent = getChineseDate(today);
-    if (recordDate) recordDate.value = today;
-  }
-
   function bindEvents() {
-    $("sx-add-task-btn").addEventListener("click", addTask);
+    const reloadBtn = $("sx-reload-data");
+    const selectedDate = $("sx-selected-date");
 
-    $("sx-task-input").addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        addTask();
-      }
-    });
+    if (reloadBtn) {
+      reloadBtn.addEventListener("click", async function () {
+        await loadCSVData();
+      });
+    }
 
-    $("sx-clear-done-btn").addEventListener("click", clearDoneTasks);
+    if (selectedDate) {
+      selectedDate.addEventListener("change", function () {
+        if (this.value) {
+          activeDate = this.value;
+          currentMonth = parseDate(activeDate);
+          renderAll();
+        }
+      });
+    }
 
     $("sx-timer-minutes").addEventListener("change", resetTimer);
     $("sx-start-timer").addEventListener("click", startTimer);
     $("sx-pause-timer").addEventListener("click", pauseTimer);
     $("sx-reset-timer").addEventListener("click", resetTimer);
-
-    $("sx-record-form").addEventListener("submit", saveRecord);
 
     $("sx-prev-month").addEventListener("click", function () {
       currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1);
@@ -444,14 +249,256 @@
       currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
       renderMonthCalendar();
     });
+  }
 
-    $("sx-export-data").addEventListener("click", exportData);
+  async function loadCSVData() {
+    setSyncText("正在读取 CSV 表格...");
 
-    $("sx-import-data-btn").addEventListener("click", function () {
-      $("sx-import-data").click();
+    try {
+      const taskText = await fetchCSV(TASKS_CSV);
+      const recordText = await fetchCSV(RECORDS_CSV);
+
+      const taskRows = parseCSV(taskText);
+      const recordRows = parseCSV(recordText);
+
+      state.tasks = buildTasks(taskRows);
+      state.records = buildRecords(recordRows);
+
+      const latestDate = getLatestDateFromData();
+
+      if (latestDate) {
+        activeDate = latestDate;
+      } else {
+        activeDate = todayString();
+      }
+
+      currentMonth = parseDate(activeDate);
+
+      const selectedDate = $("sx-selected-date");
+      if (selectedDate) {
+        selectedDate.value = activeDate;
+      }
+
+      renderAll();
+
+      setSyncText(
+        "已读取 CSV 表格数据：任务 " +
+          countTasks() +
+          " 条，记录 " +
+          state.records.length +
+          " 条。"
+      );
+    } catch (error) {
+      console.error(error);
+
+      state.tasks = {};
+      state.records = [];
+      activeDate = todayString();
+      currentMonth = parseDate(activeDate);
+
+      const selectedDate = $("sx-selected-date");
+      if (selectedDate) {
+        selectedDate.value = activeDate;
+      }
+
+      renderAll();
+      setSyncText("CSV 读取失败，请检查 assets/data 目录、文件名和 CSV 内容。");
+    }
+  }
+
+  async function fetchCSV(path) {
+    const response = await fetch(path + "?v=" + Date.now(), {
+      cache: "no-store"
     });
 
-    $("sx-import-data").addEventListener("change", importData);
+    if (!response.ok) {
+      throw new Error("无法读取文件：" + path);
+    }
+
+    return await response.text();
+  }
+
+  function parseCSV(text) {
+    const source = String(text || "").replace(/^\uFEFF/, "");
+    const rows = [];
+    let row = [];
+    let value = "";
+    let inQuotes = false;
+
+    for (let i = 0; i < source.length; i++) {
+      const char = source[i];
+      const next = source[i + 1];
+
+      if (char === '"' && inQuotes && next === '"') {
+        value += '"';
+        i++;
+      } else if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === "," && !inQuotes) {
+        row.push(value.trim());
+        value = "";
+      } else if ((char === "\n" || char === "\r") && !inQuotes) {
+        if (char === "\r" && next === "\n") {
+          i++;
+        }
+
+        row.push(value.trim());
+
+        if (row.some(function (item) { return item !== ""; })) {
+          rows.push(row);
+        }
+
+        row = [];
+        value = "";
+      } else {
+        value += char;
+      }
+    }
+
+    row.push(value.trim());
+
+    if (row.some(function (item) { return item !== ""; })) {
+      rows.push(row);
+    }
+
+    if (rows.length < 2) return [];
+
+    const headers = rows[0].map(function (item) {
+      return item.trim();
+    });
+
+    return rows.slice(1).map(function (items) {
+      const obj = {};
+
+      headers.forEach(function (header, index) {
+        obj[header] = items[index] ? items[index].trim() : "";
+      });
+
+      return obj;
+    });
+  }
+
+  function buildTasks(rows) {
+    const result = {};
+
+    rows.forEach(function (row) {
+      const date = normalizeDate(row.date);
+      const text = row.text || "";
+      const done = normalizeBoolean(row.done);
+
+      if (!date || !text) return;
+
+      if (!result[date]) {
+        result[date] = [];
+      }
+
+      result[date].push({
+        id: date + "-" + result[date].length,
+        date: date,
+        text: text,
+        done: done
+      });
+    });
+
+    return result;
+  }
+
+  function buildRecords(rows) {
+    return rows
+      .map(function (row, index) {
+        const date = normalizeDate(row.date);
+
+        if (!date) return null;
+
+        return {
+          id: "record-" + index,
+          date: date,
+          title: row.title || "没有标题的一天",
+          mood: clampNumber(row.mood, 1, 5, 3),
+          energy: clampNumber(row.energy, 1, 5, 3),
+          tags: parseTags(row.tags),
+          content: row.content || ""
+        };
+      })
+      .filter(Boolean)
+      .sort(function (a, b) {
+        return b.date.localeCompare(a.date);
+      });
+  }
+
+  function parseTags(value) {
+    if (!value) return [];
+
+    return String(value)
+      .split("|")
+      .map(function (tag) {
+        return tag.trim();
+      })
+      .filter(Boolean);
+  }
+
+  function normalizeBoolean(value) {
+    const text = String(value || "").trim().toLowerCase();
+
+    return (
+      text === "true" ||
+      text === "yes" ||
+      text === "1" ||
+      text === "完成" ||
+      text === "已完成"
+    );
+  }
+
+  function normalizeDate(value) {
+    const text = String(value || "").trim();
+
+    if (!text) return "";
+
+    const parts = text.replace(/\//g, "-").split("-");
+
+    if (parts.length < 3) return "";
+
+    const year = Number(parts[0]);
+    const month = Number(parts[1]);
+    const day = Number(parts[2]);
+
+    if (!year || !month || !day) return "";
+
+    return (
+      String(year).padStart(4, "0") +
+      "-" +
+      String(month).padStart(2, "0") +
+      "-" +
+      String(day).padStart(2, "0")
+    );
+  }
+
+  function clampNumber(value, min, max, fallback) {
+    const num = Number(value);
+
+    if (!Number.isFinite(num)) return fallback;
+
+    return Math.max(min, Math.min(max, num));
+  }
+
+  function getLatestDateFromData() {
+    const dates = new Set();
+
+    Object.keys(state.tasks).forEach(function (date) {
+      dates.add(date);
+    });
+
+    state.records.forEach(function (record) {
+      dates.add(record.date);
+    });
+
+    return Array.from(dates).sort().pop() || "";
+  }
+
+  function countTasks() {
+    return Object.keys(state.tasks).reduce(function (sum, date) {
+      return sum + state.tasks[date].length;
+    }, 0);
   }
 
   function renderAll() {
@@ -461,49 +508,20 @@
     renderMonthCalendar();
   }
 
-  function getTasksByDate(dateString) {
-    if (!state.tasks[dateString]) {
-      state.tasks[dateString] = [];
-    }
-
-    return state.tasks[dateString];
-  }
-
-  function getTodayTasks() {
-    return getTasksByDate(todayString());
-  }
-
-  async function addTask() {
-    const input = $("sx-task-input");
-    const text = input.value.trim();
-
-    if (!text) return;
-
-    const today = todayString();
-    const tasks = getTasksByDate(today);
-
-    tasks.push({
-      id: String(Date.now()),
-      text: text,
-      done: false,
-      createdAt: new Date().toISOString()
-    });
-
-    input.value = "";
-
-    renderTasks();
-    renderMonthCalendar();
-    await syncToCloud();
-  }
-
   function renderTasks() {
     const list = $("sx-task-list");
-    const tasks = getTodayTasks();
+    const taskDate = $("sx-task-date");
+
+    if (taskDate) {
+      taskDate.textContent = getChineseDate(activeDate);
+    }
+
+    const tasks = state.tasks[activeDate] || [];
 
     if (!tasks.length) {
       list.innerHTML = `
         <li class="sx-empty-task">
-          今天还没有任务。先写下一件最想完成的小事。
+          这一天还没有任务。请在 <code>journal_tasks.csv</code> 里添加对应日期。
         </li>
       `;
       return;
@@ -512,66 +530,299 @@
     list.innerHTML = tasks
       .map(function (task) {
         return `
-          <li class="sx-task-item ${task.done ? "is-done" : ""}" data-id="${escapeHTML(task.id)}">
+          <li class="sx-task-item ${task.done ? "is-done" : ""}">
             <label>
-              <input type="checkbox" ${task.done ? "checked" : ""}>
+              <input type="checkbox" ${task.done ? "checked" : ""} disabled>
               <span>${escapeHTML(task.text)}</span>
             </label>
-            <button type="button" class="sx-delete-task">×</button>
           </li>
         `;
       })
       .join("");
+  }
 
-    list.querySelectorAll(".sx-task-item").forEach(function (item) {
-      const id = item.getAttribute("data-id");
+  function renderRecords() {
+    const container = $("sx-record-list");
+    const records = state.records.slice(0, 8);
 
-      item.querySelector("input").addEventListener("change", async function () {
-        await toggleTask(id);
+    if (!records.length) {
+      container.innerHTML = `
+        <div class="sx-empty-record">
+          暂时还没有记录。请在 <code>journal_records.csv</code> 里添加内容。
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = records
+      .map(function (record) {
+        const tags = record.tags.length
+          ? record.tags
+              .map(function (tag) {
+                return `<span>${escapeHTML(tag)}</span>`;
+              })
+              .join("")
+          : "<span>未分类</span>";
+
+        return `
+          <article class="sx-record-card">
+            <time>${escapeHTML(record.date)}</time>
+            <h3>${escapeHTML(record.title)}</h3>
+            <p>心情：${moodText[record.mood]} ｜ 精力：${energyText[record.energy]}</p>
+            ${
+              record.content
+                ? `<div class="sx-record-content">${escapeHTML(record.content)}</div>`
+                : ""
+            }
+            <div class="sx-record-tags">${tags}</div>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  function getLatestRecordByDate() {
+    const result = {};
+
+    state.records
+      .slice()
+      .reverse()
+      .forEach(function (record) {
+        result[record.date] = record;
       });
 
-      item.querySelector(".sx-delete-task").addEventListener("click", async function () {
-        await deleteTask(id);
-      });
-    });
+    return result;
   }
 
-  async function toggleTask(id) {
-    const task = getTodayTasks().find(function (item) {
-      return item.id === id;
-    });
+  function renderMoodDashboard() {
+    const recordsByDate = getLatestRecordByDate();
+    const dates = Object.keys(recordsByDate).sort();
 
-    if (!task) return;
+    if (!dates.length) {
+      $("sx-latest-mood").textContent = "暂无";
+      $("sx-latest-date").textContent = "还没有记录";
+      $("sx-average-mood").textContent = "0 / 5";
+      $("sx-streak-days").textContent = "0 天";
+      $("sx-total-days").textContent = "0 天";
 
-    task.done = !task.done;
+      renderMoodHeatmap(recordsByDate);
+      renderMoodLine(recordsByDate);
+      return;
+    }
 
-    renderTasks();
-    renderMonthCalendar();
-    await syncToCloud();
+    const latestDate = dates[dates.length - 1];
+    const latestRecord = recordsByDate[latestDate];
+
+    const totalMood = dates.reduce(function (sum, date) {
+      return sum + Number(recordsByDate[date].mood);
+    }, 0);
+
+    const averageMood = totalMood / dates.length;
+
+    $("sx-latest-mood").textContent = moodText[latestRecord.mood];
+    $("sx-latest-date").textContent = latestDate;
+    $("sx-average-mood").textContent = averageMood.toFixed(1) + " / 5";
+    $("sx-streak-days").textContent =
+      calculateStreak(recordsByDate, latestDate) + " 天";
+    $("sx-total-days").textContent = dates.length + " 天";
+
+    renderMoodHeatmap(recordsByDate);
+    renderMoodLine(recordsByDate);
   }
 
-  async function deleteTask(id) {
-    const today = todayString();
+  function calculateStreak(recordsByDate, startDate) {
+    let count = 0;
+    const cursor = parseDate(startDate);
 
-    state.tasks[today] = getTodayTasks().filter(function (item) {
-      return item.id !== id;
-    });
+    while (true) {
+      const date = formatDate(cursor);
 
-    renderTasks();
-    renderMonthCalendar();
-    await syncToCloud();
+      if (!recordsByDate[date]) break;
+
+      count++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+
+    return count;
   }
 
-  async function clearDoneTasks() {
-    const today = todayString();
+  function renderMoodHeatmap(recordsByDate) {
+    const container = $("sx-mood-heatmap");
+    const base = activeDate ? parseDate(activeDate) : new Date();
+    const year = base.getFullYear();
 
-    state.tasks[today] = getTodayTasks().filter(function (item) {
-      return !item.done;
+    let html = "";
+
+    for (let month = 0; month < 12; month++) {
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const firstDay = new Date(year, month, 1).getDay();
+      const mondayIndex = firstDay === 0 ? 6 : firstDay - 1;
+
+      html += `<div class="sx-heat-month">`;
+      html += `<div class="sx-heat-title">${month + 1}月</div>`;
+      html += `<div class="sx-heat-grid">`;
+
+      for (let blank = 0; blank < mondayIndex; blank++) {
+        html += `<span class="sx-heat-cell is-empty"></span>`;
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date =
+          year +
+          "-" +
+          String(month + 1).padStart(2, "0") +
+          "-" +
+          String(day).padStart(2, "0");
+
+        const record = recordsByDate[date];
+        const mood = record ? Number(record.mood) : 0;
+        const title = record ? date + "：" + moodText[mood] : date + "：未记录";
+
+        html += `<span class="sx-heat-cell mood-${mood}" title="${escapeHTML(
+          title
+        )}"></span>`;
+      }
+
+      html += `</div>`;
+      html += `</div>`;
+    }
+
+    container.innerHTML = html;
+  }
+
+  function renderMoodLine(recordsByDate) {
+    const container = $("sx-mood-line");
+    const dates = Object.keys(recordsByDate).sort().slice(-14);
+
+    if (dates.length < 2) {
+      container.innerHTML = `<div class="sx-empty-chart">记录至少两天后，会显示心情波动线。</div>`;
+      return;
+    }
+
+    const width = 820;
+    const height = 230;
+    const paddingLeft = 44;
+    const paddingRight = 28;
+    const paddingTop = 28;
+    const paddingBottom = 42;
+
+    const usableWidth = width - paddingLeft - paddingRight;
+    const usableHeight = height - paddingTop - paddingBottom;
+    const xStep = usableWidth / Math.max(dates.length - 1, 1);
+
+    const points = dates.map(function (date, index) {
+      const mood = Number(recordsByDate[date].mood);
+      const x = paddingLeft + index * xStep;
+      const y = paddingTop + ((5 - mood) / 4) * usableHeight;
+
+      return { date, mood, x, y };
     });
 
-    renderTasks();
-    renderMonthCalendar();
-    await syncToCloud();
+    const path = points
+      .map(function (point, index) {
+        return (index === 0 ? "M" : "L") + " " + point.x + " " + point.y;
+      })
+      .join(" ");
+
+    const gridLines = [1, 2, 3, 4, 5]
+      .map(function (level) {
+        const y = paddingTop + ((5 - level) / 4) * usableHeight;
+
+        return `
+          <line x1="${paddingLeft}" y1="${y}" x2="${width - paddingRight}" y2="${y}" class="sx-chart-grid"></line>
+          <text x="18" y="${y + 4}" class="sx-chart-y">${level}</text>
+        `;
+      })
+      .join("");
+
+    const circles = points
+      .map(function (point) {
+        return `
+          <circle cx="${point.x}" cy="${point.y}" r="5.5" class="sx-line-dot mood-${point.mood}">
+            <title>${point.date}：${moodText[point.mood]}</title>
+          </circle>
+        `;
+      })
+      .join("");
+
+    const labels = points
+      .map(function (point, index) {
+        if (dates.length > 8 && index % 2 !== 0) return "";
+
+        return `<text x="${point.x}" y="${height - 12}" text-anchor="middle" class="sx-chart-x">${point.date.slice(
+          5
+        )}</text>`;
+      })
+      .join("");
+
+    container.innerHTML = `
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="心情波动线">
+        ${gridLines}
+        <path d="${path}" class="sx-line-path"></path>
+        ${circles}
+        ${labels}
+      </svg>
+    `;
+  }
+
+  function renderMonthCalendar() {
+    const container = $("sx-month-calendar");
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+
+    $("sx-month-title").textContent = year + "年" + (month + 1) + "月";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const mondayIndex = firstDay === 0 ? 6 : firstDay - 1;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const recordsByDate = getLatestRecordByDate();
+
+    let html = "";
+
+    for (let i = 0; i < mondayIndex; i++) {
+      html += `<div class="sx-month-day is-blank"></div>`;
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date =
+        year +
+        "-" +
+        String(month + 1).padStart(2, "0") +
+        "-" +
+        String(day).padStart(2, "0");
+
+      const tasks = state.tasks[date] || [];
+      const record = recordsByDate[date];
+      const isActive = date === activeDate;
+
+      const tasksHTML = tasks.length
+        ? tasks
+            .slice(0, 5)
+            .map(function (task) {
+              return `<li class="${task.done ? "is-done" : ""}">${escapeHTML(
+                task.text
+              )}</li>`;
+            })
+            .join("")
+        : `<li class="is-muted">暂无任务</li>`;
+
+      const moodHTML = record
+        ? `<span class="sx-day-mood mood-${record.mood}">${moodText[record.mood]}</span>`
+        : "";
+
+      html += `
+        <div class="sx-month-day ${isActive ? "is-today" : ""}">
+          <div class="sx-day-top">
+            <strong>${day}</strong>
+            ${moodHTML}
+          </div>
+          <ul>${tasksHTML}</ul>
+        </div>
+      `;
+    }
+
+    container.innerHTML = html;
   }
 
   function getTimerMinutes() {
@@ -593,7 +844,7 @@
     timer.running = true;
 
     timer.interval = window.setInterval(function () {
-      timer.remaining -= 1;
+      timer.remaining--;
 
       if (timer.remaining <= 0) {
         timer.remaining = 0;
@@ -629,376 +880,44 @@
     const seconds = timer.remaining % 60;
 
     $("sx-timer-display").textContent =
-      `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      String(minutes).padStart(2, "0") +
+      ":" +
+      String(seconds).padStart(2, "0");
   }
 
-  async function saveRecord(event) {
-    event.preventDefault();
-
-    const date = $("sx-record-date").value || todayString();
-    const title = $("sx-record-title").value.trim() || "没有标题的一天";
-    const mood = Number($("sx-record-mood").value);
-    const energy = Number($("sx-record-energy").value);
-    const content = $("sx-record-content").value.trim();
-    const tagsText = $("sx-record-tags").value.trim();
-
-    const tags = tagsText
-      .split(/[\s,，、]+/)
-      .map(function (tag) {
-        return tag.trim();
-      })
-      .filter(Boolean);
-
-    state.records.push({
-      id: String(Date.now()),
-      date: date,
-      title: title,
-      mood: mood,
-      energy: energy,
-      tags: tags,
-      content: content,
-      createdAt: new Date().toISOString()
-    });
-
-    state.records.sort(function (a, b) {
-      if (a.date === b.date) {
-        return String(b.createdAt).localeCompare(String(a.createdAt));
-      }
-
-      return String(b.date).localeCompare(String(a.date));
-    });
-
-    $("sx-record-title").value = "";
-    $("sx-record-tags").value = "";
-    $("sx-record-content").value = "";
-
-    renderRecords();
-    renderMoodDashboard();
-    renderMonthCalendar();
-    await syncToCloud();
+  function setSyncText(text) {
+    const el = $("sx-sync-status");
+    if (el) el.textContent = text;
   }
 
-  function renderRecords() {
-    const container = $("sx-record-list");
-    const records = state.records.slice(0, 8);
-
-    if (!records.length) {
-      container.innerHTML = `
-        <div class="sx-empty-record">
-          暂时还没有记录。保存一次今日记录后，这里会出现卡片。
-        </div>
-      `;
-      return;
-    }
-
-    container.innerHTML = records
-      .map(function (record) {
-        const tags = record.tags.length
-          ? record.tags.map(function (tag) {
-              return `<span>${escapeHTML(tag)}</span>`;
-            }).join("")
-          : "<span>未分类</span>";
-
-        return `
-          <article class="sx-record-card">
-            <time>${escapeHTML(record.date)}</time>
-            <h3>${escapeHTML(record.title)}</h3>
-            <p>心情：${moodText[record.mood]} ｜ 精力：${energyText[record.energy]}</p>
-            ${record.content ? `<div class="sx-record-content">${escapeHTML(record.content)}</div>` : ""}
-            <div class="sx-record-tags">${tags}</div>
-            <button type="button" class="sx-delete-record" data-id="${escapeHTML(record.id)}">删除</button>
-          </article>
-        `;
-      })
-      .join("");
-
-    container.querySelectorAll(".sx-delete-record").forEach(function (button) {
-      button.addEventListener("click", async function () {
-        await deleteRecord(button.getAttribute("data-id"));
-      });
-    });
+  function todayString() {
+    return formatDate(new Date());
   }
 
-  async function deleteRecord(id) {
-    state.records = state.records.filter(function (record) {
-      return record.id !== id;
-    });
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
-    renderRecords();
-    renderMoodDashboard();
-    renderMonthCalendar();
-    await syncToCloud();
+    return year + "-" + month + "-" + day;
   }
 
-  function getLatestRecordByDate() {
-    const result = {};
+  function parseDate(dateString) {
+    const safe = normalizeDate(dateString) || "2026-07-02";
+    const parts = safe.split("-").map(Number);
 
-    state.records
-      .slice()
-      .reverse()
-      .forEach(function (record) {
-        if (!result[record.date]) {
-          result[record.date] = record;
-        }
-      });
-
-    return result;
+    return new Date(parts[0], parts[1] - 1, parts[2]);
   }
 
-  function renderMoodDashboard() {
-    const recordsByDate = getLatestRecordByDate();
-    const dates = Object.keys(recordsByDate).sort();
+  function getChineseDate(dateString) {
+    const date = parseDate(dateString);
+    const week = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
 
-    if (!dates.length) {
-      $("sx-latest-mood").textContent = "暂无";
-      $("sx-latest-date").textContent = "还没有记录";
-      $("sx-average-mood").textContent = "0 / 5";
-      $("sx-streak-days").textContent = "0 天";
-      $("sx-total-days").textContent = "0 天";
-
-      renderMoodHeatmap(recordsByDate);
-      renderMoodLine(recordsByDate);
-      return;
-    }
-
-    const latestDate = dates[dates.length - 1];
-    const latestRecord = recordsByDate[latestDate];
-
-    const totalMood = dates.reduce(function (sum, date) {
-      return sum + Number(recordsByDate[date].mood);
-    }, 0);
-
-    const averageMood = totalMood / dates.length;
-
-    $("sx-latest-mood").textContent = moodText[latestRecord.mood];
-    $("sx-latest-date").textContent = latestDate;
-    $("sx-average-mood").textContent = `${averageMood.toFixed(1)} / 5`;
-    $("sx-streak-days").textContent = `${calculateStreak(recordsByDate)} 天`;
-    $("sx-total-days").textContent = `${dates.length} 天`;
-
-    renderMoodHeatmap(recordsByDate);
-    renderMoodLine(recordsByDate);
-  }
-
-  function calculateStreak(recordsByDate) {
-    let count = 0;
-    const cursor = new Date();
-
-    while (true) {
-      const date = formatDate(cursor);
-
-      if (!recordsByDate[date]) break;
-
-      count += 1;
-      cursor.setDate(cursor.getDate() - 1);
-    }
-
-    return count;
-  }
-
-  function renderMoodHeatmap(recordsByDate) {
-    const container = $("sx-mood-heatmap");
-    const year = new Date().getFullYear();
-
-    let html = "";
-
-    for (let month = 0; month < 12; month++) {
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const firstDay = new Date(year, month, 1).getDay();
-      const mondayIndex = firstDay === 0 ? 6 : firstDay - 1;
-
-      html += `<div class="sx-heat-month">`;
-      html += `<div class="sx-heat-title">${month + 1}月</div>`;
-      html += `<div class="sx-heat-grid">`;
-
-      for (let blank = 0; blank < mondayIndex; blank++) {
-        html += `<span class="sx-heat-cell is-empty"></span>`;
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-        const record = recordsByDate[date];
-        const mood = record ? Number(record.mood) : 0;
-        const title = record ? `${date}：${moodText[mood]}` : `${date}：未记录`;
-
-        html += `<span class="sx-heat-cell mood-${mood}" title="${escapeHTML(title)}"></span>`;
-      }
-
-      html += `</div>`;
-      html += `</div>`;
-    }
-
-    container.innerHTML = html;
-  }
-
-  function renderMoodLine(recordsByDate) {
-    const container = $("sx-mood-line");
-    const dates = Object.keys(recordsByDate).sort().slice(-14);
-
-    if (dates.length < 2) {
-      container.innerHTML = `<div class="sx-empty-chart">记录至少两天后，会显示心情波动线。</div>`;
-      return;
-    }
-
-    const width = 820;
-    const height = 230;
-    const paddingLeft = 44;
-    const paddingRight = 28;
-    const paddingTop = 28;
-    const paddingBottom = 42;
-
-    const usableWidth = width - paddingLeft - paddingRight;
-    const usableHeight = height - paddingTop - paddingBottom;
-    const xStep = usableWidth / Math.max(dates.length - 1, 1);
-
-    const points = dates.map(function (date, index) {
-      const mood = Number(recordsByDate[date].mood);
-      const x = paddingLeft + index * xStep;
-      const y = paddingTop + (5 - mood) / 4 * usableHeight;
-
-      return { date, mood, x, y };
-    });
-
-    const path = points
-      .map(function (point, index) {
-        return `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`;
-      })
-      .join(" ");
-
-    const gridLines = [1, 2, 3, 4, 5]
-      .map(function (level) {
-        const y = paddingTop + (5 - level) / 4 * usableHeight;
-
-        return `
-          <line x1="${paddingLeft}" y1="${y}" x2="${width - paddingRight}" y2="${y}" class="sx-chart-grid"></line>
-          <text x="18" y="${y + 4}" class="sx-chart-y">${level}</text>
-        `;
-      })
-      .join("");
-
-    const circles = points
-      .map(function (point) {
-        return `
-          <circle cx="${point.x}" cy="${point.y}" r="5.5" class="sx-line-dot mood-${point.mood}">
-            <title>${point.date}：${moodText[point.mood]}</title>
-          </circle>
-        `;
-      })
-      .join("");
-
-    const labels = points
-      .map(function (point, index) {
-        if (dates.length > 8 && index % 2 !== 0) return "";
-
-        return `<text x="${point.x}" y="${height - 12}" text-anchor="middle" class="sx-chart-x">${point.date.slice(5)}</text>`;
-      })
-      .join("");
-
-    container.innerHTML = `
-      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="心情波动线">
-        ${gridLines}
-        <path d="${path}" class="sx-line-path"></path>
-        ${circles}
-        ${labels}
-      </svg>
-    `;
-  }
-
-  function renderMonthCalendar() {
-    const container = $("sx-month-calendar");
-
-    const year = currentMonth.getFullYear();
-    const month = currentMonth.getMonth();
-
-    $("sx-month-title").textContent = `${year}年${month + 1}月`;
-
-    const firstDay = new Date(year, month, 1).getDay();
-    const mondayIndex = firstDay === 0 ? 6 : firstDay - 1;
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    const recordsByDate = getLatestRecordByDate();
-
-    let html = "";
-
-    for (let i = 0; i < mondayIndex; i++) {
-      html += `<div class="sx-month-day is-blank"></div>`;
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-      const tasks = state.tasks[date] || [];
-      const record = recordsByDate[date];
-      const isToday = date === todayString();
-
-      const tasksHTML = tasks.length
-        ? tasks.slice(0, 5).map(function (task) {
-            return `<li class="${task.done ? "is-done" : ""}">${escapeHTML(task.text)}</li>`;
-          }).join("")
-        : `<li class="is-muted">暂无任务</li>`;
-
-      const moodHTML = record
-        ? `<span class="sx-day-mood mood-${record.mood}">${moodText[record.mood]}</span>`
-        : "";
-
-      html += `
-        <div class="sx-month-day ${isToday ? "is-today" : ""}">
-          <div class="sx-day-top">
-            <strong>${day}</strong>
-            ${moodHTML}
-          </div>
-          <ul>${tasksHTML}</ul>
-        </div>
-      `;
-    }
-
-    container.innerHTML = html;
-  }
-
-  function exportData() {
-    const data = JSON.stringify(state, null, 2);
-    const blob = new Blob([data], {
-      type: "application/json"
-    });
-
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = `sanxi-journal-data-${todayString()}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(url);
-  }
-
-  function importData(event) {
-    const file = event.target.files && event.target.files[0];
-
-    if (!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = async function () {
-      try {
-        const imported = JSON.parse(String(reader.result));
-        state = normalizeState(imported);
-
-        renderAll();
-        await syncToCloud();
-
-        window.alert("导入成功，并已尝试同步数据库。");
-      } catch (error) {
-        window.alert("导入失败，请确认文件是之前导出的 JSON 数据。");
-      }
-    };
-
-    reader.readAsText(file);
-    event.target.value = "";
+    return dateString + " 周" + week;
   }
 
   function escapeHTML(value) {
-    return String(value)
+    return String(value || "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
