@@ -5500,3 +5500,317 @@ body.sx-home-page .navbar {
   backdrop-filter: blur(18px);
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
+/* =========================================================
+   Algorithm Notes Post
+   作用：
+   1. 文章左侧固定目录，不随正文滚动消失
+   2. 正文区域加宽，接近你截图里的整屏阅读效果
+   3. 代码块默认折叠，输出结果直接显示在代码下面
+   4. 只影响 .algo-post-shell 这一篇文章，不破坏首页
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.8rem;
+}
+
+/* 文章标题区宽度优化 */
+body:has(.algo-post-shell) .quarto-title-block,
+body:has(.algo-post-shell) header#title-block-header {
+  max-width: 1380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+body:has(.algo-post-shell) .quarto-title h1.title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  color: #111827;
+}
+
+body:has(.algo-post-shell) .quarto-title .subtitle {
+  color: #4b5563;
+  font-size: 1.08rem;
+}
+
+/* 整体两栏布局 */
+.algo-post-shell {
+  width: min(100%, 1720px);
+  margin: 0 auto;
+  padding: 1.2rem 2.4rem 5rem 2.4rem;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 2.2rem;
+  align-items: start;
+}
+
+/* 左侧目录 */
+.algo-post-toc {
+  position: sticky;
+  top: 5.4rem;
+  height: calc(100vh - 6rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.4rem 1rem 2rem 0;
+  border-right: 1px solid #e5e7eb;
+}
+
+.algo-toc-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  padding: 1.1rem 0.9rem;
+}
+
+.algo-toc-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.algo-toc-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: #e8f7ef;
+  color: #2f9b6c;
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.algo-toc-title {
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.25;
+}
+
+.algo-toc-subtitle {
+  margin-top: 0.15rem;
+  font-size: 0.86rem;
+  color: #8b949e;
+}
+
+.algo-toc-section-title {
+  margin: 1.1rem 0 0.45rem 0;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #111827;
+}
+
+.algo-toc-card a {
+  display: block;
+  padding: 0.42rem 0.65rem;
+  margin: 0.12rem 0;
+  border-radius: 10px;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.algo-toc-card a:hover {
+  background: #e8f7ef;
+  color: #15915f;
+  text-decoration: none;
+}
+
+.algo-toc-card a.algo-toc-main {
+  color: #15915f;
+  background: #e8f7ef;
+  font-weight: 850;
+}
+
+/* 正文主体 */
+.algo-post-main {
+  min-width: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  font-size: 1.04rem;
+  line-height: 1.9;
+  color: #1f2937;
+}
+
+.algo-post-main h1,
+.algo-post-main h2,
+.algo-post-main h3 {
+  color: #111827;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.algo-post-main h1 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-top: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.algo-post-main h2 {
+  font-size: clamp(1.55rem, 2.3vw, 2.1rem);
+  margin-top: 2.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #eef2f7;
+}
+
+.algo-post-main h3 {
+  font-size: 1.25rem;
+  margin-top: 1.8rem;
+}
+
+.algo-post-main p {
+  margin-bottom: 1rem;
+}
+
+/* 文章说明卡片 */
+.algo-note-card {
+  margin: 1.2rem 0 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
+}
+
+.algo-note-card strong {
+  color: #111827;
+}
+
+/* 小标签 */
+.algo-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.2rem 0 1.5rem 0;
+}
+
+.algo-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.32rem 0.72rem;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+/* 代码块与输出结果 */
+body:has(.algo-post-shell) div.cell {
+  margin: 1.2rem 0 1.5rem 0;
+}
+
+body:has(.algo-post-shell) details.code-fold {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+body:has(.algo-post-shell) details.code-fold > summary {
+  padding: 0.72rem 1rem;
+  cursor: pointer;
+  font-weight: 850;
+  color: #374151;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body:has(.algo-post-shell) details.code-fold[open] > summary {
+  background: #f1f5f9;
+}
+
+body:has(.algo-post-shell) div.sourceCode {
+  margin: 0;
+}
+
+body:has(.algo-post-shell) pre.sourceCode {
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+body:has(.algo-post-shell) .cell-output,
+body:has(.algo-post-shell) .cell-output-stdout,
+body:has(.algo-post-shell) .cell-output-display {
+  margin-top: 0.7rem;
+}
+
+body:has(.algo-post-shell) .cell-output pre {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #1f2937;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* 表格 */
+.algo-post-main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2rem 0;
+  font-size: 0.96rem;
+}
+
+.algo-post-main table th,
+.algo-post-main table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.65rem 0.8rem;
+}
+
+.algo-post-main table th {
+  background: #f8fafc;
+  font-weight: 900;
+}
+
+/* 结尾卡片 */
+.algo-end-card {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 20px;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.algo-end-card p {
+  margin-bottom: 0;
+  color: #f9fafb;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 1100px) {
+  .algo-post-shell {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.1rem 4rem 1.1rem;
+  }
+
+  .algo-post-toc {
+    position: static;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0 0 1rem 0;
+  }
+
+  .algo-toc-card {
+    padding: 1rem;
+  }
+
+  .algo-post-main {
+    max-width: 100%;
+  }
+
+  body:has(.algo-post-shell) .quarto-title-block,
+  body:has(.algo-post-shell) header#title-block-header {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+}

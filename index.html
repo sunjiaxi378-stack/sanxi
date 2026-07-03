@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.9.38">
@@ -59,17 +59,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
   }
 }</script>
 <script>
@@ -82,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -147,8 +147,8 @@ window.Quarto = {
     <span class="navbar-title">sanxi</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="搜索"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="展开或折叠导航栏" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -208,6 +208,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./posts/welcome/index.html">
  <span class="dropdown-text">欢迎文章</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./posts/algorithm-notes/index.html">
+ <span class="dropdown-text">算法图解文章</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -251,7 +255,7 @@ window.Quarto = {
   </ul></li>
   </ul>
 </nav>
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU1JThEJTlBJUU1JUFFJUEy">博客 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk3JUE1JUU1JUJGJTk3">日志 <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">分类</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">全部 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JUU1JThEJTlBJUU1JUFFJUEy">博客 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw">机器学习 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2">可视化 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk3JUE1JUU1JUJGJTk3">日志 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw">数据分析 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -1824,7 +1828,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="JUU1JThEJTlBJUU1JUFFJUEyJTJDJUU2JTk3JUE1JUU1JUJGJTk3" data-listing-date-sort="1782835200000" data-listing-file-modified-sort="1782925712555" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
+<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDJUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkwJTJDJUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2JTJDJUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw" data-listing-date-sort="1783008000000" data-listing-file-modified-sort="1783077917554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1447">
+<div class="thumbnail"><a href="./posts/algorithm-notes/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\algorithm-notes\index_files\figure-html\score-histogram-output-1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/algorithm-notes/index.html" class="no-external">Python 学习行为数据分析</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/algorithm-notes/index.html" class="no-external">从数据构造、缺失处理、可视化探索到回归预测</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw'); return false;">数据分析</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2'); return false;">可视化</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw'); return false;">机器学习</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/algorithm-notes/index.html" class="no-external">
+<p>本文使用 pandas、numpy、matplotlib 和 scikit-learn 完成一篇完整的数据分析文章，展示数据清洗、描述统计、可视化分析、相关性分析和回归预测。</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/algorithm-notes/index.html" class="no-external">
+<div class="listing-date">
+2026年7月3日
+</div>
+<div class="listing-author">
+sanxi
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="JUU1JThEJTlBJUU1JUFFJUEyJTJDJUU2JTk3JUE1JUU1JUJGJTk3" data-listing-date-sort="1782835200000" data-listing-file-modified-sort="1782925712555" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
 <div class="thumbnail"><a href="./posts/welcome/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/welcome/thumbnail.jpg" class="thumbnail-image">
@@ -1834,6 +1877,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <h3 class="no-anchor listing-title">
 <a href="./posts/welcome/index.html" class="no-external">欢迎来到 sanxi</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/welcome/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('JUU1JThEJTlBJUU1JUFFJUEy'); return false;">博客</div>
@@ -1848,13 +1894,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="metadata">
 <a href="./posts/welcome/index.html" class="no-external">
 <div class="listing-date">
-Jul 1, 2026
+2026年7月1日
 </div>
 </a>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">No matching items</div>
+<div class="listing-no-matching d-none">无匹配项</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1881,12 +1927,12 @@ Jul 1, 2026
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "已复制");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "已复制");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

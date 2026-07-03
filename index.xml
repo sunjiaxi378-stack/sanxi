@@ -10,12 +10,2187 @@
 <atom:link href="https://sunjiaxi378-stack.github.io/sanxi/index.xml" rel="self" type="application/rss+xml"/>
 <description>记录学习、生活、情绪、复盘与成长。</description>
 <generator>quarto-1.9.38</generator>
-<lastBuildDate>Tue, 30 Jun 2026 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 02 Jul 2026 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>Python 学习行为数据分析</title>
+  <dc:creator>sanxi </dc:creator>
+  <link>https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/</link>
+  <description><![CDATA[ 
+
+
+
+
+<style>
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body:has(.python-analysis-post) {
+  background: #ffffff;
+}
+
+body:has(.python-analysis-post) .navbar {
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
+}
+
+body:has(.python-analysis-post) .page-columns {
+  display: block !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body:has(.python-analysis-post) main.content,
+body:has(.python-analysis-post) header#title-block-header {
+  max-width: none !important;
+  width: calc(100vw - 440px) !important;
+  margin-left: 5.2vw !important;
+  margin-right: 360px !important;
+}
+
+body:has(.python-analysis-post) header#title-block-header {
+  padding-top: 1.4rem;
+  margin-bottom: 2.1rem;
+}
+
+body:has(.python-analysis-post) .quarto-title h1.title {
+  font-size: clamp(2.8rem, 5.2vw, 5.1rem);
+  line-height: 1.06;
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  color: #111827;
+  margin-bottom: 0.65rem;
+}
+
+body:has(.python-analysis-post) .quarto-title .subtitle {
+  color: #64748b;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+body:has(.python-analysis-post) .quarto-category {
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #3b82f6;
+  border-radius: 7px;
+  padding: 0.18rem 0.52rem;
+  font-size: 0.78rem;
+}
+
+.py-fixed-toc {
+  position: fixed !important;
+  top: 10rem !important;
+  right: 3.2rem !important;
+  width: 285px !important;
+  max-height: calc(100vh - 12rem) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  z-index: 60 !important;
+  padding: 1rem 0 1rem 1.1rem !important;
+  border-left: 1px solid #e5e7eb !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(8px);
+}
+
+.py-fixed-toc-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.py-fixed-toc a {
+  display: block;
+  padding: 0.28rem 0;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.py-fixed-toc a:hover {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+body:has(.python-analysis-post) .quarto-code-tools {
+  position: fixed !important;
+  top: 5.45rem !important;
+  right: 4rem !important;
+  z-index: 100 !important;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.python-analysis-post {
+  font-size: 1.04rem;
+  line-height: 1.92;
+  color: #1f2937;
+  padding-bottom: 5rem;
+}
+
+.python-analysis-post p {
+  margin-bottom: 1rem;
+}
+
+.python-analysis-post h1,
+.python-analysis-post h2,
+.python-analysis-post h3 {
+  color: #111827;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+}
+
+.python-analysis-post h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin-top: 2.3rem;
+  margin-bottom: 1.1rem;
+}
+
+.python-analysis-post h2 {
+  font-size: clamp(1.45rem, 2vw, 1.95rem);
+  margin-top: 2.1rem;
+  margin-bottom: 0.8rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid #eef2f7;
+}
+
+.python-analysis-post h3 {
+  font-size: 1.18rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.py-note {
+  margin: 1.2rem 0 1.5rem 0;
+  padding: 1.05rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.045);
+}
+
+.py-note strong {
+  color: #111827;
+}
+
+.py-final {
+  margin-top: 2rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 18px;
+  background: #111827;
+  color: #f9fafb;
+}
+
+.py-final p {
+  color: #f9fafb;
+  margin-bottom: 0;
+}
+
+body:has(.python-analysis-post) div.cell {
+  margin: 1.15rem 0 1.6rem 0;
+}
+
+body:has(.python-analysis-post) details.code-fold {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+body:has(.python-analysis-post) details.code-fold > summary {
+  padding: 0.72rem 1rem;
+  cursor: pointer;
+  font-weight: 850;
+  color: #374151;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body:has(.python-analysis-post) details.code-fold[open] > summary {
+  background: #f1f5f9;
+}
+
+body:has(.python-analysis-post) pre.sourceCode {
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  padding: 1rem 1.1rem;
+  font-size: 0.94rem;
+  line-height: 1.72;
+}
+
+body:has(.python-analysis-post) .cell-output,
+body:has(.python-analysis-post) .cell-output-stdout,
+body:has(.python-analysis-post) .cell-output-display {
+  margin-top: 0.75rem;
+}
+
+body:has(.python-analysis-post) .cell-output pre {
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid #dbeafe;
+  background: #f8fbff;
+  color: #1f2937;
+  font-size: 0.95rem;
+  line-height: 1.76;
+}
+
+.python-analysis-post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.15rem 0 1.5rem 0;
+  font-size: 0.96rem;
+}
+
+.python-analysis-post table th,
+.python-analysis-post table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.62rem 0.78rem;
+}
+
+.python-analysis-post table th {
+  background: #f8fafc;
+  color: #111827;
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  .py-fixed-toc {
+    display: none !important;
+  }
+
+  body:has(.python-analysis-post) main.content,
+  body:has(.python-analysis-post) header#title-block-header {
+    width: auto !important;
+    margin-left: 1.2rem !important;
+    margin-right: 1.2rem !important;
+  }
+
+  body:has(.python-analysis-post) .quarto-code-tools {
+    position: static !important;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: none;
+  }
+}
+</style>
+
+<div class="python-analysis-post">
+<section id="intro" class="level1">
+<h1>0 文章说明</h1>
+<p>本文使用 Python 完成一个完整的小型数据分析案例。分析对象是一组“学习行为数据”，每一行代表一名同学的学习情况，变量包括学习时长、出勤率、复习次数、练习题数量、课堂参与度和最终成绩。</p>
+<p>这篇文章的写法不是简单堆代码，而是按照一篇数据分析报告的逻辑展开：先说明数据来源和变量含义，再进行数据查看与清洗，然后通过描述统计和图形观察数据特征，最后建立回归模型，分析学习行为对成绩的影响。</p>
+<div class="py-note">
+<p><strong>阅读方式：</strong><br>
+本文中的代码默认折叠。点击每段代码上方的“代码”按钮可以展开查看；代码下方会直接显示运行结果。右侧目录固定在页面右侧，不会随着正文滚动而消失，可以快速跳转到指定章节。</p>
+</div>
+<p>本文使用的主要工具包括：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pandas</code></td>
+<td>数据表构造、缺失值处理、分组统计</td>
+</tr>
+<tr class="even">
+<td><code>numpy</code></td>
+<td>随机数生成、数值计算</td>
+</tr>
+<tr class="odd">
+<td><code>matplotlib</code></td>
+<td>绘制柱状图、散点图、热力图</td>
+</tr>
+<tr class="even">
+<td><code>scikit-learn</code></td>
+<td>建立回归模型、计算预测误差</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="packages" class="level1">
+<h1>1 导入分析包</h1>
+<p>首先导入本次分析需要用到的 Python 包。<code>pandas</code> 负责处理表格数据，<code>numpy</code> 负责生成模拟数据和进行数值运算，<code>matplotlib</code> 用来绘图，<code>scikit-learn</code> 用来建立线性回归模型。</p>
+<p>为了让图表中的中文正常显示，需要设置 <code>matplotlib</code> 的中文字体。如果电脑中没有对应字体，图形仍然可以生成，只是中文可能显示为方框。</p>
+<div id="import-packages" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sklearn.linear_model <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> LinearRegression</span>
+<span id="cb1-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sklearn.metrics <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> mean_absolute_error, mean_squared_error, r2_score</span>
+<span id="cb1-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> sklearn.model_selection <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> train_test_split</span>
+<span id="cb1-8"></span>
+<span id="cb1-9">plt.rcParams[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"font.sans-serif"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Microsoft YaHei"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SimHei"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Arial Unicode MS"</span>]</span>
+<span id="cb1-10">plt.rcParams[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"axes.unicode_minus"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb1-11"></span>
+<span id="cb1-12">np.random.seed(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20260703</span>)</span>
+<span id="cb1-13"></span>
+<span id="cb1-14"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pandas、numpy、matplotlib、scikit-learn 导入成功。"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>pandas、numpy、matplotlib、scikit-learn 导入成功。</code></pre>
+</div>
+</div>
+</section>
+<section id="data" class="level1">
+<h1>2 构造学习行为数据集</h1>
+<p>为了让文章可以直接运行，这里不从外部文件读取数据，而是在代码中构造一个模拟数据集。这个数据集虽然是模拟的，但变量设计尽量贴近真实学习场景。</p>
+<p>数据集中包含以下变量：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>变量名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>student_id</code></td>
+<td>学生编号</td>
+</tr>
+<tr class="even">
+<td><code>group</code></td>
+<td>学习小组</td>
+</tr>
+<tr class="odd">
+<td><code>study_hours</code></td>
+<td>每日平均学习时长</td>
+</tr>
+<tr class="even">
+<td><code>attendance</code></td>
+<td>出勤率</td>
+</tr>
+<tr class="odd">
+<td><code>review_times</code></td>
+<td>每周复习次数</td>
+</tr>
+<tr class="even">
+<td><code>practice_count</code></td>
+<td>每周练习题数量</td>
+</tr>
+<tr class="odd">
+<td><code>participation</code></td>
+<td>课堂参与度</td>
+</tr>
+<tr class="even">
+<td><code>score</code></td>
+<td>期末成绩</td>
+</tr>
+</tbody>
+</table>
+<div id="build-data" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span></span>
+<span id="cb3-2"></span>
+<span id="cb3-3">student_id <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"S</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>i<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:03d}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)]</span>
+<span id="cb3-4">group <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.choice([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"A组"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"B组"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"C组"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"D组"</span>], size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n, p<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>])</span>
+<span id="cb3-5"></span>
+<span id="cb3-6">study_hours <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.normal(loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.2</span>, scale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.1</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-7">study_hours <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(study_hours, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.2</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.5</span>)</span>
+<span id="cb3-8"></span>
+<span id="cb3-9">attendance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.normal(loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.88</span>, scale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.07</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-10">attendance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(attendance, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.60</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.00</span>)</span>
+<span id="cb3-11"></span>
+<span id="cb3-12">review_times <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.poisson(lam<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.2</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-13">review_times <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(review_times, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span>
+<span id="cb3-14"></span>
+<span id="cb3-15">practice_count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.normal(loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">38</span>, scale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-16">practice_count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(practice_count, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">75</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>()</span>
+<span id="cb3-17"></span>
+<span id="cb3-18">participation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.normal(loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">75</span>, scale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-19">participation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(participation, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)</span>
+<span id="cb3-20"></span>
+<span id="cb3-21">noise <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.random.normal(loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, scale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.5</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>n)</span>
+<span id="cb3-22"></span>
+<span id="cb3-23">score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb3-24">    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span></span>
+<span id="cb3-25">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> study_hours <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.8</span></span>
+<span id="cb3-26">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> attendance <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span></span>
+<span id="cb3-27">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> review_times <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.3</span></span>
+<span id="cb3-28">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> practice_count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.22</span></span>
+<span id="cb3-29">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> participation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.12</span></span>
+<span id="cb3-30">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> noise</span>
+<span id="cb3-31">)</span>
+<span id="cb3-32"></span>
+<span id="cb3-33">score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.clip(score, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb3-34"></span>
+<span id="cb3-35">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb3-36">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"student_id"</span>: student_id,</span>
+<span id="cb3-37">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"group"</span>: group,</span>
+<span id="cb3-38">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"study_hours"</span>: study_hours.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>),</span>
+<span id="cb3-39">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"attendance"</span>: attendance.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>),</span>
+<span id="cb3-40">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review_times"</span>: review_times,</span>
+<span id="cb3-41">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>: practice_count.astype(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">int</span>),</span>
+<span id="cb3-42">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"participation"</span>: participation.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),</span>
+<span id="cb3-43">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>: score</span>
+<span id="cb3-44">})</span>
+<span id="cb3-45"></span>
+<span id="cb3-46">df.loc[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">37</span>], <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"attendance"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.nan</span>
+<span id="cb3-47">df.loc[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">46</span>], <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review_times"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.nan</span>
+<span id="cb3-48">df.loc[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">62</span>], <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.nan</span>
+<span id="cb3-49"></span>
+<span id="cb3-50"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"数据集构造完成。"</span>)</span>
+<span id="cb3-51"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"样本数量：</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb3-52"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"变量数量：</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>shape[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>数据集构造完成。
+样本数量：80
+变量数量：8</code></pre>
+</div>
+</div>
+</section>
+<section id="preview" class="level1">
+<h1>3 数据预览</h1>
+<p>完成数据构造后，需要先查看数据的前几行。这个步骤很重要，因为它可以帮助我们确认变量名称是否正确、数据格式是否正常、是否存在明显异常。</p>
+<div id="cell-data-preview" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">df.head(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span></code></pre></div></div>
+</details>
+<div id="data-preview" class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">student_id</th>
+<th data-quarto-table-cell-role="th">group</th>
+<th data-quarto-table-cell-role="th">study_hours</th>
+<th data-quarto-table-cell-role="th">attendance</th>
+<th data-quarto-table-cell-role="th">review_times</th>
+<th data-quarto-table-cell-role="th">practice_count</th>
+<th data-quarto-table-cell-role="th">participation</th>
+<th data-quarto-table-cell-role="th">score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>S001</td>
+<td>D组</td>
+<td>2.71</td>
+<td>0.948</td>
+<td>5.0</td>
+<td>22.0</td>
+<td>59.8</td>
+<td>83.5</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>S002</td>
+<td>B组</td>
+<td>4.32</td>
+<td>0.963</td>
+<td>3.0</td>
+<td>27.0</td>
+<td>59.9</td>
+<td>89.7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>S003</td>
+<td>A组</td>
+<td>2.79</td>
+<td>0.863</td>
+<td>5.0</td>
+<td>49.0</td>
+<td>86.3</td>
+<td>86.9</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>S004</td>
+<td>C组</td>
+<td>3.35</td>
+<td>0.854</td>
+<td>3.0</td>
+<td>30.0</td>
+<td>73.6</td>
+<td>89.1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>S005</td>
+<td>B组</td>
+<td>5.78</td>
+<td>0.759</td>
+<td>1.0</td>
+<td>30.0</td>
+<td>100.0</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>S006</td>
+<td>D组</td>
+<td>2.55</td>
+<td>0.835</td>
+<td>4.0</td>
+<td>38.0</td>
+<td>81.8</td>
+<td>78.8</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>S007</td>
+<td>D组</td>
+<td>3.92</td>
+<td>0.850</td>
+<td>3.0</td>
+<td>31.0</td>
+<td>54.7</td>
+<td>90.6</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>S008</td>
+<td>C组</td>
+<td>3.42</td>
+<td>0.975</td>
+<td>5.0</td>
+<td>32.0</td>
+<td>64.3</td>
+<td>94.7</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>S009</td>
+<td>D组</td>
+<td>6.18</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>21.0</td>
+<td>75.6</td>
+<td>100.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>S010</td>
+<td>B组</td>
+<td>4.66</td>
+<td>0.910</td>
+<td>1.0</td>
+<td>45.0</td>
+<td>84.7</td>
+<td>96.8</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>从数据预览可以看到，每一行代表一名学生，每一列代表一个学习行为变量或结果变量。这里的 <code>score</code> 是最终成绩，也是后续回归模型要预测的目标变量。</p>
+<p>接着查看数据类型。数据类型检查可以帮助我们判断哪些变量是数值型，哪些变量是分类型。如果数值变量被错误识别为字符串，后续计算均值、相关系数或建模时就会出现问题。</p>
+<div id="cell-data-info" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1">df.dtypes</span></code></pre></div></div>
+</details>
+<div id="data-info" class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>student_id            str
+group                 str
+study_hours       float64
+attendance        float64
+review_times      float64
+practice_count    float64
+participation     float64
+score             float64
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="missing" class="level1">
+<h1>4 缺失值处理</h1>
+<p>真实数据中经常存在缺失值。比如有的同学没有填写出勤率，有的同学没有记录复习次数，还有的同学缺少练习题数量。如果直接忽略这些缺失值，可能会造成样本减少；如果处理不当，也可能影响模型结果。</p>
+<p>先统计每个变量的缺失情况。</p>
+<div id="cell-missing-summary" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">missing_table <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb8-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"缺失个数"</span>: df.isna().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(),</span>
+<span id="cb8-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"缺失比例"</span>: (df.isna().mean() <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb8-4">})</span>
+<span id="cb8-5"></span>
+<span id="cb8-6">missing_table</span></code></pre></div></div>
+</details>
+<div id="missing-summary" class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">缺失个数</th>
+<th data-quarto-table-cell-role="th">缺失比例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">student_id</th>
+<td>0</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">group</th>
+<td>0</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">study_hours</th>
+<td>0</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">attendance</th>
+<td>3</td>
+<td>3.75</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">review_times</th>
+<td>2</td>
+<td>2.50</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">practice_count</th>
+<td>2</td>
+<td>2.50</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">participation</th>
+<td>0</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">score</th>
+<td>0</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>可以看到，缺失值主要集中在 <code>attendance</code>、<code>review_times</code> 和 <code>practice_count</code> 这几个变量上。由于缺失比例较低，本文采用中位数填补。中位数填补的优点是简单、稳定，不容易受到极端值影响。</p>
+<div id="missing-fill" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1">df_clean <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df.copy()</span>
+<span id="cb9-2"></span>
+<span id="cb9-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> col <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"attendance"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review_times"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>]:</span>
+<span id="cb9-4">    median_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[col].median()</span>
+<span id="cb9-5">    df_clean[col] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[col].fillna(median_value)</span>
+<span id="cb9-6"></span>
+<span id="cb9-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"缺失值填补完成。"</span>)</span>
+<span id="cb9-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"填补后各变量缺失值数量："</span>)</span>
+<span id="cb9-9"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(df_clean.isna().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>())</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>缺失值填补完成。
+填补后各变量缺失值数量：
+student_id        0
+group             0
+study_hours       0
+attendance        0
+review_times      0
+practice_count    0
+participation     0
+score             0
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="describe" class="level1">
+<h1>5 描述性统计</h1>
+<p>描述性统计用于快速了解数据的整体特征。这里主要观察均值、标准差、最小值、最大值和四分位数。</p>
+<p>如果一个变量的标准差很大，说明不同学生之间差异明显；如果最大值和最小值差距很大，说明该变量的分布范围较宽。</p>
+<div id="cell-descriptive-statistics" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">num_cols <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"study_hours"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"attendance"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review_times"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"participation"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>]</span>
+<span id="cb11-2"></span>
+<span id="cb11-3">desc <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[num_cols].describe().T</span>
+<span id="cb11-4">desc <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> desc.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb11-5"></span>
+<span id="cb11-6">desc</span></code></pre></div></div>
+</details>
+<div id="descriptive-statistics" class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">study_hours</th>
+<td>80.0</td>
+<td>3.94</td>
+<td>1.01</td>
+<td>1.81</td>
+<td>3.30</td>
+<td>3.99</td>
+<td>4.64</td>
+<td>6.18</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">attendance</th>
+<td>80.0</td>
+<td>0.87</td>
+<td>0.06</td>
+<td>0.74</td>
+<td>0.83</td>
+<td>0.87</td>
+<td>0.92</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">review_times</th>
+<td>80.0</td>
+<td>3.31</td>
+<td>1.73</td>
+<td>0.00</td>
+<td>2.00</td>
+<td>3.00</td>
+<td>4.00</td>
+<td>8.00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">practice_count</th>
+<td>80.0</td>
+<td>38.05</td>
+<td>10.60</td>
+<td>12.00</td>
+<td>31.00</td>
+<td>39.00</td>
+<td>46.00</td>
+<td>66.00</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">participation</th>
+<td>80.0</td>
+<td>77.28</td>
+<td>11.11</td>
+<td>54.70</td>
+<td>68.53</td>
+<td>77.80</td>
+<td>85.20</td>
+<td>100.00</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">score</th>
+<td>80.0</td>
+<td>92.88</td>
+<td>6.44</td>
+<td>74.60</td>
+<td>89.18</td>
+<td>93.20</td>
+<td>98.75</td>
+<td>100.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>从描述性统计可以初步看出，不同学生在学习时长、练习题数量和课堂参与度上存在一定差异。成绩的平均水平处在中上区间，但仍然有一定波动，这说明进一步分析学习行为与成绩之间的关系是有意义的。</p>
+</section>
+<section id="group" class="level1">
+<h1>6 分组比较</h1>
+<p>除了整体描述统计，还可以按照学习小组进行分组比较。分组比较可以帮助我们观察不同小组之间是否存在明显差异。</p>
+<p>这里计算每个小组的平均学习时长、平均练习题数量、平均课堂参与度和平均成绩。</p>
+<div id="cell-group-comparison" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">group_summary <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb12-2">    df_clean</span>
+<span id="cb12-3">    .groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"group"</span>)</span>
+<span id="cb12-4">    .agg(</span>
+<span id="cb12-5">        样本数<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"student_id"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>),</span>
+<span id="cb12-6">        平均学习时长<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"study_hours"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>),</span>
+<span id="cb12-7">        平均练习题数量<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>),</span>
+<span id="cb12-8">        平均参与度<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"participation"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>),</span>
+<span id="cb12-9">        平均成绩<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>)</span>
+<span id="cb12-10">    )</span>
+<span id="cb12-11">    .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb12-12">)</span>
+<span id="cb12-13"></span>
+<span id="cb12-14">group_summary</span></code></pre></div></div>
+</details>
+<div id="group-comparison" class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">样本数</th>
+<th data-quarto-table-cell-role="th">平均学习时长</th>
+<th data-quarto-table-cell-role="th">平均练习题数量</th>
+<th data-quarto-table-cell-role="th">平均参与度</th>
+<th data-quarto-table-cell-role="th">平均成绩</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">group</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">A组</th>
+<td>18</td>
+<td>4.20</td>
+<td>41.06</td>
+<td>81.65</td>
+<td>93.03</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">B组</th>
+<td>26</td>
+<td>3.99</td>
+<td>41.12</td>
+<td>77.18</td>
+<td>94.62</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">C组</th>
+<td>18</td>
+<td>3.81</td>
+<td>35.94</td>
+<td>74.87</td>
+<td>92.30</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">D组</th>
+<td>18</td>
+<td>3.77</td>
+<td>32.72</td>
+<td>75.46</td>
+<td>90.81</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>分组表可以看出，不同小组之间的学习投入和成绩水平可能存在差异。但是，仅凭分组均值还不能说明因果关系，它只能作为一种探索性分析结果。</p>
+</section>
+<section id="visual" class="level1">
+<h1>7 可视化分析</h1>
+<section id="成绩分布图" class="level2">
+<h2 class="anchored" data-anchor-id="成绩分布图">7.1 成绩分布图</h2>
+<p>下面绘制成绩分布直方图。直方图可以展示成绩主要集中在哪个区间，也能帮助判断是否存在明显偏态或异常值。</p>
+<div id="cell-score-histogram" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb13-2">plt.hist(df_clean[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>], bins<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, edgecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>)</span>
+<span id="cb13-3">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"学生成绩分布图"</span>)</span>
+<span id="cb13-4">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"成绩"</span>)</span>
+<span id="cb13-5">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"人数"</span>)</span>
+<span id="cb13-6">plt.grid(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb13-7">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/index_files/figure-html/score-histogram-output-1.png" id="score-histogram" width="734" height="454" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>从图中可以观察成绩的集中区间。如果大部分学生集中在较高分段，说明整体学习表现较好；如果低分段人数较多，可能说明学习投入不足或者课程难度较高。</p>
+</section>
+<section id="小组平均成绩柱状图" class="level2">
+<h2 class="anchored" data-anchor-id="小组平均成绩柱状图">7.2 小组平均成绩柱状图</h2>
+<p>柱状图适合比较不同类别之间的差异。这里比较不同小组的平均成绩。</p>
+<div id="cell-group-bar" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">group_score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"group"</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>].mean().sort_values()</span>
+<span id="cb14-2"></span>
+<span id="cb14-3">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb14-4">plt.bar(group_score.index, group_score.values)</span>
+<span id="cb14-5">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"不同小组平均成绩比较"</span>)</span>
+<span id="cb14-6">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"学习小组"</span>)</span>
+<span id="cb14-7">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"平均成绩"</span>)</span>
+<span id="cb14-8">plt.ylim(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>)</span>
+<span id="cb14-9">plt.grid(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"y"</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb14-10">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/index_files/figure-html/group-bar-output-1.png" id="group-bar" width="668" height="454" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>如果某个小组平均成绩明显更高，可以进一步分析该小组是否在学习时长、练习题数量或参与度方面表现更好。</p>
+</section>
+<section id="学习时长与成绩散点图" class="level2">
+<h2 class="anchored" data-anchor-id="学习时长与成绩散点图">7.3 学习时长与成绩散点图</h2>
+<p>散点图可以帮助观察两个连续变量之间的关系。这里观察 <code>study_hours</code> 和 <code>score</code> 的关系。</p>
+<div id="cell-scatter-hours-score" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb15-2">plt.scatter(df_clean[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"study_hours"</span>], df_clean[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>], alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>)</span>
+<span id="cb15-3">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"学习时长与成绩的关系"</span>)</span>
+<span id="cb15-4">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"每日平均学习时长"</span>)</span>
+<span id="cb15-5">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"期末成绩"</span>)</span>
+<span id="cb15-6">plt.grid(alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb15-7">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/index_files/figure-html/scatter-hours-score-output-1.png" id="scatter-hours-score" width="668" height="454" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>如果散点整体呈现从左下到右上的趋势，说明学习时长越长，成绩往往越高。当然，散点图只能说明相关关系，不能直接证明因果关系。</p>
+</section>
+</section>
+<section id="corr" class="level1">
+<h1>8 相关性分析</h1>
+<p>相关性分析用于衡量两个数值变量之间的线性关系。相关系数的取值范围在 -1 到 1 之间：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>相关系数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>接近 1</td>
+<td>强正相关</td>
+</tr>
+<tr class="even">
+<td>接近 -1</td>
+<td>强负相关</td>
+</tr>
+<tr class="odd">
+<td>接近 0</td>
+<td>线性关系较弱</td>
+</tr>
+</tbody>
+</table>
+<p>下面计算各学习行为变量与成绩之间的相关系数。</p>
+<div id="cell-correlation-table" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">corr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[num_cols].corr().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb16-2"></span>
+<span id="cb16-3">score_corr <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb16-4">    corr[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>]</span>
+<span id="cb16-5">    .drop(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span>)</span>
+<span id="cb16-6">    .sort_values(ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)</span>
+<span id="cb16-7">    .to_frame(name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"与成绩的相关系数"</span>)</span>
+<span id="cb16-8">)</span>
+<span id="cb16-9"></span>
+<span id="cb16-10">score_corr</span></code></pre></div></div>
+</details>
+<div id="correlation-table" class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">与成绩的相关系数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">study_hours</th>
+<td>0.688</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">review_times</th>
+<td>0.340</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">attendance</th>
+<td>0.162</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">participation</th>
+<td>0.158</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">practice_count</th>
+<td>0.077</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>为了更直观地观察变量之间的关系，可以绘制相关性热力图。颜色越深，说明相关程度越强。</p>
+<div id="cell-correlation-heatmap" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>))</span>
+<span id="cb17-2">plt.imshow(corr, aspect<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"auto"</span>)</span>
+<span id="cb17-3">plt.colorbar(label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"相关系数"</span>)</span>
+<span id="cb17-4">plt.xticks(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(corr.columns)), corr.columns, rotation<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>, ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"right"</span>)</span>
+<span id="cb17-5">plt.yticks(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(corr.index)), corr.index)</span>
+<span id="cb17-6">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"学习行为变量相关性热力图"</span>)</span>
+<span id="cb17-7"></span>
+<span id="cb17-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(corr.index)):</span>
+<span id="cb17-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> j <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(corr.columns)):</span>
+<span id="cb17-10">        plt.text(j, i, <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>corr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>iloc[i, j]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.2f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, ha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"center"</span>, va<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"center"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>)</span>
+<span id="cb17-11"></span>
+<span id="cb17-12">plt.tight_layout()</span>
+<span id="cb17-13">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/index_files/figure-html/correlation-heatmap-output-1.png" id="correlation-heatmap" width="737" height="569" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>从相关性分析中可以判断，哪些学习行为变量和成绩关系更紧密。一般来说，学习时长、练习题数量和课堂参与度都可能对成绩有较明显影响。</p>
+</section>
+<section id="regression" class="level1">
+<h1>9 回归建模</h1>
+<p>相关性分析只能说明变量之间是否存在线性关系，而回归模型可以进一步用于预测。这里使用多元线性回归模型，将学习行为变量作为自变量，将成绩作为因变量。</p>
+<p>模型形式可以写成：</p>
+<p>[ score = _0 + _1 study_hours + _2 attendance + _3 review_times + _4 practice_count + _5 participation + ]</p>
+<p>其中，(_0) 是截距项，(_1,_2,,_5) 是各变量对应的回归系数。</p>
+<div id="cell-regression-model" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">features <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"study_hours"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"attendance"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"review_times"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"practice_count"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"participation"</span>]</span>
+<span id="cb18-2">target <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"score"</span></span>
+<span id="cb18-3"></span>
+<span id="cb18-4">X <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[features]</span>
+<span id="cb18-5">y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_clean[target]</span>
+<span id="cb18-6"></span>
+<span id="cb18-7">X_train, X_test, y_train, y_test <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> train_test_split(</span>
+<span id="cb18-8">    X, y,</span>
+<span id="cb18-9">    test_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>,</span>
+<span id="cb18-10">    random_state<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20260703</span></span>
+<span id="cb18-11">)</span>
+<span id="cb18-12"></span>
+<span id="cb18-13">model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> LinearRegression()</span>
+<span id="cb18-14">model.fit(X_train, y_train)</span>
+<span id="cb18-15"></span>
+<span id="cb18-16">coef_table <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb18-17">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"变量"</span>: features,</span>
+<span id="cb18-18">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"回归系数"</span>: model.coef_.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb18-19">})</span>
+<span id="cb18-20"></span>
+<span id="cb18-21">intercept <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(model.intercept_, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb18-22"></span>
+<span id="cb18-23"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"模型截距：</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>intercept<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb18-24">coef_table</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>模型截距：50.26</code></pre>
+</div>
+<div id="regression-model" class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">变量</th>
+<th data-quarto-table-cell-role="th">回归系数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>study_hours</td>
+<td>4.123</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>attendance</td>
+<td>14.588</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>review_times</td>
+<td>1.038</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>practice_count</td>
+<td>0.096</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>participation</td>
+<td>0.089</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>回归系数可以帮助我们理解每个变量对成绩预测的贡献方向。系数为正，说明该变量增加时，预测成绩倾向于提高；系数为负，则说明该变量增加时，预测成绩倾向于下降。</p>
+<p>需要注意的是，回归系数并不一定等于因果效应。尤其是在模拟数据之外的真实数据中，还可能存在遗漏变量、样本偏差等问题。</p>
+</section>
+<section id="prediction" class="level1">
+<h1>10 预测结果</h1>
+<p>模型训练完成后，可以使用测试集检验预测效果。测试集中的数据没有参与模型训练，因此更适合用来观察模型的泛化能力。</p>
+<div id="cell-prediction" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">y_pred <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model.predict(X_test)</span>
+<span id="cb20-2"></span>
+<span id="cb20-3">pred_table <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb20-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"实际成绩"</span>: y_test.values,</span>
+<span id="cb20-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"预测成绩"</span>: y_pred.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>),</span>
+<span id="cb20-6">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"预测误差"</span>: (y_test.values <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> y_pred).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb20-7">})</span>
+<span id="cb20-8"></span>
+<span id="cb20-9">pred_table.head(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span></code></pre></div></div>
+</details>
+<div id="prediction" class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">实际成绩</th>
+<th data-quarto-table-cell-role="th">预测成绩</th>
+<th data-quarto-table-cell-role="th">预测误差</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>85.6</td>
+<td>91.5</td>
+<td>-5.9</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>86.9</td>
+<td>90.2</td>
+<td>-3.3</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>88.1</td>
+<td>89.1</td>
+<td>-1.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>100.0</td>
+<td>103.6</td>
+<td>-3.6</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>98.4</td>
+<td>101.4</td>
+<td>-3.0</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>100.0</td>
+<td>100.1</td>
+<td>-0.1</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>86.9</td>
+<td>92.0</td>
+<td>-5.1</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>84.7</td>
+<td>84.2</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>93.8</td>
+<td>97.1</td>
+<td>-3.3</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>81.7</td>
+<td>83.5</td>
+<td>-1.8</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>74.6</td>
+<td>83.5</td>
+<td>-8.9</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>96.3</td>
+<td>102.7</td>
+<td>-6.4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>下面绘制“实际成绩 vs 预测成绩”的散点图。如果模型预测较好，点应该大致分布在对角线附近。</p>
+<div id="cell-prediction-plot" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1">plt.figure(figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>))</span>
+<span id="cb21-2">plt.scatter(y_test, y_pred, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>)</span>
+<span id="cb21-3"></span>
+<span id="cb21-4">min_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">min</span>(y_test.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">min</span>(), y_pred.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">min</span>())</span>
+<span id="cb21-5">max_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>(y_test.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>(), y_pred.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>())</span>
+<span id="cb21-6"></span>
+<span id="cb21-7">plt.plot([min_value, max_value], [min_value, max_value], linestyle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--"</span>)</span>
+<span id="cb21-8">plt.title(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"实际成绩与预测成绩对比"</span>)</span>
+<span id="cb21-9">plt.xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"实际成绩"</span>)</span>
+<span id="cb21-10">plt.ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"预测成绩"</span>)</span>
+<span id="cb21-11">plt.grid(alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb21-12">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/index_files/figure-html/prediction-plot-output-1.png" id="prediction-plot" width="604" height="527" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>图中虚线表示理想情况，也就是预测值等于真实值。散点越靠近虚线，说明模型预测越准确；散点偏离越大，说明预测误差越大。</p>
+</section>
+<section id="evaluation" class="level1">
+<h1>11 模型评价</h1>
+<p>为了更准确地评价模型，需要计算几个常见指标：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>指标</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MAE</td>
+<td>平均绝对误差，数值越小越好</td>
+</tr>
+<tr class="even">
+<td>RMSE</td>
+<td>均方根误差，对较大误差更敏感</td>
+</tr>
+<tr class="odd">
+<td>R²</td>
+<td>拟合优度，越接近 1 表示解释能力越强</td>
+</tr>
+</tbody>
+</table>
+<div id="cell-model-evaluation" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1">mae <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> mean_absolute_error(y_test, y_pred)</span>
+<span id="cb22-2">rmse <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.sqrt(mean_squared_error(y_test, y_pred))</span>
+<span id="cb22-3">r2 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb22-4"></span>
+<span id="cb22-5">evaluation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.DataFrame({</span>
+<span id="cb22-6">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"指标"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"MAE"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"RMSE"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"R²"</span>],</span>
+<span id="cb22-7">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"数值"</span>: [<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(mae, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>), <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(rmse, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>), <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(r2, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)]</span>
+<span id="cb22-8">})</span>
+<span id="cb22-9"></span>
+<span id="cb22-10">evaluation</span></code></pre></div></div>
+</details>
+<div id="model-evaluation" class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">指标</th>
+<th data-quarto-table-cell-role="th">数值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>MAE</td>
+<td>3.493</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>RMSE</td>
+<td>4.230</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>R²</td>
+<td>0.700</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>如果 MAE 和 RMSE 较低，说明模型预测误差较小；如果 R² 较高，说明模型能够解释较多的成绩差异。</p>
+<p>当然，这只是一个小型示例。真实研究中还需要考虑样本量、变量选择、模型假设、异常值、过拟合等问题。</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>12 结论</h1>
+<p>本文使用 <code>pandas</code>、<code>numpy</code>、<code>matplotlib</code> 和 <code>scikit-learn</code> 完成了一篇完整的 Python 数据分析文章。整个流程可以概括为：</p>
+<ol type="1">
+<li>先构造并查看数据，明确每个变量的含义；</li>
+<li>再检查缺失值，并使用中位数进行填补；</li>
+<li>接着通过描述统计了解数据整体情况；</li>
+<li>然后使用柱状图、直方图、散点图和热力图观察变量关系；</li>
+<li>最后建立多元线性回归模型，对学生成绩进行预测，并使用 MAE、RMSE 和 R² 评价模型效果。</li>
+</ol>
+<div class="py-final">
+<p>
+这篇文章的重点不是展示复杂模型，而是展示一篇博客型数据分析文章应该如何组织：先讲清楚问题，再展示代码，然后解释输出结果。这样读者不仅能看到代码怎么写，也能理解每一步分析为什么要这样做。
+</p>
+</div>
+</section>
+</div>
+
+
+<!-- -->
+
+
+ ]]></description>
+  <category>Python</category>
+  <category>数据分析</category>
+  <category>可视化</category>
+  <category>机器学习</category>
+  <guid>https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/</guid>
+  <pubDate>Thu, 02 Jul 2026 16:00:00 GMT</pubDate>
+</item>
 <item>
   <title>欢迎来到 sanxi</title>
   <link>https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/</link>
   <description><![CDATA[ 
-
 
 
 

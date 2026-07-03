@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/algorithm-notes/index.html",
       "/posts/welcome/index.html"
     ]
   }
