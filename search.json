@@ -1,38 +1,136 @@
 [
   {
-    "objectID": "topics/matlab/index.html",
-    "href": "topics/matlab/index.html",
-    "title": "MATLAB 学习",
+    "objectID": "topics/index.html",
+    "href": "topics/index.html",
+    "title": "专题",
     "section": "",
-    "text": "这里用于整理 MATLAB 学习内容，包括基础语法、矩阵运算、绘图、数值计算、建模代码和实验报告常用模板。\n\n\nMATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。\n\n\n\nMATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。\n\n\n\n后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。\n\n\n\n后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
+    "text": "专题\n\n\n这里用于整理长期学习专题，比如算法图解、MATLAB 学习、数值分析、数学建模等。\n\n\n\n\nALGORITHM\n\n\n算法图解\n\n\n用图解、例子和代码笔记的方式，系统整理常见算法思想。\n\n进入专题 → \n\n\nMATLAB\n\n\nMATLAB 学习\n\n\n整理 MATLAB 基础语法、绘图、数值计算、建模代码和实验报告常用模板。\n\n进入专题 →"
   },
   {
-    "objectID": "topics/matlab/index.html#基础语法",
-    "href": "topics/matlab/index.html#基础语法",
-    "title": "MATLAB 学习",
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "欢迎来到 sanxi",
     "section": "",
-    "text": "MATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。"
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
-    "objectID": "topics/matlab/index.html#绘图",
-    "href": "topics/matlab/index.html#绘图",
-    "title": "MATLAB 学习",
+    "objectID": "posts/welcome/index.html#我的博客计划",
+    "href": "posts/welcome/index.html#我的博客计划",
+    "title": "欢迎来到 sanxi",
     "section": "",
-    "text": "MATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。"
+    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
   },
   {
-    "objectID": "topics/matlab/index.html#数值计算",
-    "href": "topics/matlab/index.html#数值计算",
-    "title": "MATLAB 学习",
-    "section": "",
-    "text": "后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。"
+    "objectID": "posts/welcome/index.html#这个博客会写什么",
+    "href": "posts/welcome/index.html#这个博客会写什么",
+    "title": "欢迎来到 sanxi",
+    "section": "这个博客会写什么",
+    "text": "这个博客会写什么\n以后这里主要记录：\n\n统计学学习笔记\nPython 和 R 语言学习\n数学建模作业与比赛经验\nQuarto 博客搭建过程\nMood Journal 心情日志\n日常生活和个人思考"
   },
   {
-    "objectID": "topics/matlab/index.html#数学建模",
-    "href": "topics/matlab/index.html#数学建模",
-    "title": "MATLAB 学习",
+    "objectID": "posts/welcome/index.html#后续文章模板",
+    "href": "posts/welcome/index.html#后续文章模板",
+    "title": "欢迎来到 sanxi",
+    "section": "后续文章模板",
+    "text": "后续文章模板\n以后新建文章时，可以按照这个结构：\n```text posts/文章文件夹名/index.qmd"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
+    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
+  },
+  {
+    "objectID": "about.html#关于这个博客",
+    "href": "about.html#关于这个博客",
+    "title": "About",
+    "section": "",
+    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考"
+  },
+  {
+    "objectID": "about.html#博客结构",
+    "href": "about.html#博客结构",
+    "title": "About",
+    "section": "",
+    "text": "页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明"
+  },
+  {
+    "objectID": "about.html#内容规划",
+    "href": "about.html#内容规划",
+    "title": "About",
+    "section": "",
+    "text": "这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。"
+  },
+  {
+    "objectID": "about.html#技术说明",
+    "href": "about.html#技术说明",
+    "title": "About",
+    "section": "",
+    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "把学习、代码、建模、阅读和普通日子都留下来。\n\n\n\nSANXI BLOG · STUDY / CODE / JOURNAL\n\n\n\n这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。\n\n\n进入日志 关于我 🎲 随便看看\n\n\n\n\n\n\n📍 身份\n\n\n信息与计算科学 · 大二\n\n\n\n\n📚 最近学习\n\n\nQuarto / 算法图解 / 数值分析\n\n\n\n\n🧭 长期方向\n\n\n数据分析与算法优化\n\n\n\n\n📅 今天\n\n\n加载中…\n\n\n\n\n\n\n\n\n\n今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;\n\n\n\n\n\n\n\n\n这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。\n\n\n\n\n\n\n\n\n\n\n心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我\n\n\n\n\n\n\n统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "index.html#interactive-widgets",
+    "href": "index.html#interactive-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;"
+  },
+  {
+    "objectID": "index.html#debug-widgets",
+    "href": "index.html#debug-widgets",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。"
+  },
+  {
+    "objectID": "index.html#content-navigation",
+    "href": "index.html#content-navigation",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我"
+  },
+  {
+    "objectID": "index.html#tag-cloud",
+    "href": "index.html#tag-cloud",
+    "title": "sanxi 的学习与生活笔记",
+    "section": "",
+    "text": "统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#笔记总览",
+    "href": "notes.html#笔记总览",
+    "title": "学习笔记",
+    "section": "",
+    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+  },
+  {
+    "objectID": "notes.html#文章分类入口",
+    "href": "notes.html#文章分类入口",
+    "title": "学习笔记",
+    "section": "文章分类入口",
+    "text": "文章分类入口\n\n\n\n全部文章\n\n\n返回首页查看所有文章列表。\n\n\n\n\nMood Journal\n\n\n查看心情记录、热力图和最近状态。\n\n\n\n\n博客说明\n\n\n查看第一篇博客说明文章。"
+  },
+  {
+    "objectID": "notes.html#后续计划",
+    "href": "notes.html#后续计划",
+    "title": "学习笔记",
+    "section": "后续计划",
+    "text": "后续计划\n\n\n\n模块\n内容\n状态\n\n\n\n\n统计学\n课程公式、知识点、例题\n待更新\n\n\nPython\n数据处理、绘图、建模\n待更新\n\n\nR 语言\n统计分析、可视化\n待更新\n\n\n数学建模\n建模模板、算法代码\n待更新\n\n\nQuarto\n博客搭建与发布\n正在完善"
   },
   {
     "objectID": "topics/algorithm/index.html",
@@ -126,136 +224,38 @@
     "text": "后续这个专题可以继续扩展成完整的算法学习笔记，包括复杂度分析、链表、树、堆、图算法、排序算法、搜索算法、动态规划和回溯等内容。\n\n\n\n章节\n内容\n状态\n\n\n\n\n第 1 章\n初识算法\n正在整理\n\n\n第 2 章\n复杂度分析\n待更新\n\n\n第 3 章\n数据结构\n待更新\n\n\n第 4 章\n搜索与排序\n待更新\n\n\n第 5 章\n图算法\n待更新\n\n\n第 6 章\n动态规划\n待更新\n\n\n第 7 章\n贪心与回溯\n待更新"
   },
   {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "学习笔记",
+    "objectID": "topics/matlab/index.html",
+    "href": "topics/matlab/index.html",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+    "text": "这里用于整理 MATLAB 学习内容，包括基础语法、矩阵运算、绘图、数值计算、建模代码和实验报告常用模板。\n\n\nMATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。\n\n\n\nMATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。\n\n\n\n后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。\n\n\n\n后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
   },
   {
-    "objectID": "notes.html#笔记总览",
-    "href": "notes.html#笔记总览",
-    "title": "学习笔记",
+    "objectID": "topics/matlab/index.html#基础语法",
+    "href": "topics/matlab/index.html#基础语法",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "这里先搭建学习笔记框架，后面可以逐步填充具体内容。\n\n\n\n\n概率论、数理统计、回归分析、非参数统计、多元统计等。\n\n\n\n描述统计\n\n\n参数估计\n\n\n假设检验\n\n\n回归模型\n\n\n\n\n\n\nPython、R、Java、Mathematica、Quarto 等学习记录。\n\n\n\nPython 数据分析\n\n\nR 语言统计建模\n\n\nJava 数据结构\n\n\nQuarto 博客搭建\n\n\n\n\n\n\n模型建立、算法求解、论文写作和可视化表达。\n\n\n\n优化模型\n\n\n评价模型\n\n\n预测模型\n\n\n图论模型\n\n\n\n\n\n\n阶段总结、日常计划、学习状态和个人成长记录。\n\n\n\n每日复盘\n\n\n阶段总结\n\n\n学习计划\n\n\n情绪记录"
+    "text": "MATLAB 的核心优势是矩阵运算。很多统计计算、数值分析和数学建模问题都可以用矩阵形式简洁表达。"
   },
   {
-    "objectID": "notes.html#文章分类入口",
-    "href": "notes.html#文章分类入口",
-    "title": "学习笔记",
-    "section": "文章分类入口",
-    "text": "文章分类入口\n\n\n\n全部文章\n\n\n返回首页查看所有文章列表。\n\n\n\n\nMood Journal\n\n\n查看心情记录、热力图和最近状态。\n\n\n\n\n博客说明\n\n\n查看第一篇博客说明文章。"
-  },
-  {
-    "objectID": "notes.html#后续计划",
-    "href": "notes.html#后续计划",
-    "title": "学习笔记",
-    "section": "后续计划",
-    "text": "后续计划\n\n\n\n模块\n内容\n状态\n\n\n\n\n统计学\n课程公式、知识点、例题\n待更新\n\n\nPython\n数据处理、绘图、建模\n待更新\n\n\nR 语言\n统计分析、可视化\n待更新\n\n\n数学建模\n建模模板、算法代码\n待更新\n\n\nQuarto\n博客搭建与发布\n正在完善"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "sanxi 的学习与生活笔记",
+    "objectID": "topics/matlab/index.html#绘图",
+    "href": "topics/matlab/index.html#绘图",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "把学习、代码、建模、阅读和普通日子都留下来。\n\n\n\nSANXI BLOG · STUDY / CODE / JOURNAL\n\n\n\n这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。\n\n\n进入日志 关于我 🎲 随便看看\n\n\n\n\n\n\n📍 身份\n\n\n信息与计算科学 · 大二\n\n\n\n\n📚 最近学习\n\n\nQuarto / 算法图解 / 数值分析\n\n\n\n\n🧭 长期方向\n\n\n数据分析与算法优化\n\n\n\n\n📅 今天\n\n\n加载中…\n\n\n\n\n\n\n\n\n\n今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;\n\n\n\n\n\n\n\n\n这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。\n\n\n\n\n\n\n\n\n\n\n心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我\n\n\n\n\n\n\n统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
+    "text": "MATLAB 常用于实验图像、函数图像、数值结果对比图和误差分析图。"
   },
   {
-    "objectID": "index.html#interactive-widgets",
-    "href": "index.html#interactive-widgets",
-    "title": "sanxi 的学习与生活笔记",
+    "objectID": "topics/matlab/index.html#数值计算",
+    "href": "topics/matlab/index.html#数值计算",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "今日一句\n\n\n正在生成今日句子……\n\n\n换一句\n\n\n\n\nMOOD JOURNAL\n\n\n读取中…\n\n\n正在读取 mood.csv\n\n\n请稍候…\n\n\n平均心情：- / 5 共 - 条记录\n\n进入心情日志 →\n\n\n\n学习进度条\n\n\nPython\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 62%;\"&gt;&lt;/div&gt;\n\n\n\nQuarto Blog\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 78%;\"&gt;&lt;/div&gt;\n\n\n\n算法图解\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 46%;\"&gt;&lt;/div&gt;\n\n\n\nMATLAB\n\n&lt;div class=\"sx-progress-bar\" style=\"width: 54%;\"&gt;&lt;/div&gt;"
+    "text": "后续可以整理插值、拟合、数值积分、微分方程、线性方程组和优化问题。"
   },
   {
-    "objectID": "index.html#debug-widgets",
-    "href": "index.html#debug-widgets",
-    "title": "sanxi 的学习与生活笔记",
+    "objectID": "topics/matlab/index.html#数学建模",
+    "href": "topics/matlab/index.html#数学建模",
+    "title": "MATLAB 学习",
     "section": "",
-    "text": "这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。\n\n\n\n\n\n 添加\n\n\n\n\n\n\n\n25:00\n\n\n\n开始\n\n\n暂停\n\n\n重置\n\n\n\n适合用来做 25 分钟专注学习。\n\n\n\n\n\n点击按钮抽一个学习任务。\n\n\n抽一个\n\n\n\n\n\n\n内容会保存在当前浏览器 localStorage 中。\n\n\n\n\n\n0\n\n\n\n+1\n\n\n清零\n\n\n\n可以用来记录今天完成了几个小任务。\n\n\n\n\n\n 计算\n\n\n结果会显示在这里。"
-  },
-  {
-    "objectID": "index.html#content-navigation",
-    "href": "index.html#content-navigation",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "心情热力图、最近状态、每日记录和生活碎片。\n\n进入日志\n\n\n\n\n统计学、数学建模、Python、R、Quarto、算法学习等内容框架。\n\n查看笔记\n\n\n\n\n后续文章都会集中出现在首页文章列表中。\n\n查看文章\n\n\n\n\n关于这个博客、关于我、联系方式和博客说明。\n\n关于我"
-  },
-  {
-    "objectID": "index.html#tag-cloud",
-    "href": "index.html#tag-cloud",
-    "title": "sanxi 的学习与生活笔记",
-    "section": "",
-    "text": "统计学 Python R语言 数学建模 数值分析 算法图解 Mood Journal Quarto 博客搭建 生活记录"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "“为什么塞尚随时都在画圣维克图瓦山呢？这是因为每时每刻的光线都是一种馈赠。”\n\n\n生活，尽管有悲剧，但毕竟还可以是美好的。\n我已经二十岁了，青春不再，但我终于感觉自己——因为我不是为了自己而被爱——\n我感觉自己从未这样年轻，即便一切都快结束了。\n\n\n是的，毕竟来日方长。\n\n\n—— 阿尔都塞《来日方长》\n\n\n\nGitHub Mood Journal Notes\n\n\n\n\n\n\n\n你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考\n\n\n\n\n\n\n\n页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明\n\n\n\n\n\n\n\n\n这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。\n\n\n\n\n本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
-  },
-  {
-    "objectID": "about.html#关于这个博客",
-    "href": "about.html#关于这个博客",
-    "title": "About",
-    "section": "",
-    "text": "你好，这里是 sanxi 的个人博客。\n这个网站主要用于记录：\n\n学习笔记\n数据分析\n编程实践\n数学建模\nQuarto 博客搭建\nMood Journal 心情日志\n日常生活和个人思考"
-  },
-  {
-    "objectID": "about.html#博客结构",
-    "href": "about.html#博客结构",
-    "title": "About",
-    "section": "",
-    "text": "页面\n内容\n\n\n\n\n首页\n内容导航、互动小部件、最新文章\n\n\n日志\n心情热力图、最近状态、每日记录\n\n\n笔记\n学习笔记分类框架\n\n\n文章\n后续博客文章列表\n\n\nAbout\n博客介绍和个人说明"
-  },
-  {
-    "objectID": "about.html#内容规划",
-    "href": "about.html#内容规划",
-    "title": "About",
-    "section": "",
-    "text": "这里后续可以整理概率论、数理统计、回归分析、非参数统计、多元统计、生存分析等内容。\n\n\n\n这里后续可以整理 Python、R、Java、Mathematica、Quarto 博客搭建等内容。\n\n\n\n这里后续可以整理建模方法、模型分类、算法代码、论文写作模板和比赛复盘。\n\n\n\n这里用于记录每天的心情、精力、生活碎片和阶段性复盘。"
-  },
-  {
-    "objectID": "about.html#技术说明",
-    "href": "about.html#技术说明",
-    "title": "About",
-    "section": "",
-    "text": "本博客使用 Quarto + GitHub Pages 搭建。\n本地预览命令：\n```text quarto preview –render all"
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "欢迎来到 sanxi",
-    "section": "",
-    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
-  },
-  {
-    "objectID": "posts/welcome/index.html#我的博客计划",
-    "href": "posts/welcome/index.html#我的博客计划",
-    "title": "欢迎来到 sanxi",
-    "section": "",
-    "text": "这是 sanxi 博客的第一篇文章。\n这篇文章暂时作为博客说明页，后面可以继续补充具体内容。"
-  },
-  {
-    "objectID": "posts/welcome/index.html#这个博客会写什么",
-    "href": "posts/welcome/index.html#这个博客会写什么",
-    "title": "欢迎来到 sanxi",
-    "section": "这个博客会写什么",
-    "text": "这个博客会写什么\n以后这里主要记录：\n\n统计学学习笔记\nPython 和 R 语言学习\n数学建模作业与比赛经验\nQuarto 博客搭建过程\nMood Journal 心情日志\n日常生活和个人思考"
-  },
-  {
-    "objectID": "posts/welcome/index.html#后续文章模板",
-    "href": "posts/welcome/index.html#后续文章模板",
-    "title": "欢迎来到 sanxi",
-    "section": "后续文章模板",
-    "text": "后续文章模板\n以后新建文章时，可以按照这个结构：\n```text posts/文章文件夹名/index.qmd"
-  },
-  {
-    "objectID": "topics/index.html",
-    "href": "topics/index.html",
-    "title": "专题",
-    "section": "",
-    "text": "专题\n\n\n这里用于整理长期学习专题，比如算法图解、MATLAB 学习、数值分析、数学建模等。\n\n\n\n\nALGORITHM\n\n\n算法图解\n\n\n用图解、例子和代码笔记的方式，系统整理常见算法思想。\n\n进入专题 → \n\n\nMATLAB\n\n\nMATLAB 学习\n\n\n整理 MATLAB 基础语法、绘图、数值计算、建模代码和实验报告常用模板。\n\n进入专题 →"
+    "text": "后续可以整理优化模型、预测模型、评价模型和常用建模模板。"
   }
 ]
