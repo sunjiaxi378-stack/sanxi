@@ -48,6 +48,8 @@ website:
             href: posts/welcome/index.qmd
 
     right:
+      - href: xinliu.qmd
+        text: 心流
       - text: "About"
         href: about.qmd
       - icon: github
@@ -72,8 +74,8 @@ format:
 
 execute:
   freeze: auto
-
 resources:
   - assets/data/journal_tasks.csv
   - assets/data/journal_records.csv
   - assets/data/mood.csv
+  - assets/img/xinliu-bg.jpg

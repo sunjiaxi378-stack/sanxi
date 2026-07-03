@@ -4484,3 +4484,960 @@ pre.sourceCode {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================================
+   心流页面最终稳定版：全屏背景 + 不截断 + 居中布局
+========================================================= */
+
+/* ---------- 强制页面单屏 ---------- */
+html.sx-xinliu-html,
+body.sx-xinliu-page {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+/* ---------- 隐藏 Quarto 默认标题、页脚、白底 ---------- */
+body.sx-xinliu-page header#title-block-header,
+body.sx-xinliu-page .quarto-title-block,
+body.sx-xinliu-page .nav-footer {
+  display: none !important;
+}
+
+body.sx-xinliu-page #quarto-content,
+body.sx-xinliu-page main,
+body.sx-xinliu-page main.content,
+body.sx-xinliu-page .content,
+body.sx-xinliu-page .page-columns,
+body.sx-xinliu-page .column-page,
+body.sx-xinliu-page .column-body,
+body.sx-xinliu-page .quarto-layout-panel {
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* ---------- 顶部导航玻璃化 ---------- */
+body.sx-xinliu-page .navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 58px !important;
+  min-height: 58px !important;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+body.sx-xinliu-page .navbar a,
+body.sx-xinliu-page .navbar .navbar-title,
+body.sx-xinliu-page .navbar .nav-link {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- 根容器 ---------- */
+#sx-xinliu-root {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  z-index: 1;
+}
+
+#sx-xinliu-root * {
+  box-sizing: border-box;
+}
+
+/* ---------- 背景图铺满整个页面 ---------- */
+.sx-focus-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  background:
+    linear-gradient(rgba(6, 10, 24, 0.18), rgba(6, 10, 24, 0.46)),
+    url("assets/img/xinliu-bg.jpg") center center / cover no-repeat !important;
+}
+
+/* ---------- 页面主体 ---------- */
+.sx-focus-shell {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  padding: 70px 42px 26px !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+}
+
+/* ---------- 页面标题 ---------- */
+.sx-focus-page-title {
+  width: min(1180px, calc(100vw - 120px)) !important;
+  margin: 0 auto 16px !important;
+}
+
+.sx-focus-page-title h1 {
+  margin: 0 !important;
+  font-size: clamp(2rem, 2.7vw, 2.8rem) !important;
+  line-height: 1.05 !important;
+  font-weight: 950 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.04em !important;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.32) !important;
+}
+
+.sx-focus-page-title p {
+  margin: 6px 0 0 !important;
+  font-size: 0.86rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* ---------- 总布局：整体居中，不靠最右边 ---------- */
+.sx-focus-board {
+  width: min(1180px, calc(100vw - 120px)) !important;
+  height: calc(100vh - 168px) !important;
+  margin: 0 auto !important;
+
+  display: grid !important;
+  grid-template-columns: 0.92fr 1.28fr !important;
+  gap: 18px !important;
+
+  align-items: center !important;
+  align-content: center !important;
+  overflow: visible !important;
+}
+
+/* ---------- 左侧区域 ---------- */
+.sx-focus-left {
+  min-width: 0 !important;
+  display: grid !important;
+  grid-template-rows: auto auto !important;
+  gap: 16px !important;
+  align-content: center !important;
+}
+
+/* ---------- 右侧区域：三列两行，整体宽度收窄，防止截断 ---------- */
+.sx-focus-right {
+  min-width: 0 !important;
+  width: 100% !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(185px, 0.92fr) minmax(260px, 1.18fr) minmax(165px, 0.78fr) !important;
+  grid-template-areas:
+    "clock todo random"
+    "countdown todo music" !important;
+  grid-template-rows: auto auto !important;
+
+  gap: 14px !important;
+  align-items: center !important;
+  align-content: center !important;
+  overflow: visible !important;
+}
+
+/* ---------- 通用玻璃卡片 ---------- */
+.sx-focus-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+
+  padding: 13px 14px !important;
+  border-radius: 20px !important;
+  color: #ffffff !important;
+
+  background: rgba(19, 24, 42, 0.36) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18) !important;
+
+  backdrop-filter: blur(16px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(125%) !important;
+
+  overflow: hidden !important;
+}
+
+/* ---------- 左上角三喜红：无框 ---------- */
+.sx-focus-brand-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+.sx-focus-brand {
+  margin: 0 !important;
+  font-size: clamp(3.5rem, 5vw, 5rem) !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  font-family: "STXingkai", "STXinwei", "STKaiti", "KaiTi", serif !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.38) !important;
+}
+
+.sx-focus-brand-sub {
+  margin-top: 9px !important;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.28em !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.sx-focus-brand-desc {
+  margin: 9px 0 0 !important;
+  max-width: 430px !important;
+  font-size: 0.74rem !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ---------- 今日句子 ---------- */
+.sx-focus-quote-card {
+  min-height: 128px !important;
+  padding: 12px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.sx-focus-card-head {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.sx-focus-quote-card blockquote,
+.sx-focus-quote-text {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.sx-focus-quote-text {
+  margin: 0 !important;
+  padding: 8px 4px 2px !important;
+  min-height: 0 !important;
+  display: block !important;
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* ---------- 右侧卡片定位 ---------- */
+.sx-focus-clock-card {
+  grid-area: clock !important;
+  min-height: 136px !important;
+}
+
+.sx-focus-countdown-card {
+  grid-area: countdown !important;
+  min-height: 266px !important;
+}
+
+.sx-focus-todo-card {
+  grid-area: todo !important;
+  min-height: 318px !important;
+  max-height: 390px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.sx-focus-random-card {
+  grid-area: random !important;
+  min-height: 134px !important;
+}
+
+.sx-focus-music-card {
+  grid-area: music !important;
+  min-height: 138px !important;
+}
+
+/* ---------- 通用标题文字 ---------- */
+.sx-focus-card-label {
+  display: inline-block !important;
+  margin-bottom: 5px !important;
+  font-size: 0.6rem !important;
+  letter-spacing: 0.22em !important;
+  font-weight: 850 !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  text-transform: uppercase !important;
+}
+
+.sx-focus-widget-title {
+  margin: 2px 0 7px !important;
+  font-size: clamp(1.08rem, 1.35vw, 1.34rem) !important;
+  line-height: 1.15 !important;
+  font-weight: 950 !important;
+  color: #ffffff !important;
+}
+
+/* ---------- 时间卡片 ---------- */
+.sx-focus-date {
+  margin-top: 8px !important;
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  white-space: nowrap !important;
+}
+
+.sx-focus-time {
+  margin-top: 7px !important;
+  font-size: clamp(2rem, 2.55vw, 2.55rem) !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  white-space: nowrap !important;
+  transform: scaleX(0.94) !important;
+  transform-origin: left center !important;
+}
+
+.sx-focus-tip {
+  margin-top: 7px !important;
+  font-size: 0.66rem !important;
+  line-height: 1.4 !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* ---------- 输入框 ---------- */
+.sx-focus-input-label {
+  display: block !important;
+  margin: 6px 0 4px !important;
+  font-size: 0.66rem !important;
+  font-weight: 750 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.sx-focus-input {
+  width: 100% !important;
+  height: 30px !important;
+  border-radius: 9px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  padding: 0 9px !important;
+  outline: none !important;
+}
+
+.sx-focus-input::placeholder {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ---------- 按钮 ---------- */
+.sx-focus-btn {
+  min-height: 28px !important;
+  padding: 0 9px !important;
+  border: none !important;
+  border-radius: 9px !important;
+  cursor: pointer !important;
+  font-size: 0.68rem !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  background: rgba(8, 15, 40, 0.88) !important;
+}
+
+.sx-focus-btn:hover {
+  background: rgba(8, 15, 40, 0.98) !important;
+  transform: translateY(-1px) !important;
+}
+
+.sx-focus-btn-light {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.sx-focus-action-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 7px !important;
+  margin-top: 8px !important;
+}
+
+/* ---------- 倒计时 ---------- */
+.sx-focus-timer-display {
+  margin-top: 9px !important;
+  padding: 10px 6px !important;
+  border-radius: 13px !important;
+  background: rgba(7, 12, 34, 0.86) !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  font-size: clamp(1.95rem, 2.45vw, 2.45rem) !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.02em !important;
+  font-family: "Consolas", "Courier New", monospace !important;
+  white-space: nowrap !important;
+}
+
+/* ---------- 今日待办 ---------- */
+.sx-focus-todo-card .sx-focus-widget-title {
+  font-size: clamp(1.28rem, 1.6vw, 1.6rem) !important;
+}
+
+.sx-focus-todo-date {
+  margin: 0 0 8px !important;
+  font-size: 0.68rem !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.sx-focus-todo-input-row {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 7px !important;
+  margin-bottom: 8px !important;
+}
+
+.sx-focus-empty-box {
+  padding: 8px 10px !important;
+  border-radius: 11px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.68rem !important;
+  line-height: 1.45 !important;
+}
+
+/* 待办内容少时贴合，多时内部滚动 */
+.sx-focus-todo-list {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: 210px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  padding: 0 2px 0 0 !important;
+  list-style: none !important;
+}
+
+.sx-focus-todo-item {
+  display: grid !important;
+  grid-template-columns: 22px 1fr auto !important;
+  gap: 7px !important;
+  align-items: center !important;
+  padding: 6px 8px !important;
+  border-radius: 9px !important;
+  background: rgba(255, 255, 255, 0.13) !important;
+}
+
+.sx-focus-todo-item.done .sx-focus-todo-text {
+  text-decoration: line-through !important;
+  opacity: 0.65 !important;
+}
+
+.sx-focus-todo-check {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  font-size: 0.7rem !important;
+  font-weight: 900 !important;
+  cursor: pointer !important;
+}
+
+.sx-focus-todo-text {
+  font-size: 0.68rem !important;
+  line-height: 1.35 !important;
+  color: #ffffff !important;
+  word-break: break-word !important;
+}
+
+.sx-focus-todo-delete {
+  border: none !important;
+  border-radius: 7px !important;
+  padding: 3px 6px !important;
+  font-size: 0.62rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  cursor: pointer !important;
+}
+
+.sx-focus-todo-list::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+.sx-focus-todo-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-radius: 999px !important;
+}
+
+/* ---------- 随机任务 ---------- */
+.sx-focus-random-task {
+  margin: 8px 0 10px !important;
+  padding: 10px 8px !important;
+  border-radius: 12px !important;
+  min-height: 48px !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  font-size: 0.86rem !important;
+  line-height: 1.4 !important;
+  font-weight: 850 !important;
+}
+
+/* ---------- 音乐 ---------- */
+.sx-focus-music-desc {
+  margin: 6px 0 10px !important;
+  font-size: 0.68rem !important;
+  line-height: 1.45 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ---------- 全屏时间弹窗 ---------- */
+.sx-focus-clock-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  padding: 24px !important;
+  background: rgba(6, 10, 20, 0.88) !important;
+}
+
+.sx-focus-clock-overlay.show {
+  display: flex !important;
+}
+
+.sx-focus-clock-overlay-panel {
+  position: relative !important;
+  width: min(920px, 100%) !important;
+  padding: 42px 24px !important;
+  border-radius: 28px !important;
+  text-align: center !important;
+  background: rgba(15, 20, 38, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+.sx-focus-clock-close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  font-size: 1.6rem !important;
+  line-height: 1 !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+}
+
+.sx-focus-overlay-date {
+  margin-bottom: 18px !important;
+  font-size: 1.15rem !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.sx-focus-overlay-time {
+  font-size: clamp(4rem, 12vw, 8rem) !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  font-family: "Consolas", "Courier New", monospace !important;
+  color: #ffffff !important;
+}
+
+/* ---------- 中等屏幕防截断 ---------- */
+@media (max-width: 1450px) {
+  .sx-focus-shell {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .sx-focus-page-title,
+  .sx-focus-board {
+    width: min(1120px, calc(100vw - 96px)) !important;
+  }
+
+  .sx-focus-board {
+    grid-template-columns: 0.85fr 1.25fr !important;
+    gap: 16px !important;
+  }
+
+  .sx-focus-right {
+    grid-template-columns: minmax(170px, 0.88fr) minmax(245px, 1.12fr) minmax(155px, 0.74fr) !important;
+    gap: 12px !important;
+  }
+
+  .sx-focus-brand {
+    font-size: clamp(3.2rem, 4.4vw, 4.5rem) !important;
+  }
+
+  .sx-focus-brand-desc {
+    max-width: 390px !important;
+  }
+}
+
+/* ---------- 如果窗口再小，改成两列，避免被截断 ---------- */
+@media (max-width: 1220px) {
+  html.sx-xinliu-html,
+  body.sx-xinliu-page {
+    overflow: auto !important;
+  }
+
+  #sx-xinliu-root {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  .sx-focus-shell {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding: 70px 20px 28px !important;
+  }
+
+  .sx-focus-page-title,
+  .sx-focus-board {
+    width: min(980px, calc(100vw - 40px)) !important;
+  }
+
+  .sx-focus-board {
+    height: auto !important;
+    grid-template-columns: 1fr !important;
+    align-items: start !important;
+  }
+
+  .sx-focus-right {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "clock todo"
+      "countdown todo"
+      "random music" !important;
+  }
+
+  .sx-focus-todo-card {
+    max-height: 480px !important;
+  }
+}
+/* =========================================================
+   心流页面：右侧防截断 + 今日句子宽度修正
+   追加到 styles.css 最底部
+========================================================= */
+
+/* 右侧小部件整体向左移动，解决右边被截断的问题 */
+.sx-focus-right {
+  transform: translateX(-95px) !important;
+}
+
+/* 今日句子框不再占满左侧，改成内容更贴合的宽度 */
+.sx-focus-quote-card {
+  width: min(500px, 100%) !important;
+  max-width: 500px !important;
+  min-height: 118px !important;
+  padding: 12px 14px !important;
+}
+
+/* 今日句子文字更紧凑一点 */
+.sx-focus-quote-text {
+  font-size: 0.86rem !important;
+  line-height: 1.52 !important;
+  padding: 6px 2px 0 !important;
+}
+
+/* 今日句子上方标题和按钮稍微压缩 */
+.sx-focus-quote-card .sx-focus-card-head {
+  margin-bottom: 6px !important;
+}
+
+.sx-focus-quote-card .sx-focus-card-label {
+  font-size: 0.58rem !important;
+}
+
+.sx-focus-quote-card .sx-focus-btn {
+  min-height: 26px !important;
+  padding: 0 8px !important;
+  font-size: 0.64rem !important;
+}
+
+/* 保持三喜红本身大小不变，只让句子框不跟它一样宽 */
+.sx-focus-left {
+  align-items: flex-start !important;
+}
+
+/* 防止移动后产生水平滚动条 */
+#sx-xinliu-root,
+.sx-focus-shell {
+  overflow: hidden !important;
+}
+/* =========================================================
+   心流页面：最终位置微调版
+   作用：
+   1. 顶部“心流 / 专注、计划与行动。”靠左
+   2. 三喜红与今日句子整体往中间移动
+   3. 三喜红与今日句子字体稍微变大
+   4. 今日待办与右侧两个模块交换位置
+   5. 今日待办不再出现内部滚动条，内容向下自然展开
+   6. 右侧整体继续防截断
+========================================================= */
+
+/* 顶部标题靠左，不再居中 */
+.sx-focus-page-title {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 0 16px 0 !important;
+  padding-left: 0 !important;
+  transform: translateX(0) !important;
+}
+
+.sx-focus-page-title h1 {
+  font-size: clamp(2.2rem, 3.1vw, 3.2rem) !important;
+}
+
+.sx-focus-page-title p {
+  font-size: 0.95rem !important;
+}
+
+/* 左侧三喜红和今日句子整体向中间移动 */
+.sx-focus-left {
+  transform: translateX(80px) !important;
+  z-index: 3 !important;
+}
+
+/* 三喜红文字稍微放大 */
+.sx-focus-brand {
+  font-size: clamp(6.8rem, 7.7vw, 7.8rem) !important;
+  line-height: 1 !important;
+}
+
+.sx-focus-brand-sub {
+  margin-top: 11px !important;
+  font-size: 0.86rem !important;
+  letter-spacing: 0.3em !important;
+}
+
+.sx-focus-brand-desc {
+  margin-top: 11px !important;
+  max-width: 490px !important;
+  font-size: 0.94rem !important;
+  line-height: 1.65 !important;
+}
+
+/* 今日句子框稍微变紧凑，但文字更清楚 */
+.sx-focus-quote-card {
+  width: min(480px, 100%) !important;
+  max-width: 480px !important;
+  min-height: 95px !important;
+  padding: 14px 16px !important;
+}
+
+.sx-focus-quote-text {
+  font-size: 1.23rem !important;
+  line-height: 1.6 !important;
+  font-weight: 850 !important;
+}
+
+/* 右侧整体继续向左一点，避免最右边被截断 */
+.sx-focus-right {
+  transform: translateX(-125px) !important;
+
+  grid-template-columns:
+    minmax(185px, 0.88fr)
+    minmax(220px, 0.94fr)
+    minmax(260px, 1.08fr) !important;
+
+  grid-template-areas:
+    "clock random todo"
+    "countdown music todo" !important;
+
+  gap: 14px !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
+/* 交换后的区域绑定 */
+.sx-focus-clock-card {
+  grid-area: clock !important;
+}
+
+.sx-focus-countdown-card {
+  grid-area: countdown !important;
+}
+
+.sx-focus-random-card {
+  grid-area: random !important;
+}
+
+.sx-focus-music-card {
+  grid-area: music !important;
+}
+
+.sx-focus-todo-card {
+  grid-area: todo !important;
+}
+
+/* 今日待办放到最右侧后，宽度和高度自适应 */
+.sx-focus-todo-card {
+  min-height: 320px !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* 今日待办列表不再内部滚动，内容往下自然展开 */
+.sx-focus-todo-list {
+  flex: 0 0 auto !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+}
+
+/* 今日待办输入区稍微适配右侧宽度 */
+.sx-focus-todo-input-row {
+  grid-template-columns: 1fr auto !important;
+  gap: 7px !important;
+}
+
+.sx-focus-todo-card .sx-focus-widget-title {
+  font-size: clamp(1.3rem, 1.7vw, 1.7rem) !important;
+}
+
+/* 随机任务和音乐入口移动到中间后，尺寸更贴合内容 */
+.sx-focus-random-card,
+.sx-focus-music-card {
+  min-height: 132px !important;
+  height: auto !important;
+}
+
+/* 随机任务文字稍微适配 */
+.sx-focus-random-task {
+  min-height: 48px !important;
+  font-size: 0.9rem !important;
+}
+
+/* 音乐入口文字稍微适配 */
+.sx-focus-music-desc {
+  font-size: 0.7rem !important;
+  line-height: 1.45 !important;
+}
+
+/* 防止所有右侧卡片被浏览器边缘截断 */
+.sx-focus-clock-card,
+.sx-focus-countdown-card,
+.sx-focus-random-card,
+.sx-focus-music-card,
+.sx-focus-todo-card {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 如果你的屏幕宽度稍小，再自动压缩一点 */
+@media (max-width: 1450px) {
+  .sx-focus-left {
+    transform: translateX(52px) !important;
+  }
+
+  .sx-focus-right {
+    transform: translateX(-135px) !important;
+
+    grid-template-columns:
+      minmax(170px, 0.86fr)
+      minmax(205px, 0.9fr)
+      minmax(245px, 1.05fr) !important;
+  }
+
+  .sx-focus-brand {
+    font-size: clamp(3.7rem, 5vw, 5rem) !important;
+  }
+
+  .sx-focus-quote-card {
+    width: min(500px, 100%) !important;
+    max-width: 500px !important;
+  }
+}
+
+/* 今日句子这四个字 */
+.sx-focus-quote-card .sx-focus-card-label {
+  font-size: 0.92rem !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 900 !important;
+  color: rgba(255, 255, 255, 0.98) !important;
+}
+/* =========================================================
+   心流页面：随机任务位置下移，强制生效版
+========================================================= */
+
+body.sx-xinliu-page .sx-focus-right .sx-focus-random-card {
+  position: relative !important;
+  top: 55px !important;          /* 数值越大，随机任务越往下 */
+  transform: none !important;
+  z-index: 5 !important;
+}
+/* ===心流页面：今日待办字体放大=== */
+
+/* 日期文字 */
+.sx-focus-todo-date {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+/* 输入框里的文字 */
+.sx-focus-todo-card .sx-focus-input {
+  font-size: 1rem !important;
+}
+
+/* 添加按钮、清除已完成按钮 */
+.sx-focus-todo-card .sx-focus-btn {
+  font-size: 0.95rem !important;
+  font-weight: 850 !important;
+}
+
+/* 空状态提示文字 */
+.sx-focus-empty-box {
+  font-size: 0.95rem !important;
+  line-height: 1.55 !important;
+}
+
+/* 待办事项内容文字 */
+.sx-focus-todo-text {
+  font-size: 1.05rem !important;
+  line-height: 1.55 !important;
+  font-weight: 750 !important;
+}
+
+/* 删除按钮文字 */
+.sx-focus-todo-delete {
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+}
+
+/* 左侧完成圆圈里的对勾 */
+.sx-focus-todo-check {
+  font-size: 0.9rem !important;
+  font-weight: 900 !important;
+}
+/* =========================================================
+   心流页面：中间主体整体上移
+========================================================= */
+
+body.sx-xinliu-page .sx-focus-board {
+  position: relative !important;
+  top: -55px !important;   /* 数值越小，整体越往上 */
+}
