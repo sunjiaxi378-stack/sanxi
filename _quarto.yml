@@ -72,3 +72,8 @@ format:
 
 execute:
   freeze: auto
+
+resources:
+  - assets/data/journal_tasks.csv
+  - assets/data/journal_records.csv
+  - assets/data/mood.csv
