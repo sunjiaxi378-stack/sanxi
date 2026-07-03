@@ -5441,3 +5441,62 @@ body.sx-xinliu-page .sx-focus-board {
   position: relative !important;
   top: -55px !important;   /* 数值越小，整体越往上 */
 }
+
+/* =========================================================
+   首页固定背景图：滚动时背景不动
+========================================================= */
+
+/* 只作用于首页 */
+body.sx-home-page {
+  background: transparent !important;
+}
+
+/* 固定背景层 */
+body.sx-home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("assets/img/home-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /* 关键：背景固定，不跟随页面滚动 */
+  background-attachment: fixed;
+}
+
+
+/* 首页主体区域透明，让背景露出来 */
+body.sx-home-page main,
+body.sx-home-page .page-columns,
+body.sx-home-page .content,
+body.sx-home-page .quarto-container {
+  background: transparent !important;
+}
+
+/* 首页右侧目录区域稍微玻璃化 */
+body.sx-home-page .sidebar,
+body.sx-home-page .margin-sidebar,
+body.sx-home-page #TOC {
+  background: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+}
+
+/* 首页卡片稍微透明一点，更融入背景 */
+body.sx-home-page .sx-card,
+body.sx-home-page .sx-hero-card,
+body.sx-home-page .sx-status-card,
+body.sx-home-page .card {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(14px);
+}
+
+/* 顶部导航栏半透明 */
+body.sx-home-page .navbar {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}

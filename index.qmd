@@ -16,13 +16,67 @@ listing:
   filter-ui: false
 ---
 
+<script>
+document.body.classList.add("sx-home-page");
+</script>
+
 <style>
 /* =========================================================
-   sanxi 首页专用样式
-   说明：这部分放在 index.qmd 内部，保证首页可以独立生效。
-   如果 styles.css 里也有同名样式，以这里为准。
+   sanxi 首页：背景完全清晰版
+   背景图路径：assets/img/home-bg.jpg
+   核心思路：
+   1. 背景图固定且清晰
+   2. 页面整体不盖厚白雾
+   3. 卡片自己半透明，保证文字可读
    ========================================================= */
 
+body.sx-home-page {
+  background: transparent !important;
+}
+
+/* 固定背景图 */
+body.sx-home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("assets/img/home-bg.jpg?v=20260703");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 背景上只保留极浅遮罩，不影响清晰度 */
+body.sx-home-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: none !important;
+
+  pointer-events: none;
+}
+
+/* 首页主体区域透明，让背景完整露出来 */
+body.sx-home-page main,
+body.sx-home-page .page-columns,
+body.sx-home-page .content,
+body.sx-home-page .quarto-container {
+  background: transparent !important;
+}
+
+/* 顶部导航栏 */
+body.sx-home-page .navbar {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(18px) !important;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* 首页整体容器 */
 .sx-home {
   max-width: 980px;
   margin: 0 auto;
@@ -38,7 +92,7 @@ listing:
 }
 
 .sx-home > p {
-  color: #6b7280;
+  color: #4b5563;
   font-size: 1.06rem;
   margin-bottom: 2.3rem;
 }
@@ -60,11 +114,12 @@ listing:
 .sx-nav-card,
 .sx-tag-cloud,
 .sx-note-box {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
   border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
   box-sizing: border-box;
+  backdrop-filter: blur(12px) !important;
 }
 
 /* 左侧简介大卡片 */
@@ -130,7 +185,7 @@ listing:
 }
 
 .sx-btn-light {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.92);
   color: #222222 !important;
 }
 
@@ -141,7 +196,7 @@ listing:
   transform: translateY(-2px);
 }
 
-/* 右侧当前状态卡片 */
+/* 当前状态卡片 */
 .sx-status-card {
   padding: 2rem 1.6rem;
   height: 100%;
@@ -172,7 +227,7 @@ listing:
 }
 
 .sx-status-label {
-  color: #8a8a8a;
+  color: #6b7280;
   font-size: 0.95rem;
   line-height: 1.7;
   white-space: nowrap;
@@ -221,7 +276,7 @@ listing:
   padding: 7px 13px;
   border-radius: 999px;
   border: 1px solid rgba(17, 24, 39, 0.12);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.92);
   color: #222222;
   cursor: pointer;
   font-weight: 700;
@@ -339,6 +394,7 @@ listing:
   border-radius: 10px;
   border: 1px solid #d1d5db;
   min-width: 0;
+  background: rgba(255, 255, 255, 0.94) !important;
 }
 
 .sx-todo-list {
@@ -355,7 +411,7 @@ listing:
   margin-bottom: 8px;
   padding: 8px 10px;
   border-radius: 10px;
-  background: #f8fafc;
+  background: rgba(248, 250, 252, 0.9) !important;
 }
 
 .sx-todo-list button {
@@ -390,6 +446,7 @@ listing:
   font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
   resize: vertical;
   box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.94) !important;
 }
 
 .sx-counter-number {
@@ -410,6 +467,7 @@ listing:
   border-radius: 10px;
   border: 1px solid #d1d5db;
   min-width: 0;
+  background: rgba(255, 255, 255, 0.94) !important;
 }
 
 /* 内容导航 */
@@ -432,7 +490,7 @@ listing:
 }
 
 .sx-nav-card p {
-  color: #666666;
+  color: #555555;
 }
 
 /* 标签云 */
@@ -446,7 +504,7 @@ listing:
   margin: 0.35rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  background: #f6f6f6;
+  background: rgba(246, 246, 246, 0.92);
   color: #333333;
   font-weight: 650;
   font-size: 0.92rem;
@@ -470,17 +528,18 @@ listing:
 
 /* 文章列表卡片 */
 .quarto-listing .quarto-post {
-  border: 1px solid rgba(17, 24, 39, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
   border-radius: 18px !important;
   padding: 1.5rem !important;
-  background: rgba(255, 255, 255, 0.86) !important;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.045) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
   transition: all 0.18s ease;
+  backdrop-filter: blur(12px) !important;
 }
 
 .quarto-listing .quarto-post:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07) !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2) !important;
 }
 
 /* 保留右侧目录和 Categories */
@@ -492,78 +551,10 @@ listing:
   display: block !important;
 }
 
-/* 响应式 */
-@media (max-width: 1100px) {
-  .sx-home {
-    max-width: 100%;
-  }
-
-  .sx-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sx-status-item {
-    grid-template-columns: 130px minmax(0, 1fr);
-  }
-
-  .sx-three-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sx-widget-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sx-nav-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .sx-home {
-    padding: 2.2rem 1rem 4rem 1rem;
-  }
-
-  .sx-home > h1 {
-    font-size: 2rem;
-  }
-
-  .sx-intro-card {
-    padding: 1.8rem;
-  }
-
-  .sx-intro-card h2 {
-    font-size: 2.1rem;
-  }
-
-  .sx-todo-row,
-  .sx-input-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-@media (max-width: 640px) {
-  .sx-status-item {
-    grid-template-columns: 1fr;
-    row-gap: 0.25rem;
-  }
-
-  .sx-status-label {
-    white-space: normal;
-  }
-}
-
-
-/* =========================================================
-   右侧目录增强 + 首页导航修正
-   1. 右侧目录可以点击跳转，并且滚动时固定保留。
-   2. 去掉顶部导航栏第一个“首页”的下拉箭头和展开菜单。
-   ========================================================= */
-
+/* 右侧目录增强 */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 5.8rem;
 }
 
 /* 首页导航项：只保留文字“首页”，不显示下拉箭头和下拉菜单 */
@@ -575,69 +566,7 @@ html {
   display: none !important;
 }
 
-@media (min-width: 992px) {
-  #quarto-margin-sidebar,
-  .quarto-margin-sidebar,
-  .sidebar.margin-sidebar,
-  .page-columns .column-margin {
-    position: sticky !important;
-    top: 5.5rem !important;
-    align-self: start !important;
-    max-height: calc(100vh - 6.2rem) !important;
-    overflow-y: auto !important;
-  }
-
-  #TOC {
-    position: sticky !important;
-    top: 5.5rem !important;
-    max-height: calc(100vh - 7rem) !important;
-    overflow-y: auto !important;
-    padding-right: 0.4rem;
-  }
-}
-
-#TOC a,
-#toc-title + ul a,
-.sidebar nav[role="doc-toc"] a {
-  display: block;
-  border-left: 2px solid transparent;
-  padding: 0.2rem 0 0.2rem 0.65rem;
-  color: #374151;
-  text-decoration: none;
-  line-height: 1.65;
-}
-
-#TOC a:hover,
-#toc-title + ul a:hover,
-.sidebar nav[role="doc-toc"] a:hover {
-  color: #2563eb;
-  border-left-color: #93c5fd;
-  text-decoration: none;
-}
-
-#TOC a.active,
-#TOC .active > a,
-.sidebar nav[role="doc-toc"] a.active,
-.sidebar nav[role="doc-toc"] .active > a {
-  color: #2563eb !important;
-  border-left-color: #2563eb !important;
-  font-weight: 800;
-}
-
-
-/* =========================================================
-   FINAL FIX：右侧目录固定显示，不随正文滚动消失
-   说明：
-   1. 使用 fixed 而不是 sticky，避免被 Quarto 父容器高度影响。
-   2. 保留右侧 “目录 + Categories”。
-   3. 小屏幕自动隐藏右侧栏，避免遮挡正文。
-   ========================================================= */
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5.8rem;
-}
-
+/* 右侧目录固定 */
 @media (min-width: 992px) {
   #quarto-margin-sidebar,
   .quarto-margin-sidebar,
@@ -651,17 +580,17 @@ html {
     overflow-x: hidden !important;
     z-index: 50 !important;
     padding: 0.25rem 0.6rem 1rem 0.6rem !important;
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
   }
 
-  /* fixed 右侧栏后，正文区域保持宽度，避免被右侧目录覆盖 */
   main.content,
   .page-columns main.content {
     max-width: 980px !important;
   }
 
-  /* 目录本身不再单独 sticky，交给外层 fixed 控制 */
   #TOC,
   nav#TOC,
   .sidebar nav[role="doc-toc"] {
@@ -676,7 +605,6 @@ html {
   }
 }
 
-/* 右侧目录标题 */
 #TOC #toc-title,
 nav#TOC #toc-title,
 .sidebar nav[role="doc-toc"] #toc-title {
@@ -686,7 +614,6 @@ nav#TOC #toc-title,
   margin: 0 0 0.55rem 0 !important;
 }
 
-/* 目录列表 */
 #TOC ul,
 nav#TOC ul,
 .sidebar nav[role="doc-toc"] ul {
@@ -703,7 +630,6 @@ nav#TOC li,
   padding: 0 !important;
 }
 
-/* 目录链接 */
 #TOC a,
 nav#TOC a,
 .sidebar nav[role="doc-toc"] a {
@@ -786,7 +712,7 @@ nav#TOC .active > a,
   text-decoration: none !important;
 }
 
-/* 移动端隐藏右侧栏，避免盖住正文 */
+/* 移动端隐藏右侧栏 */
 @media (max-width: 991px) {
   #quarto-margin-sidebar,
   .quarto-margin-sidebar,
@@ -795,6 +721,61 @@ nav#TOC .active > a,
   }
 }
 
+/* 响应式 */
+@media (max-width: 1100px) {
+  .sx-home {
+    max-width: 100%;
+  }
+
+  .sx-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-status-item {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  .sx-three-grid,
+  .sx-widget-grid,
+  .sx-nav-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sx-home {
+    padding: 2.2rem 1rem 4rem 1rem;
+  }
+
+  .sx-home > h1 {
+    font-size: 2rem;
+  }
+
+  .sx-intro-card {
+    padding: 1.8rem;
+  }
+
+  .sx-intro-card h2 {
+    font-size: 2.1rem;
+  }
+
+  .sx-todo-row,
+  .sx-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .sx-status-item {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+
+  .sx-status-label {
+    white-space: normal;
+  }
+}
 </style>
 
 ::: {.sx-home}
@@ -1077,8 +1058,6 @@ nav#TOC .active > a,
    sanxi 首页交互脚本
    ========================================================= */
 
-/* ---------- 今日一句 ---------- */
-
 const dailyLines = [
   "学习不是突然开悟，而是每天往脑子里偷偷塞一点东西。",
   "不需要一开始就完美，先把框架搭起来。",
@@ -1100,12 +1079,11 @@ const dailyLines = [
 function changeDailyLine() {
   const line = dailyLines[Math.floor(Math.random() * dailyLines.length)];
   const target = document.getElementById("daily-line");
+
   if (target) {
     target.textContent = "“" + line + "”";
   }
 }
-
-/* ---------- 随便看看 ---------- */
 
 const randomPages = [
   "journal.html",
@@ -1119,18 +1097,15 @@ function randomJump() {
   window.location.href = page;
 }
 
-/* ---------- 当前日期 ---------- */
-
 function updateToday() {
   const now = new Date();
   const text = `${now.getFullYear()} / ${now.getMonth() + 1} / ${now.getDate()}`;
   const target = document.getElementById("today-date");
+
   if (target) {
     target.textContent = text;
   }
 }
-
-/* ---------- CSV 解析 ---------- */
 
 function parseCSVLine(line) {
   const result = [];
@@ -1156,8 +1131,6 @@ function parseCSVLine(line) {
   result.push(current.trim());
   return result;
 }
-
-/* ---------- Mood Journal 首页卡片 ---------- */
 
 function moodWord(score) {
   const n = Number(score);
@@ -1258,8 +1231,6 @@ async function loadMoodJournalCard() {
   }
 }
 
-/* ---------- 今日待办 ---------- */
-
 function loadTodos() {
   const list = document.getElementById("todo-list");
 
@@ -1305,8 +1276,6 @@ function removeTodo(index) {
   loadTodos();
 }
 
-/* ---------- 专注计时器 ---------- */
-
 let timerSeconds = 25 * 60;
 let timerId = null;
 
@@ -1351,8 +1320,6 @@ function resetTimer() {
   renderTimer();
 }
 
-/* ---------- 随机学习任务 ---------- */
-
 const studyTasks = [
   "整理一页数值分析公式。",
   "读 20 分钟《算法图解》。",
@@ -1377,8 +1344,6 @@ function drawTask() {
   }
 }
 
-/* ---------- 快速备忘 ---------- */
-
 function setupQuickNote() {
   const note = document.getElementById("quick-note");
 
@@ -1392,8 +1357,6 @@ function setupQuickNote() {
     localStorage.setItem("sanxiQuickNote", note.value);
   });
 }
-
-/* ---------- 学习计数器 ---------- */
 
 function loadCounter() {
   const target = document.getElementById("study-counter");
@@ -1430,8 +1393,6 @@ function resetCounter() {
   target.textContent = "0";
 }
 
-/* ---------- 小计算器 ---------- */
-
 function runCalc() {
   const input = document.getElementById("calc-input");
   const result = document.getElementById("calc-result");
@@ -1459,9 +1420,6 @@ function runCalc() {
     result.textContent = "表达式有误，请重新输入。";
   }
 }
-
-
-/* ---------- 顶部导航：删除“首页”的下拉展开 ---------- */
 
 function fixHomeNavbarDropdown() {
   const dropdownItems = document.querySelectorAll(".navbar-nav .nav-item.dropdown");
@@ -1492,8 +1450,6 @@ function fixHomeNavbarDropdown() {
   });
 }
 
-/* ---------- 右侧目录：保证目录链接平滑跳转 ---------- */
-
 function setupRightTocLinks() {
   document.querySelectorAll('#TOC a[href^="#"], .sidebar nav[role="doc-toc"] a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
@@ -1510,7 +1466,17 @@ function setupRightTocLinks() {
   });
 }
 
-/* ---------- 页面初始化 ---------- */
+window.changeDailyLine = changeDailyLine;
+window.randomJump = randomJump;
+window.addTodo = addTodo;
+window.removeTodo = removeTodo;
+window.startTimer = startTimer;
+window.pauseTimer = pauseTimer;
+window.resetTimer = resetTimer;
+window.drawTask = drawTask;
+window.increaseCounter = increaseCounter;
+window.resetCounter = resetCounter;
+window.runCalc = runCalc;
 
 document.addEventListener("DOMContentLoaded", () => {
   fixHomeNavbarDropdown();
