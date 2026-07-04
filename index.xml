@@ -2187,45 +2187,5 @@ font-style: inherit;">3</span>)]</span>
   <guid>https://sunjiaxi378-stack.github.io/sanxi/posts/algorithm-notes/</guid>
   <pubDate>Thu, 02 Jul 2026 16:00:00 GMT</pubDate>
 </item>
-<item>
-  <title>欢迎来到 sanxi</title>
-  <link>https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="我的博客计划" class="level2">
-<h2 class="anchored" data-anchor-id="我的博客计划">我的博客计划</h2>
-<p>这是 <strong>sanxi</strong> 博客的第一篇文章。</p>
-<p>这篇文章暂时作为博客说明页，后面可以继续补充具体内容。</p>
-</section>
-<section id="这个博客会写什么" class="level2">
-<h2 class="anchored" data-anchor-id="这个博客会写什么">这个博客会写什么</h2>
-<p>以后这里主要记录：</p>
-<ol type="1">
-<li>统计学学习笔记</li>
-<li>Python 和 R 语言学习</li>
-<li>数学建模作业与比赛经验</li>
-<li>Quarto 博客搭建过程</li>
-<li>Mood Journal 心情日志</li>
-<li>日常生活和个人思考</li>
-</ol>
-</section>
-<section id="后续文章模板" class="level2">
-<h2 class="anchored" data-anchor-id="后续文章模板">后续文章模板</h2>
-<p>以后新建文章时，可以按照这个结构：</p>
-<p>```text posts/文章文件夹名/index.qmd</p>
-
-
-</section>
-
- ]]></description>
-  <category>博客</category>
-  <category>日志</category>
-  <guid>https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/</guid>
-  <pubDate>Tue, 30 Jun 2026 16:00:00 GMT</pubDate>
-  <media:content url="https://sunjiaxi378-stack.github.io/sanxi/posts/welcome/thumbnail.jpg" medium="image" type="image/jpeg"/>
-</item>
 </channel>
 </rss>

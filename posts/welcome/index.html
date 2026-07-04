@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="这是 sanxi 博客的第一篇文章。">
+<meta name="author" content="sanxi">
+<meta name="description" content="欢迎文章页面，用于介绍博客结构，并在页面下方集中展示文章列表。">
 
 <title>欢迎来到 sanxi – sanxi</title>
 <style>
@@ -34,6 +35,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -71,8 +74,66 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "搜索"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -108,31 +169,35 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">专题首页</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../topics/algorithm/index.html">
- <span class="dropdown-text">算法图解</span></a>
+    <a class="dropdown-item" href="../../topics/math-modeling/index.html">
+ <span class="dropdown-text">数学建模</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../topics/matlab/index.html">
- <span class="dropdown-text">MATLAB 学习</span></a>
+    <a class="dropdown-item" href="../../topics/numerical-analysis/index.html">
+ <span class="dropdown-text">数值分析</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../topics/algorithm/index.html">
+ <span class="dropdown-text">算法图解</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">笔记</span>
+ <span class="menu-text">编程</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
         <li>
-    <a class="dropdown-item" href="../../notes.html">
- <span class="dropdown-text">学习笔记总览</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../topics/algorithm/index.html">
- <span class="dropdown-text">算法笔记</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../topics/matlab/index.html">
- <span class="dropdown-text">MATLAB 笔记</span></a>
+ <span class="dropdown-text">MATLAB</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../topics/python/index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../topics/mathematical/index.html">
+ <span class="dropdown-text">Mathematical</span></a>
   </li>  
     </ul>
   </li>
@@ -140,21 +205,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../journal.html"> 
 <span class="menu-text">日志</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">文章</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
-        <li>
-    <a class="dropdown-item" href="../../posts/welcome/index.html">
- <span class="dropdown-text">欢迎文章</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="../../posts/welcome/index.html" aria-current="page"> 
+<span class="menu-text">文章</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../posts/algorithm-notes/index.html">
- <span class="dropdown-text">算法图解文章</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -185,39 +239,50 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">该页面内容</h2>
    
-  <ul>
-  <li><a href="#我的博客计划" id="toc-我的博客计划" class="nav-link active" data-scroll-target="#我的博客计划">我的博客计划</a></li>
-  <li><a href="#这个博客会写什么" id="toc-这个博客会写什么" class="nav-link" data-scroll-target="#这个博客会写什么">这个博客会写什么</a></li>
-  <li><a href="#后续文章模板" id="toc-后续文章模板" class="nav-link" data-scroll-target="#后续文章模板">后续文章模板</a></li>
+  <ul class="collapse">
+  <li><a href="#欢迎来到-sanxi" id="toc-欢迎来到-sanxi" class="nav-link active" data-scroll-target="#欢迎来到-sanxi">欢迎来到 sanxi</a>
+  <ul class="collapse">
+  <li><a href="#博客结构" id="toc-博客结构" class="nav-link" data-scroll-target="#博客结构">博客结构</a></li>
+  <li><a href="#阅读建议" id="toc-阅读建议" class="nav-link" data-scroll-target="#阅读建议">阅读建议</a></li>
+  <li><a href="#文章列表" id="toc-文章列表" class="nav-link" data-scroll-target="#文章列表">文章列表</a></li>
+  </ul></li>
   </ul>
 </nav>
-    </div>
+    <h5 class="quarto-listing-category-title">分类</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">全部 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw">机器学习 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2">可视化 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw">数据分析 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">欢迎来到 sanxi</h1>
+<p class="subtitle lead">这里是博客文章入口，也会集中显示后续发布的文章</p>
   <div class="quarto-categories">
     <div class="quarto-category">博客</div>
-    <div class="quarto-category">日志</div>
+    <div class="quarto-category">欢迎</div>
+    <div class="quarto-category">文章入口</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    这是 sanxi 博客的第一篇文章。
+    欢迎文章页面，用于介绍博客结构，并在页面下方集中展示文章列表。
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">作者</div>
+    <div class="quarto-title-meta-contents">
+             <p>sanxi </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">发布于</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026年7月1日</p>
+      <p class="date">2026年7月3日</p>
     </div>
   </div>
   
@@ -229,32 +294,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="我的博客计划" class="level2">
-<h2 class="anchored" data-anchor-id="我的博客计划">我的博客计划</h2>
-<p>这是 <strong>sanxi</strong> 博客的第一篇文章。</p>
-<p>这篇文章暂时作为博客说明页，后面可以继续补充具体内容。</p>
+<section id="欢迎来到-sanxi" class="level1 sx-welcome-post">
+<h1>欢迎来到 sanxi</h1>
+<p>这个博客用于记录学习、代码、建模、阅读、心情日志和日常复盘。它不是一次性完成的作品，而是一个会随着学习过程不断生长的个人知识空间。</p>
+<div class="sx-welcome-card">
+<p>首页主要负责展示整体入口；专题页负责整理长期学习方向；文章页负责承载完整内容；日志页负责记录每天的状态和心情。</p>
+</div>
+<section id="博客结构" class="level2">
+<h2 class="anchored" data-anchor-id="博客结构">博客结构</h2>
+<p>目前博客主要分为几个部分：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>页面</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>首页</td>
+<td>展示整体入口、互动小部件、内容导航和标签云</td>
+</tr>
+<tr class="even">
+<td>专题</td>
+<td>整理数学建模、数值分析、算法图解和编程学习</td>
+</tr>
+<tr class="odd">
+<td>编程</td>
+<td>整理 MATLAB、Python、Mathematical 等代码学习</td>
+</tr>
+<tr class="even">
+<td>日志</td>
+<td>记录 Mood Journal、每日任务和生活复盘</td>
+</tr>
+<tr class="odd">
+<td>心流</td>
+<td>用于专注、倒计时和今日计划</td>
+</tr>
+<tr class="even">
+<td>文章</td>
+<td>集中放置完整博客文章</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="这个博客会写什么" class="level2">
-<h2 class="anchored" data-anchor-id="这个博客会写什么">这个博客会写什么</h2>
-<p>以后这里主要记录：</p>
-<ol type="1">
-<li>统计学学习笔记</li>
-<li>Python 和 R 语言学习</li>
-<li>数学建模作业与比赛经验</li>
-<li>Quarto 博客搭建过程</li>
-<li>Mood Journal 心情日志</li>
-<li>日常生活和个人思考</li>
-</ol>
+<section id="阅读建议" class="level2">
+<h2 class="anchored" data-anchor-id="阅读建议">阅读建议</h2>
+<p>如果只是想快速进入某个模块，可以从首页的内容导航进入。<br>
+如果想系统查看文章，可以直接看本页下方的文章列表。<br>
+如果想查看最近状态，可以进入 Mood Journal。<br>
+如果需要专注学习，可以进入心流页面。</p>
 </section>
-<section id="后续文章模板" class="level2">
-<h2 class="anchored" data-anchor-id="后续文章模板">后续文章模板</h2>
-<p>以后新建文章时，可以按照这个结构：</p>
-<p>```text posts/文章文件夹名/index.qmd</p>
+<section id="文章列表" class="level2">
+<h2 class="anchored" data-anchor-id="文章列表">文章列表</h2>
+<p>下面会自动显示 <code>posts</code> 文件夹中的文章。以后你新增文章后，只要文章放在 <code>posts/某个文件夹/index.qmd</code>，并且写好 YAML 标题和日期，就会出现在这里。</p>
+</section>
+</section>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDJUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkwJTJDJUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2JTJDJUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw" data-listing-date-sort="1783008000000" data-listing-file-modified-sort="1783077917554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1447">
+<div class="thumbnail"><a href="../../posts/algorithm-notes/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="..\algorithm-notes\index_files\figure-html\score-histogram-output-1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../posts/algorithm-notes/index.html" class="no-external">Python 学习行为数据分析</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../../posts/algorithm-notes/index.html" class="no-external">从数据构造、缺失处理、可视化探索到回归预测</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw'); return false;">数据分析</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2'); return false;">可视化</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw'); return false;">机器学习</div>
+
+</div>
+<div class="delink listing-description"><a href="../../posts/algorithm-notes/index.html" class="no-external">
+<p>本文使用 pandas、numpy、matplotlib 和 scikit-learn 完成一篇完整的数据分析文章，展示数据清洗、描述统计、可视化分析、相关性分析和回归预测。</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../../posts/algorithm-notes/index.html" class="no-external">
+<div class="listing-date">
+2026年7月3日
+</div>
+<div class="listing-author">
+sanxi
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">无匹配项</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -82,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -167,31 +167,35 @@ window.Quarto = {
  <span class="dropdown-text">专题首页</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./topics/algorithm/index.html">
- <span class="dropdown-text">算法图解</span></a>
+    <a class="dropdown-item" href="./topics/math-modeling/index.html">
+ <span class="dropdown-text">数学建模</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./topics/matlab/index.html">
- <span class="dropdown-text">MATLAB 学习</span></a>
+    <a class="dropdown-item" href="./topics/numerical-analysis/index.html">
+ <span class="dropdown-text">数值分析</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topics/algorithm/index.html">
+ <span class="dropdown-text">算法图解</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">笔记</span>
+ <span class="menu-text">编程</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
         <li>
-    <a class="dropdown-item" href="./notes.html">
- <span class="dropdown-text">学习笔记总览</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./topics/algorithm/index.html">
- <span class="dropdown-text">算法笔记</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./topics/matlab/index.html">
- <span class="dropdown-text">MATLAB 笔记</span></a>
+ <span class="dropdown-text">MATLAB</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topics/python/index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topics/mathematical/index.html">
+ <span class="dropdown-text">Mathematical</span></a>
   </li>  
     </ul>
   </li>
@@ -199,21 +203,10 @@ window.Quarto = {
     <a class="nav-link" href="./journal.html"> 
 <span class="menu-text">日志</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">文章</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
-        <li>
-    <a class="dropdown-item" href="./posts/welcome/index.html">
- <span class="dropdown-text">欢迎文章</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./posts/welcome/index.html"> 
+<span class="menu-text">文章</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./posts/algorithm-notes/index.html">
- <span class="dropdown-text">算法图解文章</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -240,24 +233,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">目录</h2>
-   
-  <ul class="collapse">
-  <li><a href="#top" id="toc-top" class="nav-link active" data-scroll-target="#top">sanxi 的学习与生活笔记</a>
-  <ul class="collapse">
-  <li><a href="#interactive-widgets" id="toc-interactive-widgets" class="nav-link" data-scroll-target="#interactive-widgets">互动小部件</a></li>
-  <li><a href="#debug-widgets" id="toc-debug-widgets" class="nav-link" data-scroll-target="#debug-widgets">可调试小部件</a></li>
-  <li><a href="#content-navigation" id="toc-content-navigation" class="nav-link" data-scroll-target="#content-navigation">内容导航</a></li>
-  <li><a href="#tag-cloud" id="toc-tag-cloud" class="nav-link" data-scroll-target="#tag-cloud">标签云</a></li>
-  <li><a href="#post-list" id="toc-post-list" class="nav-link" data-scroll-target="#post-list">文章列表</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    <h5 class="quarto-listing-category-title">分类</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">全部 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JUU1JThEJTlBJUU1JUFFJUEy">博客 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw">机器学习 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2">可视化 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk3JUE1JUU1JUJGJTk3">日志 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw">数据分析 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -265,40 +243,84 @@ window.Quarto = {
 <script>
 document.body.classList.add("sx-home-page");
 </script>
+
 <style>
 /* =========================================================
-   sanxi 首页：背景完全清晰版
-   背景图路径：assets/img/home-bg.jpg
-   核心思路：
-   1. 背景图固定且清晰
-   2. 页面整体不盖厚白雾
-   3. 卡片自己半透明，保证文字可读
-   ========================================================= */
-/* =========================================================
-   首页顶部导航栏：修正版，只让最外层半透明
+   sanxi 首页补丁：只放在 index.qmd 内，不覆盖 styles.css
+   目的：修复 HTML 被当作代码显示、关闭右侧目录、删除可调试小部件
 ========================================================= */
 
-/* Quarto 顶部外壳透明 */
+body.sx-home-page {
+  background: transparent !important;
+}
+
+body.sx-home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: url("assets/img/home-bg.jpg?v=20260703-home-fixed");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.sx-home-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.08) !important;
+  pointer-events: none;
+}
+
+/* 首页不要右侧目录 */
+body.sx-home-page #quarto-margin-sidebar,
+body.sx-home-page .quarto-margin-sidebar,
+body.sx-home-page .sidebar.margin-sidebar,
+body.sx-home-page nav#TOC {
+  display: none !important;
+}
+
+/* 首页主体透明 */
+body.sx-home-page main,
+body.sx-home-page .page-columns,
+body.sx-home-page .content,
+body.sx-home-page .quarto-container {
+  background: transparent !important;
+}
+
+body.sx-home-page .page-columns {
+  display: block !important;
+}
+
+body.sx-home-page main.content,
+body.sx-home-page .page-columns main.content {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 顶部导航栏：保持你之前调好的毛玻璃效果 */
 body.sx-home-page #quarto-header,
 body.sx-home-page header#quarto-header {
   background: transparent !important;
-  background-color: transparent !important;
   box-shadow: none !important;
 }
 
-/* 只给真正的 navbar 加半透明毛玻璃 */
 body.sx-home-page .navbar {
-  background: rgba(255, 255, 255, 0.01) !important;
-  background-color: rgba(255, 255, 255, 0.01) !important;
-
-  backdrop-filter: blur(1px) saturate(1.18) !important;
+  min-height: 58px !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(18px) saturate(1.18) !important;
   -webkit-backdrop-filter: blur(18px) saturate(1.18) !important;
-
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.10) !important;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.12) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.24) !important;
 }
 
-/* 关键：导航栏内部所有容器必须透明，不然会叠成白块 */
 body.sx-home-page .navbar-container,
 body.sx-home-page .navbar .container-fluid,
 body.sx-home-page .navbar-collapse,
@@ -306,12 +328,10 @@ body.sx-home-page .navbar-brand-container,
 body.sx-home-page .navbar-nav,
 body.sx-home-page .navbar-nav-scroll {
   background: transparent !important;
-  background-color: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
 
-/* 左侧 sanxi 和菜单文字 */
 body.sx-home-page .navbar .navbar-brand,
 body.sx-home-page .navbar .navbar-title,
 body.sx-home-page .navbar .nav-link,
@@ -320,110 +340,75 @@ body.sx-home-page .navbar a {
   font-weight: 850 !important;
 }
 
-/* 鼠标悬停 */
 body.sx-home-page .navbar .nav-link:hover,
 body.sx-home-page .navbar a:hover {
   color: #2563eb !important;
 }
 
-/* 搜索按钮区域透明 */
-body.sx-home-page .navbar .quarto-search-button,
-body.sx-home-page .navbar .aa-DetachedSearchButton,
-body.sx-home-page .navbar .quarto-navbar-tools,
-body.sx-home-page .navbar .quarto-navbar-tools a {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  color: rgba(20, 20, 20, 0.94) !important;
+body.sx-home-page .navbar .container-fluid,
+body.sx-home-page .navbar-container {
+  min-height: 46px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  align-items: center !important;
 }
 
-/* 右侧搜索框那个灰块去掉 */
-body.sx-home-page .aa-DetachedSearchButton {
-  border: none !important;
-}
-body.sx-home-page {
-  background: transparent !important;
-}
-
-/* 固定背景图 */
-body.sx-home-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-
-  background-image: url("assets/img/home-bg.jpg?v=20260703");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+body.sx-home-page .navbar .nav-link,
+body.sx-home-page .navbar .navbar-brand {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  line-height: 1.2 !important;
 }
 
-/* 背景上只保留极浅遮罩，不影响清晰度 */
-body.sx-home-page::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-
-  background: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: none !important;
-
-  pointer-events: none;
-}
-
-/* 首页主体区域透明，让背景完整露出来 */
-body.sx-home-page main,
-body.sx-home-page .page-columns,
-body.sx-home-page .content,
-body.sx-home-page .quarto-container {
-  background: transparent !important;
-}
-
-/* 顶部导航栏 */
-body.sx-home-page .navbar {
-  background: rgba(255, 255, 255, 0.72) !important;
-  backdrop-filter: blur(18px) !important;
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.12) !important;
-}
-
-/* 首页整体容器 */
+/* 首页容器 */
 .sx-home {
-  max-width: 980px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 3.2rem 1.2rem 5rem 1.2rem;
 }
 
-.sx-home > h1 {
-  font-size: 2.65rem;
+.sx-home-main-title {
+  font-size: clamp(2.2rem, 4.6vw, 4.6rem);
   font-weight: 950;
-  letter-spacing: -0.045em;
-  margin-bottom: 0.45rem;
-  color: #ffffff;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+  margin: 0 0 0.65rem 0;
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.48);
 }
 
-.sx-home > p {
-  color: rgb(251, 235, 235);
-  font-size: 1.06rem;
+.sx-home-subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.08rem;
+  line-height: 1.85;
   margin-bottom: 2.3rem;
   text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38);
+}
+
+.sx-home-section-title {
+  color: #ffffff !important;
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.58);
+  padding-bottom: 0.65rem;
+  margin: 2.4rem 0 1.4rem 0;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
 }
 
 /* 顶部左右布局 */
 .sx-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(330px, 0.95fr);
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 0.95fr);
   gap: 18px;
   align-items: stretch;
-  margin: 2rem 0 1.6rem 0;
+  margin: 2rem 0 1.8rem 0;
 }
 
-/* 通用卡片 */
+/* 玻璃卡片 */
 .sx-intro-card,
 .sx-status-card,
 .sx-mini-card,
-.sx-widget-card,
 .sx-nav-card,
 .sx-tag-cloud,
 .sx-note-box {
@@ -435,10 +420,9 @@ body.sx-home-page .navbar {
   backdrop-filter: blur(12px) !important;
 }
 
-/* 左侧简介大卡片 */
 .sx-intro-card {
   padding: 2.35rem;
-  min-height: 500px;
+  min-height: 420px;
 }
 
 .sx-eyebrow {
@@ -490,32 +474,20 @@ body.sx-home-page .navbar {
   color: #ffffff !important;
 }
 
-.sx-btn-dark:hover {
-  background: #000000;
-  color: #ffffff !important;
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
 .sx-btn-light {
   background: rgba(255, 255, 255, 0.92);
   color: #222222 !important;
 }
 
-.sx-btn-light:hover {
-  background: #f7f7f7;
-  color: #111111 !important;
+.sx-btn:hover {
   text-decoration: none;
   transform: translateY(-2px);
 }
 
-/* 当前状态卡片 */
 .sx-status-card {
   padding: 2rem 1.6rem;
   height: 100%;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .sx-status-card h3 {
@@ -551,21 +523,25 @@ body.sx-home-page .navbar {
   font-size: 1rem;
   font-weight: 850;
   line-height: 1.75;
-  word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-/* 三个主小卡片 */
+/* 互动小部件 */
 .sx-three-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin: 1rem 0 2rem 0;
+  align-items: start;
 }
 
 .sx-mini-card {
   padding: 1.45rem;
-  min-height: 220px;
+  min-height: 0 !important;
+}
+
+.sx-daily-card {
+  height: auto !important;
 }
 
 .sx-card-label {
@@ -578,10 +554,12 @@ body.sx-home-page .navbar {
 }
 
 .sx-daily-line {
-  font-size: 1.14rem;
+  font-size: 1.18rem;
   font-weight: 850;
   color: #222222;
   line-height: 1.65;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .sx-small-btn {
@@ -609,11 +587,12 @@ body.sx-home-page .navbar {
   margin: 0.35rem 0 0.7rem 0;
 }
 
-.sx-mood-date {
+.sx-mood-date,
+.sx-mood-meta,
+.sx-muted {
   color: #6b7280;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   line-height: 1.7;
-  margin-bottom: 0.35rem;
 }
 
 .sx-mood-title {
@@ -628,9 +607,6 @@ body.sx-home-page .navbar {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  color: #6b7280;
-  font-size: 0.92rem;
-  line-height: 1.6;
   margin-bottom: 0.75rem;
 }
 
@@ -646,26 +622,27 @@ body.sx-home-page .navbar {
   text-decoration: underline;
 }
 
-.sx-muted {
-  color: #6b7280;
-  font-size: 0.94rem;
-  line-height: 1.7;
-}
-
 /* 学习进度条 */
 .sx-progress-item {
   margin-bottom: 1rem;
 }
 
-.sx-progress-item span {
-  display: block;
+.sx-progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
   color: #555555;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   margin-bottom: 0.35rem;
 }
 
+.sx-progress-row strong {
+  color: #111111;
+}
+
 .sx-progress-track {
-  height: 7px;
+  height: 8px;
   background: #eeeeee;
   border-radius: 999px;
   overflow: hidden;
@@ -677,142 +654,88 @@ body.sx-home-page .navbar {
   border-radius: 999px;
 }
 
-/* 可调试小部件 */
-.sx-widget-grid {
+/* 内容导航：附件 3 风格 */
+.sx-feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1.35fr 0.65fr 0.65fr;
+  grid-template-rows: repeat(2, minmax(210px, auto));
   gap: 18px;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0 1.5rem 0;
 }
 
-.sx-widget-card {
-  padding: 1.5rem;
-}
-
-.sx-widget-card h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  font-weight: 850;
-}
-
-.sx-todo-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.sx-input {
-  flex: 1;
-  padding: 9px 12px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  min-width: 0;
-  background: rgba(255, 255, 255, 0.94) !important;
-}
-
-.sx-todo-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.sx-todo-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  background: rgba(248, 250, 252, 0.9) !important;
-}
-
-.sx-todo-list button {
-  border: none;
-  border-radius: 8px;
-  padding: 4px 8px;
-  background: #e5e7eb;
-  color: #374151;
-  cursor: pointer;
-}
-
-.sx-timer {
-  font-size: 2.4rem;
-  font-weight: 950;
-  letter-spacing: 0.04em;
-  margin: 0.4rem 0 1rem 0;
-}
-
-.sx-task-text {
-  font-size: 1.08rem;
-  font-weight: 750;
-  line-height: 1.7;
-  color: #222222;
-}
-
-.sx-note-area {
-  width: 100%;
-  min-height: 110px;
-  border-radius: 12px;
-  border: 1px solid #d1d5db;
-  padding: 12px;
-  font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
-  resize: vertical;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.94) !important;
-}
-
-.sx-counter-number {
-  font-size: 2rem;
-  font-weight: 950;
-  margin: 0.3rem 0 0.7rem 0;
-}
-
-.sx-input-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.sx-input-row input {
-  flex: 1;
-  padding: 9px 12px;
-  border-radius: 10px;
-  border: 1px solid #d1d5db;
-  min-width: 0;
-  background: rgba(255, 255, 255, 0.94) !important;
-}
-
-/* 内容导航 */
-.sx-nav-grid {
+.sx-lower-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 0.7fr 0.7fr 1.4fr;
   gap: 18px;
-  margin: 1rem 0 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 .sx-nav-card {
-  padding: 1.5rem;
+  display: block;
+  padding: 1.8rem;
+  min-height: 210px;
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: all 0.18s ease;
+}
+
+.sx-nav-card:hover {
+  transform: translateY(-4px);
+  text-decoration: none !important;
+  color: #111827 !important;
+}
+
+.sx-nav-card-large {
+  grid-row: span 2;
+  min-height: 438px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sx-focus-card {
+  min-height: 240px;
 }
 
 .sx-nav-card h3 {
-  margin-top: 0;
   color: #222222;
-  font-size: 1.25rem;
-  font-weight: 850;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  margin: 0.75rem 0 0.65rem 0;
+}
+
+.sx-nav-card-large h3 {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
 }
 
 .sx-nav-card p {
   color: #555555;
+  line-height: 1.85;
+  margin-bottom: 0;
 }
 
-/* 标签云 */
+.sx-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  display: grid;
+  place-items: center;
+  color: #111827;
+  font-size: 1.25rem;
+  font-weight: 950;
+  margin-bottom: 0.7rem;
+}
+
+/* 标签云：无超链接 */
 .sx-tag-cloud {
   padding: 1.3rem;
   margin: 1rem 0 2rem 0;
 }
 
-.sx-tag-cloud a {
+.sx-tag-cloud span {
   display: inline-block;
   margin: 0.35rem;
   padding: 0.35rem 0.75rem;
@@ -825,13 +748,6 @@ body.sx-home-page .navbar {
   border: 1px solid rgba(17, 24, 39, 0.07);
 }
 
-.sx-tag-cloud a:hover {
-  background: #111111;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* 说明卡片 */
 .sx-note-box {
   padding: 1.4rem;
   margin: 1rem 0 2rem 0;
@@ -839,7 +755,6 @@ body.sx-home-page .navbar {
   line-height: 1.9;
 }
 
-/* 文章列表卡片 */
 .quarto-listing .quarto-post {
   border: 1px solid rgba(255, 255, 255, 0.58) !important;
   border-radius: 18px !important;
@@ -855,227 +770,27 @@ body.sx-home-page .navbar {
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2) !important;
 }
 
-/* 保留右侧目录和 Categories */
-#TOC {
-  display: block !important;
-}
-
-.quarto-listing-category {
-  display: block !important;
-}
-
-/* 右侧目录增强 */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5.8rem;
-}
-
-/* 首页导航项：只保留文字“首页”，不显示下拉箭头和下拉菜单 */
-.navbar-nav > li.nav-item.dropdown:first-child > a.nav-link.dropdown-toggle::after {
-  display: none !important;
-}
-
-.navbar-nav > li.nav-item.dropdown:first-child > .dropdown-menu {
-  display: none !important;
-}
-
-/* 右侧目录固定 */
-@media (min-width: 992px) {
-  #quarto-margin-sidebar,
-  .quarto-margin-sidebar,
-  .sidebar.margin-sidebar {
-    position: fixed !important;
-    top: 5.6rem !important;
-    right: max(1.25rem, calc((100vw - 1320px) / 2 + 0.75rem)) !important;
-    width: min(260px, 18vw) !important;
-    max-height: calc(100vh - 6.4rem) !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    z-index: 50 !important;
-    padding: 0.25rem 0.6rem 1rem 0.6rem !important;
-    background: rgba(255, 255, 255, 0.88) !important;
-    backdrop-filter: blur(12px) !important;
-    border-radius: 18px !important;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
-  }
-
-  main.content,
-  .page-columns main.content {
-    max-width: 980px !important;
-  }
-
-  #TOC,
-  nav#TOC,
-  .sidebar nav[role="doc-toc"] {
-    position: static !important;
-    top: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    margin: 0 0 1.35rem 0 !important;
-    padding: 0 0 1.15rem 0 !important;
-    border-bottom: 1px solid #eeeeee !important;
-    background: transparent !important;
-  }
-}
-
-#TOC #toc-title,
-nav#TOC #toc-title,
-.sidebar nav[role="doc-toc"] #toc-title {
-  font-size: 0.95rem !important;
-  font-weight: 800 !important;
-  color: #111111 !important;
-  margin: 0 0 0.55rem 0 !important;
-}
-
-#TOC ul,
-nav#TOC ul,
-.sidebar nav[role="doc-toc"] ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 0 !important;
-}
-
-#TOC li,
-nav#TOC li,
-.sidebar nav[role="doc-toc"] li {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-#TOC a,
-nav#TOC a,
-.sidebar nav[role="doc-toc"] a {
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 0.22rem 0 0.22rem 0.7rem !important;
-  border-left: 2px solid transparent !important;
-  color: #374151 !important;
-  text-decoration: none !important;
-  font-size: 0.94rem !important;
-  line-height: 1.5 !important;
-  white-space: normal !important;
-}
-
-#TOC a:hover,
-nav#TOC a:hover,
-.sidebar nav[role="doc-toc"] a:hover {
-  color: #2563eb !important;
-  border-left-color: #93c5fd !important;
-  text-decoration: none !important;
-}
-
-#TOC a.active,
-#TOC .active > a,
-nav#TOC a.active,
-nav#TOC .active > a,
-.sidebar nav[role="doc-toc"] a.active,
-.sidebar nav[role="doc-toc"] .active > a {
-  color: #2563eb !important;
-  border-left-color: #2563eb !important;
-  font-weight: 800 !important;
-}
-
-/* Categories 保留在目录下面 */
-.quarto-listing-category,
-.sidebar .quarto-listing-category,
-#quarto-margin-sidebar .quarto-listing-category {
-  display: block !important;
-  position: static !important;
-  clear: both !important;
-  float: none !important;
-  width: 100% !important;
-  margin: 1.15rem 0 0 0 !important;
-  padding: 0 !important;
-  font-size: 0.94rem !important;
-  line-height: 1.6 !important;
-  color: #222222 !important;
-}
-
-.quarto-listing-category-title,
-.sidebar .quarto-listing-category-title,
-#quarto-margin-sidebar .quarto-listing-category-title {
-  display: block !important;
-  margin: 0 0 0.5rem 0 !important;
-  font-size: 1rem !important;
-  font-weight: 800 !important;
-  color: #222222 !important;
-}
-
-.quarto-listing-category .category,
-.quarto-listing-category a,
-.sidebar .quarto-listing-category .category,
-.sidebar .quarto-listing-category a,
-#quarto-margin-sidebar .quarto-listing-category .category,
-#quarto-margin-sidebar .quarto-listing-category a {
-  display: block !important;
-  margin: 0.18rem 0 !important;
-  padding: 0.12rem 0 !important;
-  font-size: 0.94rem !important;
-  line-height: 1.6 !important;
-  color: #333333 !important;
-  text-decoration: none !important;
-  white-space: normal !important;
-}
-
-.quarto-listing-category .category:hover,
-.quarto-listing-category a:hover {
-  color: #2563eb !important;
-  text-decoration: none !important;
-}
-
-/* 移动端隐藏右侧栏 */
-@media (max-width: 991px) {
-  #quarto-margin-sidebar,
-  .quarto-margin-sidebar,
-  .sidebar.margin-sidebar {
-    display: none !important;
-  }
-}
-
 /* 响应式 */
 @media (max-width: 1100px) {
   .sx-home {
     max-width: 100%;
+    padding: 2.2rem 1rem 4rem 1rem;
   }
 
-  .sx-hero-grid {
+  .sx-hero-grid,
+  .sx-three-grid,
+  .sx-feature-grid,
+  .sx-lower-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sx-nav-card-large {
+    grid-row: auto;
+    min-height: 260px;
   }
 
   .sx-status-item {
     grid-template-columns: 130px minmax(0, 1fr);
-  }
-
-  .sx-three-grid,
-  .sx-widget-grid,
-  .sx-nav-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .sx-home {
-    padding: 2.2rem 1rem 4rem 1rem;
-  }
-
-  .sx-home > h1 {
-    font-size: 2rem;
-  }
-
-  .sx-intro-card {
-    padding: 1.8rem;
-  }
-
-  .sx-intro-card h2 {
-    font-size: 2.1rem;
-  }
-
-  .sx-todo-row,
-  .sx-input-row {
-    flex-direction: column;
-    align-items: stretch;
   }
 }
 
@@ -1090,305 +805,1488 @@ nav#TOC .active > a,
   }
 }
 /* =========================================================
-   首页顶部导航栏：上下高度调整
+   首页最终对齐补丁
+   修改问题：
+   1. 顶部标题与左侧大卡片左边对齐
+   2. 内容导航、标签云、文章列表整体宽度与互动小部件一致
+   3. 第一张大卡片标题改成黑色
+   4. 右侧固定目录不参与正文宽度计算
+   ========================================================= */
+
+/* 统一首页内容宽度变量：
+   --sx-home-content-width 控制正文主体宽度
+   --sx-home-right-space 给右侧固定目录预留空间 */
+body.sx-home-page {
+  --sx-home-content-width: 960px;
+  --sx-home-right-space: 460px;
+  --sx-home-side-padding: 2rem;
+}
+
+/* 修改问题 1：
+   首页主体不要再受旧的 max-width: 980px 限制。
+   原因：旧代码里 .sx-home 最大宽度太窄，后面又有其他网格宽度，导致标题和卡片对不齐。 */
+body.sx-home-page .sx-home {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 修改问题 1 + 2：
+   下面这些部分全部使用同一个宽度：
+   顶部标题、顶部副标题、上方介绍卡片、互动小部件、内容导航、标签云、文章列表。
+   这样它们的左边线会完全对齐。 */
+body.sx-home-page .sx-home > h1,
+body.sx-home-page .sx-home > p,
+body.sx-home-page .sx-home-main-title,
+body.sx-home-page .sx-home-subtitle,
+body.sx-home-page .sx-hero-grid,
+body.sx-home-page .sx-three-grid,
+body.sx-home-page .sx-feature-grid,
+body.sx-home-page .sx-lower-grid,
+body.sx-home-page .sx-nav-grid,
+body.sx-home-page .sx-tag-cloud,
+body.sx-home-page .quarto-listing {
+  width: min(
+    calc(100vw - var(--sx-home-right-space) - var(--sx-home-side-padding) * 2),
+    var(--sx-home-content-width)
+  ) !important;
+
+  max-width: var(--sx-home-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 修改问题 1：
+   顶部标题改成左对齐。
+   这样它的左边会和下面左侧大卡片左边对齐，类似你附件2的效果。 */
+body.sx-home-page .sx-home > h1,
+body.sx-home-page .sx-home-main-title {
+  text-align: left !important;
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.48) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* 修改问题 1：
+   顶部副标题也跟标题同一左边线，不再居中。 */
+body.sx-home-page .sx-home > p,
+body.sx-home-page .sx-home-subtitle {
+  text-align: left !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38) !important;
+  margin-bottom: 2.2rem !important;
+}
+
+/* 修改问题 3：
+   第一张大卡片里的“把学习、代码、建模、阅读和普通日子都留下来”改成黑色。
+   原因：首页全局 h2 白色样式影响到了卡片内部标题。 */
+body.sx-home-page .sx-intro-card h2 {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+/* 修改问题 2：
+   互动小部件整体宽度作为基准，保持三栏排布。 */
+body.sx-home-page .sx-three-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+/* 修改问题 2：
+   内容导航改成和互动小部件一样的总宽度。
+   左侧数学笔记占大块，右侧四个小卡片。 */
+body.sx-home-page .sx-feature-grid {
+  display: grid !important;
+  grid-template-columns: 1.45fr 0.85fr 0.85fr !important;
+  grid-template-rows: repeat(2, minmax(210px, auto)) !important;
+  gap: 18px !important;
+}
+
+/* 修改问题 2：
+   如果你当前内容导航还使用旧类名 sx-nav-grid，也一起限制宽度。
+   这样无论你用 sx-feature-grid 还是 sx-nav-grid，都不会跑偏。 */
+body.sx-home-page .sx-nav-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+/* 修改问题 2：
+   下方 Mood Journal / About / 专注模式，也跟上方内容导航同宽。 */
+body.sx-home-page .sx-lower-grid {
+  display: grid !important;
+  grid-template-columns: 0.75fr 0.75fr 1.5fr !important;
+  gap: 18px !important;
+  margin-top: 18px !important;
+}
+
+/* 修改问题 2：
+   数学笔记大卡片占两行，保持附件3那种大卡片效果。 */
+body.sx-home-page .sx-topic-card-large {
+  grid-row: span 2 !important;
+  min-height: 450px !important;
+}
+
+/* 修改问题 2：
+   内容导航标题、标签云标题、文章列表标题也统一宽度。
+   这些标题之前会贴到最左边，现在统一和卡片左边线对齐。 */
+body.sx-home-page .sx-home > h2,
+body.sx-home-page .sx-home-section-title,
+body.sx-home-page #interactive-widgets,
+body.sx-home-page #content-navigation,
+body.sx-home-page #tag-cloud,
+body.sx-home-page #post-list {
+  width: min(
+    calc(100vw - var(--sx-home-right-space) - var(--sx-home-side-padding) * 2),
+    var(--sx-home-content-width)
+  ) !important;
+
+  max-width: var(--sx-home-content-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 修改问题 4：
+   右侧固定目录保持固定，不随着页面滑动。
+   它不占正文宽度，所以正文需要通过上面的 --sx-home-right-space 给它让位置。 */
+body.sx-home-page .sx-home-fixed-toc {
+  position: fixed !important;
+  top: 6.4rem !important;
+  right: 6rem !important;
+  width: 230px !important;
+  max-height: calc(100vh - 7.2rem) !important;
+  overflow-y: auto !important;
+  z-index: 80 !important;
+
+  padding: 1rem 1.1rem !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+}
+
+/* 修改问题 4：
+   目录标题和链接样式。 */
+body.sx-home-page .sx-home-fixed-toc-title {
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+body.sx-home-page .sx-home-fixed-toc a {
+  display: block !important;
+  padding: 0.28rem 0 !important;
+  color: #374151 !important;
+  text-decoration: none !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+}
+
+body.sx-home-page .sx-home-fixed-toc a:hover {
+  color: #2563eb !important;
+  text-decoration: none !important;
+}
+
+/* 修改问题 2：
+   文章列表卡片缩小，不要像之前那样巨大。 */
+body.sx-home-page .quarto-listing .quarto-post {
+  min-height: 0 !important;
+  padding: 1.15rem 1.25rem !important;
+  border-radius: 18px !important;
+}
+
+/* 小屏幕时取消右侧目录，所有内容恢复正常单栏。 */
+@media (max-width: 1180px) {
+  body.sx-home-page {
+    --sx-home-right-space: 0px;
+    --sx-home-side-padding: 1.2rem;
+  }
+
+  body.sx-home-page .sx-home-fixed-toc {
+    display: none !important;
+  }
+
+  body.sx-home-page .sx-three-grid,
+  body.sx-home-page .sx-feature-grid,
+  body.sx-home-page .sx-lower-grid,
+  body.sx-home-page .sx-nav-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.sx-home-page .sx-topic-card-large {
+    grid-row: auto !important;
+    min-height: 260px !important;
+  }
+}
+/* =========================================================
+   修改问题：互动小部件 和 内容导航 两部分距离太远
+   修改方法：
+   1. 缩小互动小部件卡片区域下方间距
+   2. 缩小“内容导航”标题上方间距
+   3. 保持整体宽度和布局不变
 ========================================================= */
 
-/* 控制整个导航栏上下厚度 */
-body.sx-home-page .navbar {
-  min-height: 58px !important;        /* 导航栏整体高度 */
-  padding-top: 6px !important;        /* 上边距 */
-  padding-bottom: 6px !important;     /* 下边距 */
+/* 缩小互动小部件这一组三张卡片下面的空白 */
+body.sx-home-page .sx-three-grid {
+  margin-bottom: 0.05rem !important;
 }
 
-/* 控制导航栏内部容器高度 */
-body.sx-home-page .navbar .container-fluid,
-body.sx-home-page .navbar-container {
-  min-height: 46px !important;
+/* 缩小“内容导航”标题距离上方卡片的距离 */
+body.sx-home-page h2#content-navigation {
+  margin-top: -2rem !important;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  align-items: center !important;
 }
 
-/* 控制 首页 / 专题 / 笔记 / 日志 / 文章 / 心流 / About 这些文字的上下间距 */
-body.sx-home-page .navbar .nav-link,
-body.sx-home-page .navbar .navbar-brand {
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
-  line-height: 1.2 !important;
+/* 内容导航标题下面到卡片的距离也稍微收紧 */
+body.sx-home-page h2#content-navigation + .sx-feature-grid,
+body.sx-home-page h2#content-navigation + .sx-nav-grid {
+  margin-top: 0.9rem !important;
+}
+/* =========================================================
+   修改问题：内容导航卡片高度太长、留白太多
+   修改方法：
+   1. 缩小内容导航每一行高度
+   2. 缩小大卡片“数学笔记”的最小高度
+   3. 缩小普通卡片内边距
+   4. 保持整体宽度不变
+========================================================= */
+
+/* 内容导航上半部分：数学笔记 + 四个小卡片 */
+body.sx-home-page .sx-feature-grid {
+  grid-template-rows: repeat(2, minmax(125px, auto)) !important;
+  gap: 14px !important;
 }
 
-/* 控制右侧搜索按钮、GitHub 图标区域的高度 */
-body.sx-home-page .navbar .quarto-navbar-tools,
-body.sx-home-page .navbar .aa-DetachedSearchButton {
-  min-height: 42px !important;
+/* 所有内容导航卡片高度缩短 */
+body.sx-home-page .sx-topic-card {
+  min-height: 125px !important;
+  padding: 1.15rem !important;
+}
+
+/* 左侧“数学笔记”大卡片缩短 */
+body.sx-home-page .sx-topic-card-large {
+  min-height: 200px !important;
+}
+
+/* 卡片图标稍微缩小，减少上方留白 */
+body.sx-home-page .sx-topic-card .sx-icon {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 15px !important;
+  margin-bottom: 0.55rem !important;
+}
+
+/* 内容导航卡片标题缩小一点，避免撑高 */
+body.sx-home-page .sx-topic-card h3 {
+  font-size: clamp(1.35rem, 2vw, 1.8rem) !important;
+  margin-top: 0.45rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* 内容导航卡片说明文字行距稍微收紧 */
+body.sx-home-page .sx-topic-card p {
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+}
+
+/* 下方 Mood Journal / 专注模式 / About 这一排也缩短 */
+body.sx-home-page .sx-lower-grid {
+  grid-template-columns: 0.75fr 1.5fr 0.75fr !important;
+  gap: 14px !important;
+  margin-top: 14px !important;
+}
+
+/* 专注模式仍然保持接近两个小卡片宽度，但高度不要太长 */
+body.sx-home-page .sx-focus-card {
+  min-height: 135px !important;
+}
+/* =========================================================
+   修改问题：内容导航卡片字体偏大，导致卡片高度不好压缩
+   修改方法：
+   1. 缩小内容导航卡片标题字体
+   2. 缩小说明文字字体和行距
+   3. 缩小图标
+   4. 让卡片整体更紧凑
+========================================================= */
+/* =========================================================
+   首页内容导航卡片重新优化
+   解决的问题：
+   1. 卡片太矮，导致文字显示不全
+   2. 下排三个卡片比例难看
+   3. 数学笔记图片过于突兀
+   4. 标题和说明文字整体更协调
+   ========================================================= */
+
+/* ---------- 内容导航整体间距 ---------- */
+body.sx-home-page .sx-feature-grid {
+  gap: 18px !important;
+  align-items: stretch !important;
+}
+
+body.sx-home-page .sx-lower-grid {
+  gap: 18px !important;
+  margin-top: 18px !important;
+  align-items: stretch !important;
+}
+
+/* ---------- 所有导航卡片统一外观 ---------- */
+body.sx-home-page .sx-topic-card,
+body.sx-home-page .sx-nav-card {
+  background: rgba(255, 255, 255, 0.84) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 28px !important;
+  padding: 1.45rem 1.45rem 1.35rem 1.45rem !important;
+  overflow: visible !important;         /* 关键：防止说明文字被裁掉 */
+  height: auto !important;              /* 关键：取消死高度 */
+  max-height: none !important;          /* 关键：取消死高度 */
   display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+/* ---------- 上排右侧四个普通卡片 ---------- */
+body.sx-home-page .sx-feature-grid .sx-topic-card,
+body.sx-home-page .sx-feature-grid .sx-nav-card:not(.sx-nav-card-large) {
+  min-height: 195px !important;
+}
+
+/* ---------- 左侧数学笔记大卡片 ---------- */
+body.sx-home-page .sx-nav-card-large,
+body.sx-home-page .sx-topic-card-large {
+  min-height: 390px !important;
+  padding: 1.55rem 1.55rem 1.5rem 1.55rem !important;
+}
+
+/* ---------- 下排三个卡片：统一更好看的高度 ---------- */
+body.sx-home-page .sx-lower-grid .sx-topic-card {
+  min-height: 165px !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 1.3rem 1.35rem !important;
+}
+
+/* ---------- 专注模式：比普通小卡稍宽，但不要太扁 ---------- */
+body.sx-home-page .sx-focus-card {
+  min-height: 165px !important;
+  height: auto !important;
+  max-height: none !important;
+  background: rgba(255, 255, 255, 0.84) !important;  /* 解决透明度过高问题 */
+}
+
+/* ---------- 图标统一 ---------- */
+body.sx-home-page .sx-topic-card .sx-icon,
+body.sx-home-page .sx-nav-card .sx-icon {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 16px !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 0.95rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* ---------- 普通卡片标题统一 ---------- */
+body.sx-home-page .sx-topic-card h3,
+body.sx-home-page .sx-nav-card h3 {
+  font-size: 1.16rem !important;
+  line-height: 1.24 !important;
+  font-weight: 900 !important;
+  margin: 0 0 0.65rem 0 !important;
+  letter-spacing: -0.03em !important;
+  color: #242424 !important;
+}
+
+/* ---------- 左侧大卡标题单独大一点 ---------- */
+body.sx-home-page .sx-nav-card-large h3,
+body.sx-home-page .sx-topic-card-large h3 {
+  font-size: 1.95rem !important;
+  line-height: 1.12 !important;
+  margin: 0 0 0.8rem 0 !important;
+  font-weight: 950 !important;
+  color: #202020 !important;
+}
+
+/* ---------- 所有说明文字统一 ---------- */
+body.sx-home-page .sx-topic-card p,
+body.sx-home-page .sx-nav-card p {
+  font-size: 0.94rem !important;
+  line-height: 1.58 !important;
+  margin: 0 !important;
+  color: #4b5563 !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* ---------- 数学笔记图片：缩小并更协调 ---------- */
+body.sx-home-page .sx-math-cover {
+  display: block !important;
+  width: 58% !important;
+  max-width: 260px !important;
+  height: 92px !important;
+  object-fit: cover !important;
+  border-radius: 16px !important;
+  margin: 0.2rem auto 1rem auto !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* ---------- 避免图片把大卡片撑得太夸张 ---------- */
+body.sx-home-page .sx-nav-card-large .sx-icon {
+  margin-bottom: 0.8rem !important;
+}
+
+/* ---------- 专注模式、About、Mood 标题不要过大 ---------- */
+body.sx-home-page .sx-lower-grid .sx-topic-card h3 {
+  font-size: 1.08rem !important;
+  line-height: 1.22 !important;
+  margin-bottom: 0.45rem !important;
+}
+
+body.sx-home-page .sx-lower-grid .sx-topic-card p {
+  font-size: 0.9rem !important;
+  line-height: 1.52 !important;
+}
+
+/* ---------- 专注模式正文稍微收紧，防止一行过长难看 ---------- */
+body.sx-home-page .sx-focus-card p {
+  max-width: 95% !important;
+}
+
+/* ---------- 如果你之前写过固定高度，这里强制清掉 ---------- */
+body.sx-home-page .sx-topic-card,
+body.sx-home-page .sx-nav-card,
+body.sx-home-page .sx-topic-card-large,
+body.sx-home-page .sx-nav-card-large,
+body.sx-home-page .sx-focus-card {
+  height: auto !important;
+  max-height: none !important;
+}
+/* =========================================================
+   修改问题：内容导航区域字体大小不统一
+   修改目标：
+   1. 除左侧“数学笔记”大卡片外，其余所有卡片标题字号完全一样
+   2. 除左侧“数学笔记”大卡片外，其余所有卡片说明文字字号完全一样
+   3. 左侧“数学笔记”允许标题和说明文字略大
+   4. 专注模式、About、MOOD JOURNAL 与上方小卡片字体保持一致
+========================================================= */
+
+/* 1. 先统一所有内容导航卡片的基础文字状态 */
+body.sx-home-page .sx-feature-grid .sx-topic-card,
+body.sx-home-page .sx-lower-grid .sx-topic-card {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", system-ui, sans-serif !important;
+  color: #111111 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 2. 除“数学笔记”大卡片外，所有小卡片标题完全统一
+   包括：数学建模、MATLAB、数值分析、算法图解、MOOD JOURNAL、专注模式、About */
+body.sx-home-page .sx-feature-grid .sx-topic-card:not(.sx-topic-card-large) h3,
+body.sx-home-page .sx-lower-grid .sx-topic-card h3,
+body.sx-home-page .sx-lower-grid .sx-focus-card h3 {
+  font-size: 1.22rem !important;
+  line-height: 1.18 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.035em !important;
+  margin-top: 0.22rem !important;
+  margin-bottom: 0.26rem !important;
+  color: #111111 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 3. 除“数学笔记”大卡片外，所有小卡片说明文字完全统一 */
+body.sx-home-page .sx-feature-grid .sx-topic-card:not(.sx-topic-card-large) p,
+body.sx-home-page .sx-lower-grid .sx-topic-card p,
+body.sx-home-page .sx-lower-grid .sx-focus-card p {
+  font-size: 0.86rem !important;
+  line-height: 1.52 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  color: #4b5563 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 4. 左侧“数学笔记”大卡片标题单独略大 */
+body.sx-home-page .sx-feature-grid .sx-topic-card-large h3 {
+  font-size: 1.55rem !important;
+  line-height: 1.18 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.28rem !important;
+  color: #111111 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 5. 左侧“数学笔记”大卡片说明文字略大一点 */
+body.sx-home-page .sx-feature-grid .sx-topic-card-large p {
+  font-size: 0.94rem !important;
+  line-height: 1.58 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  color: #4b5563 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+/* 6. 所有图标大小统一，避免图标大小影响卡片视觉比例 */
+body.sx-home-page .sx-feature-grid .sx-topic-card:not(.sx-topic-card-large) .sx-icon,
+body.sx-home-page .sx-lower-grid .sx-topic-card .sx-icon {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 12px !important;
+  font-size: 0.9rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+/* 7. 左侧大卡片图标可以略大一点 */
+body.sx-home-page .sx-feature-grid .sx-topic-card-large .sx-icon {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 13px !important;
+  font-size: 1rem !important;
+  margin-bottom: 0.45rem !important;
+}
+
+/* 8. 专注模式强制取消特殊透明效果，保证和其他小卡片一致 */
+body.sx-home-page .sx-lower-grid .sx-focus-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+/* =========================================================
+   修改问题：文章列表右侧图片没有显示
+   修改方法：
+   1. 取消之前对 thumbnail / listing-image 的隐藏
+   2. 把文章列表改成：左侧日期，中间文字，右侧图片
+   3. 图片显示在右侧，效果接近参考图
+========================================================= */
+
+/* 文章卡片整体：三栏布局 */
+body.sx-home-page .quarto-listing .quarto-post {
+  display: grid !important;
+  grid-template-columns: 150px minmax(0, 1fr) 280px !important;
+  gap: 1.5rem !important;
   align-items: center !important;
+
+  min-height: 210px !important;
+  padding: 1.35rem 1.55rem !important;
+  border-radius: 22px !important;
+
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.58) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* 左侧日期区域 */
+body.sx-home-page .quarto-listing .quarto-post .metadata {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  align-self: start !important;
+  color: #222222 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.7 !important;
+}
+
+/* 中间正文区域 */
+body.sx-home-page .quarto-listing .quarto-post .body {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 文章标题 */
+body.sx-home-page .quarto-listing .quarto-post .listing-title,
+body.sx-home-page .quarto-listing .quarto-post .listing-title a {
+  font-size: 1.55rem !important;
+  line-height: 1.25 !important;
+  font-weight: 850 !important;
+  color: #1f2937 !important;
+  text-decoration: none !important;
+}
+
+/* 文章副标题/描述 */
+body.sx-home-page .quarto-listing .quarto-post .listing-subtitle,
+body.sx-home-page .quarto-listing .quarto-post .listing-description {
+  font-size: 1.02rem !important;
+  line-height: 1.75 !important;
+  color: #374151 !important;
+}
+
+/* 右侧图片区域：关键，重新显示图片 */
+body.sx-home-page .quarto-listing .quarto-post .thumbnail,
+body.sx-home-page .quarto-listing .quarto-post .listing-image {
+  display: block !important;
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  width: 100% !important;
+  height: 150px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+}
+
+/* 图片本身 */
+body.sx-home-page .quarto-listing .quarto-post img.thumbnail-image,
+body.sx-home-page .quarto-listing .quarto-post .thumbnail img,
+body.sx-home-page .quarto-listing .quarto-post .listing-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
+/* 分类标签不要太大 */
+body.sx-home-page .quarto-listing .quarto-post .listing-categories {
+  margin-top: 0.45rem !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post .listing-category {
+  font-size: 0.78rem !important;
+  padding: 0.15rem 0.45rem !important;
+}
+
+/* 小屏幕文章列表改成单栏 */
+@media (max-width: 900px) {
+  body.sx-home-page .quarto-listing .quarto-post {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.sx-home-page .quarto-listing .quarto-post .metadata,
+  body.sx-home-page .quarto-listing .quarto-post .body,
+  body.sx-home-page .quarto-listing .quarto-post .thumbnail,
+  body.sx-home-page .quarto-listing .quarto-post .listing-image {
+    grid-column: 1 !important;
+  }
+
+  body.sx-home-page .quarto-listing .quarto-post .thumbnail,
+  body.sx-home-page .quarto-listing .quarto-post .listing-image {
+    height: 180px !important;
+  }
+}
+/* =========================================================
+   修改问题：数学笔记大卡片里的图片太大
+   修改方法：
+   1. 强制限制图片宽度
+   2. 强制限制图片高度
+   3. 图片居中显示
+   4. 不让图片把文字区域挤没
+========================================================= */
+
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large img.sx-topic-cover {
+  display: block !important;
+
+  /* 控制图片宽度：数值越小，图片越窄 */
+  width: 3% !important;
+  max-width: 18px !important;
+
+  /* 控制图片高度：数值越小，图片越矮 */
+  height: 60px !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  border-radius: 16px !important;
+  margin: 0.35rem auto 0.55rem auto !important;
+
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12) !important;
+  opacity: 0.96 !important;
+
+  /* 关键：防止图片被 flex 拉伸 */
+  flex: 0 0 auto !important;
+}
+
+/* 数学笔记大卡片内部重新收紧，避免图片撑开整张卡 */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large {
+  justify-content: flex-start !important;
+  gap: 0.45rem !important;
+  overflow: hidden !important;
+}
+
+/* 数学笔记文字区域不要被图片挤掉 */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large .sx-topic-card-text {
+  display: block !important;
+  margin-top: 0 !important;
+}
+/* =========================================================
+   修改问题：数学笔记大卡片高度太高，底部留白太多
+   修改方法：
+   1. 固定内容导航上半区每一行高度
+   2. 数学笔记大卡片跨两行，但整体高度被压低
+   3. 图片高度继续保持较小，不撑开卡片
+========================================================= */
+
+/* 控制内容导航上半部分两行的高度
+   数值越小，数学笔记大卡片整体越矮 */
+body.sx-home-page .sx-home .sx-feature-grid {
+  grid-template-rows: repeat(2, 155px) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+/* 普通小卡片高度跟随网格，不要自己撑高 */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card:not(.sx-topic-card-large) {
+  height: 155px !important;
+  min-height: 155px !important;
+  padding: 1rem 1.05rem !important;
+  overflow: hidden !important;
+}
+
+/* 数学笔记大卡片高度 = 两行高度 + 中间 gap
+   155 * 2 + 12 = 322px */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large {
+  height: 322px !important;
+  min-height: 322px !important;
+  max-height: 322px !important;
+  padding: 1rem 1.05rem !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 0.45rem !important;
+}
+
+/* 数学笔记里面的图片不要撑高大卡片 */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large img.sx-topic-cover {
+  width: 62% !important;
+  max-width: 280px !important;
+  height: 78px !important;
+  max-height: 78px !important;
+  object-fit: cover !important;
+  border-radius: 13px !important;
+  margin: 0.25rem auto 0.45rem auto !important;
+  flex: 0 0 78px !important;
+}
+
+/* 数学笔记文字区收紧 */
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large h3 {
+  font-size: 1.45rem !important;
+  line-height: 1.12 !important;
+  margin-top: 0.1rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+body.sx-home-page .sx-home .sx-feature-grid a.sx-topic-card-large p {
+  font-size: 0.86rem !important;
+  line-height: 1.45 !important;
+  margin-bottom: 0 !important;
+}
+/* =========================================================
+   最终修复：内容导航高度没有变化
+   修改原因：
+   之前用 .sx-feature-grid / .sx-topic-card-large 可能被旧样式覆盖，
+   或者真实结构不是这个类名。
+   这里改用 href 精准锁定每张卡片，所以一定能控制高度。
+========================================================= */
+
+/* 1. 内容导航上方整体网格高度压缩 */
+body.sx-home-page .sx-home .sx-feature-grid,
+body.sx-home-page .sx-home .sx-nav-grid {
+  grid-template-rows: repeat(2, 135px) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+/* 2. 精准锁定左侧“数学笔记”大卡片 */
+body.sx-home-page .sx-home a[href="notes.html"] {
+  height: 282px !important;        /* 135 * 2 + 12 = 282 */
+  min-height: 282px !important;
+  max-height: 282px !important;
+
+  padding: 1rem 1.05rem !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 0.42rem !important;
+}
+
+/* 3. 精准锁定数学笔记里面的图片，防止图片撑高卡片 */
+body.sx-home-page .sx-home a[href="notes.html"] img,
+body.sx-home-page .sx-home a[href="notes.html"] img.sx-topic-cover {
+  width: 58% !important;
+  max-width: 260px !important;
+  height: 72px !important;
+  max-height: 72px !important;
+  min-height: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  display: block !important;
+  flex: 0 0 72px !important;
+
+  margin: 0.2rem auto 0.45rem auto !important;
+  border-radius: 12px !important;
+}
+
+/* 4. 数学笔记标题和说明收紧 */
+body.sx-home-page .sx-home a[href="notes.html"] h3 {
+  font-size: 1.35rem !important;
+  line-height: 1.12 !important;
+  margin-top: 0.05rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+body.sx-home-page .sx-home a[href="notes.html"] p {
+  font-size: 0.82rem !important;
+  line-height: 1.38 !important;
+  margin: 0 !important;
+}
+
+/* 5. 精准锁定右侧四个小卡片高度 */
+body.sx-home-page .sx-home a[href="topics/math-modeling/"],
+body.sx-home-page .sx-home a[href="topics/matlab/"],
+body.sx-home-page .sx-home a[href="topics/numerical-analysis/"],
+body.sx-home-page .sx-home a[href="topics/algorithm/"] {
+  height: 135px !important;
+  min-height: 135px !important;
+  max-height: 135px !important;
+
+  padding: 1rem 1.05rem !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 0.35rem !important;
+}
+
+/* 6. 右侧四个小卡片标题统一 */
+body.sx-home-page .sx-home a[href="topics/math-modeling/"] h3,
+body.sx-home-page .sx-home a[href="topics/matlab/"] h3,
+body.sx-home-page .sx-home a[href="topics/numerical-analysis/"] h3,
+body.sx-home-page .sx-home a[href="topics/algorithm/"] h3 {
+  font-size: 1.12rem !important;
+  line-height: 1.15 !important;
+  margin: 0.1rem 0 0.18rem 0 !important;
+}
+
+/* 7. 右侧四个小卡片说明统一 */
+body.sx-home-page .sx-home a[href="topics/math-modeling/"] p,
+body.sx-home-page .sx-home a[href="topics/matlab/"] p,
+body.sx-home-page .sx-home a[href="topics/numerical-analysis/"] p,
+body.sx-home-page .sx-home a[href="topics/algorithm/"] p {
+  font-size: 0.82rem !important;
+  line-height: 1.38 !important;
+  margin: 0 !important;
+}
+
+/* 8. 图标也压缩一下 */
+body.sx-home-page .sx-home a[href="notes.html"] .sx-icon,
+body.sx-home-page .sx-home a[href="topics/math-modeling/"] .sx-icon,
+body.sx-home-page .sx-home a[href="topics/matlab/"] .sx-icon,
+body.sx-home-page .sx-home a[href="topics/numerical-analysis/"] .sx-icon,
+body.sx-home-page .sx-home a[href="topics/algorithm/"] .sx-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 11px !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 0.2rem !important;
+}
+
+/* 9. 下方 Mood Journal / 专注模式 / About 也同步压矮 */
+body.sx-home-page .sx-home a[href="journal.html"],
+body.sx-home-page .sx-home a[href="xinliu.html"],
+body.sx-home-page .sx-home a[href="about.html"] {
+  height: 115px !important;
+  min-height: 115px !important;
+  max-height: 115px !important;
+
+  padding: 0.9rem 1rem !important;
+  overflow: hidden !important;
+}
+
+/* 10. 专注模式保持宽度，但是高度不要变大 */
+body.sx-home-page .sx-home a[href="xinliu.html"] {
+  background: rgba(255, 255, 255, 0.88) !important;
+  opacity: 1 !important;
+}
+/* =========================================================
+   内容导航最终统一修复
+   修改问题：
+   1. sx-topic-card / sx-nav-card 类名混用导致高度不生效
+   2. 数学笔记图片内联样式覆盖 CSS
+   3. 内容导航卡片高度太高
+   4. 右侧四个卡片和下方三个卡片字体大小不统一
+========================================================= */
+
+/* 内容导航整体网格：两行固定高度 */
+body.sx-home-page .sx-feature-grid {
+  display: grid !important;
+  grid-template-columns: 1.45fr 0.85fr 0.85fr !important;
+  grid-template-rows: 135px 135px !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+/* 左侧数学笔记大卡片：高度 = 135 * 2 + 12 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large {
+  grid-row: span 2 !important;
+  height: 282px !important;
+  min-height: 282px !important;
+  max-height: 282px !important;
+
+  padding: 1rem 1.05rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 0.35rem !important;
+  overflow: hidden !important;
+}
+
+/* 右侧四个小卡片 */
+body.sx-home-page .sx-feature-grid .sx-nav-card:not(.sx-nav-card-large) {
+  height: 135px !important;
+  min-height: 135px !important;
+  max-height: 135px !important;
+
+  padding: 1rem 1.05rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 0.25rem !important;
+  overflow: hidden !important;
+}
+
+/* 数学笔记图片：这里真正控制图片大小 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large .sx-math-cover {
+  width: 62% !important;
+  max-width: 260px !important;
+  height: 68px !important;
+  max-height: 68px !important;
+  min-height: 68px !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+
+  margin: 0.15rem auto 0.35rem auto !important;
+  border-radius: 12px !important;
+  flex: 0 0 68px !important;
+}
+
+/* 图标统一缩小 */
+body.sx-home-page .sx-feature-grid .sx-icon,
+body.sx-home-page .sx-lower-grid .sx-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 11px !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* 右侧四个小卡片标题统一 */
+body.sx-home-page .sx-feature-grid .sx-nav-card:not(.sx-nav-card-large) h3,
+body.sx-home-page .sx-lower-grid .sx-topic-card h3 {
+  font-size: 1.12rem !important;
+  line-height: 1.15 !important;
+  font-weight: 950 !important;
+  margin: 0.1rem 0 0.18rem 0 !important;
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+/* 右侧四个小卡片说明统一 */
+body.sx-home-page .sx-feature-grid .sx-nav-card:not(.sx-nav-card-large) p,
+body.sx-home-page .sx-lower-grid .sx-topic-card p {
+  font-size: 0.82rem !important;
+  line-height: 1.38 !important;
+  margin: 0 !important;
+  color: #4b5563 !important;
+  text-shadow: none !important;
+}
+
+/* 数学笔记标题略大 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large h3 {
+  font-size: 1.35rem !important;
+  line-height: 1.12 !important;
+  margin: 0.08rem 0 0.18rem 0 !important;
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+/* 数学笔记说明略大一点 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large p {
+  font-size: 0.86rem !important;
+  line-height: 1.38 !important;
+  margin: 0 !important;
+  color: #4b5563 !important;
+  text-shadow: none !important;
+}
+
+/* 下方三个卡片压缩高度 */
+body.sx-home-page .sx-lower-grid {
+  display: grid !important;
+  grid-template-columns: 0.75fr 1.5fr 0.75fr !important;
+  gap: 12px !important;
+  margin-top: 12px !important;
+}
+
+body.sx-home-page .sx-lower-grid .sx-topic-card {
+  height: 110px !important;
+  min-height: 110px !important;
+  max-height: 110px !important;
+  padding: 0.9rem 1rem !important;
+  overflow: hidden !important;
+}
+
+/* 专注模式透明度和其他一致 */
+body.sx-home-page .sx-lower-grid .sx-focus-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  opacity: 1 !important;
+}
+/* =========================================================
+   【内容导航最终高度与间距修正】
+   解决的问题：
+   1. 上面五个框整体太矮 -> 向下拉长
+   2. 下面三个框离上面太远 -> 整体上移
+   3. 上下两部分间距尽量一致
+   4. 左大卡 + 右四小卡 + 下方三卡 更协调
+   ========================================================= */
+
+/* ---------- 内容导航整体容器：整体往上提一点 ---------- */
+body.sx-home-page #content-navigation,
+body.sx-home-page .sx-content-navigation,
+body.sx-home-page .sx-nav-section {
+  margin-top: -58px !important;
+}
+
+/* ---------- 上面五个框所在区域：整体间距 ---------- */
+body.sx-home-page .sx-feature-grid {
+  gap: 18px !important;
+  align-items: stretch !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---------- 左侧大卡片：数学笔记，明显加高 ---------- */
+body.sx-home-page .sx-nav-card-large,
+body.sx-home-page .sx-topic-card-large {
+  min-height: 630px !important;   /* 原来太短，这里直接拉长 */
+  height: auto !important;
+  padding: 1.45rem 1.45rem 1.35rem 1.45rem !important;
+  justify-content: flex-start !important;
+}
+
+/* ---------- 上面右侧四个小卡片：每个向下变长一行 ---------- */
+body.sx-home-page .sx-feature-grid .sx-topic-card,
+body.sx-home-page .sx-feature-grid .sx-nav-card:not(.sx-nav-card-large) {
+  min-height: 145px !important;   /* 小卡统一加高 */
+  height: auto !important;
+  padding: 1.25rem 1.2rem 1.2rem 1.2rem !important;
+  justify-content: flex-start !important;
+}
+
+/* ---------- 下面三个卡片：整体向上靠近 ---------- */
+body.sx-home-page .sx-lower-grid {
+  gap: 18px !important;           /* 和上面保持差不多 */
+  margin-top: -70px !important;   /* 关键：整体往上提 */
+  align-items: stretch !important;
+}
+
+/* ---------- 下方三个卡片本身：也稍微高一点，避免文字压缩 ---------- */
+body.sx-home-page .sx-lower-grid .sx-topic-card {
+  min-height: 165px !important;
+  height: auto !important;
+  padding: 1.15rem 1.15rem 1.05rem 1.15rem !important;
+  justify-content: flex-start !important;
+}
+
+/* ---------- 专注模式：保持横向更宽，同时高度和别的卡片接近 ---------- */
+body.sx-home-page .sx-focus-card {
+  min-height: 165px !important;
+  height: auto !important;
+  padding: 1.15rem 1.2rem 1.05rem 1.2rem !important;
+  margin-top: 0 !important;
+}
+
+/* ---------- 统一所有卡片的外观，防止被旧代码覆盖 ---------- */
+body.sx-home-page .sx-topic-card,
+body.sx-home-page .sx-nav-card-large,
+body.sx-home-page .sx-focus-card {
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+/* ---------- 标题和文字上下间距稍微统一，不然加高后会显得空 ---------- */
+body.sx-home-page .sx-topic-card h3,
+body.sx-home-page .sx-nav-card-large h3,
+body.sx-home-page .sx-focus-card h3 {
+  margin-bottom: 0.55rem !important;
+}
+
+body.sx-home-page .sx-topic-card p,
+body.sx-home-page .sx-nav-card-large p,
+body.sx-home-page .sx-focus-card p {
+  margin-bottom: 0 !important;
+  line-height: 1.52 !important;
+}
+/* =========================================================
+   修改问题：
+   1. 专注模式框太宽
+   2. About 框宽度想接近上面“算法图解”小卡片
+   修改方法：
+   通过 sx-lower-grid 的 grid-template-columns 调整三列比例
+========================================================= */
+
+body.sx-home-page .sx-lower-grid {
+  display: grid !important;
+
+  /* 左：MOOD JOURNAL，中：专注模式，右：About
+     原来大概率是 0.75fr 1.5fr 0.75fr
+     现在把中间专注模式从 1.5fr 改小到 1.15fr
+     把 About 从 0.75fr 改到 0.85fr，接近上面“算法图解”宽度 */
+  grid-template-columns: 0.85fr 1.45fr 0.85fr !important;
+
+  gap: 18px !important;
+
+  /* 这个保留你之前让下面三个框上移的设置；
+     如果你现在不是 -55px，就改成你当前满意的数值 */
+  margin-top: -70px !important;
+
+  align-items: stretch !important;
+}
+
+/* 保证三个卡片都吃满自己的网格宽度 */
+body.sx-home-page .sx-lower-grid .sx-topic-card,
+body.sx-home-page .sx-lower-grid .sx-focus-card {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* =========================================================
+   修改问题：
+   1. 数学笔记标题和说明文字向下移动
+   2. 数学笔记图片稍微变大
+   3. 保持数学笔记大卡片整体布局不乱
+========================================================= */
+
+/* 1. 数学笔记大卡片内部布局 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  overflow: visible !important;
+}
+
+/* 2. 数学笔记图片变大
+   width 控制图片宽度
+   height 控制图片高度
+   margin-bottom 控制图片和标题之间的距离 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large .sx-math-cover {
+  width: 72% !important;
+  max-width: 360px !important;
+  height: 105px !important;
+  max-height: 105px !important;
+  min-height: 105px !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+
+  margin: 0.25rem auto 1.15rem auto !important;
+  border-radius: 16px !important;
+  flex: 0 0 105px !important;
+}
+
+/* 3. 数学笔记标题和说明文字整体向下移动
+   margin-top 数值越大，标题和说明越往下 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large .sx-nav-card-text {
+  margin-top: -0.5rem !important;
+}
+
+/* 4. 数学笔记标题 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large .sx-nav-card-text h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* 5. 数学笔记说明 */
+body.sx-home-page .sx-feature-grid .sx-nav-card-large .sx-nav-card-text p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.55 !important;
 }
 </style>
-<section id="top" class="level1 sx-home">
-<h1>sanxi 的学习与生活笔记</h1>
-<p>把学习、代码、建模、阅读和普通日子都留下来。</p>
+
+<div class="sx-home">
+
+<!-- 修改问题 7：首页右侧固定目录
+     这个目录是手写目录，不依赖 Quarto 自动 TOC
+     它会固定在右侧，不会随着正文滚动消失 -->
+<nav class="sx-home-fixed-toc">
+  <div class="sx-home-fixed-toc-title">目录</div>
+  <a href="#top">首页介绍</a>
+  <a href="#interactive-widgets">互动小部件</a>
+  <a href="#content-navigation">内容导航</a>
+  <a href="#tag-cloud">标签云</a>
+  <a href="#post-list">文章列表</a>
+</nav>
+
+<h1 id="top" class="sx-home-main-title">sanxi 的学习与生活笔记</h1>
+
+<p class="sx-home-subtitle">把学习、代码、建模、阅读和普通日子都留下来。</p>
+
 <div class="sx-hero-grid">
+
 <div class="sx-intro-card">
-<div class="sx-eyebrow">
-SANXI BLOG · STUDY / CODE / JOURNAL
-</div>
-<h2 class="anchored" data-anchor-id="top">
-把学习、代码、建模、阅读和普通日子都留下来
-</h2>
+<div class="sx-eyebrow">SANXI BLOG · STUDY / CODE / JOURNAL</div>
+<h2 class="anchored">把学习、代码、建模、阅读和普通日子都留下来</h2>
 <p>
 这里主要记录统计学、数学建模、编程学习、Quarto 博客搭建、算法学习、数值分析、Mood Journal 和一些日常思考。文章可以慢慢写，页面先搭起来，后面再一点点填充内容。
 </p>
 <div class="sx-button-row">
-<p><a class="sx-btn sx-btn-dark" href="journal.html">进入日志</a> <a class="sx-btn sx-btn-light" href="about.html">关于我</a> <button class="sx-btn sx-btn-light" onclick="randomJump()">🎲 随便看看</button></p>
+<a class="sx-btn sx-btn-dark" href="journal.html">进入日志</a>
+<a class="sx-btn sx-btn-light" href="about.html">关于我</a>
+<button class="sx-btn sx-btn-light" type="button" onclick="randomJump()">🎲 随便看看</button>
 </div>
 </div>
+
 <div class="sx-status-card">
-<h3 class="anchored">
-当前状态
-</h3>
+<h3 class="anchored">当前状态</h3>
 <div class="sx-status-item">
-<div class="sx-status-label">
-📍 身份
-</div>
-<div class="sx-status-value">
-信息与计算科学 · 大二
-</div>
+<div class="sx-status-label">📍 身份</div>
+<div class="sx-status-value">信息与计算科学 · 大二</div>
 </div>
 <div class="sx-status-item">
-<div class="sx-status-label">
-📚 最近学习
-</div>
-<div class="sx-status-value">
-Quarto / 算法图解 / 数值分析
-</div>
+<div class="sx-status-label">📚 最近学习</div>
+<div class="sx-status-value">Quarto / 算法图解 / 数值分析</div>
 </div>
 <div class="sx-status-item">
-<div class="sx-status-label">
-🧭 长期方向
-</div>
-<div class="sx-status-value">
-数据分析与算法优化
-</div>
+<div class="sx-status-label">🧭 长期方向</div>
+<div class="sx-status-value">数据分析与算法优化</div>
 </div>
 <div class="sx-status-item">
-<div class="sx-status-label">
-📅 今天
-</div>
-<div id="today-date" class="sx-status-value">
-加载中…
+<div class="sx-status-label">📅 今天</div>
+<div id="today-date" class="sx-status-value">加载中...</div>
 </div>
 </div>
+
 </div>
-</div>
-<section id="interactive-widgets" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-widgets">互动小部件</h2>
+
+<h2 id="interactive-widgets" class="sx-home-section-title anchored">互动小部件</h2>
+
 <div class="sx-three-grid">
-<div class="sx-mini-card">
-<div class="sx-card-label">
-今日一句
+
+<div class="sx-mini-card sx-daily-card">
+<div class="sx-card-label">今日一句</div>
+<p id="daily-line" class="sx-daily-line">正在生成今日句子……</p>
+<button class="sx-small-btn" type="button" onclick="changeDailyLine()">换一句</button>
 </div>
-<p id="daily-line" class="sx-daily-line">
-正在生成今日句子……
-</p>
-<button class="sx-small-btn" onclick="changeDailyLine()">
-换一句
-</button>
-</div>
+
 <div class="sx-mini-card sx-mood-card">
-<div class="sx-card-label">
-MOOD JOURNAL
-</div>
-<div id="home-mood-word" class="sx-mood-word">
-读取中…
-</div>
-<div id="home-mood-date" class="sx-mood-date">
-正在读取 mood.csv
-</div>
-<div id="home-mood-title" class="sx-mood-title">
-请稍候…
-</div>
+<div class="sx-card-label">MOOD JOURNAL</div>
+<div id="home-mood-word" class="sx-mood-word">读取中...</div>
+<div id="home-mood-date" class="sx-mood-date">正在读取 mood.csv</div>
+<div id="home-mood-title" class="sx-mood-title">请稍候...</div>
 <div class="sx-mood-meta">
-<p><span id="home-mood-average">平均心情：- / 5</span> <span id="home-mood-count">共 - 条记录</span></p>
+<span id="home-mood-average">平均心情：- / 5</span>
+<span id="home-mood-count">共 - 条记录</span>
 </div>
-<p><a href="journal.html" class="sx-text-link">进入心情日志 →</a></p>
+<a href="journal.html" class="sx-text-link">进入心情日志 →</a>
 </div>
+
+<!-- 修改问题 6：学习进度条
+     这里不用 span / strong 写在同一行，避免 Quarto 或浏览器把它显示成文本 -->
 <div class="sx-mini-card">
-<div class="sx-card-label">
-学习进度条
+  <div class="sx-card-label">学习进度条</div>
+
+  <div class="sx-progress-item">
+    <div class="sx-progress-row">
+      <div class="sx-progress-name">Python</div>
+      <div class="sx-progress-percent">15%</div>
+    </div>
+    <div class="sx-progress-track">
+      <div class="sx-progress-bar" style="width: 15%;"></div>
+    </div>
+  </div>
+
+  <div class="sx-progress-item">
+    <div class="sx-progress-row">
+      <div class="sx-progress-name">Quarto Blog</div>
+      <div class="sx-progress-percent">62%</div>
+    </div>
+    <div class="sx-progress-track">
+      <div class="sx-progress-bar" style="width: 62%;"></div>
+    </div>
+  </div>
+
+  <div class="sx-progress-item">
+    <div class="sx-progress-row">
+      <div class="sx-progress-name">数学建模</div>
+      <div class="sx-progress-percent">39%</div>
+    </div>
+    <div class="sx-progress-track">
+      <div class="sx-progress-bar" style="width: 39%;"></div>
+    </div>
+  </div>
+
+  <div class="sx-progress-item">
+    <div class="sx-progress-row">
+      <div class="sx-progress-name">MATLAB</div>
+      <div class="sx-progress-percent">83%</div>
+    </div>
+    <div class="sx-progress-track">
+      <div class="sx-progress-bar" style="width: 83%;"></div>
+    </div>
+  </div>
 </div>
-<div class="sx-progress-item">
-<span>Python</span>
-<div class="sx-progress-track">
-<pre><code>&lt;div class="sx-progress-bar" style="width: 62%;"&gt;&lt;/div&gt;</code></pre>
+
 </div>
+
+
+<h2 id="content-navigation" class="sx-home-section-title anchored">内容导航</h2>
+
+<div class="sx-feature-grid">
+
+  <!-- 修改：数学笔记大卡片，统一使用 sx-nav-card sx-nav-card-large，避免 sx-topic-card / sx-nav-card 混用 -->
+  <a class="sx-nav-card sx-nav-card-large" href="notes.html">
+    <div class="sx-icon">Σ</div>
+
+    <img class="sx-math-cover" src="assets/img/math-notes-cover.jpg" alt="数学笔记封面图">
+
+    <div class="sx-nav-card-text">
+      <h3 class="anchored">数学笔记</h3>
+      <p>把公式、模型、考试重点和应用方法拆开整理，适合复习，也适合长期积累。</p>
+    </div>
+  </a>
+
+  <a class="sx-nav-card" href="topics/math-modeling/">
+    <div class="sx-icon">⌘</div>
+    <h3 class="anchored">数学建模</h3>
+    <p>从题目分析、模型建立到代码求解，把建模过程写清楚。</p>
+  </a>
+
+  <a class="sx-nav-card" href="topics/matlab/">
+    <div class="sx-icon">λ</div>
+    <h3 class="anchored">MATLAB</h3>
+    <p>数值计算、绘图、实验报告和建模常用代码记录。</p>
+  </a>
+
+  <a class="sx-nav-card" href="topics/numerical-analysis/">
+    <div class="sx-icon">∞</div>
+    <h3 class="anchored">数值分析</h3>
+    <p>插值、拟合、方程求根、数值积分和常微分方程数值解。</p>
+  </a>
+
+  <a class="sx-nav-card" href="topics/algorithm/">
+    <div class="sx-icon">DAG</div>
+    <h3 class="anchored">算法图解</h3>
+    <p>查找、排序、递归、图搜索和动态规划等算法学习笔记。</p>
+  </a>
+
 </div>
-<div class="sx-progress-item">
-<span>Quarto Blog</span>
-<div class="sx-progress-track">
-<pre><code>&lt;div class="sx-progress-bar" style="width: 78%;"&gt;&lt;/div&gt;</code></pre>
+
 </div>
+
+<!-- 修改：补上 sx-lower-grid 外层容器
+     作用：让下方 MOOD JOURNAL / 专注模式 / About 三个卡片按网格排列，
+     并且让前面写的 .sx-lower-grid CSS 正常生效。 -->
+<div class="sx-lower-grid">
+
+  <!-- 左侧：MOOD JOURNAL -->
+  <a class="sx-topic-card" href="journal.html">
+    <div class="sx-icon">☾</div>
+    <h3 class="anchored">MOOD JOURNAL</h3>
+    <p>用热力图记录每天心情，让普通日子也留下痕迹。</p>
+  </a>
+
+  <!-- 中间：专注模式，保持宽卡片 -->
+  <a class="sx-topic-card sx-focus-card" href="xinliu.html">
+    <div class="sx-icon">◉</div>
+    <h3 class="anchored">专注模式</h3>
+    <p>链接到心流页面，把注意力收回来，安静地完成今天最重要的任务。</p>
+  </a>
+
+  <!-- 右侧：About -->
+  <a class="sx-topic-card" href="about.html">
+    <div class="sx-icon">Φ</div>
+    <h3 class="anchored">About</h3>
+    <p>关于这个博客、关于我、联系方式和博客说明。</p>
+  </a>
+
 </div>
-<div class="sx-progress-item">
-<span>算法图解</span>
-<div class="sx-progress-track">
-<pre><code>&lt;div class="sx-progress-bar" style="width: 46%;"&gt;&lt;/div&gt;</code></pre>
-</div>
-</div>
-<div class="sx-progress-item">
-<span>MATLAB</span>
-<div class="sx-progress-track">
-<pre><code>&lt;div class="sx-progress-bar" style="width: 54%;"&gt;&lt;/div&gt;</code></pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="debug-widgets" class="level2">
-<h2 class="anchored" data-anchor-id="debug-widgets">可调试小部件</h2>
-<div class="sx-note-box">
-<p>这些小部件都可以直接在网页里测试。待办、快速备忘、学习计数会保存在当前浏览器的 localStorage 里，刷新页面后仍然能看到。</p>
-</div>
-<div class="sx-widget-grid">
-<div class="sx-widget-card">
-<h3 class="anchored">
-今日待办
-</h3>
-<div class="sx-todo-row">
-<p><input id="todo-input" class="sx-input" placeholder="写下今天的一个小目标"> <button class="sx-small-btn" onclick="addTodo()">添加</button></p>
-</div>
-<ul id="todo-list" class="sx-todo-list">
-</ul>
-</div>
-<div class="sx-widget-card">
-<h3 class="anchored">
-专注计时器
-</h3>
-<p class="sx-timer" id="focus-timer">
-25:00
-</p>
-<div class="sx-button-row">
-<button class="sx-small-btn" onclick="startTimer()">
-开始
-</button>
-<button class="sx-small-btn" onclick="pauseTimer()">
-暂停
-</button>
-<button class="sx-small-btn" onclick="resetTimer()">
-重置
-</button>
-</div>
-<p class="sx-muted">
-适合用来做 25 分钟专注学习。
-</p>
-</div>
-<div class="sx-widget-card">
-<h3 class="anchored">
-随机学习任务
-</h3>
-<p id="study-task" class="sx-task-text">
-点击按钮抽一个学习任务。
-</p>
-<button class="sx-small-btn" onclick="drawTask()">
-抽一个
-</button>
-</div>
-<div class="sx-widget-card">
-<h3 class="anchored">
-快速备忘
-</h3>
-<textarea id="quick-note" class="sx-note-area" placeholder="这里可以临时写点想法，浏览器会自动保存。"></textarea>
-<p class="sx-muted">
-内容会保存在当前浏览器 localStorage 中。
-</p>
-</div>
-<div class="sx-widget-card">
-<h3 class="anchored">
-学习计数器
-</h3>
-<p class="sx-counter-number" id="study-counter">
-0
-</p>
-<div class="sx-button-row">
-<button class="sx-small-btn" onclick="increaseCounter()">
-+1
-</button>
-<button class="sx-small-btn" onclick="resetCounter()">
-清零
-</button>
-</div>
-<p class="sx-muted">
-可以用来记录今天完成了几个小任务。
-</p>
-</div>
-<div class="sx-widget-card">
-<h3 class="anchored">
-小计算器
-</h3>
-<div class="sx-input-row">
-<p><input id="calc-input" placeholder="例如：12*3+8"> <button class="sx-small-btn" onclick="runCalc()">计算</button></p>
-</div>
-<p id="calc-result" class="sx-task-text">
-结果会显示在这里。
-</p>
-</div>
-</div>
-</section>
-<section id="content-navigation" class="level2">
-<h2 class="anchored" data-anchor-id="content-navigation">内容导航</h2>
-<div class="sx-nav-grid">
-<div class="sx-nav-card">
-<h3 class="anchored">
-📓 Mood Journal
-</h3>
-<p>
-心情热力图、最近状态、每日记录和生活碎片。
-</p>
-<p><a href="journal.html">进入日志</a></p>
-</div>
-<div class="sx-nav-card">
-<h3 class="anchored">
-📚 学习笔记
-</h3>
-<p>
-统计学、数学建模、Python、R、Quarto、算法学习等内容框架。
-</p>
-<p><a href="notes.html">查看笔记</a></p>
-</div>
-<div class="sx-nav-card">
-<h3 class="anchored">
-📝 博客文章
-</h3>
-<p>
-后续文章都会集中出现在首页文章列表中。
-</p>
-<p><a href="posts/welcome/">查看文章</a></p>
-</div>
-<div class="sx-nav-card">
-<h3 class="anchored">
-👤 About
-</h3>
-<p>
-关于这个博客、关于我、联系方式和博客说明。
-</p>
-<p><a href="about.html">关于我</a></p>
-</div>
-</div>
-</section>
-<section id="tag-cloud" class="level2">
-<h2 class="anchored" data-anchor-id="tag-cloud">标签云</h2>
+
+<h2 id="tag-cloud" class="sx-home-section-title anchored">标签云</h2>
+
 <div class="sx-tag-cloud">
-<p><a href="notes.html">统计学</a> <a href="notes.html">Python</a> <a href="notes.html">R语言</a> <a href="notes.html">数学建模</a> <a href="notes.html">数值分析</a> <a href="notes.html">算法图解</a> <a href="journal.html">Mood Journal</a> <a href="notes.html">Quarto</a> <a href="posts/welcome/">博客搭建</a> <a href="about.html">生活记录</a></p>
+<span>统计学</span>
+<span>Python</span>
+<span>R语言</span>
+<span>数学建模</span>
+<span>数值分析</span>
+<span>算法图解</span>
+<span>MATLAB</span>
+<span>Mathematical</span>
+<span>Mood Journal</span>
+<span>Quarto</span>
+<span>博客搭建</span>
+<span>生活记录</span>
 </div>
-</section>
-<section id="post-list" class="level2">
-<h2 class="anchored" data-anchor-id="post-list">文章列表</h2>
-</section>
-</section>
+
+<h2 id="post-list" class="sx-home-section-title anchored">文章列表</h2>
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDJUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkwJTJDJUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2JTJDJUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw" data-listing-date-sort="1783008000000" data-listing-file-modified-sort="1783077917554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1447">
+<div class="thumbnail"><a href="./posts/algorithm-notes/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\algorithm-notes\index_files\figure-html\score-histogram-output-1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/algorithm-notes/index.html" class="no-external">Python 学习行为数据分析</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/algorithm-notes/index.html" class="no-external">从数据构造、缺失处理、可视化探索到回归预测</a>
+</div>
+<div class="delink listing-description"><a href="./posts/algorithm-notes/index.html" class="no-external">
+<p>本文使用 pandas、numpy、matplotlib 和 scikit-learn 完成一篇完整的数据分析文章，展示数据清洗、描述统计、可视化分析、相关性分析和回归预测。</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/algorithm-notes/index.html" class="no-external">
+<div class="listing-date">
+2026年7月3日
+</div>
+<div class="listing-author">
+sanxi
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">无匹配项</div>
+</div></main></div>
+
 <script>
 /* =========================================================
-   sanxi 首页交互脚本
-   ========================================================= */
+   sanxi 首页交互脚本：保留原逻辑，删除调试小部件相关函数
+========================================================= */
 
 const dailyLines = [
   "学习不是突然开悟，而是每天往脑子里偷偷塞一点东西。",
@@ -1411,7 +2309,6 @@ const dailyLines = [
 function changeDailyLine() {
   const line = dailyLines[Math.floor(Math.random() * dailyLines.length)];
   const target = document.getElementById("daily-line");
-
   if (target) {
     target.textContent = "“" + line + "”";
   }
@@ -1421,6 +2318,7 @@ const randomPages = [
   "journal.html",
   "notes.html",
   "about.html",
+  "topics/index.html",
   "posts/welcome/"
 ];
 
@@ -1433,7 +2331,6 @@ function updateToday() {
   const now = new Date();
   const text = `${now.getFullYear()} / ${now.getMonth() + 1} / ${now.getDate()}`;
   const target = document.getElementById("today-date");
-
   if (target) {
     target.textContent = text;
   }
@@ -1466,35 +2363,42 @@ function parseCSVLine(line) {
 
 function moodWord(score) {
   const n = Number(score);
-
   if (n <= 1) return "低落";
   if (n === 2) return "偏低";
   if (n === 3) return "普通";
   if (n === 4) return "不错";
   if (n >= 5) return "很好";
-
   return "未知";
 }
 
 function formatMoodDate(dateText) {
   const date = new Date(dateText);
-
   if (Number.isNaN(date.getTime())) {
     return dateText;
   }
-
   return `${date.getFullYear()} / ${date.getMonth() + 1} / ${date.getDate()}`;
+}
+
+function todayISO() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, "0");
+  const d = String(now.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function normalizeDateText(dateText) {
+  const text = String(dateText || "").trim().replace(/\//g, "-");
+  const parts = text.split("-");
+  if (parts.length < 3) return text;
+  return `${parts[0].padStart(4, "0")}-${parts[1].padStart(2, "0")}-${parts[2].padStart(2, "0")}`;
 }
 
 function averageMood(records) {
   if (!records.length) {
     return "-";
   }
-
-  const total = records.reduce((sum, item) => {
-    return sum + Number(item.mood || 0);
-  }, 0);
-
+  const total = records.reduce((sum, item) => sum + Number(item.mood || 0), 0);
   return (total / records.length).toFixed(1);
 }
 
@@ -1510,8 +2414,7 @@ async function loadMoodJournalCard() {
   }
 
   try {
-    const response = await fetch("assets/data/mood.csv");
-
+    const response = await fetch("assets/data/mood.csv?v=" + Date.now(), { cache: "no-store" });
     if (!response.ok) {
       throw new Error("mood.csv 加载失败");
     }
@@ -1538,6 +2441,7 @@ async function loadMoodJournalCard() {
         item[header] = values[index] || "";
       });
 
+      item.date = normalizeDateText(item.date);
       item.mood = Number(item.mood);
       item.energy = Number(item.energy);
 
@@ -1546,14 +2450,15 @@ async function loadMoodJournalCard() {
 
     records.sort((a, b) => b.date.localeCompare(a.date));
 
-    const latest = records[0];
+    const today = todayISO();
+    const todayRecord = records.find(item => item.date === today);
+    const latest = todayRecord || records[0];
 
     moodWordBox.textContent = moodWord(latest.mood);
     moodDateBox.textContent = `${formatMoodDate(latest.date)}｜心情 ${latest.mood}/5｜精力 ${latest.energy}/5`;
     moodTitleBox.textContent = latest.title || "今天还没有写标题。";
     moodAverageBox.textContent = `平均心情：${averageMood(records)} / 5`;
     moodCountBox.textContent = `共 ${records.length} 条记录`;
-
   } catch (error) {
     moodWordBox.textContent = "暂无";
     moodDateBox.textContent = "读取失败";
@@ -1563,205 +2468,12 @@ async function loadMoodJournalCard() {
   }
 }
 
-function loadTodos() {
-  const list = document.getElementById("todo-list");
-
-  if (!list) {
-    return;
-  }
-
-  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
-
-  list.innerHTML = todos.map((item, index) => `
-    <li>
-      <span>${item}</span>
-      <button onclick="removeTodo(${index})">删除</button>
-    </li>
-  `).join("");
-}
-
-function addTodo() {
-  const input = document.getElementById("todo-input");
-
-  if (!input) {
-    return;
-  }
-
-  const value = input.value.trim();
-
-  if (!value) {
-    return;
-  }
-
-  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
-  todos.push(value);
-  localStorage.setItem("sanxiHomeTodos", JSON.stringify(todos));
-
-  input.value = "";
-  loadTodos();
-}
-
-function removeTodo(index) {
-  const todos = JSON.parse(localStorage.getItem("sanxiHomeTodos") || "[]");
-  todos.splice(index, 1);
-  localStorage.setItem("sanxiHomeTodos", JSON.stringify(todos));
-  loadTodos();
-}
-
-let timerSeconds = 25 * 60;
-let timerId = null;
-
-function renderTimer() {
-  const timer = document.getElementById("focus-timer");
-
-  if (!timer) {
-    return;
-  }
-
-  const minutes = String(Math.floor(timerSeconds / 60)).padStart(2, "0");
-  const seconds = String(timerSeconds % 60).padStart(2, "0");
-
-  timer.textContent = `${minutes}:${seconds}`;
-}
-
-function startTimer() {
-  if (timerId) {
-    return;
-  }
-
-  timerId = setInterval(() => {
-    if (timerSeconds > 0) {
-      timerSeconds--;
-      renderTimer();
-    } else {
-      clearInterval(timerId);
-      timerId = null;
-      alert("专注时间结束啦！");
-    }
-  }, 1000);
-}
-
-function pauseTimer() {
-  clearInterval(timerId);
-  timerId = null;
-}
-
-function resetTimer() {
-  pauseTimer();
-  timerSeconds = 25 * 60;
-  renderTimer();
-}
-
-const studyTasks = [
-  "整理一页数值分析公式。",
-  "读 20 分钟《算法图解》。",
-  "写一段 Python 数据处理代码。",
-  "复习一个 Quarto 配置项。",
-  "把今天学到的内容写成 5 行笔记。",
-  "调试一个之前没解决的代码问题。",
-  "整理一篇博客文章的大纲。",
-  "复习一次最短路径算法。",
-  "用 R 或 Python 画一张简单图。",
-  "把今天的 Mood Journal 更新一行。",
-  "整理一个数学建模模板。",
-  "复盘一次最近遇到的报错。"
-];
-
-function drawTask() {
-  const task = studyTasks[Math.floor(Math.random() * studyTasks.length)];
-  const target = document.getElementById("study-task");
-
-  if (target) {
-    target.textContent = task;
-  }
-}
-
-function setupQuickNote() {
-  const note = document.getElementById("quick-note");
-
-  if (!note) {
-    return;
-  }
-
-  note.value = localStorage.getItem("sanxiQuickNote") || "";
-
-  note.addEventListener("input", () => {
-    localStorage.setItem("sanxiQuickNote", note.value);
-  });
-}
-
-function loadCounter() {
-  const target = document.getElementById("study-counter");
-
-  if (!target) {
-    return;
-  }
-
-  target.textContent = localStorage.getItem("sanxiStudyCounter") || "0";
-}
-
-function increaseCounter() {
-  const target = document.getElementById("study-counter");
-
-  if (!target) {
-    return;
-  }
-
-  let value = Number(localStorage.getItem("sanxiStudyCounter") || "0");
-  value += 1;
-
-  localStorage.setItem("sanxiStudyCounter", String(value));
-  target.textContent = String(value);
-}
-
-function resetCounter() {
-  const target = document.getElementById("study-counter");
-
-  if (!target) {
-    return;
-  }
-
-  localStorage.setItem("sanxiStudyCounter", "0");
-  target.textContent = "0";
-}
-
-function runCalc() {
-  const input = document.getElementById("calc-input");
-  const result = document.getElementById("calc-result");
-
-  if (!input || !result) {
-    return;
-  }
-
-  const expression = input.value.trim();
-
-  if (!expression) {
-    result.textContent = "请输入一个表达式。";
-    return;
-  }
-
-  if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
-    result.textContent = "只支持数字和 + - * / ( ) 小数点。";
-    return;
-  }
-
-  try {
-    const value = Function(`"use strict"; return (${expression})`)();
-    result.textContent = `结果：${value}`;
-  } catch (error) {
-    result.textContent = "表达式有误，请重新输入。";
-  }
-}
-
 function fixHomeNavbarDropdown() {
   const dropdownItems = document.querySelectorAll(".navbar-nav .nav-item.dropdown");
 
   dropdownItems.forEach(item => {
     const toggle = item.querySelector(":scope > a.nav-link.dropdown-toggle");
-
-    if (!toggle) {
-      return;
-    }
+    if (!toggle) return;
 
     const text = toggle.textContent.replace(/\s+/g, "").trim();
 
@@ -1773,135 +2485,28 @@ function fixHomeNavbarDropdown() {
       toggle.setAttribute("href", "index.html");
 
       const menu = item.querySelector(":scope > .dropdown-menu");
-      if (menu) {
-        menu.remove();
-      }
+      if (menu) menu.remove();
 
       item.classList.remove("dropdown");
     }
   });
 }
 
-function setupRightTocLinks() {
-  document.querySelectorAll('#TOC a[href^="#"], .sidebar nav[role="doc-toc"] a[href^="#"]').forEach(link => {
-    link.addEventListener("click", event => {
-      const target = document.querySelector(link.getAttribute("href"));
-
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.pushState(null, "", link.getAttribute("href"));
-    });
-  });
-}
-
 window.changeDailyLine = changeDailyLine;
 window.randomJump = randomJump;
-window.addTodo = addTodo;
-window.removeTodo = removeTodo;
-window.startTimer = startTimer;
-window.pauseTimer = pauseTimer;
-window.resetTimer = resetTimer;
-window.drawTask = drawTask;
-window.increaseCounter = increaseCounter;
-window.resetCounter = resetCounter;
-window.runCalc = runCalc;
 
 document.addEventListener("DOMContentLoaded", () => {
   fixHomeNavbarDropdown();
-  setupRightTocLinks();
   changeDailyLine();
   updateToday();
   loadMoodJournalCard();
-  loadTodos();
-  renderTimer();
-  setupQuickNote();
-  loadCounter();
 });
 </script>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHl0aG9uJTJDJUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkwJTJDJUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2JTJDJUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw" data-listing-date-sort="1783008000000" data-listing-file-modified-sort="1783077917554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1447">
-<div class="thumbnail"><a href="./posts/algorithm-notes/index.html" class="no-external">
-
-<p class="card-img-top"><img loading='lazy' src="posts\algorithm-notes\index_files\figure-html\score-histogram-output-1.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/algorithm-notes/index.html" class="no-external">Python 学习行为数据分析</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/algorithm-notes/index.html" class="no-external">从数据构造、缺失处理、可视化探索到回归预测</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTk1JUIwJUU2JThEJUFFJUU1JTg4JTg2JUU2JTlFJTkw'); return false;">数据分析</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JThGJUFGJUU4JUE3JTg2JUU1JThDJTk2'); return false;">可视化</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTlDJUJBJUU1JTk5JUE4JUU1JUFEJUE2JUU0JUI5JUEw'); return false;">机器学习</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/algorithm-notes/index.html" class="no-external">
-<p>本文使用 pandas、numpy、matplotlib 和 scikit-learn 完成一篇完整的数据分析文章，展示数据清洗、描述统计、可视化分析、相关性分析和回归预测。</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/algorithm-notes/index.html" class="no-external">
-<div class="listing-date">
-2026年7月3日
-</div>
-<div class="listing-author">
-sanxi
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="JUU1JThEJTlBJUU1JUFFJUEyJTJDJUU2JTk3JUE1JUU1JUJGJTk3" data-listing-date-sort="1782835200000" data-listing-file-modified-sort="1782925712555" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="17">
-<div class="thumbnail"><a href="./posts/welcome/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/welcome/thumbnail.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">欢迎来到 sanxi</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU1JThEJTlBJUU1JUFFJUEy'); return false;">博客</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUU2JTk3JUE1JUU1JUJGJTk3'); return false;">日志</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/welcome/index.html" class="no-external">
-<p>这是 sanxi 博客的第一篇文章。</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-2026年7月1日
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">无匹配项</div>
-</div></main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -2302,7 +2907,7 @@ sanxi
     }
   });
   </script>
-</div> <!-- /content -->
+ <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">

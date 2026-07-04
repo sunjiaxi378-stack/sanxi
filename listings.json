@@ -1,9 +1,14 @@
 [
   {
+    "listing": "/posts/welcome/index.html",
+    "items": [
+      "/posts/algorithm-notes/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
-      "/posts/algorithm-notes/index.html",
-      "/posts/welcome/index.html"
+      "/posts/algorithm-notes/index.html"
     ]
   }
 ]
