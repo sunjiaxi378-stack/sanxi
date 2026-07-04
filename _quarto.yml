@@ -27,29 +27,27 @@ website:
         menu:
           - text: "专题首页"
             href: topics/index.qmd
+          - text: "数学建模"
+            href: topics/math-modeling/index.qmd
+          - text: "数值分析"
+            href: topics/numerical-analysis/index.qmd
           - text: "算法图解"
             href: topics/algorithm/index.qmd
-          - text: "MATLAB 学习"
-            href: topics/matlab/index.qmd
 
-      - text: "笔记"
+      - text: "编程"
         menu:
-          - text: "学习笔记总览"
-            href: notes.qmd
-          - text: "算法笔记"
-            href: topics/algorithm/index.qmd
-          - text: "MATLAB 笔记"
+          - text: "MATLAB"
             href: topics/matlab/index.qmd
+          - text: "Python"
+            href: topics/python/index.qmd
+          - text: "Mathematical"
+            href: topics/mathematical/index.qmd
 
       - text: "日志"
         href: journal.qmd
 
       - text: "文章"
-        menu:
-          - text: "欢迎文章"
-            href: posts/welcome/index.qmd
-          - text: "算法图解文章"
-            href: posts/algorithm-notes/index.qmd
+        href: posts/welcome/index.qmd
 
     right:
       - href: xinliu.qmd
@@ -67,9 +65,7 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
-    toc-location: right
-    toc-depth: 3
+    toc: false
     number-sections: false
     smooth-scroll: true
     code-copy: true

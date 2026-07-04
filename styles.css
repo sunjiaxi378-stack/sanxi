@@ -5814,3 +5814,388 @@ body:has(.algo-post-shell) .cell-output pre {
     padding-right: 1.1rem;
   }
 }
+/* =========================================================
+   首页整理补丁 2026-07-03
+   注意：
+   1. 只追加在 styles.css 最底部
+   2. 不删除原来的 5000 多行代码
+   3. 只针对首页 .sx-home 页面生效
+   ========================================================= */
+
+/* 首页隐藏右侧 Quarto 目录，防止出现多余目录 */
+body:has(.sx-home) #quarto-margin-sidebar,
+body:has(.sx-home) nav#TOC,
+body:has(.sx-home) .margin-sidebar {
+  display: none !important;
+}
+
+/* 首页正文全宽 */
+body:has(.sx-home) main.content {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+body:has(.sx-home) .page-columns {
+  display: block !important;
+}
+
+/* 首页标题统一白色 */
+body:has(.sx-home) .sx-home h1,
+body:has(.sx-home) .sx-home h2,
+body:has(.sx-home) .sx-home-title,
+body:has(.sx-home) .sx-section-title {
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(15, 23, 42, 0.35);
+}
+
+/* 首页整体宽度 */
+.sx-home {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
+}
+
+/* 互动小部件三栏 */
+.sx-widget-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.7rem;
+  align-items: start;
+}
+
+/* 今日一句：高度随内容自动变化 */
+.sx-quote-card {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.sx-quote-card p,
+#sx-daily-quote {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* 学习进度条 */
+.sx-progress-item {
+  margin: 1.05rem 0;
+}
+
+.sx-progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: #4b5563;
+  font-size: 1.02rem;
+  margin-bottom: 0.4rem;
+}
+
+.sx-progress-head strong {
+  color: #111827;
+}
+
+.sx-progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(229, 231, 235, 0.85);
+  overflow: hidden;
+}
+
+.sx-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
+}
+
+/* 删除/隐藏可调试小部件相关区域 */
+.sx-debug-widget,
+.sx-debug-card,
+.sx-test-widget,
+.sx-dev-widget,
+.sx-diagnostic-widget,
+.sx-widget-debug,
+.sx-debug-section {
+  display: none !important;
+}
+
+/* 内容导航：附件3样式 */
+.sx-feature-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr 0.65fr;
+  grid-template-rows: repeat(2, minmax(210px, auto));
+  gap: 1.5rem;
+}
+
+.sx-lower-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 0.7fr 1.4fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.sx-topic-card {
+  display: block;
+  padding: 2rem;
+  min-height: 210px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  text-decoration: none;
+  box-shadow: 0 20px 54px rgba(15, 23, 42, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.sx-topic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.98);
+  color: #111827;
+  text-decoration: none;
+}
+
+.sx-topic-card-large {
+  grid-row: span 2;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sx-focus-card {
+  min-height: 260px;
+}
+
+.sx-topic-card h3 {
+  color: #111827;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  margin: 0.7rem 0 0.55rem 0;
+}
+
+.sx-topic-card p {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+.sx-topic-card-large h3 {
+  font-size: clamp(2rem, 3.3vw, 2.8rem);
+}
+
+.sx-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  display: grid;
+  place-items: center;
+  color: #111827;
+  font-size: 1.35rem;
+  font-weight: 950;
+  margin-bottom: 0.8rem;
+}
+
+/* 标签云：只显示文字，不作为链接 */
+.sx-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.sx-tag-cloud a {
+  pointer-events: none !important;
+  cursor: default !important;
+  text-decoration: none !important;
+}
+
+.sx-tag-cloud span,
+.sx-tag-cloud a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.52rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #111827 !important;
+  font-weight: 850;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+/* 小屏幕适配 */
+@media (max-width: 1100px) {
+  .sx-home {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .sx-widget-row,
+  .sx-feature-grid,
+  .sx-lower-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sx-topic-card-large {
+    grid-row: auto;
+    min-height: 260px;
+  }
+}
+/* =========================================================
+   首页局部修复补丁
+   只改 index.qmd，不动 styles.css
+========================================================= */
+
+/* 修改问题 3：修复左上角标题错位
+   让 sanxi 的学习与生活笔记 和副标题像之前一样居中显示 */
+body.sx-home-page .sx-home-main-title {
+  display: block !important;
+  max-width: 980px !important;
+  margin: 0 auto 0.65rem auto !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.48) !important;
+}
+
+body.sx-home-page .sx-home-subtitle {
+  display: block !important;
+  max-width: 780px !important;
+  margin: 0 auto 2.3rem auto !important;
+  text-align: center !important;
+  color: rgba(255, 255, 255, 0.96) !important;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38) !important;
+}
+
+/* 修改问题 4：第一张大卡片里的大标题改成黑色
+   避免被首页 h2 白色样式影响 */
+body.sx-home-page .sx-intro-card h2 {
+  color: #111111 !important;
+  text-shadow: none !important;
+}
+
+/* 修改问题 5：今日一句卡片高度随内容自动变化 */
+body.sx-home-page .sx-daily-card,
+body.sx-home-page .sx-mini-card.sx-daily-card {
+  height: auto !important;
+  min-height: 220px !important;
+}
+
+body.sx-home-page .sx-daily-line {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* 修改问题 6：修复学习进度条文字被当成代码显示的问题
+   使用 div 文本结构，不再使用容易显示出来的 span/strong 组合 */
+body.sx-home-page .sx-progress-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  gap: 12px !important;
+  color: #555555 !important;
+  font-size: 0.94rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+body.sx-home-page .sx-progress-name {
+  color: #555555 !important;
+  font-weight: 650 !important;
+}
+
+body.sx-home-page .sx-progress-percent {
+  color: #111111 !important;
+  font-weight: 850 !important;
+}
+
+/* 修改问题 7：首页右侧固定目录
+   这个目录不会随着正文滚动消失 */
+.sx-home-fixed-toc {
+  position: fixed !important;
+  top: 6.4rem !important;
+  right: 1.35rem !important;
+  width: 210px !important;
+  max-height: calc(100vh - 7.2rem) !important;
+  overflow-y: auto !important;
+  z-index: 70 !important;
+
+  padding: 0.95rem 1rem !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+}
+
+.sx-home-fixed-toc-title {
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+  color: #111111 !important;
+  margin-bottom: 0.55rem !important;
+}
+
+.sx-home-fixed-toc a {
+  display: block !important;
+  padding: 0.25rem 0 !important;
+  color: #374151 !important;
+  text-decoration: none !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+}
+
+.sx-home-fixed-toc a:hover {
+  color: #2563eb !important;
+  text-decoration: none !important;
+}
+
+/* 修改问题 8：缩小文章列表卡片
+   去掉过大的缩略图，让文章卡片和上面的卡片大小更协调 */
+body.sx-home-page .quarto-listing {
+  margin-top: 1rem !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post {
+  min-height: 0 !important;
+  padding: 1.15rem 1.25rem !important;
+  border-radius: 18px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post .thumbnail,
+body.sx-home-page .quarto-listing .quarto-post .listing-image,
+body.sx-home-page .quarto-listing .quarto-post img.thumbnail-image {
+  display: none !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post .body {
+  margin-left: 0 !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post .listing-title {
+  font-size: 1.25rem !important;
+  font-weight: 900 !important;
+}
+
+body.sx-home-page .quarto-listing .quarto-post .listing-description {
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+}
+
+/* 修改问题 9：隐藏 Quarto 自动分类栏，只保留我们手写目录 */
+body.sx-home-page .quarto-listing-category,
+body.sx-home-page #quarto-margin-sidebar,
+body.sx-home-page nav#TOC {
+  display: none !important;
+}
+
+/* 小屏幕隐藏右侧固定目录 */
+@media (max-width: 1180px) {
+  .sx-home-fixed-toc {
+    display: none !important;
+  }
+}

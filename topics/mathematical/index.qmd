@@ -1,0 +1,25 @@
+---
+title: "Mathematical"
+subtitle: "Mathematica / Wolfram Language 建模与求解"
+page-layout: full
+title-block-banner: true
+toc: true
+toc-depth: 2
+---
+
+# Mathematical
+
+这里用于整理 Mathematica / Wolfram Language 相关内容，包括数学建模代码、可视化绘图、优化求解、符号计算和报告生成。
+
+## 主要内容
+
+- Mathematica 基础语法
+- 方程求解
+- 优化模型
+- 图形绘制
+- 数学建模论文辅助
+- 自动生成报告内容
+
+## 后续计划
+
+后续可以把数学建模考试题、优化模型代码和常用绘图模板整理到这里。

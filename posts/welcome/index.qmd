@@ -1,31 +1,56 @@
 ---
 title: "欢迎来到 sanxi"
-date: 2026-07-01
-categories: [博客, 日志]
-description: "这是 sanxi 博客的第一篇文章。"
-image: thumbnail.jpg
+subtitle: "这里是博客文章入口，也会集中显示后续发布的文章"
+author: "sanxi"
+date: 2026-07-03
+categories: [博客, 欢迎, 文章入口]
+description: "欢迎文章页面，用于介绍博客结构，并在页面下方集中展示文章列表。"
+page-layout: article
+title-block-banner: false
+toc: true
+toc-depth: 2
+
+listing:
+  contents: "../*/index.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: false
+  filter-ui: false
 ---
 
-## 我的博客计划
+::: {.sx-welcome-post}
 
-这是 **sanxi** 博客的第一篇文章。
+# 欢迎来到 sanxi
 
-这篇文章暂时作为博客说明页，后面可以继续补充具体内容。
+这个博客用于记录学习、代码、建模、阅读、心情日志和日常复盘。它不是一次性完成的作品，而是一个会随着学习过程不断生长的个人知识空间。
 
-## 这个博客会写什么
+::: {.sx-welcome-card}
+首页主要负责展示整体入口；专题页负责整理长期学习方向；文章页负责承载完整内容；日志页负责记录每天的状态和心情。
+:::
 
-以后这里主要记录：
+## 博客结构
 
-1. 统计学学习笔记
-2. Python 和 R 语言学习
-3. 数学建模作业与比赛经验
-4. Quarto 博客搭建过程
-5. Mood Journal 心情日志
-6. 日常生活和个人思考
+目前博客主要分为几个部分：
 
-## 后续文章模板
+| 页面 | 内容 |
+|---|---|
+| 首页 | 展示整体入口、互动小部件、内容导航和标签云 |
+| 专题 | 整理数学建模、数值分析、算法图解和编程学习 |
+| 编程 | 整理 MATLAB、Python、Mathematical 等代码学习 |
+| 日志 | 记录 Mood Journal、每日任务和生活复盘 |
+| 心流 | 用于专注、倒计时和今日计划 |
+| 文章 | 集中放置完整博客文章 |
 
-以后新建文章时，可以按照这个结构：
+## 阅读建议
 
-```text
-posts/文章文件夹名/index.qmd
+如果只是想快速进入某个模块，可以从首页的内容导航进入。  
+如果想系统查看文章，可以直接看本页下方的文章列表。  
+如果想查看最近状态，可以进入 Mood Journal。  
+如果需要专注学习，可以进入心流页面。
+
+## 文章列表
+
+下面会自动显示 `posts` 文件夹中的文章。以后你新增文章后，只要文章放在 `posts/某个文件夹/index.qmd`，并且写好 YAML 标题和日期，就会出现在这里。
+
+:::

@@ -5,30 +5,69 @@ title-block-banner: false
 toc: false
 ---
 
-<div class="topic-home">
+```{=html}
+<div class="sx-topics-page">
 
-<h1>专题</h1>
+  <h1 class="sx-topics-title">内容导航</h1>
+  <p class="sx-topics-subtitle">
+    这里把长期学习内容拆成几个稳定入口：数学笔记、数学建模、MATLAB、数值分析、算法图解、日志、关于页面和专注模式。
+    每一个卡片都可以直接点击进入对应页面。
+  </p>
 
-<p class="topic-subtitle">
-这里用于整理长期学习专题，比如算法图解、MATLAB 学习、数值分析、数学建模等。
-</p>
+  <h2>内容导航</h2>
 
-<div class="topic-card-grid">
+  <div class="sx-feature-grid">
+    <a class="sx-topic-card sx-topic-card-large" href="../notes.html">
+      <div class="sx-icon">Σ</div>
+      <div>
+        <h3>数学笔记</h3>
+        <p>把公式、模型、考试重点和应用方法拆开整理，适合复习，也适合长期积累。</p>
+      </div>
+    </a>
 
-<a class="topic-card" href="algorithm/">
-  <div class="topic-card-tag">ALGORITHM</div>
-  <h2>算法图解</h2>
-  <p>用图解、例子和代码笔记的方式，系统整理常见算法思想。</p>
-  <span>进入专题 →</span>
-</a>
+    <a class="sx-topic-card" href="math-modeling/">
+      <div class="sx-icon">⌘</div>
+      <h3>数学建模</h3>
+      <p>从题目分析、模型建立到代码求解，把建模过程写清楚。</p>
+    </a>
 
-<a class="topic-card" href="matlab/">
-  <div class="topic-card-tag">MATLAB</div>
-  <h2>MATLAB 学习</h2>
-  <p>整理 MATLAB 基础语法、绘图、数值计算、建模代码和实验报告常用模板。</p>
-  <span>进入专题 →</span>
-</a>
+    <a class="sx-topic-card" href="matlab/">
+      <div class="sx-icon">λ</div>
+      <h3>MATLAB 学习</h3>
+      <p>数值计算、绘图、实验报告和建模常用代码记录。</p>
+    </a>
 
-</div>
+    <a class="sx-topic-card" href="numerical-analysis/">
+      <div class="sx-icon">∞</div>
+      <h3>数值分析</h3>
+      <p>插值、拟合、方程求根、数值积分和常微分方程数值解。</p>
+    </a>
+
+    <a class="sx-topic-card" href="algorithm/">
+      <div class="sx-icon">DAG</div>
+      <h3>算法图解</h3>
+      <p>查找、排序、递归、图搜索和动态规划等算法学习笔记。</p>
+    </a>
+  </div>
+
+  <div class="sx-lower-grid">
+    <a class="sx-topic-card" href="../journal.html">
+      <div class="sx-icon">☾</div>
+      <h3>MOOD JOURNAL</h3>
+      <p>用热力图记录每天心情，让普通日子也留下痕迹。</p>
+    </a>
+
+    <a class="sx-topic-card" href="../about.html">
+      <div class="sx-icon">Φ</div>
+      <h3>About</h3>
+      <p>关于这个博客、关于我、联系方式和博客说明。</p>
+    </a>
+
+    <a class="sx-topic-card sx-focus-card" href="../xinliu.html">
+      <div class="sx-icon">◉</div>
+      <h3>专注模式</h3>
+      <p>链接到心流页面，把注意力收回来，安静地完成今天最重要的任务。</p>
+    </a>
+  </div>
 
 </div>
