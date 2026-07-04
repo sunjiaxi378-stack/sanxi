@@ -196,67 +196,251 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="sx-topics-page">
-<h1 class="sx-topics-title">
-内容导航
+<style>
+/* =========================================================
+   专题首页 topics/index.qmd
+   说明：
+   1. 隐藏 Quarto 默认标题块，避免页面出现两个“专题”
+   2. 页面结构：顶部介绍 + 三个横向专题大卡片
+   3. 每个专题卡片占一整行，整个卡片可点击
+   4. 不使用 ```html 或 ```{=html}，避免 HTML 被当作代码显示
+========================================================= */
+
+/* 隐藏 Quarto 自动生成的标题块 */
+.quarto-title-block,
+.quarto-title,
+#title-block-header {
+  display: none !important;
+}
+
+/* 页面整体容器 */
+.topic-page {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 3.2rem 1.25rem 4.8rem;
+}
+
+/* 顶部介绍区域 */
+.topic-hero {
+  margin-bottom: 3rem;
+}
+
+.topic-hero-title {
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: 1.02;
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  margin: 0 0 1.1rem 0;
+  color: #111111;
+}
+
+.topic-hero-subtitle {
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  line-height: 1.35;
+  font-weight: 900;
+  margin: 0 0 1.15rem 0;
+  color: #161616;
+}
+
+.topic-hero-text {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: #444444;
+  max-width: 900px;
+  margin: 0;
+}
+
+/* 专题导航标题 */
+.topic-section-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  margin: 0 0 1.35rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  color: #111111;
+}
+
+/* 三个专题卡片外层 */
+.topic-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+/* 每个专题大卡片 */
+.topic-card {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr) auto;
+  gap: 1.35rem;
+  align-items: center;
+
+  min-height: 158px;
+  padding: 1.65rem 1.85rem;
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+
+  text-decoration: none !important;
+  color: #111111 !important;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 58px rgba(15, 23, 42, 0.14);
+  border-color: rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.99);
+  text-decoration: none !important;
+  color: #111111 !important;
+}
+
+/* 左侧图标 */
+.topic-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+
+  display: grid;
+  place-items: center;
+
+  background: #f5f5f5;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  font-size: 1.35rem;
+  font-weight: 950;
+  color: #111111;
+}
+
+/* 中间文字区 */
+.topic-text {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* 专题标题 */
+.topic-text h3 {
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+  line-height: 1.18;
+  font-weight: 950;
+  letter-spacing: -0.045em;
+  margin: 0 0 0.55rem 0;
+  color: #111111;
+}
+
+/* 专题说明 */
+.topic-text p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555555;
+  margin: 0;
+}
+
+/* 右侧进入提示 */
+.topic-arrow {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #2563eb;
+  white-space: nowrap;
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .topic-page {
+    padding: 2.3rem 1rem 3.6rem;
+  }
+
+  .topic-card {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    min-height: auto;
+    padding: 1.45rem;
+  }
+
+  .topic-arrow {
+    margin-top: 0.25rem;
+  }
+}
+/* 防止残留空卡片显示成白框 */
+.topic-card:empty {
+  display: none !important;
+}
+</style>
+<div class="topic-page">
+<section class="topic-hero">
+<h1 class="topic-hero-title">
+专题
 </h1>
-<p class="sx-topics-subtitle">
-这里把长期学习内容拆成几个稳定入口：数学笔记、数学建模、MATLAB、数值分析、算法图解、日志、关于页面和专注模式。 每一个卡片都可以直接点击进入对应页面。
-</p>
-<h2 class="anchored">
-内容导航
+<h2 class="topic-hero-subtitle anchored">
+把长期学习内容整理成几个稳定入口
 </h2>
-<div class="sx-feature-grid">
-<pre><code>&lt;a class="sx-topic-card sx-topic-card-large" href="../notes.html"&gt;
-  &lt;div class="sx-icon"&gt;Σ&lt;/div&gt;
-  &lt;div&gt;
-    &lt;h3&gt;数学笔记&lt;/h3&gt;
-    &lt;p&gt;把公式、模型、考试重点和应用方法拆开整理，适合复习，也适合长期积累。&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card" href="math-modeling/"&gt;
-  &lt;div class="sx-icon"&gt;⌘&lt;/div&gt;
-  &lt;h3&gt;数学建模&lt;/h3&gt;
-  &lt;p&gt;从题目分析、模型建立到代码求解，把建模过程写清楚。&lt;/p&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card" href="matlab/"&gt;
-  &lt;div class="sx-icon"&gt;λ&lt;/div&gt;
-  &lt;h3&gt;MATLAB 学习&lt;/h3&gt;
-  &lt;p&gt;数值计算、绘图、实验报告和建模常用代码记录。&lt;/p&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card" href="numerical-analysis/"&gt;
-  &lt;div class="sx-icon"&gt;∞&lt;/div&gt;
-  &lt;h3&gt;数值分析&lt;/h3&gt;
-  &lt;p&gt;插值、拟合、方程求根、数值积分和常微分方程数值解。&lt;/p&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card" href="algorithm/"&gt;
-  &lt;div class="sx-icon"&gt;DAG&lt;/div&gt;
-  &lt;h3&gt;算法图解&lt;/h3&gt;
-  &lt;p&gt;查找、排序、递归、图搜索和动态规划等算法学习笔记。&lt;/p&gt;
-&lt;/a&gt;</code></pre>
+<p class="topic-hero-text">
+这里主要整理数学建模、数值分析和算法图解三个专题方向。 每个专题都是一个单独的内容入口，点击下方卡片可以进入对应专题页面， 后续相关文章、笔记和代码都会逐步归档到对应专题中。
+</p>
+</section>
+<h2 class="topic-section-title anchored">
+专题导航
+</h2>
+<div class="topic-list">
+<a class="topic-card" href="math-modeling/">
+<div class="topic-icon">
+⌘
 </div>
-<div class="sx-lower-grid">
-<pre><code>&lt;a class="sx-topic-card" href="../journal.html"&gt;
-  &lt;div class="sx-icon"&gt;☾&lt;/div&gt;
-  &lt;h3&gt;MOOD JOURNAL&lt;/h3&gt;
-  &lt;p&gt;用热力图记录每天心情，让普通日子也留下痕迹。&lt;/p&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card" href="../about.html"&gt;
-  &lt;div class="sx-icon"&gt;Φ&lt;/div&gt;
-  &lt;h3&gt;About&lt;/h3&gt;
-  &lt;p&gt;关于这个博客、关于我、联系方式和博客说明。&lt;/p&gt;
-&lt;/a&gt;
-
-&lt;a class="sx-topic-card sx-focus-card" href="../xinliu.html"&gt;
-  &lt;div class="sx-icon"&gt;◉&lt;/div&gt;
-  &lt;h3&gt;专注模式&lt;/h3&gt;
-  &lt;p&gt;链接到心流页面，把注意力收回来，安静地完成今天最重要的任务。&lt;/p&gt;
-&lt;/a&gt;</code></pre>
+<div class="topic-text">
+<h3 class="anchored">
+数学建模
+</h3>
+<p>
+从题目分析、模型假设、模型建立到代码求解，把数学建模的完整过程拆开记录，适合整理作业、比赛论文和常见建模方法。
+</p>
+</div>
+<div class="topic-arrow">
+进入专题 →
+</div>
+</a><p><a class="topic-card" href="math-modeling/"></a></p>
+<a class="topic-card" href="numerical-analysis/">
+<div class="topic-icon">
+∞
+</div>
+<div class="topic-text">
+<h3 class="anchored">
+数值分析
+</h3>
+<p>
+记录插值、拟合、方程求根、数值积分、常微分方程数值解等内容，用来复习公式、整理实验代码和总结易错点。
+</p>
+</div>
+<div class="topic-arrow">
+进入专题 →
+</div>
+</a><p><a class="topic-card" href="numerical-analysis/"></a></p>
+<a class="topic-card" href="algorithm/">
+<div class="topic-icon">
+DAG
+</div>
+<div class="topic-text">
+<h3 class="anchored">
+算法图解
+</h3>
+<p>
+整理查找、排序、递归、栈与队列、图搜索、动态规划等算法学习笔记，重点是把复杂问题拆成清楚步骤。
+</p>
+</div>
+<div class="topic-arrow">
+进入专题 →
+</div>
+</a><p><a class="topic-card" href="algorithm/"></a></p>
 </div>
 </div>
 
